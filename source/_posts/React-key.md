@@ -1,6 +1,7 @@
 ---
 title: React key的作用
 date: 2020-10-24 18:25:43
+reward: true
 # tags: 
 ---
 ## 简单了解一下Diff算法
