@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives | 学习笔记</title>
+  <title>React key的作用 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/archives/index.html">
+  <meta name="description" content="简单了解一下Diff算法React为了提升渲染方面的性能，在内部维持了一个虚拟dom(virtul DOM)，当渲染结构有所变化的时候，会在虚拟dom中先用diff算法先进行一次对比，将所有的差异化解决之后，再一次性根据虚拟dom的变化，渲染到真实的dom结构. key属性的使用关于key属性的使用，涉及到diff算法中同级节点的对比策略，当我们使用指定的key值时，key值会作为当前组件的id，">
+<meta property="og:type" content="article">
+<meta property="og:title" content="React key的作用">
+<meta property="og:url" content="http://example.com/2020/10/24/React-key/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="简单了解一下Diff算法React为了提升渲染方面的性能，在内部维持了一个虚拟dom(virtul DOM)，当渲染结构有所变化的时候，会在虚拟dom中先用diff算法先进行一次对比，将所有的差异化解决之后，再一次性根据虚拟dom的变化，渲染到真实的dom结构. key属性的使用关于key属性的使用，涉及到diff算法中同级节点的对比策略，当我们使用指定的key值时，key值会作为当前组件的id，">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-24T18:25:43.000Z">
+<meta property="article:modified_time" content="2020-10-24T11:22:26.568Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -138,76 +142,137 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-React-key" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      React key的作用
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/24/React-key/" class="archive-article-date">
+
+        
+        <a href="/2020/10/24/React-key/" class="archive-article-date">
   	<time datetime="2020-10-24T18:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/24/React-key/">React key的作用</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="简单了解一下Diff算法"><a href="#简单了解一下Diff算法" class="headerlink" title="简单了解一下Diff算法"></a>简单了解一下Diff算法</h2><p>React为了提升渲染方面的性能，在内部维持了一个虚拟dom(virtul DOM)，当渲染结构有所变化的时候，会在虚拟dom中先用diff算法先进行一次对比，将所有的差异化解决之后，再一次性根据虚拟dom的变化，渲染到真实的dom结构.</p>
+<h2 id="key属性的使用"><a href="#key属性的使用" class="headerlink" title="key属性的使用"></a>key属性的使用</h2><p>关于key属性的使用，涉及到diff算法中同级节点的对比策略，当我们使用指定的key值时，key值会作为当前组件的id，diff算法会根据这个id来进行匹配。如果遍历新的dom结构时，发现组件的id在旧的dom结构中存在，那么React会认为当前组件只是位置发生了变化，因此不会将旧的组件销毁重新创建，只会改变当前组件的位置，然后再检查组件的属性有没有发生变化，然后选择保留或修改当前组件的属性。如果没有显式指定key的值，React会把当前组件数据源的index作为默认的key值.</p>
+<h2 id="在实际开发使用中，我们需要注意什么呢？"><a href="#在实际开发使用中，我们需要注意什么呢？" class="headerlink" title="在实际开发使用中，我们需要注意什么呢？"></a>在实际开发使用中，我们需要注意什么呢？</h2><p>首先，我们要确保key值的唯一，事实上如果key值不唯一的话，React只会渲染第一个，剩下的React会认为是同一项，直接忽略。其次，尽量避免使用index值作为组件的key值，使用index作为key不能保证一定是唯一的.</p>
 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/24/React-key/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/24/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-24T11:22:26.568Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/10/24/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo 起始页</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/24/hello-world/">Hexo 起始页</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -230,8 +295,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
