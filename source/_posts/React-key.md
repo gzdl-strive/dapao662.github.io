@@ -2,7 +2,7 @@
 title: React key的作用
 date: 2020-10-24 18:25:43
 reward: true
-# tags: 
+tags: react
 ---
 ## 简单了解一下Diff算法
 React为了提升渲染方面的性能，在内部维持了一个虚拟dom(virtul DOM)，当渲染结构有所变化的时候，会在虚拟dom中先用diff算法先进行一次对比，将所有的差异化解决之后，再一次性根据虚拟dom的变化，渲染到真实的dom结构.

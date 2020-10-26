@@ -1,7 +1,9 @@
 ---
 title: markdown(md)基础用法
 date: 2020-10-24 19:39:09
-tags: 
+comments: true
+toc: true
+tags: md
 ---
 
 # 正文

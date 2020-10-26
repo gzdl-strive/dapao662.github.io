@@ -13,7 +13,7 @@ date: 2020-10-24 18:48:47
 ### ReactJS
 
 ### Hook
-[Hook](/hook "hook")
+>[useEffect](/hook "hook")
 
 ### DvaJS
 
