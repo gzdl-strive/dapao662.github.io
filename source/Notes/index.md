@@ -10,7 +10,7 @@ date: 2020-10-24 18:48:47
 
 ### ES6
 
-### ReactJS
+### React
 
 ### Hook
 >[useEffect](/hook "hook")
