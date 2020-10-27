@@ -140,6 +140,111 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-know-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/27/know-js/">JS的认识</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/27/know-js/" class="archive-article-date">
+  	<time datetime="2020-10-27T15:45:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="javaScript的特点："><a href="#javaScript的特点：" class="headerlink" title="javaScript的特点："></a>javaScript的特点：</h3><ol>
+<li> 解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)</li>
+<li> 灵活  动态特性   可以随意给对象增加属性和方法</li>
+<li> 头等函数   函数在javaScript–一等公民</li>
+<li> 执行环境   宿主环境</li>
+</ol>
+<h3 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h3><p>1.<code>User Interface</code> 用户界面，我们所看到的浏览器<br>2.<code>Browser engine</code> 浏览器引擎，用来查询和操作渲染引擎<br>3.<strong><code>Rendering engine</code></strong> 渲染引擎，用来显示请求的内容，负责解析HTML、CSS,并把解析的内容显示出来<br>4.<code>Networking</code>     网络，负责发生网络请求<br>5.<em><code>javaScript Interpreter</code>(解析者)</em> <code>javaScript</code>解析器，负责执行<code>javaScript</code>的代码<br>6.<code>UI Backend</code>     UI后端，用来绘制类似组合框和弹出窗口<br>7.<code>Data Persistence</code>（持久化） 数据持久化，数据存储  <code>cookie、HTML5中的sessionStorage</code></p>
+<h3 id="javaScript的执行过程"><a href="#javaScript的执行过程" class="headerlink" title="javaScript的执行过程"></a>javaScript的执行过程</h3><p>javaScript运行分为两个阶段：</p>
+<pre><code>*预解析
+    -全局预解析（所有变量和函数声明都会提前：同名的函数和变量函数的优先级高）
+    -函数内部预解析（所有的变量、函数和形参都会参与预解析）
+        -函数
+        -形参
+        -普通变量
+*执行
+先预解析全局作用域，然后执行全局作用域中的代码
+在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。</code></pre>
+<h3 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象?"></a>什么是面向对象?</h3><blockquote>
+<p>面向对象不是新的东西，它只是<strong>过程式代码</strong>的一种高度封装，目的在于提高代码的开发效率和可维护性。<br>面向对象编程————<code>Object Oriented Programming</code>,简称<code>OOP</code>,是一种编程开发思想.<br><strong>面向对象与面向过程：</strong></p>
+</blockquote>
+<ul>
+<li>面向过程就是亲力亲为，事无巨细，面面俱到，步步紧跟，有条不紊</li>
+<li>面向对象就是找一个对象，指挥得结果</li>
+<li>面向对象将执行者转变为指挥者</li>
+<li>面向对象不是面向过程的替代，而是面向过程的封装</li>
+</ul>
+<p><strong>面向对象的特性：</strong></p>
+<ul>
+<li>封装性</li>
+<li>继承性</li>
+<li>[多态性]抽象</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/27/know-js/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-json-vs-jsObject" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -264,7 +369,7 @@
 
         
         <a href="/2020/10/27/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-27T06:09:08.268Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+  	<time datetime="2020-10-27T08:44:51.878Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
 </a>
         
       </header>

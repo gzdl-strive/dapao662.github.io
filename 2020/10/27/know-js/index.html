@@ -6,16 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>无状态函数组件认识 | 学习笔记</title>
+  <title>JS的认识 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="无状态函数组件认识">
-<meta property="og:url" content="http://example.com/2020/10/25/function-Component/index.html">
+  <meta name="description" content="javaScript的特点：  解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)  灵活  动态特性   可以随意给对象增加属性和方法  头等函数   函数在javaScript–一等公民  执行环境   宿主环境  浏览器的组成1.User Interface 用户界面，我们所看到的浏览器2.Browser engine">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JS的认识">
+<meta property="og:url" content="http://example.com/2020/10/27/know-js/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="javaScript的特点：  解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)  灵活  动态特性   可以随意给对象增加属性和方法  头等函数   函数在javaScript–一等公民  执行环境   宿主环境  浏览器的组成1.User Interface 用户界面，我们所看到的浏览器2.Browser engine">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-25T12:54:34.000Z">
+<meta property="article:published_time" content="2020-10-27T15:45:36.000Z">
 <meta property="article:modified_time" content="2020-10-27T08:44:51.878Z">
 <meta property="article:author" content="Zoro">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -140,27 +143,59 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-function-Component" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-know-js" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      无状态函数组件认识
+      JS的认识
     </h1>
   
 
         
-        <a href="/2020/10/25/function-Component/" class="archive-article-date">
-  	<time datetime="2020-10-25T12:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/2020/10/27/know-js/" class="archive-article-date">
+  	<time datetime="2020-10-27T15:45:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h3 id="javaScript的特点："><a href="#javaScript的特点：" class="headerlink" title="javaScript的特点："></a>javaScript的特点：</h3><ol>
+<li> 解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)</li>
+<li> 灵活  动态特性   可以随意给对象增加属性和方法</li>
+<li> 头等函数   函数在javaScript–一等公民</li>
+<li> 执行环境   宿主环境</li>
+</ol>
+<h3 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h3><p>1.<code>User Interface</code> 用户界面，我们所看到的浏览器<br>2.<code>Browser engine</code> 浏览器引擎，用来查询和操作渲染引擎<br>3.<strong><code>Rendering engine</code></strong> 渲染引擎，用来显示请求的内容，负责解析HTML、CSS,并把解析的内容显示出来<br>4.<code>Networking</code>     网络，负责发生网络请求<br>5.<em><code>javaScript Interpreter</code>(解析者)</em> <code>javaScript</code>解析器，负责执行<code>javaScript</code>的代码<br>6.<code>UI Backend</code>     UI后端，用来绘制类似组合框和弹出窗口<br>7.<code>Data Persistence</code>（持久化） 数据持久化，数据存储  <code>cookie、HTML5中的sessionStorage</code></p>
+<h3 id="javaScript的执行过程"><a href="#javaScript的执行过程" class="headerlink" title="javaScript的执行过程"></a>javaScript的执行过程</h3><p>javaScript运行分为两个阶段：</p>
+<pre><code>*预解析
+    -全局预解析（所有变量和函数声明都会提前：同名的函数和变量函数的优先级高）
+    -函数内部预解析（所有的变量、函数和形参都会参与预解析）
+        -函数
+        -形参
+        -普通变量
+*执行
+先预解析全局作用域，然后执行全局作用域中的代码
+在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。</code></pre>
+<h3 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象?"></a>什么是面向对象?</h3><blockquote>
+<p>面向对象不是新的东西，它只是<strong>过程式代码</strong>的一种高度封装，目的在于提高代码的开发效率和可维护性。<br>面向对象编程————<code>Object Oriented Programming</code>,简称<code>OOP</code>,是一种编程开发思想.<br><strong>面向对象与面向过程：</strong></p>
+</blockquote>
+<ul>
+<li>面向过程就是亲力亲为，事无巨细，面面俱到，步步紧跟，有条不紊</li>
+<li>面向对象就是找一个对象，指挥得结果</li>
+<li>面向对象将执行者转变为指挥者</li>
+<li>面向对象不是面向过程的替代，而是面向过程的封装</li>
+</ul>
+<p><strong>面向对象的特性：</strong></p>
+<ul>
+<li>封装性</li>
+<li>继承性</li>
+<li>[多态性]抽象</li>
+</ul>
+
       
 
       
@@ -168,6 +203,17 @@
     <div class="article-info article-info-index">
       
       
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
       
 
       
@@ -218,7 +264,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/25/function-Component/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/27/know-js/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -232,18 +278,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/26/JSON.Stringify/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JSON. Stringify
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/24/markdown-md-basic/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown(md)基础用法</div>
+    <a href="/2020/10/27/json-vs-jsObject/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">JSON与JS对象</div>
       <i class="icon-circle-right"></i>
     </a>
   

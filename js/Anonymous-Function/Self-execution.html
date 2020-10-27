@@ -6,14 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>无状态函数组件认识 | 学习笔记</title>
+  <title>Tag: js | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="无状态函数组件认识">
-<meta property="og:url" content="http://example.com/2020/10/25/function-Component/index.html">
+  <meta name="description" content="自执行函数，即定义和调用合为一体。我们创建了一个匿名的函数，并立即执行它，由于外部无法引用它内部的变量，因此在执行完后很快就会被释放，关键是这种机制不会污染全局对象  下面2个括弧()都会立即执行 12(function () &amp;#123;console.log(&amp;#x27;method--A&amp;#x27;)&amp;#125; ()); &#x2F;&#x2F; 推荐使用这个 (function () &amp;#123;cons">
+<meta property="og:type" content="website">
+<meta property="og:title" content="自执行匿名函数">
+<meta property="og:url" content="http://example.com/js/Anonymous-Function/Self-execution.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="自执行函数，即定义和调用合为一体。我们创建了一个匿名的函数，并立即执行它，由于外部无法引用它内部的变量，因此在执行完后很快就会被释放，关键是这种机制不会污染全局对象  下面2个括弧()都会立即执行 12(function () &amp;#123;console.log(&amp;#x27;method--A&amp;#x27;)&amp;#125; ()); &#x2F;&#x2F; 推荐使用这个 (function () &amp;#123;cons">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-25T12:54:34.000Z">
+<meta property="article:published_time" content="2020-10-27T15:58:12.000Z">
 <meta property="article:modified_time" content="2020-10-27T08:44:51.878Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
@@ -140,27 +142,40 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-function-Component" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      无状态函数组件认识
+      自执行匿名函数
     </h1>
   
 
         
-        <a href="/2020/10/25/function-Component/" class="archive-article-date">
-  	<time datetime="2020-10-25T12:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/js/Anonymous-Function/Self-execution.html" class="archive-article-date">
+  	<time datetime="2020-10-27T15:58:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <blockquote>
+<p>自执行函数，即定义和调用合为一体。我们创建了一个匿名的函数，并立即执行它，由于外部无法引用它内部的变量，因此在执行完后很快就会被释放，关键是这种机制不会污染全局对象</p>
+</blockquote>
+<p><strong>下面2个括弧()都会立即执行</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;method--A&#x27;</span>)&#125; ()); <span class="comment">// 推荐使用这个 </span></span><br><span class="line">(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;method--B&#x27;</span>)&#125;)();<span class="comment">// 但是这个也是可以用的</span></span><br></pre></td></tr></table></figure>
+
+<p>由于<strong>括弧()和JS的&amp;&amp;，异或，逗号等操作符</strong>是在函数表达式和函数声明上消除歧义的  所以一旦解析器知道其中一个已经是表达式了，其它的也都默认为表达式了.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> i = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;()&#x27;</span>)&#125;();</span><br><span class="line"><span class="literal">true</span> &amp;&amp; <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;&amp;&amp;&#x27;</span>)&#125;();</span><br><span class="line"><span class="number">0</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;,&#x27;</span>)&#125;();</span><br></pre></td></tr></table></figure>
+
+<p><strong>如果你不在意返回值，或者不怕难以阅读你甚至可以在function前面加一元操作符号</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">!<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;!&#x27;</span>)&#125;();</span><br><span class="line">~<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;~&#x27;</span>)&#125;();</span><br><span class="line">-<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;-&#x27;</span>)&#125;();</span><br><span class="line">+<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;+&#x27;</span>)&#125;();</span><br></pre></td></tr></table></figure>
+
+<p><strong>还有一个情况，使用new关键字,也可以用，但我不确定它的效率</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;new关键字&#x27;</span>)&#125;;</span><br><span class="line"><span class="keyword">new</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="string">&#x27;new传递参数&#x27;</span>)&#125;(<span class="number">10</span>);<span class="comment">// 如果需要传递参数，只需要加上括弧()</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -218,7 +233,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/25/function-Component/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/js/Anonymous-Function/Self-execution.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,25 +245,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2020/10/26/JSON.Stringify/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JSON. Stringify
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/10/24/markdown-md-basic/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown(md)基础用法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -299,9 +295,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
