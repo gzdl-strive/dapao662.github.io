@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: hello | 学习笔记</title>
+  <title>JSON与JS对象 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/tags/hello/index.html">
+  <meta name="description" content="JSON vs JS对象JSON定义  JSON是JS的一种简单数据格式，JSON是JavaScript原生格式，它是一种严格的js对象的格式 JSON的属性名必须有双引号，如果值是字符串，也必须是双引号   JSON只是一种数据格式 123456789var obj &#x3D; &amp;#123;&amp;#125;; &#x2F;&#x2F;这只是JS对象var obj1 &#x3D; &amp;#123;width:100, height:200&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JSON与JS对象">
+<meta property="og:url" content="http://example.com/2020/10/27/json-vs-jsObject/index.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="JSON vs JS对象JSON定义  JSON是JS的一种简单数据格式，JSON是JavaScript原生格式，它是一种严格的js对象的格式 JSON的属性名必须有双引号，如果值是字符串，也必须是双引号   JSON只是一种数据格式 123456789var obj &#x3D; &amp;#123;&amp;#125;; &#x2F;&#x2F;这只是JS对象var obj1 &#x3D; &amp;#123;width:100, height:200&amp;#">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-27T10:40:23.000Z">
+<meta property="article:modified_time" content="2020-10-27T06:09:08.268Z">
 <meta property="article:author" content="Zoro">
+<meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -138,60 +143,183 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-json-vs-jsObject" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/10/27/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-27T06:09:08.268Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/10/27/hello-world/">Hexo 起始页</a>
+    <h1 class="article-title" itemprop="name">
+      JSON与JS对象
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2020/10/27/json-vs-jsObject/" class="archive-article-date">
+  	<time datetime="2020-10-27T10:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="JSON-vs-JS对象"><a href="#JSON-vs-JS对象" class="headerlink" title="JSON vs JS对象"></a>JSON vs JS对象</h2><h3 id="JSON定义"><a href="#JSON定义" class="headerlink" title="JSON定义"></a>JSON定义</h3><blockquote>
+<ul>
+<li>JSON是JS的一种简单数据格式，JSON是JavaScript原生格式，它是一种严格的js对象的格式</li>
+<li>JSON的属性名必须有双引号，如果值是字符串，也必须是双引号</li>
+</ul>
+</blockquote>
+<p><strong>JSON只是一种数据格式</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;; <span class="comment">//这只是JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">width</span>:<span class="number">100</span>, <span class="attr">height</span>:<span class="number">200</span>&#125;; <span class="comment">//JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="string">&#x27;width&#x27;</span>:<span class="number">100</span>, <span class="string">&#x27;height&#x27;</span>:<span class="number">100</span>&#125;<span class="comment">//JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj3 = &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;name&quot;</span>: <span class="string">&quot;rose&quot;</span>&#125;; <span class="comment">//JSON格式的JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="string">&#x27;&#123;&quot;width&quot;:100, &quot;height&quot;:50, &quot;name&quot;:&quot;rose&quot;&#125;&#x27;</span>; <span class="comment">//JSON格式的字符串</span></span><br><span class="line"><span class="keyword">var</span> array = [</span><br><span class="line">    &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;height&quot;</span>:<span class="number">100</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;name&quot;</span>:<span class="string">&quot;rose&quot;</span>&#125;,</span><br><span class="line">]<span class="comment">//JSON格式的数组</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><table>
+<thead>
+<tr>
+<th align="center">区别</th>
+<th align="center">JSON</th>
+<th align="center">JavaScript对象</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">含义</td>
+<td align="center">仅仅是一种数据格式</td>
+<td align="center">表示类的实例</td>
+</tr>
+<tr>
+<td align="center">传输</td>
+<td align="center">可以跨平台数据传输，速度快</td>
+<td align="center">不能传输</td>
+</tr>
+<tr>
+<td align="center">表现</td>
+<td align="center">1.键值对方式，键必须加双引号 2.值不能是方法函数，不能是undefined/NaN</td>
+<td align="center">1.键值对方式，键不加引号 2.值可以是函数、对象、字符串、数字、boolean 等</td>
+</tr>
+<tr>
+<td align="center">相互转换</td>
+<td align="center">Json转换Js对象1.JSON.parse(JsonStr); (不兼容IE7) 2.eval(“(“+jsonStr+”)”); (兼容所有浏览器,但不安全，会执行json里面的表达式?)</td>
+<td align="center">js对象转换JsonJSON.stringify(jsObj);</td>
+</tr>
+</tbody></table>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/27/json-vs-jsObject/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2020/10/27/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo 起始页</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -214,9 +342,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
