@@ -147,13 +147,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/hello-world/">Hexo 起始页</a>
+      <a class="article-title" href="/2020/10/29/hello-world/">Hexo 起始页</a>
     </h1>
   
 
         
-        <a href="/2020/10/28/hello-world/" class="archive-article-date">
-  	<time datetime="2020-10-28T01:07:48.864Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
+        <a href="/2020/10/29/hello-world/" class="archive-article-date">
+  	<time datetime="2020-10-29T07:28:27.652Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-29</time>
 </a>
         
       </header>
@@ -196,7 +196,107 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/28/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/10/29/hello-world/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-js-example" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2020/10/28/js-example/">js例子</a>
+    </h1>
+  
+
+        
+        <a href="/2020/10/28/js-example/" class="archive-article-date">
+  	<time datetime="2020-10-28T10:15:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="js的几个问题"><a href="#js的几个问题" class="headerlink" title="js的几个问题"></a>js的几个问题</h2><h3 id="问题一：浏览器的console里会打印出什么"><a href="#问题一：浏览器的console里会打印出什么" class="headerlink" title="问题一：浏览器的console里会打印出什么?"></a>问题一：浏览器的console里会打印出什么?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// ??</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p><strong>答案：undefined</strong><br><strong>解释：使用var关键字声明的变量被提升并在内存中为其赋值为undefined.但是初始化恰好发生在你在代码中写入它们的地方。另外，var声明的变量是函数作用域，而let和const是块作用域。所以，这就是这个所从的样子：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; <span class="comment">// 全局作用域</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 使用var声明的会被提升到函数作用域内顶部.</span></span><br><span class="line"><span class="comment">// 就像: var a;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 打印 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际初始化值20只发生在这里</span></span><br><span class="line">   <span class="keyword">var</span> a = <span class="number">20</span>; <span class="comment">// 本地 scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="问题二："><a href="#问题二：" class="headerlink" title="问题二："></a>问题二：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// ??</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题三："><a href="#问题三：" class="headerlink" title="问题三："></a>问题三：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [];</span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i = <span class="number">0</span>; i &lt;<span class="number">3</span>; i++</span>)</span> &#123;</span><br><span class="line"> array.push(<span class="function">() =&gt;</span> i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newArray = array.map(<span class="function"><span class="params">el</span> =&gt;</span> el());</span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// ??</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题四："><a href="#问题四：" class="headerlink" title="问题四："></a>问题四：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(foo, <span class="number">0</span>); <span class="comment">// will there by any stack overflow error?</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题五："><a href="#问题五：" class="headerlink" title="问题五："></a>问题五：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve().then(foo);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题六："><a href="#问题六：" class="headerlink" title="问题六："></a>问题六：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line">[...obj]; <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题七："><a href="#问题七：" class="headerlink" title="问题七："></a>问题七：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(obj, &#123;<span class="attr">c</span>: <span class="number">3</span>&#125;);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;d&#x27;</span>, &#123; <span class="attr">value</span>: <span class="number">4</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// what properties will be printed when we run the for-in loop?</span></span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> prop <span class="keyword">in</span> obj</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(prop);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="问题八："><a href="#问题八：" class="headerlink" title="问题八："></a>问题八：</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  x: <span class="number">90</span>,</span><br><span class="line">  getX: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">foo.getX(); <span class="comment">// prints 90</span></span><br><span class="line"><span class="keyword">var</span> xGetter = foo.getX;</span><br><span class="line">xGetter(); <span class="comment">// prints ??</span></span><br></pre></td></tr></table></figure>
+<p><strong>解释</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2020/10/28/js-example/">展开全文 >></a>
         </p>
       
 
