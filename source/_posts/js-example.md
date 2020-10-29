@@ -245,4 +245,6 @@ let getFooX = foo.getX.bind(foo);
 getFooX(); // prints 90
 ```
 
-
+作者：xiaohesong
+链接：https://www.jianshu.com/p/aec200057e33
+来源：简书
