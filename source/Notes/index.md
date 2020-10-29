@@ -19,5 +19,8 @@ date: 2020-10-24 18:48:47
 ### Ant Design Pro
 >[Antd](/antd "antd")
 
+### Bizcharts
+>[Bizchatrs](/bizcharts "bizcharts")
+
 ## WebPack
 
