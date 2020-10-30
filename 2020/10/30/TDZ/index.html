@@ -6,16 +6,16 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JS的认识 | 学习笔记</title>
+  <title>ES6的TDZ(暂时性死区) | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javaScript的特点：  解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)  灵活  动态特性   可以随意给对象增加属性和方法  头等函数   函数在javaScript–一等公民  执行环境   宿主环境  浏览器的组成1.User Interface 用户界面，我们所看到的浏览器2.Browser engine">
+  <meta name="description" content="什么是TDZ？ Temporal Dead Zone(TDZ)是 ES6(ES2015) 中对新作用域的专业语义。  let&#x2F;const和var的区别在ES6之前，JS的scope只有两种，全局作用域和函数作用域，但是在ES6中出现了块级作用域，即使用let&#x2F;const可以定义块级作用域。那么在ES6的新特性中，最容易看到TDZ作用的就是使用let&#x2F;const的使用上面。let&#x2F;const与var">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS的认识">
-<meta property="og:url" content="http://example.com/2020/10/27/know-js/index.html">
+<meta property="og:title" content="ES6的TDZ(暂时性死区)">
+<meta property="og:url" content="http://example.com/2020/10/30/TDZ/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="javaScript的特点：  解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)  灵活  动态特性   可以随意给对象增加属性和方法  头等函数   函数在javaScript–一等公民  执行环境   宿主环境  浏览器的组成1.User Interface 用户界面，我们所看到的浏览器2.Browser engine">
+<meta property="og:description" content="什么是TDZ？ Temporal Dead Zone(TDZ)是 ES6(ES2015) 中对新作用域的专业语义。  let&#x2F;const和var的区别在ES6之前，JS的scope只有两种，全局作用域和函数作用域，但是在ES6中出现了块级作用域，即使用let&#x2F;const可以定义块级作用域。那么在ES6的新特性中，最容易看到TDZ作用的就是使用let&#x2F;const的使用上面。let&#x2F;const与var">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-27T15:45:36.000Z">
+<meta property="article:published_time" content="2020-10-30T10:44:36.000Z">
 <meta property="article:modified_time" content="2020-10-30T06:23:46.916Z">
 <meta property="article:author" content="Zoro">
 <meta property="article:tag" content="js">
@@ -143,58 +143,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-know-js" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-TDZ" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      JS的认识
+      ES6的TDZ(暂时性死区)
     </h1>
   
 
         
-        <a href="/2020/10/27/know-js/" class="archive-article-date">
-  	<time datetime="2020-10-27T15:45:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
+        <a href="/2020/10/30/TDZ/" class="archive-article-date">
+  	<time datetime="2020-10-30T10:44:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="javaScript的特点："><a href="#javaScript的特点：" class="headerlink" title="javaScript的特点："></a>javaScript的特点：</h3><ol>
-<li> 解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)</li>
-<li> 灵活  动态特性   可以随意给对象增加属性和方法</li>
-<li> 头等函数   函数在javaScript–一等公民</li>
-<li> 执行环境   宿主环境</li>
-</ol>
-<h3 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h3><p>1.<code>User Interface</code> 用户界面，我们所看到的浏览器<br>2.<code>Browser engine</code> 浏览器引擎，用来查询和操作渲染引擎<br>3.<strong><code>Rendering engine</code></strong> 渲染引擎，用来显示请求的内容，负责解析HTML、CSS,并把解析的内容显示出来<br>4.<code>Networking</code>     网络，负责发生网络请求<br>5.<em><code>javaScript Interpreter</code>(解析者)</em> <code>javaScript</code>解析器，负责执行<code>javaScript</code>的代码<br>6.<code>UI Backend</code>     UI后端，用来绘制类似组合框和弹出窗口<br>7.<code>Data Persistence</code>（持久化） 数据持久化，数据存储  <code>cookie、HTML5中的sessionStorage</code></p>
-<h3 id="javaScript的执行过程"><a href="#javaScript的执行过程" class="headerlink" title="javaScript的执行过程"></a>javaScript的执行过程</h3><p>javaScript运行分为两个阶段：</p>
-<pre><code>*预解析
-    -全局预解析（所有变量和函数声明都会提前：同名的函数和变量函数的优先级高）
-    -函数内部预解析（所有的变量、函数和形参都会参与预解析）
-        -函数
-        -形参
-        -普通变量
-*执行
-先预解析全局作用域，然后执行全局作用域中的代码
-在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。</code></pre>
-<h3 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象?"></a>什么是面向对象?</h3><blockquote>
-<p>面向对象不是新的东西，它只是<strong>过程式代码</strong>的一种高度封装，目的在于提高代码的开发效率和可维护性。<br>面向对象编程————<code>Object Oriented Programming</code>,简称<code>OOP</code>,是一种编程开发思想.<br><strong>面向对象与面向过程：</strong></p>
+        <h3 id="什么是TDZ？"><a href="#什么是TDZ？" class="headerlink" title="什么是TDZ？"></a>什么是TDZ？</h3><blockquote>
+<p><code>Temporal Dead Zone(TDZ)</code>是 <strong>ES6(ES2015)</strong> 中对新作用域的专业语义。</p>
 </blockquote>
+<h3 id="let-const和var的区别"><a href="#let-const和var的区别" class="headerlink" title="let/const和var的区别"></a>let/const和var的区别</h3><p>在<code>ES6</code>之前，JS的<code>scope</code>只有两种，<strong>全局作用域</strong>和<strong>函数作用域</strong>，但是在ES6中出现了<strong>块级作用域</strong>，即使用<code>let/const</code>可以定义块级作用域。<br>那么在ES6的新特性中，最容易看到TDZ作用的就是使用let/const的使用上面。<br><code>let/const</code>与<code>var</code>的主要不同有两个地方:</p>
 <ul>
-<li>面向过程就是亲力亲为，事无巨细，面面俱到，步步紧跟，有条不紊</li>
-<li>面向对象就是找一个对象，指挥得结果</li>
-<li>面向对象将执行者转变为指挥者</li>
-<li>面向对象不是面向过程的替代，而是面向过程的封装</li>
+<li><code>let/const</code>是使用区块作用域；<code>var</code>是使用函数作用域</li>
+<li>在<code>let/const</code>声明之前就访问对应的变量与常量，会抛出<code>ReferenceError</code>错误；但在<code>var</code>声明之前就访问对应的变量，则会得到<code>undefined</code>.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(name1); <span class="comment">// undefined;</span></span><br><span class="line"><span class="built_in">console</span>.log(name2); <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">var</span> name1 = <span class="string">&#x27;name1&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name2 = <span class="string">&#x27;name2&#x27;</span>;</span><br></pre></td></tr></table></figure>
+实践证明当我们在未声明之前使用<code>var</code>定义的变量时会得到<code>undefined</code>,但是在使用<code>let</code>未定义的变量时会抛出错误。因为ES6中的<strong>let声明的变量是不存在变量提升的作用</strong>。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    x = <span class="number">20</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">    <span class="keyword">let</span> x;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了<strong>封闭作用域</strong>。凡是在声明之前就使用这些变量，就会报错。<br>总之，在代码块内，使用<code>let</code>命令<em>声明变量之前</em>，<em>该变量都是不可用的</em>。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="comment">// TDZ开始</span></span><br><span class="line">  tmp = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">  tmp = <span class="number">123</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+上面代码中，在<code>let</code>命令声明变量<code>tmp</code>之前，都属于变量<code>tmp</code>的<strong>死区</strong>。</li>
 </ul>
-<p><strong>面向对象的特性：</strong></p>
-<ul>
-<li>封装性</li>
-<li>继承性</li>
-<li>[多态性]抽象</li>
-</ul>
+<h3 id="const的认识"><a href="#const的认识" class="headerlink" title="const的认识"></a>const的认识</h3><p>其实<code>const</code>的行为和<code>let</code>的行为差不多。只是<code>const</code>定义的是常量，不变的数据。<code>let</code>定义的是改变的数据。并且在声明<code>const</code>的时候必须存在值。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name; <span class="comment">//error</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name&#x27;</span> </span><br><span class="line">name = <span class="string">&#x27;your name&#x27;</span> <span class="comment">// error</span></span><br><span class="line"><span class="keyword">let</span> age;</span><br><span class="line">age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<p><strong>对于const 需要明确一点，就是改变的是什么？看下面这个</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name: <span class="string">&quot;Nicholas&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// works</span></span><br><span class="line">person.name = <span class="string">&quot;Greg&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// throws an error</span></span><br><span class="line">person = &#123;</span><br><span class="line">    name: <span class="string">&quot;Greg&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>可以更改<code>person.name</code>而不会导致错误，因为这会更改<code>person</code>包含的内容，并且不会更改<code>person</code>绑定的值。当此代码尝试为<code>person</code>分配值<strong>从而尝试更改绑定</strong>时，将引发错误。<code>const</code>如何与对象一起工作的这种微妙之处很容易被误解。 请记住：<strong>const阻止修改绑定，而不是阻止修改绑定值。</strong></p>
+<h3 id="typeof的“死区”陷阱"><a href="#typeof的“死区”陷阱" class="headerlink" title="typeof的“死区”陷阱"></a>typeof的“死区”陷阱</h3><p>我们都知道使用<code>typeof </code>可以用来检测给定变量的数据类型，也可以使用它来判断值是否被定义。当返回<code>undefined</code>时表示值未定义;<br>但是在<code>const/let</code>定义的变量在变量声明之前如果使用了<code>typeof</code>就会报错</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
+<p>因为<code>x</code>是使用<code>let</code>声明的，那么在<strong>x未声明之前都属于暂时性死区</strong>，在使用<code>typeof</code>时就会报错。所以在使用<code>let/const</code>进行声明的变量在使用<code>typeof</code>时不一定安全。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> y; <span class="comment">// &#x27;undefined&#x27;</span></span><br></pre></td></tr></table></figure>
+<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这粒可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
+<h3 id="传参的“死区”陷阱"><a href="#传参的“死区”陷阱" class="headerlink" title="传参的“死区”陷阱"></a>传参的“死区”陷阱</h3><p>例如下面一段代码，我们在使用</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">x = y, y = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar(); <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
+<p>上面代码中，调用<code>bar</code>函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“。如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">x = <span class="number">2</span>, y = x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line">bar(); <span class="comment">// [2, 2]</span></span><br></pre></td></tr></table></figure>
+<p>使用var和let声明的另外一种区别:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不报错</span></span><br><span class="line"><span class="keyword">var</span> x = x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> x = x;</span><br><span class="line"><span class="comment">// ReferenceError: x is not defined</span></span><br></pre></td></tr></table></figure>
+<p>受“死区”的影响，使用<code>let</code>声明变量时，只要变量在还没有声明完成前使用，就会报错。上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义“。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>ES6 </code>规定暂时性死区和<code>let、const</code>语句不出现变量提升，<strong>主要是为了减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为</strong>。这样的错误在<code>ES5</code>是很常见的，现在有了这种规定，避免此类错误就很容易了。</p>
+<blockquote>
+<p>总之，<code>暂时性死区的本质</code>就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
+</blockquote>
+<pre><code>注: TDZ最一开始是为了const所设计的，但后来的对let的设计也是一致的。
+注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。</code></pre>
 
       
 
@@ -264,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/27/know-js/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/30/TDZ/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -278,18 +280,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/10/28/js-example/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          js例子
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/10/27/json-vs-jsObject/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">JSON与JS对象</div>
+    <a href="/2020/10/30/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Hexo 起始页</div>
       <i class="icon-circle-right"></i>
     </a>
   
