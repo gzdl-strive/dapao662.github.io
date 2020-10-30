@@ -18,3 +18,6 @@ tag: js
 >[匿名函数](/js/Anonymous-Function/anonymous "匿名函数")
 ### 自执行匿名函数
 >[自执行匿名函数](/js/Anonymous-Function/Self-execution "自执行匿名函数")
+
+## 32个js例子
+>[32个例子](/js/jsTest/32js "32个例子")
