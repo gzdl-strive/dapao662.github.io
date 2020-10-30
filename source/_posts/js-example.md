@@ -184,6 +184,22 @@ for(let prop in obj) {
     console.log(prop);
 }
 ```
+>`Object.setPrototypeOf`方法是针对**对象实例的**，而不是构造函数（类），此方法修改的是对象实例的内部属性`[prototype]`，也就是`_proto_`属性所指向的对象，它只是修改了特定对象上的原型对象，对于构造函数的`prototype`指向的原型对象没有影响。那是不是此方法就不能针对构造函数了，因为构造函数本身也是function(类)的实例。
+
+**语法结构：**
+Obejct.setPrototypeOf(obj,proto);
+参数解析:
+(1).obj：必需，对其设置原型的对象。
+(2).proto:必需，新的原型对象。
+
+>`Object.defineProperty()` 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。
+
+**语法结构：**
+Object.defineProperty(obj, prop, descriptor);
+obj:要定义属性的对象。
+prop:要定义或修改的属性的名称或 Symbol 。
+descriptor:要定义或修改的属性描述符。
+返回值-->被传递给函数的对象。
 **答案：a,b,c**
 **解释: `for-in`循环遍历对象本身的可枚举属性以及对象从其原型继承的属性。可枚举属性是可以在`for-in`循环期间包含和访问的属性。**
 ```js
