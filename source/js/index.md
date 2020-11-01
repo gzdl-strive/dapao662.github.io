@@ -21,3 +21,8 @@ tag: js
 
 ## 32个js例子
 >[32个例子](/js/jsTest/index "32个例子")
+
+## ES6
+
+### Promise源码实现
+>[Promise](/js/ES6/index "Promise")

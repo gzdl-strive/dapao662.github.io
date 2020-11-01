@@ -1,101 +1,16 @@
 ---
-title: 17--20例子
-date: 2020-10-31 19:54:30
+title: Promise源码完整代码
+date: 2020-11-01 20:52:36
 tag: js
 ---
-
-### 17、Object.is
-
-`Object.is`解决的主要是这两个问题：
 ```js
-+0 === -0 //true
-NaN === NaN //false
+// 模拟实现Promise
+// Promise利用三大手段解决回调地狱：
+// 1. 回调函数延迟绑定
+// 2. 返回值穿透
+// 3. 错误冒泡
 
-const is = (x, y) => {
-    if (x === y) {
-        // +0 和 -0应该不相等
-        return x !== 0 || y !== 0 || 1/x === 1/y;
-    } else {
-        return x !== x && y !== y;
-    }
-}
-```
-
-### 18、Object.assign
->`Object.assign()`方法用于将所有可枚举属性的值从一个或多个源对象复制到目标对象。它将返回目标对象（请注意这个操作是浅拷贝）
-
-```js
-Object.defineProperty(Object, 'assign', {
-    value: function(target, ...args) {
-        if (target == null) {
-            return new TypeError('Cannot convert undefined or null to Object');
-        }
-
-        // 目标对象需要统一是引用数据类型，若不是会自动转换
-        const to = Object(target);
-
-        for(let i = 0; i < args.length; i++) {
-            //每一个源对象
-            const nextSource = args[i];
-            if (nextSouce !== null) {
-                // 使用for...in和hasOwnProperty双重判断，确保只拿到本身的属性、方法（不包含继承的）
-                for (const nextKey in nextSource) {
-                    if (Object.prototype.hasOwnProperty.call(nextSource, nextKey)) {
-                        to[nextKey] = nextSource[nextKey];
-                    }
-                }
-            }
-        }
-        return to;
-    },
-    //不可枚举
-    enumerable: false,
-    writable: true,
-    configurable: true,
-})
-```
-
-### 19、深拷贝
->递归的完整版本（考虑到了Symbol属性）：
-
-```js
-const cloneDeep1 = (target, hash = new WeakMap()) => {
-    //对于传入参数处理
-    if (typeof target !== 'object' || target === null) {
-        return target;
-    }
-    //哈希表中存在直接返回
-    if (hash.has(target)) {
-        return hash.get(target);
-    }
-
-    const cloneTarget = Array.isArray(target) ? [] : {};
-    hash.set(target, cloneTarget);
-
-    //针对Symbol属性
-    const symKeys = Object.getOwnPropertySymbols(target);
-    if (symKeys.length) {
-        symKeys.forEach(symKey => {
-            if (typeof target[symKey] === 'object' && target[symKey] !== null) {
-                cloneTarget[symKey] = cloneDeep1(target[symKey]);
-            } else {
-                cloneTarget[symKey] = target[symKey];
-            }
-        })
-    }
-
-    for (const i in target) {
-        if (Object.prototype.hasOwnProperty.call(target, i)) {
-            cloneTarget[i] = typeof target[i] === 'object' && target[i] !== null ? cloneDeep1(target[i], hash) :target[i];
-        }
-    }
-    return cloneTarget;
-}
-```
-
-### 20、Promise
-
-```javascript
+// 定义三种状态
 const PENDING = 'PENDING';      // 进行中
 const FULFILLED = 'FULFILLED';  // 已成功
 const REJECTED = 'REJECTED';    // 已失败
@@ -141,8 +56,8 @@ class Promise {
   }
   then(onFulfilled, onRejected) {
     onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value;
-    onRejected = typeof onRejected === 'function'? onRejected:
-      reason => { throw new Error(reason instanceof Error ? reason.message:reason) }
+    onRejected = typeof onRejected === 'function'? onRejected :
+      reason => { throw new Error(reason instanceof Error ? reason.message : reason) }
     // 保存this
     const self = this;
     return new Promise((resolve, reject) => {
@@ -183,11 +98,11 @@ class Promise {
         } catch(e) {
           reject(e);
         }
-      } else if (self.status === REJECTED){
+      } else if (self.status === REJECTED) {
         try {
           setTimeout(() => {
             const result = onRejected(self.reason);
-            result instanceof Promise ? result.then(resolve, reject) : reject(result);
+            result instanceof Promise ? result.then(resolve, reject) : resolve(result);
           })
         } catch(e) {
           reject(e);
@@ -212,6 +127,37 @@ class Promise {
       reject(reason);
     })
   }
+  static all(promiseArr) {
+    const len = promiseArr.length;
+    const values = new Array(len);
+    // 记录已经成功执行的promise个数
+    let count = 0;
+    return new Promise((resolve, reject) => {
+      for (let i = 0; i < len; i++) {
+        // Promise.resolve()处理，确保每一个都是promise实例
+        Promise.resolve(promiseArr[i]).then(
+          val => {
+            values[i] = val;
+            count++;
+            // 如果全部执行完，返回promise的状态就可以改变了
+            if (count === len) resolve(values);
+          },
+          err => reject(err),
+        );
+      }
+    })
+  }
+  static race(promiseArr) {
+    return new Promise((resolve, reject) => {
+      promiseArr.forEach(p => {
+        Promise.resolve(p).then(
+          val => resolve(val),
+          err => reject(err),
+        )
+      })
+    })
+  }
 }
-```
 
+
+```
