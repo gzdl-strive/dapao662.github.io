@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>学习笔记</title>
+  <title>Tag: js | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/index.html">
+  <meta name="description" content="9、Function.prototype.call() 于call唯一不同的是，call()方法接受的是一个参数列表  123456789101112Function.prototype.call &#x3D; function(context &#x3D; window, ...args) &amp;#123;    if (typeof this !&#x3D;&#x3D; &amp;#x27;function&amp;#x27;) &amp;#123;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="9--12例子">
+<meta property="og:url" content="http://example.com/js/jsTest/32/09-12.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="9、Function.prototype.call() 于call唯一不同的是，call()方法接受的是一个参数列表  123456789101112Function.prototype.call &#x3D; function(context &#x3D; window, ...args) &amp;#123;    if (typeof this !&#x3D;&#x3D; &amp;#x27;function&amp;#x27;) &amp;#123;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-10-31T18:12:30.000Z">
+<meta property="article:modified_time" content="2020-11-01T05:53:19.375Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -138,41 +142,48 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/11/01/hello-world/">Hexo 起始页</a>
+    <h1 class="article-title" itemprop="name">
+      9--12例子
     </h1>
   
 
         
-        <a href="/2020/11/01/hello-world/" class="archive-article-date">
-  	<time datetime="2020-11-01T05:53:19.363Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-01</time>
+        <a href="/js/jsTest/32/09-12.html" class="archive-article-date">
+  	<time datetime="2020-10-31T18:12:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>--创建一个新的模板</span><br></pre></td></tr></table></figure>
+        <h3 id="9、Function-prototype-call"><a href="#9、Function-prototype-call" class="headerlink" title="9、Function.prototype.call()"></a>9、Function.prototype.call()</h3><blockquote>
+<p>于<code>call</code>唯一不同的是，<code>call()</code>方法接受的是一个参数列表</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">context = <span class="built_in">window</span>, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名</span></span><br><span class="line">    <span class="keyword">const</span> fn = <span class="built_in">Symbol</span>(<span class="string">&#x27;fn&#x27;</span>);</span><br><span class="line">    context[fn] = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> res = context[fn](...args);</span><br><span class="line">    <span class="keyword">delete</span> context[fn];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server--启动服务-默认4000端口</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<h3 id="10、Function-prototype-bind"><a href="#10、Function-prototype-bind" class="headerlink" title="10、Function.prototype.bind"></a>10、Function.prototype.bind</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">context, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存this的值</span></span><br><span class="line">    <span class="keyword">var</span> self = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//考虑new的情况</span></span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params"><span class="built_in">this</span> <span class="keyword">instanceof</span> F</span>)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> self(...args, ...arguments);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> self.apply(context, [...args, ...arguments]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="11、debounce（防抖）"><a href="#11、debounce（防抖）" class="headerlink" title="11、debounce（防抖）"></a>11、debounce（防抖）</h3><blockquote>
+<p>触发高频时间后n秒内函数只会执行一次,如果n秒内高频时间再次触发,则重新计算时间。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> debounce = <span class="function">(<span class="params">fn, time</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> timeout = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">clearTimeout</span>(timeout);</span><br><span class="line">        timeout = <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fn.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">        &#125;, time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>防抖常应用于用户进行搜索输入节约请求资源，<code>window</code>触发<code>resize</code>事件时进行防抖只触发一次。</p>
+</blockquote>
+<h3 id="12、throttle（节流）"><a href="#12、throttle（节流）" class="headerlink" title="12、throttle（节流）"></a>12、throttle（节流）</h3><blockquote>
+<p>高频时间触发,但n秒内只会执行一次,所以节流会稀释函数的执行频率。</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> throttle = <span class="function">(<span class="params">fn, time</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">let</span> flag = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="function"><span class="title">if</span>(<span class="params">!flag</span>)</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125;</span><br><span class="line">        flag = <span class="literal">false</span>;</span><br><span class="line">        <span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">            fn.apply(<span class="built_in">this</span>, <span class="built_in">arguments</span>);</span><br><span class="line">            flag = <span class="literal">true</span>;</span><br><span class="line">        &#125;, time);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>节流常应用于鼠标不断点击触发、监听滚动事件。</p>
+</blockquote>
 
       
 
@@ -181,30 +192,68 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
+      
 
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/11/01/hello-world/">展开全文 >></a>
-        </p>
-      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/js/jsTest/32/09-12.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -224,888 +273,14 @@
 
 
 
-
   
-    <article id="post-TDZ" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/30/TDZ/">ES6的TDZ(暂时性死区)</a>
-    </h1>
   
 
-        
-        <a href="/2020/10/30/TDZ/" class="archive-article-date">
-  	<time datetime="2020-10-30T10:44:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-30</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="什么是TDZ？"><a href="#什么是TDZ？" class="headerlink" title="什么是TDZ？"></a>什么是TDZ？</h3><blockquote>
-<p><code>Temporal Dead Zone(TDZ)</code>是 <strong>ES6(ES2015)</strong> 中对新作用域的专业语义。</p>
-</blockquote>
-<h3 id="let-const和var的区别"><a href="#let-const和var的区别" class="headerlink" title="let/const和var的区别"></a>let/const和var的区别</h3><p>在<code>ES6</code>之前，JS的<code>scope</code>只有两种，<strong>全局作用域</strong>和<strong>函数作用域</strong>，但是在ES6中出现了<strong>块级作用域</strong>，即使用<code>let/const</code>可以定义块级作用域。<br>那么在ES6的新特性中，最容易看到TDZ作用的就是使用let/const的使用上面。<br><code>let/const</code>与<code>var</code>的主要不同有两个地方:</p>
-<ul>
-<li><code>let/const</code>是使用区块作用域；<code>var</code>是使用函数作用域</li>
-<li>在<code>let/const</code>声明之前就访问对应的变量与常量，会抛出<code>ReferenceError</code>错误；但在<code>var</code>声明之前就访问对应的变量，则会得到<code>undefined</code>.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(name1); <span class="comment">// undefined;</span></span><br><span class="line"><span class="built_in">console</span>.log(name2); <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">var</span> name1 = <span class="string">&#x27;name1&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> name2 = <span class="string">&#x27;name2&#x27;</span>;</span><br></pre></td></tr></table></figure>
-实践证明当我们在未声明之前使用<code>var</code>定义的变量时会得到<code>undefined</code>,但是在使用<code>let</code>未定义的变量时会抛出错误。因为ES6中的<strong>let声明的变量是不存在变量提升的作用</strong>。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">    x = <span class="number">20</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">    <span class="keyword">let</span> x;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命令，这个区块对这些命令声明的变量，从一开始就形成了<strong>封闭作用域</strong>。凡是在声明之前就使用这些变量，就会报错。<br>总之，在代码块内，使用<code>let</code>命令<em>声明变量之前</em>，<em>该变量都是不可用的</em>。这在语法上，称为“暂时性死区”（temporal dead zone，简称 TDZ）。<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>) &#123;</span><br><span class="line">  <span class="comment">// TDZ开始</span></span><br><span class="line">  tmp = <span class="string">&#x27;abc&#x27;</span>; <span class="comment">// ReferenceError</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">let</span> tmp; <span class="comment">// TDZ结束</span></span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// undefined</span></span><br><span class="line"></span><br><span class="line">  tmp = <span class="number">123</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(tmp); <span class="comment">// 123</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-上面代码中，在<code>let</code>命令声明变量<code>tmp</code>之前，都属于变量<code>tmp</code>的<strong>死区</strong>。</li>
-</ul>
-<h3 id="const的认识"><a href="#const的认识" class="headerlink" title="const的认识"></a>const的认识</h3><p>其实<code>const</code>的行为和<code>let</code>的行为差不多。只是<code>const</code>定义的是常量，不变的数据。<code>let</code>定义的是改变的数据。并且在声明<code>const</code>的时候必须存在值。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> name; <span class="comment">//error</span></span><br><span class="line"><span class="keyword">const</span> name = <span class="string">&#x27;my name&#x27;</span> </span><br><span class="line">name = <span class="string">&#x27;your name&#x27;</span> <span class="comment">// error</span></span><br><span class="line"><span class="keyword">let</span> age;</span><br><span class="line">age = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
-<p><strong>对于const 需要明确一点，就是改变的是什么？看下面这个</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> person = &#123;</span><br><span class="line">    name: <span class="string">&quot;Nicholas&quot;</span></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// works</span></span><br><span class="line">person.name = <span class="string">&quot;Greg&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// throws an error</span></span><br><span class="line">person = &#123;</span><br><span class="line">    name: <span class="string">&quot;Greg&quot;</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>可以更改<code>person.name</code>而不会导致错误，因为这会更改<code>person</code>包含的内容，并且不会更改<code>person</code>绑定的值。当此代码尝试为<code>person</code>分配值<strong>从而尝试更改绑定</strong>时，将引发错误。<code>const</code>如何与对象一起工作的这种微妙之处很容易被误解。 请记住：<strong>const阻止修改绑定，而不是阻止修改绑定值。</strong></p>
-<h3 id="typeof的“死区”陷阱"><a href="#typeof的“死区”陷阱" class="headerlink" title="typeof的“死区”陷阱"></a>typeof的“死区”陷阱</h3><p>我们都知道使用<code>typeof </code>可以用来检测给定变量的数据类型，也可以使用它来判断值是否被定义。当返回<code>undefined</code>时表示值未定义;<br>但是在<code>const/let</code>定义的变量在变量声明之前如果使用了<code>typeof</code>就会报错</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
-<p>因为<code>x</code>是使用<code>let</code>声明的，那么在<strong>x未声明之前都属于暂时性死区</strong>，在使用<code>typeof</code>时就会报错。所以在使用<code>let/const</code>进行声明的变量在使用<code>typeof</code>时不一定安全。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> y; <span class="comment">// &#x27;undefined&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这粒可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
-<h3 id="传参的“死区”陷阱"><a href="#传参的“死区”陷阱" class="headerlink" title="传参的“死区”陷阱"></a>传参的“死区”陷阱</h3><p>例如下面一段代码，我们在使用</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">x = y, y = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar(); <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
-<p>上面代码中，调用<code>bar</code>函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“。如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span>(<span class="params">x = <span class="number">2</span>, y = x</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line">bar(); <span class="comment">// [2, 2]</span></span><br></pre></td></tr></table></figure>
-<p>使用var和let声明的另外一种区别:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 不报错</span></span><br><span class="line"><span class="keyword">var</span> x = x;</span><br><span class="line"></span><br><span class="line"><span class="comment">// 报错</span></span><br><span class="line"><span class="keyword">let</span> x = x;</span><br><span class="line"><span class="comment">// ReferenceError: x is not defined</span></span><br></pre></td></tr></table></figure>
-<p>受“死区”的影响，使用<code>let</code>声明变量时，只要变量在还没有声明完成前使用，就会报错。上面这行就属于这个情况，在变量x的声明语句还没有执行完成前，就去取x的值，导致报错”x 未定义“。</p>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p><code>ES6 </code>规定暂时性死区和<code>let、const</code>语句不出现变量提升，<strong>主要是为了减少运行时错误，防止在变量声明前就使用这个变量，从而导致意料之外的行为</strong>。这样的错误在<code>ES5</code>是很常见的，现在有了这种规定，避免此类错误就很容易了。</p>
-<blockquote>
-<p>总之，<code>暂时性死区的本质</code>就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
-</blockquote>
-<pre><code>注: TDZ最一开始是为了const所设计的，但后来的对let的设计也是一致的。
-注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。</code></pre>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/30/TDZ/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-js-example" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/28/js-example/">js例子</a>
-    </h1>
   
 
-        
-        <a href="/2020/10/28/js-example/" class="archive-article-date">
-  	<time datetime="2020-10-28T10:15:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="js的几个问题"><a href="#js的几个问题" class="headerlink" title="js的几个问题"></a>js的几个问题</h2><h3 id="问题一：浏览器的console里会打印出什么"><a href="#问题一：浏览器的console里会打印出什么" class="headerlink" title="问题一：浏览器的console里会打印出什么?"></a>问题一：浏览器的console里会打印出什么?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// ??</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p><strong>答案：undefined</strong><br><strong>解释：使用var关键字声明的变量被提升并在内存中为其赋值为undefined.但是初始化恰好发生在你在代码中写入它们的地方。另外，var声明的变量是函数作用域，而let和const是块作用域。所以，这就是这个所从的样子：</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; <span class="comment">// 全局作用域</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"><span class="comment">// 使用var声明的会被提升到函数作用域内顶部.</span></span><br><span class="line"><span class="comment">// 就像: var a;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a); <span class="comment">// 打印 undefined</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 实际初始化值20只发生在这里</span></span><br><span class="line">   <span class="keyword">var</span> a = <span class="number">20</span>; <span class="comment">// 本地 scope</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="问题二：如果是有const或let代替var，输出是否一样"><a href="#问题二：如果是有const或let代替var，输出是否一样" class="headerlink" title="问题二：如果是有const或let代替var，输出是否一样?"></a>问题二：如果是有const或let代替var，输出是否一样?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// ??</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br><span class="line">foo();</span><br></pre></td></tr></table></figure>
-<p><strong>答案：ReferenceError: a is not defined</strong><br><strong>解释：let和const允许你声明一个变量被限制在一个块级作用域，或语句或表达式中。不像var，这些变量不会被提升，并且具有所谓的temporal dead zone(TDZ)。尝试在TDZ中访问这些变量将抛出一个ReferenceError，因为它们只能在执行到达声明才可被访问。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">10</span>; <span class="comment">// 全局作用域</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123; <span class="comment">// 进入新的作用域, TDZ开始</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// 没有初始绑定的&#x27;a&#x27;被创建</span></span><br><span class="line">    <span class="built_in">console</span>.log(a); <span class="comment">// ReferenceError</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// TDZ 结束, &#x27;a&#x27;只是在这里被初始化了一个值20</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">20</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="问题三：”newArray”中的元素是什么"><a href="#问题三：”newArray”中的元素是什么" class="headerlink" title="问题三：”newArray”中的元素是什么?"></a>问题三：”newArray”中的元素是什么?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> array = [];</span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">var</span> i = <span class="number">0</span>; i &lt;<span class="number">3</span>; i++</span>)</span> &#123;</span><br><span class="line"> array.push(<span class="function">() =&gt;</span> i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newArray = array.map(<span class="function"><span class="params">el</span> =&gt;</span> el());</span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// ??</span></span><br></pre></td></tr></table></figure>
-<p><strong>答案：[3,3,3]</strong><br><strong>解释：在for loop的头部声明一个带有var关键字的变量，为该变量创建一个绑定(存储空间)。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 误解作用域:认为存在块级作用域</span></span><br><span class="line"><span class="keyword">var</span> array = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// 三个箭头函数中的每个都引用同一个绑定，</span></span><br><span class="line">  <span class="comment">// 这就是为什么循环结束之后返回同样的数字3</span></span><br><span class="line">  array.push(<span class="function">() =&gt;</span> i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newArray = array.map(<span class="function"><span class="params">el</span> =&gt;</span> el());</span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// [3, 3, 3]</span></span><br></pre></td></tr></table></figure>
-<p>如果你声明一个具有块级作用域的变量，则会为每个循环迭代创建一个新绑定。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 使用ES6块级作用域绑定</span></span><br><span class="line"><span class="keyword">var</span> array = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  <span class="comment">// 这一次，每个“i”引用一个特定迭代的绑定，并保留当时的值。</span></span><br><span class="line">  <span class="comment">// 因此，每个arrow函数返回一个不同的值。</span></span><br><span class="line">  array.push(<span class="function">() =&gt;</span> i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">var</span> newArray = array.map(<span class="function"><span class="params">el</span> =&gt;</span> el());</span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// [0, 1, 2]</span></span><br></pre></td></tr></table></figure>
-<p>解决这个问题的另一种方法是使用闭包</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> array = [];</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; <span class="number">3</span>; i++) &#123;</span><br><span class="line">  array[i] = (<span class="function"><span class="keyword">function</span>(<span class="params">x</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">return</span> x;</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;)(i);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> newArray = array.map(<span class="function"><span class="params">el</span> =&gt;</span> el());</span><br><span class="line"><span class="built_in">console</span>.log(newArray); <span class="comment">// [0, 1, 2]</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>为啥let可以,可以参考<a target="_blank" rel="noopener" href="https://github.com/xiaohesong/TIL/blob/master/front-end/es6/understanding-es6/Block-Binding.md" title="for循环使用let">这篇文章</a></p>
-</blockquote>
-<h3 id="问题四：如果我们在浏览器控制台中运行’foo’函数，是否会导致堆栈溢出错误？"><a href="#问题四：如果我们在浏览器控制台中运行’foo’函数，是否会导致堆栈溢出错误？" class="headerlink" title="问题四：如果我们在浏览器控制台中运行’foo’函数，是否会导致堆栈溢出错误？"></a>问题四：如果我们在浏览器控制台中运行’foo’函数，是否会导致堆栈溢出错误？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="built_in">setTimeout</span>(foo, <span class="number">0</span>); <span class="comment">// will there by any stack overflow error?</span></span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>答案：不会</strong><br>解释：JavaScript并发模型基于“事件循环”。当我说“浏览器是JS的家(归宿)”时，我真正的意思是浏览器提供运行时环境来执行我们的JavaScript代码。浏览器的主要组件包括<strong>调用堆栈 ，事件循环 ，任务队列 和 Web API</strong>。像<code>setTimeout</code>，<code>setInterval</code>和<code>Promise</code>这样的全局函数不是JavaScript的一部分，而是<code>Web API</code>的一部分。JavaScript环境的可视化表示如下所示:<br><img src="/assets/jsImg/1.jpg" alt="image" title="image"></p>
-<blockquote>
-<p>JS调用堆栈是后进先出<code>(LIFO)</code>。引擎一次从堆栈中获取一个函数，并从上到下依次运行代码。每次遇到一些异步代码(如setTimeout)时，它都会将其交给Web API(箭头1)。因此，每当触发事件时，callback都会被发送到任务队列(箭头2)。Event Loop不断监视任务队列，并按照排队顺序一次处理一个callback。每当调用堆栈为空时，循环检索回调并将其放入堆栈(箭头3)进行处理。请记住，如果调用堆栈不为空，则事件循环不会将任何callbacks推送到堆栈。</p>
-</blockquote>
-<p>现在，有了这些知识，让我们试着回答上述问题：<br><strong>步骤</strong><br>1.调用<code>foo()</code>将把<code>foo</code>函数放进<strong>调用栈</strong>。<br>2.在处理内部代码时，JS引擎遇到<code>setTimeout</code>。<br>3.然后它将<code>foo</code>回调移交给<strong>WebAPI</strong>(箭头1)并从函数返回。调用堆栈再次为空。<br>4.计时器设置为<code>0</code>，因此<code>foo</code>将被发送到<strong>任务队列</strong>(箭头2)。<br>5.因为，我们的<strong>调用堆栈</strong>是空的，<strong>事件循环</strong>将选择<code>foo回调</code>并将其推送到<strong>调用堆栈</strong>进行处理。<br>6.进程再次重复，堆栈不会溢出 。</p>
-<h3 id="问题五：如果我们在控制台中运行以下函数，页面的UI-tab页-是否仍然响应？"><a href="#问题五：如果我们在控制台中运行以下函数，页面的UI-tab页-是否仍然响应？" class="headerlink" title="问题五：如果我们在控制台中运行以下函数，页面的UI(tab页)是否仍然响应？"></a>问题五：如果我们在控制台中运行以下函数，页面的UI(tab页)是否仍然响应？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve().then(foo);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p><strong>答案：不会</strong><br><strong>解释：</strong>大多数时候，我看到开发人员假设在事件循环的蓝图中只有一个任务队列(笔: 也叫<code>task queue</code>或<code>event queue</code>或<code>callback queue</code>)。但事实并非如此。我们可以有多个任务队列。由浏览器选择任意的队列并在其中处理<em>callbacks</em>。<br>在高层次上来看，JavaScript中有宏任务和微任务。<code>setTimeout</code>回调是<code>macrotasks</code>而<code>Promise</code>回调是 <code>microtasks</code> 。主要的区别在于他们的执行仪式。宏任务在单个循环周期中一次一个地推入堆栈，但是微任务队列总是在执行返回到<code>event loop</code>(包括任何额外排队的项)之前清空。因此，如果你将这些项快速的添加到这个你正在处理的队列，那么你将永远在处理微任务。</p>
-<blockquote>
-<p>在执行返回事件循环之前，微任务队列总是被清空</p>
-</blockquote>
-<p>现在，当你在控制台中运行以下代码段时：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">foo</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="built_in">Promise</span>.resolve().then(foo);</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<p>每次调用’foo’都会继续在微任务队列上添加另一个’foo’回调，因此事件循环无法继续处理其他事件(<code>scroll</code>，<code>click</code>等)，直到该队列完全清空为止。因此，它会阻止渲染。</p>
-<h3 id="问题六：我们可以在不引起TypeError的情况下以某种方式使用以下语句的扩展语法吗？"><a href="#问题六：我们可以在不引起TypeError的情况下以某种方式使用以下语句的扩展语法吗？" class="headerlink" title="问题六：我们可以在不引起TypeError的情况下以某种方式使用以下语句的扩展语法吗？"></a>问题六：我们可以在不引起TypeError的情况下以某种方式使用以下语句的扩展语法吗？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line">[...obj]; <span class="comment">// TypeError</span></span><br></pre></td></tr></table></figure>
-<p><strong>答案：可以, 通过是对象iterables</strong><br><strong>解释：拓展运算符和<code>for-of</code>语句迭代<code>iterable</code>对象。数组或Map是具有默认迭代行为的内置<code>iterable</code>。对象不是可迭代的，但你可以使用<code>iterable</code>和<code>iterator协议</code>使它们可迭代。</strong><br>在Mozilla文档中，如果一个对象实现了@@iterator方法，那么它就是可迭代的，这意味着这个对象(或者它原型链上的一个对象)必须有一个带有@@iterator键的属性，这个键可以通过常量Symbol.iterator获得。<br>上述陈述可能看起来有点冗长，但下面的例子会更有意义：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line">obj[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    next: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="built_in">this</span>._countDown === <span class="number">3</span>) &#123;</span><br><span class="line">        <span class="keyword">const</span> lastValue = <span class="built_in">this</span>._countDown;</span><br><span class="line">        <span class="keyword">return</span> &#123; <span class="attr">value</span>: <span class="built_in">this</span>._countDown, <span class="attr">done</span>: <span class="literal">true</span> &#125;;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="built_in">this</span>._countDown = <span class="built_in">this</span>._countDown + <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">value</span>: <span class="built_in">this</span>._countDown, <span class="attr">done</span>: <span class="literal">false</span> &#125;;</span><br><span class="line">    &#125;,</span><br><span class="line">    _countDown: <span class="number">0</span></span><br><span class="line">  &#125;;</span><br><span class="line">&#125;;</span><br><span class="line">[...obj]; <span class="comment">// will print [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<p>你还可以使用generator函数来自定义对象的迭代行为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">x</span>: <span class="number">1</span>, <span class="attr">y</span>: <span class="number">2</span>, <span class="attr">z</span>: <span class="number">3</span> &#125;;</span><br><span class="line">obj[<span class="built_in">Symbol</span>.iterator] = <span class="function"><span class="keyword">function</span>*(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">1</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">2</span>;</span><br><span class="line">  <span class="keyword">yield</span> <span class="number">3</span>;</span><br><span class="line">&#125;;</span><br><span class="line">[...obj]; <span class="comment">// print [1, 2, 3]</span></span><br></pre></td></tr></table></figure>
-<h3 id="问题七：运行以下代码片段时，控制台上会打印什么？"><a href="#问题七：运行以下代码片段时，控制台上会打印什么？" class="headerlink" title="问题七：运行以下代码片段时，控制台上会打印什么？"></a>问题七：运行以下代码片段时，控制台上会打印什么？</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(obj, &#123;<span class="attr">c</span>: <span class="number">3</span>&#125;);</span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&#x27;d&#x27;</span>, &#123; <span class="attr">value</span>: <span class="number">4</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">// what properties will be printed when we run the for-in loop?</span></span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> prop <span class="keyword">in</span> obj</span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(prop);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p><code>Object.setPrototypeOf</code>方法是针对<strong>对象实例的</strong>，而不是构造函数（类），此方法修改的是对象实例的内部属性<code>[prototype]</code>，也就是<code>_proto_</code>属性所指向的对象，它只是修改了特定对象上的原型对象，对于构造函数的<code>prototype</code>指向的原型对象没有影响。那是不是此方法就不能针对构造函数了，因为构造函数本身也是function(类)的实例。</p>
-</blockquote>
-<p><strong>语法结构：</strong><br>Obejct.setPrototypeOf(obj,proto);<br>参数解析:<br>(1).obj：必需，对其设置原型的对象。<br>(2).proto:必需，新的原型对象。</p>
-<blockquote>
-<p><code>Object.defineProperty()</code> 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性，并返回此对象。</p>
-</blockquote>
-<p><strong>语法结构：</strong><br>Object.defineProperty(obj, prop, descriptor);<br>obj:要定义属性的对象。<br>prop:要定义或修改的属性的名称或 Symbol 。<br>descriptor:要定义或修改的属性描述符。<br>返回值–&gt;被传递给函数的对象。<br><strong>答案：a,b,c</strong><br><strong>解释: <code>for-in</code>循环遍历对象本身的可枚举属性以及对象从其原型继承的属性。可枚举属性是可以在<code>for-in</code>循环期间包含和访问的属性。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;;</span><br><span class="line"><span class="keyword">var</span> descriptor = <span class="built_in">Object</span>.getOwnPropertyDescriptor(obj, <span class="string">&quot;a&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(descriptor.enumerable); <span class="comment">// true</span></span><br><span class="line"><span class="built_in">console</span>.log(descriptor);</span><br><span class="line"><span class="comment">// &#123; value: 1, writable: true, enumerable: true, configurable: true &#125;</span></span><br></pre></td></tr></table></figure>
-<p>现在掌握了这些知识，应该很容易理解为什么我们的代码会打印出这些特定的属性：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123; <span class="attr">a</span>: <span class="number">1</span>, <span class="attr">b</span>: <span class="number">2</span> &#125;; <span class="comment">// a, b are both enumerables properties</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.setPrototypeOf(obj, &#123; <span class="attr">c</span>: <span class="number">3</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(obj, <span class="string">&quot;d&quot;</span>, &#123; <span class="attr">value</span>: <span class="number">4</span>, <span class="attr">enumerable</span>: <span class="literal">false</span> &#125;);</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> prop <span class="keyword">in</span> obj) &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(prop);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="问题八：xGetter-将输出什么值"><a href="#问题八：xGetter-将输出什么值" class="headerlink" title="问题八：xGetter()将输出什么值?"></a>问题八：xGetter()将输出什么值?</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  x: <span class="number">90</span>,</span><br><span class="line">  getX: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">foo.getX(); <span class="comment">// prints 90</span></span><br><span class="line"><span class="keyword">var</span> xGetter = foo.getX;</span><br><span class="line">xGetter(); <span class="comment">// prints ??</span></span><br></pre></td></tr></table></figure>
-<p><strong>答案：10</strong><br><strong>解释：</strong>当我们将x初始化为全局作用域时，它将成为window对象的属性（假设它是浏览器环境而不是严格模式）。看下面代码：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">10</span>; <span class="comment">// 全局作用域</span></span><br><span class="line"><span class="keyword">var</span> foo = &#123;</span><br><span class="line">  x: <span class="number">90</span>,</span><br><span class="line">  getX: <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.x;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br><span class="line">foo.getX(); <span class="comment">// prints 90</span></span><br><span class="line"><span class="keyword">let</span> xGetter = foo.getX;</span><br><span class="line">xGetter(); <span class="comment">// prints 10</span></span><br></pre></td></tr></table></figure>
-<p>我们可以断言：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.x === <span class="number">10</span>; <span class="comment">// true</span></span><br></pre></td></tr></table></figure>
-<p><strong>this</strong>将始终指向调用该方法的对象。因此，在<code>foo.getX()</code>的情况下，<code>this </code>指向<code>foo</code>对象返回值90。而在<code>xGetter()</code>的情况下，<code>this </code>指向<code>window</code> 对象返回值10。<br>要检索<code>foo.x</code>的值，我们可以通过使用<code>Function.prototype.bind</code>将 <code>this</code> 的值绑定到<code>foo</code>对象来创建新函数。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> getFooX = foo.getX.bind(foo);</span><br><span class="line">getFooX(); <span class="comment">// prints 90</span></span><br></pre></td></tr></table></figure>
-
-<p>作者：xiaohesong<br>链接：<a target="_blank" rel="noopener" href="https://www.jianshu.com/p/aec200057e33">https://www.jianshu.com/p/aec200057e33</a><br>来源：简书</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/28/js-example/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-know-js" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/27/know-js/">JS的认识</a>
-    </h1>
   
 
-        
-        <a href="/2020/10/27/know-js/" class="archive-article-date">
-  	<time datetime="2020-10-27T15:45:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="javaScript的特点："><a href="#javaScript的特点：" class="headerlink" title="javaScript的特点："></a>javaScript的特点：</h3><ol>
-<li> 解释执行  解释一行执行一行  慢 (java、c# 编译执行—-一次性把代码编译成可执行的代码，然后再一行一行执行  快)</li>
-<li> 灵活  动态特性   可以随意给对象增加属性和方法</li>
-<li> 头等函数   函数在javaScript–一等公民</li>
-<li> 执行环境   宿主环境</li>
-</ol>
-<h3 id="浏览器的组成"><a href="#浏览器的组成" class="headerlink" title="浏览器的组成"></a>浏览器的组成</h3><p>1.<code>User Interface</code> 用户界面，我们所看到的浏览器<br>2.<code>Browser engine</code> 浏览器引擎，用来查询和操作渲染引擎<br>3.<strong><code>Rendering engine</code></strong> 渲染引擎，用来显示请求的内容，负责解析HTML、CSS,并把解析的内容显示出来<br>4.<code>Networking</code>     网络，负责发生网络请求<br>5.<em><code>javaScript Interpreter</code>(解析者)</em> <code>javaScript</code>解析器，负责执行<code>javaScript</code>的代码<br>6.<code>UI Backend</code>     UI后端，用来绘制类似组合框和弹出窗口<br>7.<code>Data Persistence</code>（持久化） 数据持久化，数据存储  <code>cookie、HTML5中的sessionStorage</code></p>
-<h3 id="javaScript的执行过程"><a href="#javaScript的执行过程" class="headerlink" title="javaScript的执行过程"></a>javaScript的执行过程</h3><p>javaScript运行分为两个阶段：</p>
-<pre><code>*预解析
-    -全局预解析（所有变量和函数声明都会提前：同名的函数和变量函数的优先级高）
-    -函数内部预解析（所有的变量、函数和形参都会参与预解析）
-        -函数
-        -形参
-        -普通变量
-*执行
-先预解析全局作用域，然后执行全局作用域中的代码
-在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。</code></pre>
-<h3 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象?"></a>什么是面向对象?</h3><blockquote>
-<p>面向对象不是新的东西，它只是<strong>过程式代码</strong>的一种高度封装，目的在于提高代码的开发效率和可维护性。<br>面向对象编程————<code>Object Oriented Programming</code>,简称<code>OOP</code>,是一种编程开发思想.<br><strong>面向对象与面向过程：</strong></p>
-</blockquote>
-<ul>
-<li>面向过程就是亲力亲为，事无巨细，面面俱到，步步紧跟，有条不紊</li>
-<li>面向对象就是找一个对象，指挥得结果</li>
-<li>面向对象将执行者转变为指挥者</li>
-<li>面向对象不是面向过程的替代，而是面向过程的封装</li>
-</ul>
-<p><strong>面向对象的特性：</strong></p>
-<ul>
-<li>封装性</li>
-<li>继承性</li>
-<li>[多态性]抽象</li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/27/know-js/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-json-vs-jsObject" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/27/json-vs-jsObject/">JSON与JS对象</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/27/json-vs-jsObject/" class="archive-article-date">
-  	<time datetime="2020-10-27T10:40:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="JSON-vs-JS对象"><a href="#JSON-vs-JS对象" class="headerlink" title="JSON vs JS对象"></a>JSON vs JS对象</h2><h3 id="JSON定义"><a href="#JSON定义" class="headerlink" title="JSON定义"></a>JSON定义</h3><blockquote>
-<ul>
-<li>JSON是JS的一种简单数据格式，JSON是JavaScript原生格式，它是一种严格的js对象的格式</li>
-<li>JSON的属性名必须有双引号，如果值是字符串，也必须是双引号</li>
-</ul>
-</blockquote>
-<p><strong>JSON只是一种数据格式</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj = &#123;&#125;; <span class="comment">//这只是JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj1 = &#123;<span class="attr">width</span>:<span class="number">100</span>, <span class="attr">height</span>:<span class="number">200</span>&#125;; <span class="comment">//JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj2 = &#123;<span class="string">&#x27;width&#x27;</span>:<span class="number">100</span>, <span class="string">&#x27;height&#x27;</span>:<span class="number">100</span>&#125;<span class="comment">//JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj3 = &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;name&quot;</span>: <span class="string">&quot;rose&quot;</span>&#125;; <span class="comment">//JSON格式的JS对象</span></span><br><span class="line"><span class="keyword">var</span> obj4 = <span class="string">&#x27;&#123;&quot;width&quot;:100, &quot;height&quot;:50, &quot;name&quot;:&quot;rose&quot;&#125;&#x27;</span>; <span class="comment">//JSON格式的字符串</span></span><br><span class="line"><span class="keyword">var</span> array = [</span><br><span class="line">    &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;height&quot;</span>:<span class="number">100</span>&#125;,</span><br><span class="line">    &#123;<span class="string">&quot;width&quot;</span>:<span class="number">100</span>, <span class="string">&quot;name&quot;</span>:<span class="string">&quot;rose&quot;</span>&#125;,</span><br><span class="line">]<span class="comment">//JSON格式的数组</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h3><table>
-<thead>
-<tr>
-<th align="center">区别</th>
-<th align="center">JSON</th>
-<th align="center">JavaScript对象</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">含义</td>
-<td align="center">仅仅是一种数据格式</td>
-<td align="center">表示类的实例</td>
-</tr>
-<tr>
-<td align="center">传输</td>
-<td align="center">可以跨平台数据传输，速度快</td>
-<td align="center">不能传输</td>
-</tr>
-<tr>
-<td align="center">表现</td>
-<td align="center">1.键值对方式，键必须加双引号 2.值不能是方法函数，不能是undefined/NaN</td>
-<td align="center">1.键值对方式，键不加引号 2.值可以是函数、对象、字符串、数字、boolean 等</td>
-</tr>
-<tr>
-<td align="center">相互转换</td>
-<td align="center">Json转换Js对象1.JSON.parse(JsonStr); (不兼容IE7) 2.eval(“(“+jsonStr+”)”); (兼容所有浏览器,但不安全，会执行json里面的表达式?)</td>
-<td align="center">js对象转换JsonJSON.stringify(jsObj);</td>
-</tr>
-</tbody></table>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/27/json-vs-jsObject/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-JSON.Stringify" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/26/JSON.Stringify/">JSON. Stringify</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/26/JSON.Stringify/" class="archive-article-date">
-  	<time datetime="2020-10-26T20:36:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-26</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>序列化选项： <code>JSON.stringify()</code> ：<strong>把一个js对象转换为JSON字符串</strong></p>
-</blockquote>
-<p>要接受的参数除了js对象外，还可以接收两个参数：</p>
-<ul>
-<li>第一个参数是过滤器，可以是一个数组，也可以是一个函数</li>
-<li>第二个参数是一个选项，便是是否在JSON字符串中保留缩进</li>
-</ul>
-<h3 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> book = &#123;</span><br><span class="line">    <span class="string">&quot;title&quot;</span>: <span class="string">&quot;web前端基础&quot;</span>,</span><br><span class="line">    <span class="string">&quot;authors&quot;</span>: [<span class="string">&quot;csgo&quot;</span>, <span class="string">&quot;rush&quot;</span>, <span class="string">&quot;B&quot;</span>],</span><br><span class="line">    total: <span class="number">999</span></span><br><span class="line">    year: <span class="number">2020</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>参数为一个数组时</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonText = <span class="built_in">JSON</span>.stringify(book, [<span class="string">&quot;title&quot;</span>, <span class="string">&quot;year&quot;</span>]);</span><br><span class="line"><span class="built_in">console</span>.log(jsonText);</span><br></pre></td></tr></table></figure>
-
-<p>输出结果为: <code>&#123;&quot;title&quot;:&quot;web前端基础&quot;,&quot;year&quot;:2020&#125;</code></p>
-<p><strong>参数为函数时</strong><br>传入的函数接收两个参数，属性（键）名和属性值。根据属性（键）名可以知道应该如何处理要序列化的对象中的属性，属性名只能是字符串，而在值并非键值对儿结构的值时，键名可以是空字符串为了改变序列化对象的结果，函数返回的值就是相应键的值。不过要注意，如果函数返回了undefined，那么相应的属性就会被忽略。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonText2 = <span class="built_in">JSON</span>.stringify(book, <span class="function"><span class="keyword">function</span>(<span class="params">key, value</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (key) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;authors&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> value.json(<span class="string">&quot;-&quot;</span>);</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;total&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">undefined</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&quot;year&quot;</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="string">`<span class="subst">$&#123;value&#125;</span>年出版`</span></span><br><span class="line">        <span class="keyword">default</span>:</span><br><span class="line">            <span class="keyword">return</span> value;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(jsonText2);</span><br></pre></td></tr></table></figure>
-<p>输出结果为：<code>&#123;&quot;title&quot;:&quot;web前端基础&quot;,&quot;authors&quot;:&quot;csgo-rush-b&quot;,&quot;year&quot;:&quot;2020年出版&quot;&#125;</code></p>
-<h3 id="字符串缩进"><a href="#字符串缩进" class="headerlink" title="字符串缩进"></a>字符串缩进</h3><p><strong>如果这个参数是一个数值，那它表示的是每个级别缩进的空格数。最大缩进空格为10，大于10会自动转换为10</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonText3 = <span class="built_in">JSON</span>.stringify(book, <span class="literal">null</span>, <span class="number">4</span>);</span><br><span class="line"><span class="built_in">console</span>.log(jsonText3);</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;title&quot;</span>: <span class="string">&quot;web前端基础&quot;</span>,</span><br><span class="line">    <span class="string">&quot;authors&quot;</span>: [</span><br><span class="line">        <span class="string">&quot;csgo&quot;</span>,</span><br><span class="line">        <span class="string">&quot;rush&quot;</span>,</span><br><span class="line">        <span class="string">&quot;b&quot;</span></span><br><span class="line">    ],</span><br><span class="line">    <span class="string">&quot;total&quot;</span>: <span class="number">999</span>,</span><br><span class="line">    <span class="string">&quot;year&quot;</span>: <span class="number">2020</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><strong>如果缩进参数是一个字符串而非数值，则这个字符串将在JSON字符串中被用作缩进字符（不再使用空格）超过10个，自动转换为10</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> jsonText4 = <span class="built_in">JSON</span>.stringify(book, <span class="literal">null</span>, <span class="string">&quot;---&quot;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(jsonText4);</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">---<span class="string">&quot;title&quot;</span>: <span class="string">&quot;web前端基础&quot;</span>,</span><br><span class="line">---<span class="string">&quot;authors&quot;</span>: [</span><br><span class="line">------<span class="string">&quot;csgo&quot;</span>,</span><br><span class="line">------<span class="string">&quot;rush&quot;</span>,</span><br><span class="line">------<span class="string">&quot;b&quot;</span></span><br><span class="line">---],</span><br><span class="line">---<span class="string">&quot;total&quot;</span>: <span class="number">999</span>,</span><br><span class="line">---<span class="string">&quot;year&quot;</span>: <span class="number">2020</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<hr>
-<h3 id="JSON-toJSON"><a href="#JSON-toJSON" class="headerlink" title="JSON.toJSON()"></a>JSON.toJSON()</h3><blockquote>
-<p>有时候<code>JSON.stringify()</code>还是不能满足对某些对象进行自定义序列化的需求。可以使用<code>toJSON()</code>,返回其自身的JSON数据格式。</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> book2 = &#123;</span><br><span class="line">    <span class="string">&quot;title&quot;</span>: <span class="string">&quot;js高级程序设计（第三版）&quot;</span>,</span><br><span class="line">    <span class="string">&quot;authors&quot;</span>: [<span class="string">&quot;csgo&quot;</span>, <span class="string">&quot;rush&quot;</span>, <span class="string">&quot;b&quot;</span>],</span><br><span class="line">    total: <span class="number">999</span>,</span><br><span class="line">    year: <span class="number">2020</span>,</span><br><span class="line">    toJSON: <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.title</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">const</span> jsonText5 = <span class="built_in">JSON</span>.stringify(book2);</span><br><span class="line"><span class="built_in">console</span>.log(jsonText5);</span><br></pre></td></tr></table></figure>
-<p>输出结果为：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&quot;js高级程序设计（第三版）&quot;</span></span><br></pre></td></tr></table></figure>
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">js</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/26/JSON.Stringify/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-function-Component" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/25/function-Component/">无状态函数组件认识</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/25/function-Component/" class="archive-article-date">
-  	<time datetime="2020-10-25T12:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/25/function-Component/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-markdown-md-basic" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/24/markdown-md-basic/">markdown(md)基础用法</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/24/markdown-md-basic/" class="archive-article-date">
-  	<time datetime="2020-10-24T19:39:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="正文"><a href="#正文" class="headerlink" title="正文"></a>正文</h1><h2 id="1、标题的写法"><a href="#1、标题的写法" class="headerlink" title="1、标题的写法"></a>1、标题的写法</h2><p>第一种: </p>
-<pre><code># 一级标题
-## 二级标题
-### 三级标题
-...
-注意：#号后面有空格</code></pre>
-<p>第二种:</p>
-<pre><code>这是一级标题
-===============
-这是二级标题
----------------
-注意:这种方式好像只能表示以及和二级，而且=和-没有限制</code></pre>
-<p>第三种:</p>
-<pre><code># 一级标题 #
-## 二级标题 ##
-### 三级标题 ###
-...</code></pre>
-<h2 id="2、列表"><a href="#2、列表" class="headerlink" title="2、列表"></a>2、列表</h2><p>无序列表:</p>
-<pre><code>+ 1
-- 2
-* 3
-
-可以看到,无序列表可以使用 * , + , - ,来创建</code></pre>
-<p>有序列表:</p>
-<pre><code>3. 列表1
-2. 列表2
-1. 列表3
-
-有序列表就相对简单一点，只有这一种方式，注意，数字后面的点只能是英文的点</code></pre>
-<h2 id="3、区块引用"><a href="#3、区块引用" class="headerlink" title="3、区块引用"></a>3、区块引用</h2><p>比如说，你想对某个部分做的内容做一些说明或者引用某某的话等，可以用这个语句<br>        * 我可是吃了迷路果实的剑客<br>        &gt; 罗罗诺亚.索隆</p>
-<ul>
-<li>我可是吃了迷路果实的剑客<blockquote>
-<p>罗罗诺亚.索隆</p>
-</blockquote>
-</li>
-</ul>
-<h3 id="另一种用法"><a href="#另一种用法" class="headerlink" title="另一种用法"></a>另一种用法</h3><pre><code>&gt; 一级引用
-&gt;&gt; 二级引用
-&gt;&gt;&gt; 三级引用
-&gt;&gt;&gt;&gt; 四级引用</code></pre>
-<blockquote>
-<p>一级引用</p>
-<blockquote>
-<p>二级引用</p>
-<blockquote>
-<p>三级引用</p>
-<blockquote>
-<p>四级引用</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-<h2 id="4、分割线"><a href="#4、分割线" class="headerlink" title="4、分割线"></a>4、分割线</h2><p>分割线可以由 * , -, _ ,这三个符号组成，且至少3个符号表示，而且不需要连续，有空格也行。</p>
-<pre><code>***
-***********
--------
-- - - - 
-******
-* * ** * *</code></pre>
-<h2 id="5、链接"><a href="#5、链接" class="headerlink" title="5、链接"></a>5、链接</h2><p>支持两种链接方式: 行内式和参数式，不管是哪一种，链接文字都是用 [方括号] 来标记</p>
-<h3 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h3><p><a target="_blank" rel="noopener" href="http://www.baidu.com/">RGB</a>是什么意思<br>链接还可以带title属性：左[RGB】(<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> “三原色”)<br><a target="_blank" rel="noopener" href="http://www.baidu.com/" title="三原色">RGB</a>—移动鼠标至此可以看到title</p>
-<h3 id="参数式"><a href="#参数式" class="headerlink" title="参数式"></a>参数式</h3><pre><code>[RGB]: http://www.baidu.com &quot;三原色&quot;
-[RGBA]: http://www.baidu.com &quot;A代表透明度&quot;
-这里是[RGB],这里是[RGBA]</code></pre>
-<p>这里是<a target="_blank" rel="noopener" href="http://www.baidu.com/" title="三原色">RGB</a>,这里是<a target="_blank" rel="noopener" href="http://www.baidu.com/" title="A代表透明度">RGBA</a></p>
-<h2 id="6、图片"><a href="#6、图片" class="headerlink" title="6、图片"></a>6、图片</h2><p>图片也有两种方式：行内式和参数式<br>用法跟链接的基本一样，唯一的不同就是，图片前面要写一个！<br><img src="https://imgchr.com/i/dBqWuQ" alt="我是图片" title="火蛇"></p>
-<h2 id="7、代码框"><a href="#7、代码框" class="headerlink" title="7、代码框"></a>7、代码框</h2><p>如果代码量比较少，只有单行的话，可以用单反引号包起来,多行用三个反引号，如果要写注释，可以在反引号后面写.</p>
-<h3 id="单行用"><a href="#单行用" class="headerlink" title="单行用``"></a>单行用``</h3><p><code>&lt;p&gt;&lt;a href=&quot;/Notes&quot; title=&quot;技术栈&quot;&gt;主要技术栈&lt;/a&gt;&lt;/p&gt;</code></p>
-<h3 id="多行用-3个"><a href="#多行用-3个" class="headerlink" title="多行用```(3个`)"></a>多行用```(3个`)</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;p&gt;&lt;a href&#x3D;&quot;&#x2F;Notes&quot; title&#x3D;&quot;技术栈&quot;&gt;主要技术栈&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;a href&#x3D;&quot;&#x2F;Notes&quot; title&#x3D;&quot;技术栈&quot;&gt;主要技术栈&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;</span><br><span class="line">&lt;p&gt;&lt;a href&#x3D;&quot;&#x2F;Notes&quot; title&#x3D;&quot;技术栈&quot;&gt;主要技术栈&lt;&#x2F;a&gt;&lt;&#x2F;p&gt;</span><br></pre></td></tr></table></figure>
-
-<h2 id="8、表格"><a href="#8、表格" class="headerlink" title="8、表格"></a>8、表格</h2><pre><code>| name | age | sex |
-|:------:|:-----|------:|冒号写左边，左对齐，写右边，右对齐
-| tony | 20  |  男 |
-| lucy | 18  |  女 |</code></pre>
-<table>
-<thead>
-<tr>
-<th align="center">name</th>
-<th align="left">age</th>
-<th align="right">sex</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">tony</td>
-<td align="left">20</td>
-<td align="right">男</td>
-</tr>
-<tr>
-<td align="center">lucy</td>
-<td align="left">18</td>
-<td align="right">女</td>
-</tr>
-</tbody></table>
-<h2 id="9、强调"><a href="#9、强调" class="headerlink" title="9、强调"></a>9、强调</h2><p>一个星号或者是一个下划线包起来，会转换为<code>&lt;em&gt;</code>倾斜，如果是2个，会转换为<code>&lt;strong&gt;</code>加粗<br><em>字体倾斜</em><br><em>字体倾斜</em><br><strong>字体加粗</strong><br><strong>字体加粗</strong></p>
-<h2 id="10、转义"><a href="#10、转义" class="headerlink" title="10、转义"></a>10、转义</h2><pre><code>* \\
-* \`
-* \~
-* \*
-* \_
-* \!</code></pre>
-<ul>
-<li>\</li>
-<li>`</li>
-<li>~</li>
-<li>*</li>
-<li>_</li>
-<li>!<br>…基本上跟js转义是一样的</li>
-</ul>
-<h2 id="11、删除线"><a href="#11、删除线" class="headerlink" title="11、删除线"></a>11、删除线</h2><pre><code>~~删除线~~</code></pre>
-<p><del>删除线</del></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">md</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/24/markdown-md-basic/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-React-key" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/10/24/React-key/">React key的作用</a>
-    </h1>
-  
-
-        
-        <a href="/2020/10/24/React-key/" class="archive-article-date">
-  	<time datetime="2020-10-24T18:25:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-24</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="简单了解一下Diff算法"><a href="#简单了解一下Diff算法" class="headerlink" title="简单了解一下Diff算法"></a>简单了解一下Diff算法</h2><p>React为了提升渲染方面的性能，在内部维持了一个虚拟dom(virtul DOM)，当渲染结构有所变化的时候，会在虚拟dom中先用diff算法先进行一次对比，将所有的差异化解决之后，再一次性根据虚拟dom的变化，渲染到真实的dom结构.</p>
-<h2 id="key属性的使用"><a href="#key属性的使用" class="headerlink" title="key属性的使用"></a>key属性的使用</h2><p>关于key属性的使用，涉及到diff算法中同级节点的对比策略，当我们使用指定的key值时，key值会作为当前组件的id，diff算法会根据这个id来进行匹配。如果遍历新的dom结构时，发现组件的id在旧的dom结构中存在，那么React会认为当前组件只是位置发生了变化，因此不会将旧的组件销毁重新创建，只会改变当前组件的位置，然后再检查组件的属性有没有发生变化，然后选择保留或修改当前组件的属性。如果没有显式指定key的值，React会把当前组件数据源的index作为默认的key值.</p>
-<h2 id="在实际开发使用中，我们需要注意什么呢？"><a href="#在实际开发使用中，我们需要注意什么呢？" class="headerlink" title="在实际开发使用中，我们需要注意什么呢？"></a>在实际开发使用中，我们需要注意什么呢？</h2><p>首先，我们要确保key值的唯一，事实上如果key值不唯一的话，React只会渲染第一个，剩下的React会认为是同一项，直接忽略。其次，尽量避免使用index值作为组件的key值，使用index作为key不能保证一定是唯一的.</p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">react</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/10/24/React-key/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -1128,10 +303,10 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
