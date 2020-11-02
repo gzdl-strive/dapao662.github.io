@@ -263,20 +263,13 @@ function Counter() {
         return () => clearInterval(id);
     }, [step]);
 
-    return ( <
-        >
-        <
-        h1 > {
-            count
-        } < /h1> <
-        input value = {
-            step
-        }
+    return ( <>
+        <h1> { count } </h1> 
+        <input value = { step }
         onChange = {
             e => setStep(Number(e.target.value))
-        }
-        /> < /
-        >
+        }/> 
+        </>
     );
 }
 ```

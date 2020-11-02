@@ -7,7 +7,7 @@ date: 2020-10-24 18:48:47
 ## CSS
 
 ## JS
->[js](/js "js")
+>[javaScript](/js "js")
 
 ### ES6
 
