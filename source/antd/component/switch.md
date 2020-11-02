@@ -27,3 +27,10 @@ tag: Ant Design Pro
 ```
 >这回就可以正确赋值了!!
 
+
+### onChange事件
+```js
+// 类组件
+//onChange 变化时回调函数 Function(checked: boolean, event: Event)
+<Switch onChange={(checked) => this.changeSwitch(checked, "abc")}/>
+```
