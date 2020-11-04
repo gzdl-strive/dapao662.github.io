@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo 起始页 | 学习笔记</title>
+  <title>Tag: Ant Design Pro | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 起始页">
-<meta property="og:url" content="http://example.com/2020/11/03/hello-world/index.html">
+  <meta name="description" content="如果使用的版本高于3.x的话，解决方法请移步switch赋值 123456789&lt;Col span&#x3D;&amp;#123;8&amp;#125;&gt;   &lt;Form.Item label&#x3D;&quot;最新&quot; name&#x3D;&quot;isnew&quot;&gt;        &amp;#123;            this.props.form.getFieldDecorator(&amp;#x27;">
+<meta property="og:type" content="website">
+<meta property="og:title" content="3.x Switch 赋值问题">
+<meta property="og:url" content="http://example.com/antd/component/switch(3.x).html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="如果使用的版本高于3.x的话，解决方法请移步switch赋值 123456789&lt;Col span&#x3D;&amp;#123;8&amp;#125;&gt;   &lt;Form.Item label&#x3D;&quot;最新&quot; name&#x3D;&quot;isnew&quot;&gt;        &amp;#123;            this.props.form.getFieldDecorator(&amp;#x27;">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-03T13:53:51.088Z">
-<meta property="article:modified_time" content="2020-11-03T13:53:51.088Z">
+<meta property="article:published_time" content="2020-11-04T14:45:50.000Z">
+<meta property="article:modified_time" content="2020-11-04T06:58:42.800Z">
 <meta property="article:author" content="Zoro">
-<meta property="article:tag" content="hello">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -143,39 +142,37 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 起始页
+      3.x Switch 赋值问题
     </h1>
   
 
         
-        <a href="/2020/11/03/hello-world/" class="archive-article-date">
-  	<time datetime="2020-11-03T13:53:51.088Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
+        <a href="/antd/component/switch(3.x).html" class="archive-article-date">
+  	<time datetime="2020-11-04T14:45:50.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>--创建一个新的模板</span><br></pre></td></tr></table></figure>
+        <p><strong>如果使用的版本高于3.x的话，解决方法请移步<a href="/antd/component/switch" title="switch赋值">switch赋值</a></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;Col span=&#123;<span class="number">8</span>&#125;&gt;</span><br><span class="line">   &lt;Form.Item label=<span class="string">&quot;最新&quot;</span> name=<span class="string">&quot;isnew&quot;</span>&gt;</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="built_in">this</span>.props.form.getFieldDecorator(<span class="string">&#x27;status&#x27;</span>, &#123;</span><br><span class="line">                valuePropName: <span class="string">&#x27;checked&#x27;</span>,</span><br><span class="line">            &#125;)(	<span class="xml"><span class="tag">&lt;<span class="name">Switch</span> <span class="attr">onChange</span>=<span class="string">&#123;(checked)</span> =&gt;</span> this.changeSwitch(checked,&quot;switch赋值&quot;)&#125; checkedChildren=&quot;开启&quot; unCheckedChildren=&quot;关闭&quot;&gt;<span class="tag">&lt;/<span class="name">Switch</span>&gt;</span></span>)</span><br><span class="line">        &#125;</span><br><span class="line">    &lt;/Form.Item&gt;</span><br><span class="line">&lt;/Col&gt;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server--启动服务-默认4000端口</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<p><strong>如果报错getFieldDecorator is undefined…</strong></p>
+<blockquote>
+<p>没有因为没有使用Form.create()定义组件,配置如下：</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">CustomizedForm</span> <span class="keyword">extends</span> <span class="title">React</span>.<span class="title">Component</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line">CustomizedForm = Form.create(&#123;&#125;)(CustomizedForm);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>经过 <code>Form.create</code> 包装的组件将会自带 <code>this.props.form</code> 属性<br>注意：使用 <code>getFieldsValue</code> <code>getFieldValue</code> <code>setFieldsValue </code>等时，应确保对应的 <code>field</code> 已经用 <code>getFieldDecorator</code> 注册过了。</p>
+</blockquote>
 
       
 
@@ -184,17 +181,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -245,7 +231,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/03/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/antd/component/switch(3.x).html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,16 +243,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2020/10/30/TDZ/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6的TDZ(暂时性死区)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -317,9 +293,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
