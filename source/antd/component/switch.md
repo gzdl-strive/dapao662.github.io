@@ -9,7 +9,7 @@ tag: Ant Design Pro
 ```js
 <Col span={8}>
    <Form.Item label="最新" name="isnew">
-               <Switch />
+            <Switch />
     </Form.Item>
 </Col>
 ```
