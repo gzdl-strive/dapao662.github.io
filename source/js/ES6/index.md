@@ -1,9 +1,8 @@
 ---
-title: ES6
+title: Promise源码
 date: 2020-11-01 19:50:02
 tag: js
 ---
-
 
 ## Promise源码实现
 
@@ -18,4 +17,5 @@ tag: js
 
 ### Promise源码4-->完整代码
 >[Promise源码4完整代码](/js/ES6/Promise/promise4 "promise4")
+
 

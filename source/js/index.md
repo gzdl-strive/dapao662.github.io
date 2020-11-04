@@ -26,3 +26,6 @@ tag: js
 
 ### Promise源码实现
 >[Promise](/js/ES6/index "Promise")
+
+### Async练习
+>[Async](/js/ES6/index2 "Async")
