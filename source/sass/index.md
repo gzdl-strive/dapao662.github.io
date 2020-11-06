@@ -30,3 +30,18 @@ tag: sass
 ## 函数
 >[函数(Functions)](/sass/scss/Functions "函数")
 
+## 继承
+>[继承(Extend)](/sass/scss/Extend "继承")
+
+## 嵌套
+>[嵌套(Nesting)](/sass/scss/Nesting "嵌套")
+
+## 部分和导入
+>[部分和导入(Partials and Imports)](/sass/scss/Partials-Imports "Partials and Imports")
+
+## 占位符选择器
+>[占位符选择器(Placeholder Selectors)](/sass/scss/Placeholder-Selectors "占位符选择器")
+
+## 数学运算
+>[数学运算(Math Operations)](/sass/scss/Math-Operations "数学运算")
+
