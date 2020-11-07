@@ -45,3 +45,7 @@ tag: sass
 ## 数学运算
 >[数学运算(Math Operations)](/sass/scss/Math-Operations "数学运算")
 
+---------------------------------------------
+### 聚光灯效果
+>[聚光灯](/sass/practice/first "聚光灯")
+
