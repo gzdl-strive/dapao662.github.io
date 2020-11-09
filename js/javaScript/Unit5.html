@@ -16,7 +16,7 @@
 <meta property="og:description" content="引用类型 引用类型的值（对象）是引用类型的一个实例。对象是某个特定引用类型的实例。新对象是使用new操作符后跟一个构造函数来创建的。构造函数本身就是一个函数，只不过该函数是出于创建新对象的目的而定义的。  1、Object类型2、Array类型 检测数组：Array.isArray() 转换方法：所有对象都具有toLocaleString()、toString()、valueOf()方法12345">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-26T21:25:10.000Z">
-<meta property="article:modified_time" content="2020-11-09T02:55:04.905Z">
+<meta property="article:modified_time" content="2020-11-09T13:54:37.132Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -216,7 +216,49 @@
 <p><strong>归并方法：reduce()、reduceRight()</strong></p>
 <ul>
 <li>reduce():从数组的第一项开始，逐个遍历到最后。</li>
-<li>reduceRight():从数组的最后一项开始，向前遍历到第一项.<br>这两个方法都接受两个参数：一个在每一项上调用的函数和（可选）作为归并基础的初始值。<br>传给reduce和reduceRight的函数接收<strong>4个参数</strong>：<strong>前一个值、当前值、项的索引、数组对象</strong><br>这个函数返回的任何值都会作为第一个参数自动传给下一项<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number3 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">10</span>];</span><br><span class="line"><span class="keyword">const</span> reduce1 = number3.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> reduceRight1 = number3.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev - cur;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(reduce1);<span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(reduceRight1);<span class="comment">//0</span></span><br></pre></td></tr></table></figure></li>
+<li>reduceRight():从数组的最后一项开始，向前遍历到第一项.<br>这两个方法都接受两个参数：一个在每一项上调用的函数和（可选）作为归并基础的初始值。<br>传给reduce和reduceRight的函数接收<strong>4个参数</strong>：<strong>前一个值、当前值、项的索引、数组对象</strong><br>这个函数返回的任何值都会作为第一个参数自动传给下一项<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> number3 = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">10</span>];</span><br><span class="line"><span class="keyword">const</span> reduce1 = number3.reduce(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev + cur;</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">const</span> reduceRight1 = number3.reduceRight(<span class="function"><span class="keyword">function</span>(<span class="params">prev, cur, index, array</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> prev - cur;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">console</span>.log(reduce1);<span class="comment">//20</span></span><br><span class="line"><span class="built_in">console</span>.log(reduceRight1);<span class="comment">//0</span></span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<h3 id="3、Date类型"><a href="#3、Date类型" class="headerlink" title="3、Date类型"></a>3、Date类型</h3><blockquote>
+<p>要创建一个日期对象，使用new操作符和Date构造函数即可:<code>var now = new Date();</code></p>
+</blockquote>
+<p>在调用Date构造函数而不传递参数的情况下，新创建的对象自动获得当前日期和时间。如果想根据特定的日期和时间创建日期对象，必须传入表示该日期的毫秒数（即从UTC时间1970年1月1日午夜起至该日期经过的毫秒数）.为了简化这一计算过程，ECMAScript提供了两个方法:<code>Date.parse()</code>和<code>Date.UTC()</code>。<br><strong>Date.parse()</strong><br>接收一个表示日期的字符串参数，然后尝试根据这个字符串返回相应日期的毫秒数。如果Date.parse()传入的字符串不能表示日期，那么他会返回NaN.接收的格式如下：</p>
+<ul>
+<li>“月/日/年” 如：6/13/2020</li>
+<li>“英文月名 日,年” 如：January 12,2004</li>
+<li>“英文星期几 英文月名 日 年 时:分:秒 时区” 如：Tue May 25 2020 00:00:00 GMT-0700</li>
+<li>ISO 8601扩展格式 YYYY-MM-DDTHH:mm:ss.sssZ(例如：2020-03-25T00:00:00)只有兼容ECMAScript 5 的实现支持这种格式</li>
+<li>*Date.UTC()**<br>同样返回表示日期的毫秒数，当他与Date.parse()在构建值时使用不同的信息。Date.UTC()的参数分别是年份、基于0的月份（1月是0，二月是1，以此类推）、月中的哪一天(1到31)、小时数（0到23）、分钟、秒以及毫秒数。这些参数中，只有前两个参数（年和月）是必须的。如果没有提供月中的天数，则假设为1；如果省略其他参数，则统统假设为0.</li>
+<li>*Date.now()**<br>返回表示调用这个方法时的日期和毫秒数。这个方法简化了使用Date对象分析代码的工作。</li>
+</ul>
+<h3 id="4、RegExp类型"><a href="#4、RegExp类型" class="headerlink" title="4、RegExp类型"></a>4、RegExp类型</h3><h3 id="5、Function类型"><a href="#5、Function类型" class="headerlink" title="5、Function类型"></a>5、Function类型</h3><h3 id="6、基本包装类型"><a href="#6、基本包装类型" class="headerlink" title="6、基本包装类型"></a>6、基本包装类型</h3><p>ECMAScript提供了3个特殊的的引用类型：Boolean、Number、String。这些类型与其他引用类型类似，但同时也具有各自的基本类型对应的特殊行为。实际上，每当读取一个基本类型值的时候，后台会创建一个对应的基本包装类型的对象，从而让我们能够调用一些方法来操作这些数据。</p>
+<h3 id="7、单体内置对象"><a href="#7、单体内置对象" class="headerlink" title="7、单体内置对象"></a>7、单体内置对象</h3><ul>
+<li>Golbal对象<blockquote>
+<p>例如：isNaN()、isFinite()、parseInt()、parseFloat()等都是Global对象的方法。还包含其他的一些方法</p>
+<blockquote>
+<ol>
+<li>URI编码方法–(encodeURI()和encodeURIComponent()方法对URI进行编码，以便发生给浏览器)。还有对应的decodeURI和decodeURIComponent()方法</li>
+<li>eval()方法–大概是整个ECMAScript中最强大的一个方法：eval()方法就像一个完整的ECMAScript解析器，它只接受一个参数，即要执行的ECMAScript(或javaScript)字符串<br><code>eval(&quot;alert(&#39;hi&#39;)&quot;)</code><br>…</li>
+</ol>
+</blockquote>
+</blockquote>
+</li>
+<li>Math对象<br>…</li>
+</ul>
+<h2 id="小结"><a href="#小结" class="headerlink" title="小结"></a>小结</h2><blockquote>
+<p>对象在JavaScript中被称为引用类型的值，而且有一些内置的引用类型可以用来创建特定的对象。现简要总结如下：</p>
+</blockquote>
+<ul>
+<li>引用类型与传统面向对象程序设计中的类相似，但实现不同；</li>
+<li>Object是一个基础类型，其他所有类型督促object基础了基本的行为；</li>
+<li>Array类型是一组值的有序列表，同时还提供了操作和转换这些值的功能；</li>
+<li>Date类型提供了有关日期和时间的信息，包括当前日期和时间以及相关的计算功能；</li>
+<li>RegExp类型是ECMAScript至此正则表达式的一个接口，提供了最基本的和一些高级的正则表达式功能；</li>
+<li>函数实际上是Funciton类型的实例，因此函数也是对象；而这一点正是JavaScript最有特色的地方。由于函数也拥有方法，可以用来增强其行为。<br>因为有了基本包装类型，所以JavaScript中的基本类型值可以被当作对象来访问。三种基本包装类型分别是：Boolean、Number、String。以下是它们共同的特征：</li>
+<li>每个包装类型都映射到同名的基本类型</li>
+<li>在读取模式下访问基本类型值时，就会创建对应的基本包装类型的一个对象，从而方便了数据操作。</li>
+<li>操作基本类型值的语句一经执行完毕，就会立即销毁新创建的包装类型。<br>在所有代码执行之前，作用域中就已经存在两个内置对象：Global和Math。在大多数ECMAScript实现中都不能直接访问Global对象；不过Web浏览器提供了承担该角色的window对象。全局变量和函数都市Global对象的属性.Math对象提供了很多属性和方法，用于辅助完成复杂的数学计算任务。</li>
 </ul>
 
       
@@ -309,7 +351,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Object%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1、Object类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Array%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2、Array类型</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">引用类型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81Object%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.1.</span> <span class="toc-text">1、Object类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81Array%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.2.</span> <span class="toc-text">2、Array类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81Date%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.3.</span> <span class="toc-text">3、Date类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%E3%80%81RegExp%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.4.</span> <span class="toc-text">4、RegExp类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5%E3%80%81Function%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.5.</span> <span class="toc-text">5、Function类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81%E5%9F%BA%E6%9C%AC%E5%8C%85%E8%A3%85%E7%B1%BB%E5%9E%8B"><span class="toc-number">1.6.</span> <span class="toc-text">6、基本包装类型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7%E3%80%81%E5%8D%95%E4%BD%93%E5%86%85%E7%BD%AE%E5%AF%B9%E8%B1%A1"><span class="toc-number">1.7.</span> <span class="toc-text">7、单体内置对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B0%8F%E7%BB%93"><span class="toc-number">2.</span> <span class="toc-text">小结</span></a></li></ol>
                     </div>
                 </span>
             </div>
