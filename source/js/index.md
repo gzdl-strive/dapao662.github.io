@@ -29,3 +29,7 @@ tag: js
 
 ### Async练习
 >[Async](/js/ES6/index2 "Async")
+
+## ES11
+
+>[ES11](/js/ES11/index "ES11")

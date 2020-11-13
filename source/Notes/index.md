@@ -9,7 +9,7 @@ date: 2020-10-24 18:48:47
 >[React](/react "React")
 
 ### Hook
->[useEffect](/hook "hook")
+>[Hook](/hook "hook")
 
 ### Ant Design Pro
 >[Antd](/antd "antd")

@@ -5,4 +5,8 @@ tag: react
 ---
 
 ## React技巧
->[react技巧](/react/practice/first "1")
+
+### 技巧一
+>[react技巧一](/react/practice/first "1")
+
+

@@ -13,3 +13,11 @@ toc: true
 
 ### useEffect指南(2)
 >[useEffect指南(2)](/hook/useEffect/second "指南(2)")
+
+## useContext技巧
+
+### useContext技巧(1)
+>[useContext技巧(1)--神奇的children](/hook/useContext/first "技巧(1)")
+
+### useContext技巧(2)
+>[useContext技巧(2)--Context读写分离](/hook/useContext/second "技巧(2)")
