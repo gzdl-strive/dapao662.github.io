@@ -21,3 +21,9 @@ toc: true
 
 ### useContext技巧(2)
 >[useContext技巧(2)--Context读写分离](/hook/useContext/second "技巧(2)")
+
+### useContext技巧(3)
+>[useContext技巧(3)--Context代码组织](/hook/useContext/three "技巧(3)")
+
+### useContext技巧(4)
+>[useContext技巧(4)--组合Providers](/hook/useContext/four "技巧(4)")
