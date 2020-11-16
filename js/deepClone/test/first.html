@@ -6,20 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo 起始页 | 学习笔记</title>
+  <title>Tag: js | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 起始页">
-<meta property="og:url" content="http://example.com/2020/11/15/hello-world/index.html">
+  <meta name="description" content="数据类型 Number String Boolean Null Undefined Symbol Object其中前面6种类型是原始数据类型，而Object是引用数据类型我更喜欢把前面6种称之为简单数据类型，而把Object称之为复杂数据类型。因为简单数据类型没有子类型了，不可以再进行拆分了，而复杂数据类型还有子类型，比如Array,Function,RegExp,Date等对象，正是因为这些子类">
+<meta property="og:type" content="website">
+<meta property="og:title" content="基础知识">
+<meta property="og:url" content="http://example.com/js/deepClone/test/first.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="数据类型 Number String Boolean Null Undefined Symbol Object其中前面6种类型是原始数据类型，而Object是引用数据类型我更喜欢把前面6种称之为简单数据类型，而把Object称之为复杂数据类型。因为简单数据类型没有子类型了，不可以再进行拆分了，而复杂数据类型还有子类型，比如Array,Function,RegExp,Date等对象，正是因为这些子类">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-15T09:38:00.122Z">
-<meta property="article:modified_time" content="2020-11-15T09:38:00.122Z">
+<meta property="og:image" content="http://example.com/assets/jsImg/deepCloneImg/1-1.jpg">
+<meta property="og:image" content="http://example.com/assets/jsImg/deepCloneImg/1-2.jpg">
+<meta property="og:image" content="http://example.com/assets/jsImg/deepCloneImg/1-3.jpg">
+<meta property="article:published_time" content="2020-11-15T19:58:02.000Z">
+<meta property="article:modified_time" content="2020-11-16T02:48:41.649Z">
 <meta property="article:author" content="Zoro">
-<meta property="article:tag" content="hello">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/jsImg/deepCloneImg/1-1.jpg">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -143,39 +146,49 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 起始页
+      基础知识
     </h1>
   
 
         
-        <a href="/2020/11/15/hello-world/" class="archive-article-date">
-  	<time datetime="2020-11-15T09:38:00.122Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
+        <a href="/js/deepClone/test/first.html" class="archive-article-date">
+  	<time datetime="2020-11-15T19:58:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-15</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>--创建一个新的模板</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server--启动服务-默认4000端口</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><ul>
+<li>Number</li>
+<li>String</li>
+<li>Boolean</li>
+<li>Null</li>
+<li>Undefined</li>
+<li>Symbol</li>
+<li>Object<br>其中前面6种类型是原始数据类型，而<code>Object</code>是引用数据类型我更喜欢把前面6种称之为简单数据类型，而把<code>Object</code>称之为复杂数据类型。因为简单数据类型没有子类型了，不可以再进行拆分了，而复杂数据类型还有子类型，比如<code>Array</code>,<code>Function</code>,<code>RegExp</code>,<code>Date</code>等对象，正是因为这些子类型的不同导致了深拷贝的各种问题。这就是为什么很多人在回答有哪些基本数据类型时会把Array和Function答进去。事实上他们只是Object的子类型，并不是基本数据类型。<br>数据类型的不同，会导致在内存中的存储方式的不同，如果是<strong>简单数据类型，存储在栈空间中，存储的是一个值；</strong>如果是<strong>复杂数据类型，存储在堆空间中，存储的是一个引用</strong>,正是这种存储方式的差异，导致了浅拷贝和深拷贝的区别。<br><img src="/assets/jsImg/deepCloneImg/1-1.jpg" alt="1" title="数据类型"></li>
+</ul>
+<h2 id="浅拷贝和深拷贝"><a href="#浅拷贝和深拷贝" class="headerlink" title="浅拷贝和深拷贝"></a>浅拷贝和深拷贝</h2><p>我们先来明确一下到底什么是浅拷贝什么是深拷贝</p>
+<blockquote>
+<p><strong>浅拷贝</strong>： 如果属性是基本类型，拷贝的就是基本类型的值，如果属性是引用类型，拷贝的就是内存地址 ，所以修改新拷贝的对象会影响原对象。</p>
+</blockquote>
+<p>这些都是官方的一些定义，他们喜欢用内存地址这种不直观的方式来进行描述，我希望能够用简单的图来描述清楚。</p>
+<p><img src="/assets/jsImg/deepCloneImg/1-2.jpg" alt="2" title="浅拷贝"><br>如上图所示：所谓的浅拷贝就是无论你拷贝多少个对象，这些拷贝的对象里面的属性还是指向原来对象里面的属性。从图上线来看，就是两个对象之间线相交。 正是因为线的相交导致互相影响，因此只要有一个对象修改了属性，其他对象对应的属性都会进行修改。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    id:<span class="number">1</span>,</span><br><span class="line">    info:&#123;</span><br><span class="line">        name:<span class="string">&quot;hello&quot;</span>,</span><br><span class="line">        age:<span class="number">24</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = obj; <span class="comment">// 赋值就是一个浅拷贝</span></span><br><span class="line">obj2.id = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.id);   <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>官方描述深拷贝</strong>： 将一个对象从内存中完整的拷贝一份出来,从堆内存中开辟一个新的区域存放新对象,且修改新对象不会影响原对象。</p>
+</blockquote>
+<p><strong>我理解的深拷贝——图上线之间不存在相交的就是深拷贝：</strong><br><img src="/assets/jsImg/deepCloneImg/1-3.jpg" alt="3" title="深拷贝"><br>我们可以看到，深拷贝一个对象，就是创建一个与之前对象完全无关的对象，<strong>从图上线来看，就是两个对象之间线不相交</strong>。由于两个对象之间完全不相交（用句俗语来说就是咱两是两条平行线，永远也扯不上关系），既然扯不上关系，因此也就不存在谁影响谁的问题了。</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> obj = &#123;</span><br><span class="line">    id:<span class="number">1</span>,</span><br><span class="line">    info:&#123;</span><br><span class="line">        name:<span class="string">&quot;hello&quot;</span>,</span><br><span class="line">        age:<span class="number">24</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> obj2 = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(obj)); <span class="comment">// 这里实现深拷贝  暂时记住就好</span></span><br><span class="line">obj2.id = <span class="number">3</span>;</span><br><span class="line">obj2.info.name = <span class="string">&quot;刘亦菲&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(obj.id);   <span class="comment">// 1</span></span><br><span class="line"><span class="built_in">console</span>.log(obj.info.name);   <span class="comment">// hello</span></span><br></pre></td></tr></table></figure>
+<p>上面的代码中<code>obj2</code>是通过深拷贝<code>obj1</code>得到的，修改<code>obj2</code>的属性，发现<code>Obj1</code>的属性不会跟着修改。这是深拷贝。</p>
+<p>作者：海因斯坦<br>链接：<a target="_blank" rel="noopener" href="https://juejin.im/post/6889327058158092302">https://juejin.im/post/6889327058158092302</a><br>来源：掘金</p>
 
       
 
@@ -184,17 +197,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -245,7 +247,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/11/15/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/js/deepClone/test/first.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,16 +259,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2020/10/30/TDZ/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6的TDZ(暂时性死区)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -317,9 +309,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
