@@ -6,7 +6,7 @@ tag: js
 好了，到目前为止，我们基本上实现了一个功能较为完整的深拷贝。最终的实现函数如下：
 
 ``` js
-function deepClone(target, cache = new Map()) {
+function deepClone(target, cache = new Map()) {   
     if (cache.get(target)) {
         return cache.get(target);
     }
