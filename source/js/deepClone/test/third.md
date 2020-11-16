@@ -46,7 +46,6 @@ function deepClone(target){
         if (target.hasOwnProperty(key)) {
             dist[key] = deepClone(target[key]);
         }
-        dist[key] = deepClone(target[key]);
       }
       return dist;
   }else{

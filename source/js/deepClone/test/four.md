@@ -28,9 +28,10 @@ function deepClone(target, cache = new Map()) {
             dist = new Date(target);
         } else {
             //拷贝普通对象
-            target = {};
+            dist = {};
         }
         //将属性和拷贝后的值作为一个Map
+        cache.set(target, dist);
         for (let key in target) {
             //过滤调原型上的属性
             if (target.hasOwnProperty(key)) {
