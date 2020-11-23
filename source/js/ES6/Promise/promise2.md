@@ -119,9 +119,9 @@ then(onFulfilled, onRejected) {
                         //1、回调函数返回值是Promise,执行then操作
                         //2、如果不是Promise,调用新Promise的resolve函数
                         result instanceof Promise ? result.then(resolve, reject) : resolve(result);
-                    }) catch(e) {
-                        reject(e);
-                    }
+                    }) 
+                } catch(e) {
+                  reject(e);
                 }
             });
             self.onRejectedCallbacks.push(() => {
