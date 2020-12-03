@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2020/11 | 学习笔记</title>
+  <title>Tag: Ant Design Pro | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/archives/2020/11/index.html">
+  <meta name="description" content="错误-4.x版本 Each child in a list should have a unique “key” prop.  解决方法来看看官网对rowKey的解释：表格行 key 的取值，可以是字符串或一个函数 12345678910111213141516&#x2F;&#x2F;在Table组件中加入rowKey属性即可：&lt;Table columns &#x3D; &amp;#123; columns &amp;#125; dat">
+<meta property="og:type" content="website">
+<meta property="og:title" content="table-表格组件">
+<meta property="og:url" content="http://example.com/antd/component/table.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="错误-4.x版本 Each child in a list should have a unique “key” prop.  解决方法来看看官网对rowKey的解释：表格行 key 的取值，可以是字符串或一个函数 12345678910111213141516&#x2F;&#x2F;在Table组件中加入rowKey属性即可：&lt;Table columns &#x3D; &amp;#123; columns &amp;#125; dat">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-03T16:56:16.000Z">
+<meta property="article:modified_time" content="2020-12-03T09:06:42.727Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -138,60 +142,133 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/11/30/hello-world/" class="archive-article-date">
-  	<time datetime="2020-11-30T13:14:22.298Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/11/30/hello-world/">Hexo 起始页</a>
+    <h1 class="article-title" itemprop="name">
+      table-表格组件
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/antd/component/table.html" class="archive-article-date">
+  	<time datetime="2020-12-03T16:56:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="错误-4-x版本"><a href="#错误-4-x版本" class="headerlink" title="错误-4.x版本"></a>错误-4.x版本</h2><blockquote>
+<p><strong>Each child in a list should have a unique “key” prop.</strong></p>
+</blockquote>
+<p><strong>解决方法</strong><br><strong>来看看官网对rowKey的解释：表格行 key 的取值，可以是字符串或一个函数</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Table组件中加入rowKey属性即可：</span></span><br><span class="line">&lt;Table columns = &#123; columns &#125; dataSource = &#123; tableData &#125; rowSelection = &#123; rowSelection &#125; rowKey = &#123; <span class="function"><span class="params">row</span> =&gt;</span> row.id &#125;/&gt;</span><br><span class="line"><span class="comment">//同时每条数据需要有个id：</span></span><br><span class="line"><span class="keyword">const</span> data = [&#123;</span><br><span class="line">    id: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;John Brown&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;New York No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;Jim Green&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;London No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;Joe Black&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;Sidney No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 
-          
+<h2 id="错误-3-x版本"><a href="#错误-3-x版本" class="headerlink" title="错误-3.x版本"></a>错误-3.x版本</h2><blockquote>
+<p><strong>Warning: Each record in table should have a unique <code>key</code> prop, or set <code>rowKey</code> to an unique primary key. Warning: [antd: Table] Each record in dataSource of table should have a unique <code>key</code> prop, or set <code>rowKey</code> of Table to an unique primary key, see <a target="_blank" rel="noopener" href="https://u.ant.design/table-row-key">https://u.ant.design/table-row-key</a></strong><br><strong>翻译为：</strong>表中的每条记录都应具有唯一的“key”属性，或将“rowKey”设置为唯一的主键。table的dataSource中的每个记录都应该有一个惟一的<code>key</code> prop，或者将table的<code>rowKey</code>设置为唯一的主键<br>意思就是：这个报错是说需要对dataSource的行加key，不是对列加key，同时这里的rowKey需要使用行的唯一的属性名，不能使用不唯一的属性名或不存在的属性名，不然还是报那个错。列是否加key均可。<br><strong>解决方法</strong><br>同上4.x的解决方法–加rowKey属性</p>
+</blockquote>
 
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/antd/component/table.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -215,8 +292,8 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
-		isTag: false,
+		isArchive: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
