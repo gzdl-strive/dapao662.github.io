@@ -147,13 +147,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2020/12/03/hello-world/">Hexo 起始页</a>
+      <a class="article-title" href="/2020/12/05/hello-world/">Hexo 起始页</a>
     </h1>
   
 
         
-        <a href="/2020/12/03/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-03T09:06:42.727Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-03</time>
+        <a href="/2020/12/05/hello-world/" class="archive-article-date">
+  	<time datetime="2020-12-05T05:36:29.069Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-05</time>
 </a>
         
       </header>
@@ -196,7 +196,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2020/12/03/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2020/12/05/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -266,7 +266,7 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
 <p>因为<code>x</code>是使用<code>let</code>声明的，那么在<strong>x未声明之前都属于暂时性死区</strong>，在使用<code>typeof</code>时就会报错。所以在使用<code>let/const</code>进行声明的变量在使用<code>typeof</code>时不一定安全。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> y; <span class="comment">// &#x27;undefined&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这粒可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
+<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这例可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
 <h3 id="传参的“死区”陷阱"><a href="#传参的“死区”陷阱" class="headerlink" title="传参的“死区”陷阱"></a>传参的“死区”陷阱</h3><p>例如下面一段代码，我们在使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">x = y, y = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar(); <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <p>上面代码中，调用<code>bar</code>函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“。如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>

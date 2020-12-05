@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是TDZ？ Temporal Dead Zone(TDZ)是 ES6(ES2015) 中对新作用域的专业语义。  let&#x2F;const和var的区别在ES6之前，JS的scope只有两种，全局作用域和函数作用域，但是在ES6中出现了块级作用域，即使用let&#x2F;const可以定义块级作用域。那么在ES6的新特性中，最容易看到TDZ作用的就是使用let&#x2F;const的使用上面。let&#x2F;const与var">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-30T10:44:36.000Z">
-<meta property="article:modified_time" content="2020-12-03T09:06:42.727Z">
+<meta property="article:modified_time" content="2020-12-05T05:36:29.069Z">
 <meta property="article:author" content="Zoro">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -183,7 +183,7 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> x; <span class="comment">// ReferenceError</span></span><br><span class="line"><span class="keyword">let</span> x;</span><br></pre></td></tr></table></figure>
 <p>因为<code>x</code>是使用<code>let</code>声明的，那么在<strong>x未声明之前都属于暂时性死区</strong>，在使用<code>typeof</code>时就会报错。所以在使用<code>let/const</code>进行声明的变量在使用<code>typeof</code>时不一定安全。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span> y; <span class="comment">// &#x27;undefined&#x27;</span></span><br></pre></td></tr></table></figure>
-<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这粒可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
+<p>但是可以看出，如果我们只是用了<code>typeof</code>而没有去定义，也是不会报错的，从这例可以看出只要没有明确规定使用<code>const/let</code>定义之前就是不会出错。</p>
 <h3 id="传参的“死区”陷阱"><a href="#传参的“死区”陷阱" class="headerlink" title="传参的“死区”陷阱"></a>传参的“死区”陷阱</h3><p>例如下面一段代码，我们在使用</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">bar</span> (<span class="params">x = y, y = <span class="number">2</span></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> [x, y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">bar(); <span class="comment">//报错</span></span><br></pre></td></tr></table></figure>
 <p>上面代码中，调用<code>bar</code>函数之所以报错（某些实现可能不报错），是因为参数x默认值等于另一个参数y，而此时y还没有声明，属于”死区“。如果y的默认值是x，就不会报错，因为此时x已经声明了。</p>
@@ -280,7 +280,7 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
   
 <nav id="article-nav">
   
-    <a href="/2020/12/03/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2020/12/05/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         
