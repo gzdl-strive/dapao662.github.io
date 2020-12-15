@@ -88,3 +88,169 @@ Object.defineProperties(people, {
 people.year = 2019;
 console.log(people.edition); //1--与上面的区别是所有属性都是同时定义的，并且数据属性的configurable、enumerable、和value都是false
 ```
+
+### 读取属性的特性
+>Object.getOwnPropertyDescriptor()方法。可以取得指定属性的描述符
+>Object.getOwnPropertyDescriptors()方法。这个方法会在每个属性上调用Object.getOwnPropertyDescriptor()并在一个新对象中返回它们。
+```js
+let obj = {};
+Object.defineProperties(obj, {
+    year_: {
+        value: 2020
+    },
+    eidtion: {
+        value: 1
+    },
+    year: {
+        get: function () {
+            return this.year_;
+        },
+        set: function(newValue) {
+            if (newValue > 2017) {
+                this.year_ = newValue;
+                this.edition += newValue-2017;
+            }
+        }
+    }
+});
+let descriptor = Object.getOwnPropertyDescriptor(obj, 'year_');
+console.log(descriptor.value);//2020
+console.log(descriptor.configurable);//false
+console.log(descriptor.writable);//false
+console.log(descriptor.enumerable);//false
+console.log(typeof descriptor.get)// ? 'undefined'
+let descriptor2 = Object.getOwnPropertyDescriptor(obj, 'year');
+console.log(descriptor2.value);// ? 'undefined'
+console.log(descriptor2.enumerable);//false
+console.log(typeof descriptor2.get);//function
+// todo
+console.log(Object.getOwnPropertyDescriptors(obj));
+/*
+{
+  year_: {
+    value: 2020,
+    writable: false,
+    enumerable: false,
+    configurable: false
+  },
+  eidtion: { value: 1, writable: false, enumerable: false, configurable: false },
+  year: {
+    get: [Function: get],
+    set: [Function: set],
+    enumerable: false,
+    configurable: false
+  }
+}
+*/
+```
+
+### 合并(merge)对象
+>`Object.assign()`方法。这个方法接收一个目标对象和一个或多个源对象作为参数，
+>然后将每个源对象中可枚举`(Object.propertyIsEnumerable()返回true)`和自有`(Object.hasOwnProperty()返回true)`属性复制到目标对象.
+>对每个符合条件的属性，这个方法会使用源对象上的[[Get]]取得属性的值,然后使用目标对象上的[[Set]]设置属性的值。
+```js
+let desc,src,result;
+/**
+ * 简单复制
+ */
+desc = {};
+src = { id: 'src' };
+result = Object.assign(desc, src);
+/**
+ * Object.assign修改目标对象
+ * 也会返回修改后的目标对象
+ */
+console.log(result === desc);//true
+console.log(desc !== src);//true
+console.log(result);//{ id: 'src' }
+console.log(desc);//{ id: 'src' }
+/**
+ * 多个源对象
+ */
+let result2,desc2;
+desc2 = {};
+result2 = Object.assign(desc2, {a: 'a'}, {b: 'b'});
+console.log(result2);//{ a: 'a', b: 'b' }
+```
+
+### 对象标识及想等判定
+>Object.is()方法
+```js
+//这些事===符合预期的情况
+console.log(true === 1);//false
+console.log(Object.is(true, 1))//false
+console.log({} === {});//false
+console.log(Object.is({}, {}))//false
+console.log('2'===2);//false
+console.log(Object.is('2', 2))//false
+// !
+console.log(+0 === -0);//true
+console.log(Object.is(+0,-0));//false
+console.log(0 === +0);//true
+console.log(0 === -0);//true
+//确定NaN相等性使用isNaN()
+console.log(NaN === NaN);//false
+console.log(Object.is(NaN, NaN))//true
+console.log(isNaN(NaN));//true
+```
+
+### 增强的对象语法
+```js
+// 1、属性值简写
+let name = 'marry';
+let person2 = {
+    name: name
+}
+console.log(person2)//{name: 'marry}
+// todo
+let person3 = {
+    name
+}
+console.log(person3)//{name: 'marry}
+//2、可计算属性-->在引入可计算属性前，如果想使用变量的值作为属性，那么必须先声明对象，然后使用中括号语法来添加属性。
+const nameKey = 'name';
+const agekey = 'age';
+let person4 = {};
+person4[nameKey] = 'Marry';
+person4[agekey] = 20;
+console.log(person4);//{ name: 'Marry', age: 20 }
+//可计算属性--可以在对象字面量中完成动态属性赋值，中括号包围的对象属性键告诉运行时将其作为javaScript表达式而不是字符串来求值
+let person5 = {
+    [nameKey]: 'Marry',
+    [agekey]: 18
+}
+console.log(person5);//{ name: 'Marry', age: 18 }
+//因为被当做javascript表达式求值，所以可计算属性本身可以是复杂的表达式,在实例化时在求值
+let uniqueToken = 0;
+function getUniqueKey(key) {
+    return `${key}_${uniqueToken++}`;
+}
+let person6 = {
+    [getUniqueKey(nameKey)]: 'Marry',
+    [getUniqueKey(agekey)]: 19
+}
+console.log(person6);//{ name_0: 'Marry', age_1: 19 }
+//3、简写方法名
+//在给对象定义方法时，通常要写一个方法名、冒号、然后再引用一个匿名函数表达式
+let person7 = {
+    sayName: function(name) {
+        console.log(`my name is ${name}`);
+    }
+}
+person7.sayName('marry');//my name is marry
+// todo 简写
+let person8 = {
+    sayName(name) {
+        console.log(`my name is ${name}`)
+    }
+}
+person8.sayName('Marry');//my name is Marry
+// todo 简写方法名和计算属性键相互兼容
+const methodKey = 'sayName';
+let person9 = {
+    [methodKey](name) {
+        console.log(`my name is ${name}`)
+    }
+}
+person9.sayName('Marrymarry');//my name is Marrymarry
+```
