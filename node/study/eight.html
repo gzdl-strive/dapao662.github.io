@@ -16,7 +16,7 @@
 <meta property="og:description" content="npm install mysql –save  1234567891011121314151617181920212223242526272829303132&#x2F;&#x2F;引入mysql模块const mysql &#x3D; require(&amp;#x27;mysql&amp;#x27;);&#x2F;&#x2F;创建数据库连接对象const connection &#x3D; mysql.createConnection(&amp;#123;    host">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-23T20:32:19.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:02:27.217Z">
+<meta property="article:modified_time" content="2020-12-18T09:22:43.891Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -166,7 +166,6 @@
 <p>npm install mysql –save</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//引入mysql模块</span></span><br><span class="line"><span class="keyword">const</span> mysql = <span class="built_in">require</span>(<span class="string">&#x27;mysql&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建数据库连接对象</span></span><br><span class="line"><span class="keyword">const</span> connection = mysql.createConnection(&#123;</span><br><span class="line">    host: <span class="string">&#x27;127.0.0.1&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    password: <span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">    database: <span class="string">&#x27;blog&#x27;</span>,</span><br><span class="line">    port: <span class="number">3306</span>,<span class="comment">//3306不用设置</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//连接数据库</span></span><br><span class="line">connection.connect();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;数据库连接成功&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//创建SQL语句--查询</span></span><br><span class="line"><span class="keyword">let</span> sql = <span class="string">&#x27;SELECT id,username,password FROM user&#x27;</span>;</span><br><span class="line">connection.query(sql,<span class="function">(<span class="params">err, results</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (err) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(err.message);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">console</span>.log(results);<span class="comment">//[ RowDataPacket &#123; id: 1, username: &#x27;admin&#x27;, password: &#x27;123456&#x27; &#125; ]</span></span><br><span class="line">    results.map(<span class="function"><span class="params">item</span> =&gt;</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(item.id,item.username,item.password);</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">//关闭数据库</span></span><br><span class="line">connection.end();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;数据库关闭成功&#x27;</span>);</span><br></pre></td></tr></table></figure>
-
       
 
       

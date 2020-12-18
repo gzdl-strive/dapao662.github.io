@@ -25,7 +25,7 @@
 <meta property="og:image" content="http://example.com/assets/reactImg/3-8.png">
 <meta property="og:image" content="http://example.com/assets/reactImg/3-4.png">
 <meta property="article:published_time" content="2020-11-17T19:58:10.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:02:27.217Z">
+<meta property="article:modified_time" content="2020-12-18T09:22:43.891Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/reactImg/3-1.png">
@@ -46,7 +46,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -193,7 +193,6 @@
 <p>这里重点了解一下<code>shouldComponentUpdate(nextProps,nextState)</code>,这是React提供的一个用于性能优化的一个点<br>默认情况下，每次数据更新React都会去频繁调用render函数，而render函数是用来生成新的虚拟DOM的，这个过程比较耗时，<code>shouldComponentUpdate()</code>方法在render函数之前执行，它会返回一个<code>boolean</code>类型的值（默认为true），当返回true当时候，才回继续走后续的更新生命周期流程，否则不会继续执行<br>举个🌰</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">shouldComponentUpdate</span>(<span class="params">nextProps,nextState</span>)</span>&#123;</span><br><span class="line">  <span class="keyword">if</span>(...)&#123;</span><br><span class="line">     <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">  &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="卸载阶段"><a href="#卸载阶段" class="headerlink" title="卸载阶段"></a>卸载阶段</h3><p>组件卸载掉时候，会执行<code>componentWillUnmount()</code>方法</p>
 <h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><blockquote>
 <p><code>React15</code>中生命周期可以分为三个阶段，分别是<strong>初始化阶段</strong>，<strong>更新阶段</strong>，<strong>卸载阶段</strong><br><strong>初始化阶段</strong>：<code>constructor</code>, <code>componentWillMount</code>, <code>render</code>, <code>componentDidMount</code><br><strong>更新阶段</strong>： <code>componentWillReceiveProps</code>, <code>shouldComponentUpdate</code>, <code>componentWillUpdate</code>, <code>render</code>, <code>componentDidUpdate</code><br><strong>卸载阶段</strong>： <code>componentWillUnmont</code><br>这里需要注意的是更新阶段，<code>componentWillReceiveProps</code>是由父组件触发的更新，只要父组件更新，子组件的该生命周期就会被执行，跟<code>props</code>无关。同是，<code>shouldComponentUpdate</code>可以用来做性能优化</p>

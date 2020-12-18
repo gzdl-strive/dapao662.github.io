@@ -16,7 +16,7 @@
 <meta property="og:description" content="webpack5此版本重点关注以下内容:  通过持久缓存提高构建性能. 使用更好的算法和默认值来改善长期缓存. 通过更好的树摇和代码生成来改善捆绑包大小. 清除处于怪异状态的内部结构，同时在 v4 中实现功能而不引入任何重大更改. 通过引入重大更改来为将来的功能做准备，以使我们能够尽可能长时间地使用 v5.  下载 npm i webpack@next webpack-cli -D  自动删除 N">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T21:47:46.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:02:27.217Z">
+<meta property="article:modified_time" content="2020-12-18T09:22:43.891Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -189,13 +189,11 @@
 <li>webpack 现在能够处理对嵌套模块的 tree shaking</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// inner.js</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> a = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> b = <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">// module.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> inner <span class="keyword">from</span> <span class="string">&#x27;./inner&#x27;</span>;</span><br><span class="line"><span class="keyword">export</span> &#123; inner &#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">// user.js</span></span><br><span class="line"><span class="keyword">import</span> * <span class="keyword">as</span> <span class="built_in">module</span> <span class="keyword">from</span> <span class="string">&#x27;./module&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">module</span>.inner.a);</span><br></pre></td></tr></table></figure>
-
 <p>在生产环境中, inner 模块暴露的 <code>b</code> 会被删除</p>
 <ol start="2">
 <li>webpack 现在能够多个模块之前的关系</li>
 </ol>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; something &#125; <span class="keyword">from</span> <span class="string">&#x27;./something&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">usingSomething</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> something;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">test</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> usingSomething();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>当设置了<code>&quot;sideEffects&quot;: false</code>时，一旦发现<code>test</code>方法没有使用，不但删除<code>test</code>，还会删除<code>&quot;./something&quot;</code></p>
 <ol start="3">
 <li>webpack 现在能处理对 Commonjs 的 tree shaking</li>
@@ -204,11 +202,8 @@
 <p>webpack 5 开始新增一个属性 output.ecmaVersion, 可以生成 ES5 和 ES6 / ES2015 代码.</p>
 <p>如：<code>output.ecmaVersion: 2015</code></p>
 <h2 id="SplitChunk"><a href="#SplitChunk" class="headerlink" title="SplitChunk"></a>SplitChunk</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack4</span></span><br><span class="line">minSize: <span class="number">30000</span>;</span><br></pre></td></tr></table></figure>
-
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webpack5</span></span><br><span class="line">minSize: &#123;</span><br><span class="line">  javascript: <span class="number">30000</span>,</span><br><span class="line">  style: <span class="number">50000</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="Caching"><a href="#Caching" class="headerlink" title="Caching"></a>Caching</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 配置缓存</span></span><br><span class="line">cache: &#123;</span><br><span class="line">  <span class="comment">// 磁盘存储</span></span><br><span class="line">  type: <span class="string">&quot;filesystem&quot;</span>,</span><br><span class="line">  buildDependencies: &#123;</span><br><span class="line">    <span class="comment">// 当配置修改时，缓存失效</span></span><br><span class="line">    config: [__filename]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>缓存将存储到 <code>node_modules/.cache/webpack</code></p>
 <h2 id="监视输出文件"><a href="#监视输出文件" class="headerlink" title="监视输出文件"></a>监视输出文件</h2><p>之前 webpack 总是在第一次构建时输出全部文件，但是监视重新构建时会只更新修改的文件。</p>
 <p>此次更新在第一次构建时会找到输出文件看是否有变化，从而决定要不要输出全部文件。</p>

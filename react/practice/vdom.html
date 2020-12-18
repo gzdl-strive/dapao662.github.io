@@ -23,7 +23,7 @@
 <meta property="og:image" content="http://example.com/assets/reactImg/4-5.png">
 <meta property="og:image" content="http://example.com/assets/reactImg/4-6.png">
 <meta property="article:published_time" content="2020-12-08T10:54:10.000Z">
-<meta property="article:modified_time" content="2020-12-15T01:02:27.217Z">
+<meta property="article:modified_time" content="2020-12-18T09:22:43.891Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/reactImg/4.png">
@@ -44,7 +44,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.2.0"></head>
+<meta name="generator" content="Hexo 5.3.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -177,7 +177,6 @@
 <li>jQuery直接操作真实DOM</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">&quot;root&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    $(<span class="string">&#x27;#root&#x27;</span>).text(<span class="string">&#x27;这是一段文本&#x27;</span>);</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- 或原生的方式: --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> root = <span class="built_in">document</span>.querySelector(<span class="string">&quot;#root&quot;</span>);</span></span><br><span class="line"><span class="javascript">    root.textContent = <span class="string">&quot;这是一段文本&quot;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
 <p><strong>在本例中， <code>jQuery</code> 只是提供了一层对原生 <code>DOM</code> 操作的封装。我们可以简单手写一个 <code>$</code> 实现：</strong></p>
 <p><img src="/assets/reactImg/4.png" alt="例子jquery" title="jQuery--$"></p>
 <p><strong>通过这个简单的封装我们可以发现， <code>jQuery</code> 的主要工作是提供对 <code>原生DOM</code> 操作的统一实现（另外还有对 <code>原生js</code> 的增强，如 <code>ajax</code> 、动画等）。换句话说，使用 <code>jQuery</code> ，本质上还是在直接操作 <code>真实DOM</code> 。</strong></p>
