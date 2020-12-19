@@ -16,7 +16,9 @@ tag: js
 
 > [js高级程序设计(第四版)-unit7](/js/javaScript/js4/Unit7 "第七章")
 
-> [js高级程序设计(第四版)-unit8](/js/javaScript/js4/Unit8 "第八章")
+> [js高级程序设计(第四版)-unit8-1](/js/javaScript/js4/Unit8 "第八章")
+
+> [js高级程序设计(第四版)-unit8-2](/js/javaScript/js4/Unit8-2 "第八章")
 
 ## 匿名函数
 
