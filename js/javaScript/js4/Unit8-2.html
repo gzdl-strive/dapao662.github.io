@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo 起始页 | 学习笔记</title>
+  <title>Tag: js | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 起始页">
-<meta property="og:url" content="http://example.com/2020/12/18/hello-world/index.html">
+  <meta name="description" content="原型模式 1、isPrototypeOf()方法  1234function Person() &amp;#123;&amp;#125;Person.prototype.name &#x3D; &amp;#x27;zero&amp;#x27;;let person1 &#x3D; new Person();console.log(Person.prototype.isPrototypeOf(person1));&#x2F;&#x2F;true--通过原型对象调用isP">
+<meta property="og:type" content="website">
+<meta property="og:title" content="第八章-对象、类与面向对象编程">
+<meta property="og:url" content="http://example.com/js/javaScript/js4/Unit8-2.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="原型模式 1、isPrototypeOf()方法  1234function Person() &amp;#123;&amp;#125;Person.prototype.name &#x3D; &amp;#x27;zero&amp;#x27;;let person1 &#x3D; new Person();console.log(Person.prototype.isPrototypeOf(person1));&#x2F;&#x2F;true--通过原型对象调用isP">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-18T09:22:43.859Z">
-<meta property="article:modified_time" content="2020-12-18T09:22:43.859Z">
+<meta property="article:published_time" content="2020-12-19T20:05:10.000Z">
+<meta property="article:modified_time" content="2020-12-20T05:28:23.272Z">
 <meta property="article:author" content="Zoro">
-<meta property="article:tag" content="hello">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -143,35 +142,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 起始页
+      第八章-对象、类与面向对象编程
     </h1>
   
 
         
-        <a href="/2020/12/18/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-18T09:22:43.859Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-18</time>
+        <a href="/js/javaScript/js4/Unit8-2.html" class="archive-article-date">
+  	<time datetime="2020-12-19T20:05:10.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>--创建一个新的模板</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server--启动服务-默认4000端口</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h2 id="原型模式"><a href="#原型模式" class="headerlink" title="原型模式"></a>原型模式</h2><blockquote>
+<p>1、<code>isPrototypeOf()</code>方法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Person</span>(<span class="params"></span>) </span>&#123;&#125;</span><br><span class="line">Person.prototype.name = <span class="string">&#x27;zero&#x27;</span>;</span><br><span class="line"><span class="keyword">let</span> person1 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(Person.prototype.isPrototypeOf(person1));<span class="comment">//true--通过原型对象调用isPrototypeOf()方法检查person1,里面有链接指向Person.prototype</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、<code>Object.getPrototypeOf()</code>方法–返回参数的内部特性[[prototype]]的值</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getPrototypeOf(person1));<span class="comment">//Person &#123; name: &#x27;zero&#x27; &#125;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>3、<code>hasOwnProperty()</code>确定某个属性是在原型还是实例上</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>));<span class="comment">//false;</span></span><br><span class="line">person1.name = <span class="string">&quot;索隆&quot;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person1.hasOwnProperty(<span class="string">&#x27;name&#x27;</span>));<span class="comment">//true</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>4、in操作符-会在可以通过对象访问指定属性时返回true-无论该属性是在原型还是实例上</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person2 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;name&#x27;</span> <span class="keyword">in</span> person2);<span class="comment">//true--原型name</span></span><br></pre></td></tr></table></figure>
+<p><strong>如果想确定某个属性是否存在于原型属性上–结合<code>hasOwnProperty</code>和<code>in操作符</code></strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">hasOwnPropertyPropery</span>(<span class="params">object, name</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> !object.hasOwnProperty(name) &amp;&amp; (name <span class="keyword">in</span> object)</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(hasOwnPropertyPropery(person1, <span class="string">&#x27;name&#x27;</span>));<span class="comment">//false--person1实例上有name属性</span></span><br><span class="line"><span class="built_in">console</span>.log(hasOwnPropertyPropery(person2, <span class="string">&#x27;name&#x27;</span>));<span class="comment">//true--person2实例没有name属性</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象迭代"><a href="#对象迭代" class="headerlink" title="对象迭代"></a>对象迭代</h2><blockquote>
+<p><code>Object.values()</code>和<code>Object.entries()</code>-用于将对象内容转换为序列化的-更重要的是可迭代的-格式</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Object.values()-返回对象值的数组</span></span><br><span class="line"><span class="keyword">const</span> o = &#123;</span><br><span class="line">    name: <span class="string">&#x27;大O&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    sex: <span class="string">&#x27;man&#x27;</span>,</span><br><span class="line">    child: &#123;&#125;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.values(o));<span class="comment">//[ &#x27;大O&#x27;, 18, &#x27;man&#x27;, &#123;&#125; ]</span></span><br><span class="line"><span class="comment">// Object.entries()-返回键/值对的数组</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.entries(o));<span class="comment">//[ [ &#x27;name&#x27;, &#x27;大O&#x27; ], [ &#x27;age&#x27;, 18 ], [ &#x27;sex&#x27;, &#x27;man&#x27; ], [ &#x27;child&#x27;, &#123;&#125; ] ]</span></span><br><span class="line"><span class="comment">//注意非字符串属性会被转换成字符串输出</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(Person.prototype));<span class="comment">//原生constructor属性不可枚举(enumerable为false)</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">&#123;</span></span><br><span class="line"><span class="comment">    constructor: &#123;</span></span><br><span class="line"><span class="comment">      value: [Function: Person],</span></span><br><span class="line"><span class="comment">      writable: true,</span></span><br><span class="line"><span class="comment">      enumerable: false,</span></span><br><span class="line"><span class="comment">      configurable: true</span></span><br><span class="line"><span class="comment">    &#125;,</span></span><br><span class="line"><span class="comment">    name: &#123;</span></span><br><span class="line"><span class="comment">      value: &#x27;zero&#x27;,</span></span><br><span class="line"><span class="comment">      writable: true,</span></span><br><span class="line"><span class="comment">      enumerable: true,</span></span><br><span class="line"><span class="comment">      configurable: true</span></span><br><span class="line"><span class="comment">    &#125;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="1、其他原型语法-每次定义都会重写一遍Person-prototype–封装起来"><a href="#1、其他原型语法-每次定义都会重写一遍Person-prototype–封装起来" class="headerlink" title="1、其他原型语法-每次定义都会重写一遍Person.prototype–封装起来"></a>1、其他原型语法-每次定义都会重写一遍Person.prototype–封装起来</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype = &#123;</span><br><span class="line">    name: <span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    job: <span class="string">&#x27;web前端&#x27;</span>,</span><br><span class="line">    <span class="function"><span class="title">sayName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>存在问题 <code>Person.prototype</code>的<code>constructor属性</code>不指向<code>Person</code>了,如下：</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> friend = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(friend <span class="keyword">instanceof</span> Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(friend <span class="keyword">instanceof</span> <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">// 但是</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.constructor == Person);<span class="comment">//false-constructor属性不指向Person了</span></span><br><span class="line"><span class="built_in">console</span>.log(friend.constructor == <span class="built_in">Object</span>);<span class="comment">//true</span></span><br><span class="line"><span class="comment">// 改进</span></span><br><span class="line">Person.prototype = &#123;</span><br><span class="line">    <span class="title">constructor</span>: <span class="title">Person</span>,</span><br><span class="line">    <span class="title">name</span>: &#x27;<span class="title">hello</span>&#x27;,</span><br><span class="line">    <span class="title">age</span>: 18,</span><br><span class="line">    <span class="title">job</span>: &#x27;<span class="title">web</span>前端&#x27;,</span><br><span class="line">    <span class="title">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> friend2 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(friend2.constructor == Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(friend2.constructor == <span class="built_in">Object</span>);<span class="comment">//false</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(Person.prototype));<span class="comment">//修后的constructor的变成可枚举</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  constructor: &#123;</span></span><br><span class="line"><span class="comment">    value: [Function: Person],</span></span><br><span class="line"><span class="comment">    writable: true,</span></span><br><span class="line"><span class="comment">    enumerable: true,</span></span><br><span class="line"><span class="comment">    configurable: true</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>再改进-恢复<code>constructor属性</code>-使用<code>Object.defineProperty()</code>定义</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">Person.prototype = &#123;</span><br><span class="line">    name: <span class="string">&#x27;hello&#x27;</span>,</span><br><span class="line">    age: <span class="number">18</span>,</span><br><span class="line">    job: <span class="string">&#x27;web前端&#x27;</span>,</span><br><span class="line">    <span class="function"><span class="title">sayName</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//恢复constructor属性</span></span><br><span class="line"><span class="built_in">Object</span>.defineProperty(Person.prototype, <span class="string">&#x27;constructor&#x27;</span>, &#123;</span><br><span class="line">    enumerable: <span class="literal">false</span>,</span><br><span class="line">    value: Person</span><br><span class="line">&#125;);</span><br><span class="line"><span class="keyword">let</span> friend3 = <span class="keyword">new</span> Person();</span><br><span class="line"><span class="built_in">console</span>.log(friend3.constructor == Person);<span class="comment">//true</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Object</span>.getOwnPropertyDescriptors(Person.prototype));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  constructor: &#123;</span></span><br><span class="line"><span class="comment">    value: [Function: Person],</span></span><br><span class="line"><span class="comment">    writable: false,</span></span><br><span class="line"><span class="comment">    enumerable: false,</span></span><br><span class="line"><span class="comment">    configurable: false</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="2、原型的动态性"><a href="#2、原型的动态性" class="headerlink" title="2、原型的动态性"></a>2、原型的动态性</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">People</span>(<span class="params"></span>) </span>&#123;&#125;;</span><br><span class="line"><span class="keyword">let</span> p1 = <span class="keyword">new</span> People();</span><br><span class="line">People.prototype = &#123;</span><br><span class="line">    <span class="title">constructor</span>: <span class="title">People</span>,</span><br><span class="line">    <span class="title">name</span>: &#x27;<span class="title">abc</span>&#x27;,</span><br><span class="line">    <span class="title">age</span>: 20,</span><br><span class="line">    <span class="title">sayName</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.name);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">p1.sayName();<span class="comment">//p1.sayName is not a function--People的实例在重写原型对象之前创建，调用出错原因在于p1指向的原型还是最初的原型，而那个原型上没有sayName方法。</span></span><br></pre></td></tr></table></figure>
+<p><strong>重写构造函数上的原型之后再创建的实例才会引用新的原型。</strong></p>
+<h3 id="3、原生对象原型"><a href="#3、原生对象原型" class="headerlink" title="3、原生对象原型"></a>3、原生对象原型</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="built_in">Array</span>.prototype.sort);<span class="comment">//[Function: sort]</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">String</span>.prototype.substring);<span class="comment">//[Function: substring]</span></span><br><span class="line"><span class="comment">//* 通过原生对象的原型可以取得所有默认方法的引用，也可以给原生原型的实例定义新的方法。</span></span><br><span class="line"><span class="comment">//给String原始值包装类型的实例添加一个方法</span></span><br><span class="line"><span class="built_in">String</span>.prototype.startsWith = <span class="function"><span class="keyword">function</span>(<span class="params">text</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.indexOf(text) === <span class="number">0</span> ? <span class="string">`gnls:<span class="subst">$&#123;<span class="literal">true</span>&#125;</span>`</span> : <span class="string">`gnls:<span class="subst">$&#123;<span class="literal">false</span>&#125;</span>`</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> msg = <span class="string">&#x27;hello world&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(msg.startsWith(<span class="string">&#x27;hello&#x27;</span>));<span class="comment">//gnls:true</span></span><br><span class="line"><span class="built_in">console</span>.log(msg.startsWith(<span class="string">&#x27;llo&#x27;</span>));<span class="comment">//gnls:false</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -180,17 +200,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -241,7 +250,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/12/18/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/js/javaScript/js4/Unit8-2.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,16 +262,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2020/10/30/TDZ/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6的TDZ(暂时性死区)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -313,9 +312,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
