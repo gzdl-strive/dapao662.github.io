@@ -20,6 +20,8 @@ tag: js
 
 > [js高级程序设计(第四版)-unit8-2](/js/javaScript/js4/Unit8-2 "第八章")
 
+> [js高级程序设计(第四版)-unit8-3](/js/javaScript/js4/Unit8-3 "第八章")
+
 ## 匿名函数
 
 ### 匿名函数
