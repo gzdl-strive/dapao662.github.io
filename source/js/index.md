@@ -40,6 +40,10 @@ tag: js
 
 > [JavaScript例子](/js/jsTest/index "js例子")
 
+## 正则表达式
+
+> [RegExp](/js/RegExp/index "正则")
+
 ## ES6
 
 ### Promise源码实现
