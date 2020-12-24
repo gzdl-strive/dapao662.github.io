@@ -21,3 +21,7 @@ tag: react
 ## React源码初步实现
 
 > [初步实现ReactDom.render](/react/practice/reactSource/first "初步实现ReactDom.render")
+
+## React实践
+
+>[React实践](/react/practice/test/index "实践")
