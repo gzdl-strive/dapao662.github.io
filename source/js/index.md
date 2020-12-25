@@ -14,13 +14,15 @@ tag: js
 
 ## js高级程序设计(第四版)
 
-> [js高级程序设计(第四版)-unit7](/js/javaScript/js4/Unit7 "第七章")
+> [js高级程序设计(第四版)-unit7](/js/javaScript/js4/Unit7 "迭代器")
 
-> [js高级程序设计(第四版)-unit8-1](/js/javaScript/js4/Unit8 "第八章")
+> [js高级程序设计(第四版)-unit8-1](/js/javaScript/js4/Unit8 "对象属性")
 
-> [js高级程序设计(第四版)-unit8-2](/js/javaScript/js4/Unit8-2 "第八章")
+> [js高级程序设计(第四版)-unit8-2](/js/javaScript/js4/Unit8-2 "原型模式")
 
-> [js高级程序设计(第四版)-unit8-3](/js/javaScript/js4/Unit8-3 "第八章")
+> [js高级程序设计(第四版)-unit8-3](/js/javaScript/js4/Unit8-3 "类")
+
+> [js高级程序设计(第四版)-unit12](/js/javaScript/js4/Unit12 "BOM")
 
 ## 匿名函数
 
