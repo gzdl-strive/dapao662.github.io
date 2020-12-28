@@ -5,6 +5,9 @@ date: 2020-10-24 18:48:47
 ## JS
 >[javaScript](/js "js")
 
+## TS
+>[typeScript](/ts "ts")
+
 ## React
 >[React](/react "React")
 
