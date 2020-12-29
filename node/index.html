@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tag: nodejs | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="基础知识 node的基本认识  web服务器 web服务器  静态路由 静态路由  静态资源 静态资源  静态资源 静态资源  引入静态资源–加载css js 图片–动态路由方式 动态路由方式  引入静态资源–加载css js 图片–动态路由方式-npm 动态路由方式npm  ejs ejs  mysql mysql  express express">
+  <meta name="description" content="基础知识 node的基本认识  web服务器 web服务器  静态路由 静态路由  静态资源 静态资源  静态资源 静态资源  引入静态资源–加载css js 图片–动态路由方式 动态路由方式  引入静态资源–加载css js 图片–动态路由方式-npm 动态路由方式npm  ejs ejs  mysql mysql  express express  简易爬虫 spider">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Node">
 <meta property="og:url" content="http://example.com/node/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="基础知识 node的基本认识  web服务器 web服务器  静态路由 静态路由  静态资源 静态资源  静态资源 静态资源  引入静态资源–加载css js 图片–动态路由方式 动态路由方式  引入静态资源–加载css js 图片–动态路由方式-npm 动态路由方式npm  ejs ejs  mysql mysql  express express">
+<meta property="og:description" content="基础知识 node的基本认识  web服务器 web服务器  静态路由 静态路由  静态资源 静态资源  静态资源 静态资源  引入静态资源–加载css js 图片–动态路由方式 动态路由方式  引入静态资源–加载css js 图片–动态路由方式-npm 动态路由方式npm  ejs ejs  mysql mysql  express express  简易爬虫 spider">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-23T15:48:19.000Z">
-<meta property="article:modified_time" content="2020-12-28T03:10:47.801Z">
+<meta property="article:modified_time" content="2020-12-29T09:34:52.740Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -192,6 +192,9 @@
 <h2 id="express"><a href="#express" class="headerlink" title="express"></a>express</h2><blockquote>
 <p><a href="/node/study/express" title="express">express</a></p>
 </blockquote>
+<h2 id="简易爬虫"><a href="#简易爬虫" class="headerlink" title="简易爬虫"></a>简易爬虫</h2><blockquote>
+<p><a href="/node/spider" title="爬虫">spider</a></p>
+</blockquote>
 
       
 
@@ -283,7 +286,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">web服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">3.</span> <span class="toc-text">静态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90-1"><span class="toc-number">5.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E2%80%93%E5%8A%A0%E8%BD%BDcss-js-%E5%9B%BE%E7%89%87%E2%80%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E6%96%B9%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">引入静态资源–加载css js 图片–动态路由方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E2%80%93%E5%8A%A0%E8%BD%BDcss-js-%E5%9B%BE%E7%89%87%E2%80%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E6%96%B9%E5%BC%8F-npm"><span class="toc-number">7.</span> <span class="toc-text">引入静态资源–加载css js 图片–动态路由方式-npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ejs"><span class="toc-number">8.</span> <span class="toc-text">ejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql"><span class="toc-number">9.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#express"><span class="toc-number">10.</span> <span class="toc-text">express</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">基础知识</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#web%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-number">2.</span> <span class="toc-text">web服务器</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B7%AF%E7%94%B1"><span class="toc-number">3.</span> <span class="toc-text">静态路由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90"><span class="toc-number">4.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90-1"><span class="toc-number">5.</span> <span class="toc-text">静态资源</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E2%80%93%E5%8A%A0%E8%BD%BDcss-js-%E5%9B%BE%E7%89%87%E2%80%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E6%96%B9%E5%BC%8F"><span class="toc-number">6.</span> <span class="toc-text">引入静态资源–加载css js 图片–动态路由方式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%95%E5%85%A5%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E2%80%93%E5%8A%A0%E8%BD%BDcss-js-%E5%9B%BE%E7%89%87%E2%80%93%E5%8A%A8%E6%80%81%E8%B7%AF%E7%94%B1%E6%96%B9%E5%BC%8F-npm"><span class="toc-number">7.</span> <span class="toc-text">引入静态资源–加载css js 图片–动态路由方式-npm</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ejs"><span class="toc-number">8.</span> <span class="toc-text">ejs</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#mysql"><span class="toc-number">9.</span> <span class="toc-text">mysql</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#express"><span class="toc-number">10.</span> <span class="toc-text">express</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E7%88%AC%E8%99%AB"><span class="toc-number">11.</span> <span class="toc-text">简易爬虫</span></a></li></ol>
                     </div>
                 </span>
             </div>
