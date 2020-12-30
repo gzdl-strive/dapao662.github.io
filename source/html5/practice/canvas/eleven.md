@@ -30,9 +30,15 @@ tag: HTML
         oImg.onload = function() {
             gd.drawImage(oImg, 0, 0);
             let imageData = gd.getImageData(0, 0, w, h);
+            //页面有w*h个像素===800*600,但实际上imageData却有4*w*h个，因为一个像素占4位(r,g,b,a);
+            //第0行第0列 --》0
+            //第0行第79列 --> 79
+            //第1行第2列 --》 1*w+2=w+2
+            //第r行第c列 --> w*r+c
             //黄色=>扔掉蓝色(红+绿)
             for (let r = 0; r < h; r++) {
                 for (let c = 0; c < w; c++) {
+                    //r*w+c的第r行第c列像素,(r*w+c)*4是因为imageData里每4个表示一个像素，所以要乘4表示下一个像素，(r*w+c)+0表示当前像素的第一位-也就是r,依次类推
                     //(r*w+c)*4+0       =>  r
                     //(r*w+c)*4+1       =>  g
                     //(r*w+c)*4+2       =>  b

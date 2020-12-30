@@ -4,6 +4,7 @@ date: 2020-12-29 16:42:19
 tag: HTML
 ---
 
+**html页面内容**
 ```html
 <style>
     body{
@@ -58,6 +59,37 @@ tag: HTML
         };
     };
 </script>
+```
+
+**node服务器内容**
+```js
+const http = require('http');
+const fs = require('fs');
+
+http.createServer((req, res) => {
+    if (req.url === "/upload_base64") {
+        let arr = [];
+        req.on('data', data => {
+            arr.push(data);
+        });
+        req.on('end', () => {
+            let buffer = Buffer.concat(arr);
+            let filename = Math.random() + ".png";
+            let buff = new Buffer(decodeURIComponent(buffer.toString().replace(/^col=/, '')).replace(/^data:[^,]+;base64,/, ''), 'base64');
+            res.setHeader('Content-Disposition', 'attachment; filename=download.png');
+            res.end(buff);
+        })
+    } else {
+        fs.readFile(`www${req.url}`, (err, data) => {
+            if (err) {
+                res.write('404');
+            } else {
+                res.write(data);
+            }
+            res.end();
+        })
+    }
+}).listen(8080);
 ```
 
 ![12](/assets/html5Img/canvasImg/12.png "12")
