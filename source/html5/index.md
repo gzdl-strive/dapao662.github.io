@@ -10,5 +10,5 @@ tag: HTML
 ## Canvas
 >[Canvas](/html5/practice/canvas "Canvas")
 
-## Canvas
+## SVG
 >[SVG](/html5/practice/svg "SVG")
