@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2020/12 | 学习笔记</title>
+  <title>Tag: SVG | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/archives/2020/12/index.html">
+  <meta name="description" content="JS生成元素document.createElement  创建HTML元素NS–&gt;Name Space(document.createElementNS(‘http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#39;,&#39;line&#39;))document.createElement&#x3D;&gt;document.createElementNS(“http:&#x2F;&#x2F;www.w3.or">
+<meta property="og:type" content="website">
+<meta property="og:title" content="js创建svg">
+<meta property="og:url" content="http://example.com/html5/practice/svg/six.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="JS生成元素document.createElement  创建HTML元素NS–&gt;Name Space(document.createElementNS(‘http:&#x2F;&#x2F;www.w3.org&#x2F;2000&#x2F;svg&#39;,&#39;line&#39;))document.createElement&#x3D;&gt;document.createElementNS(“http:&#x2F;&#x2F;www.w3.or">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2020-12-31T09:09:19.000Z">
+<meta property="article:modified_time" content="2021-01-03T08:56:50.212Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -138,60 +142,127 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/12/30/hello-world/" class="archive-article-date">
-  	<time datetime="2020-12-30T01:54:05.230Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/12/30/hello-world/">Hexo 起始页</a>
+    <h1 class="article-title" itemprop="name">
+      js创建svg
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/html5/practice/svg/six.html" class="archive-article-date">
+  	<time datetime="2020-12-31T09:09:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>JS生成元素<br>document.createElement  创建HTML元素<br>NS–&gt;Name Space(document.createElementNS(‘<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&#39;,&#39;line&#39;">http://www.w3.org/2000/svg&#39;,&#39;line&#39;</a>))<br>document.createElement=&gt;document.createElementNS(“<a target="_blank" rel="noopener" href="http://www.w3.org/1999/xhtml&quot;">http://www.w3.org/1999/xhtml&quot;</a>)<br>如果要创建svg标签也要用NS</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;点击&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn1&quot;</span>/&gt;</span><span class="tag">&lt;<span class="name">br</span> /&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">svg</span> <span class="attr">width</span>=<span class="string">&quot;800&quot;</span> <span class="attr">height</span>=<span class="string">&quot;600&quot;</span> <span class="attr">id</span>=<span class="string">&quot;svg1&quot;</span>&gt;</span><span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span>=<span class="string">&quot;200&quot;</span> <span class="attr">y1</span>=<span class="string">&quot;150&quot;</span> <span class="attr">x2</span>=<span class="string">&quot;250&quot;</span> <span class="attr">y2</span>=<span class="string">&quot;300&quot;</span> <span class="attr">style</span>=<span class="string">&quot;stroke: yellow;&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">line</span>&gt;</span><span class="tag">&lt;/<span class="name">svg</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> oB = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn1&#x27;</span>);</span></span><br><span class="line"><span class="javascript">        <span class="keyword">let</span> oSvg = <span class="built_in">document</span>.getELementById(<span class="string">&#x27;svg1&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">        oB.onclick = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">            <span class="keyword">let</span> oL = <span class="built_in">document</span>.createElementNS(<span class="string">&#x27;http://www.w3.org/2000/svg&#x27;</span>, <span class="string">&#x27;line&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            oL.setAttribute(<span class="string">&#x27;x1&#x27;</span>, <span class="string">&#x27;100&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            oL.setAttribute(<span class="string">&#x27;y1&#x27;</span>, <span class="string">&#x27;100&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            oL.setAttribute(<span class="string">&#x27;x2&#x27;</span>, <span class="string">&#x27;300&#x27;</span>);</span></span><br><span class="line"><span class="javascript">            oL.setAttribute(<span class="string">&#x27;y2&#x27;</span>, <span class="string">&#x27;500&#x27;</span>);</span></span><br><span class="line"></span><br><span class="line"><span class="javascript">            oL.style.stroke = <span class="string">&#x27;red&#x27;</span>;</span></span><br><span class="line">            oSvg.appendChild(oL);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+      
 
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/html5/practice/svg/six.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -201,7 +272,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2020 Zoro
+    		&copy; 2021 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
@@ -215,8 +286,8 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
-		isTag: false,
+		isArchive: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
