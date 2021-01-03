@@ -5,7 +5,10 @@ tag: CSS
 ---
 
 ## CSS3笔记
->[CSS3笔记](/css3/note "笔CSS3笔记记")
+>[CSS3笔记](/css3/note "CSS3笔记")
+
+## CSS笔记
+>[CSS笔记](/css3/cssTest "CSS笔记")
 
 ## CSS3练习
 
