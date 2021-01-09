@@ -2,6 +2,7 @@
 title: CSS
 date: 2021-01-03 12:36:19
 tag: CSS
+toc: true
 ---
 
 >锚点定位
@@ -209,3 +210,71 @@ text-overflow：文字溢出
 >transition： 要过度的属性  花费时间 运动曲线 何时开始
 
 >转换中心点transform-origin:调整元素旋转中心
+
+>透视perspective-->原理：近大远小
+浏览器透视：把近大远小的所有图像，透视在屏幕上
+perspective: 视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置
+perspective以作为一个属性，设置给父元素，作用于所有3D转换的元素
+
+>transform: translate3d(100px, 0, 0) translate3d(x, y, z) x,y可以是px/%,z轴只能是px
+
+> backface-visiility: hidden;当不是正面对向屏幕就隐藏
+
+## flex布局
+>flex-direction: column垂直排列
+flex-direction: row水平排列
+---
+>justify-content(水平对齐): 
+* flex-start(默认值-项目位于容器的开头)
+* flex-end(项目位于容器的结尾)
+* center(项目位于容器的中心)
+* space-between(项目位于各行之间留有空白的容器内)
+* space-around(项目位于各行之前、之间、之后留有空白的容器内)
+---
+>align-items（垂直对齐）: 
+* flex-start(项目位于容器的开头)
+* flext-end(项目位于容器的结尾)
+* center(项目位于容器的中心)
+* stretch(让子元素高度拉伸以适应父容器-前提是子元素没有高度的情况下)
+---
+>flex-wrap（控制是否换行）
+   * nowrap(默认值。规定灵活的项目不拆行或不拆列，收缩显示)
+   * wrap(规定灵活的项目在必要时拆行或拆列)
+   * wrap-reverse(逆序拆行或拆列)
+----
+>align-content堆栈对齐
+* align-content是针对flex容器里面多轴(多行的情况)，align-items是针对一行的情况进行排列
+**使用条件：父元素设置`display: flex;`并且排列方式设置横向排列`flex-direction: row;`并且设置换行`flex-wrap: wrap;`这样属性才能使用**
+stretch(默认值项目拉伸以适应容器)
+center/flex-start/flex-end/space-between/space-around
+***flex-flow是flex-direction和flex-wrap的简写(flex-flow: row wrap)**
+`order`用css来控制盒子的前后顺序,正序方式排列，从小到大.用整数值来定义排列顺序，数值小的排在前面。可以为负值。默认值是0.
+
+### 添加ico图标
+> <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+**也可以在线将png转化成favicon.ico文件**
+
+## SEO引擎优化
+>三大标签 `title` `description` `Keywords`
+### title
+>title具有不可代替性：
+是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点 
+标题的长度： Google(70kb),35个中文|||百度(56kb),28个中文
+关键字分布：最先出现的词语权重越高
+关键字词频：主关键词出现3次，辅关键词出现一次
+建议：网址名(产品名)-网站的介绍
+```html
+<title>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！</title>
+```
+
+### Description网站说明
+> 对于关键词的作用明显减低，但由于很多搜索引擎，仍然大量采用网页的META标签中描述部分作为搜索结果的内容摘要.就是简要说明我们网站主要做什么
+```html
+<meta name="description" content="京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!">
+```
+
+### keywords
+>Keywords：关键字，是搜索引擎关注点之一。Keywords应该限制6~8关键词左右
+```html
+<meta name="keywords" content="网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东">
+```
