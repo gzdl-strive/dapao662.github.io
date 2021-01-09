@@ -16,7 +16,7 @@
 <meta property="og:description" content="锚点定位  1&lt;a href&#x3D;&quot;#open&quot;&gt;&lt;&#x2F;a&gt; ... &lt;h1 id&#x3D;&quot;open&quot;&gt;&lt;&#x2F;h1&gt;  base标签 可以给页面所有a标签添加属性 在head标签内 &lt;base target&#x3D;&quot;_blank&quot;&gt;&lt;&#x2F;base&gt;链接伪类选择器: a:link,a:ho">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-03T12:36:19.000Z">
-<meta property="article:modified_time" content="2021-01-03T08:56:50.208Z">
+<meta property="article:modified_time" content="2021-01-09T12:17:20.611Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -287,7 +287,76 @@
 <blockquote>
 <p>转换中心点transform-origin:调整元素旋转中心</p>
 </blockquote>
-
+<blockquote>
+<p>透视perspective–&gt;原理：近大远小<br>浏览器透视：把近大远小的所有图像，透视在屏幕上<br>perspective: 视距，表示视点距离屏幕的长短。视点，用于模拟透视效果时人眼的位置<br>perspective以作为一个属性，设置给父元素，作用于所有3D转换的元素</p>
+</blockquote>
+<blockquote>
+<p>transform: translate3d(100px, 0, 0) translate3d(x, y, z) x,y可以是px/%,z轴只能是px</p>
+</blockquote>
+<blockquote>
+<p>backface-visiility: hidden;当不是正面对向屏幕就隐藏</p>
+</blockquote>
+<h2 id="flex布局"><a href="#flex布局" class="headerlink" title="flex布局"></a>flex布局</h2><blockquote>
+<p>flex-direction: column垂直排列<br>flex-direction: row水平排列</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>justify-content(水平对齐): </p>
+</blockquote>
+<ul>
+<li>flex-start(默认值-项目位于容器的开头)</li>
+<li>flex-end(项目位于容器的结尾)</li>
+<li>center(项目位于容器的中心)</li>
+<li>space-between(项目位于各行之间留有空白的容器内)</li>
+<li>space-around(项目位于各行之前、之间、之后留有空白的容器内)</li>
+</ul>
+<hr>
+<blockquote>
+<p>align-items（垂直对齐）: </p>
+</blockquote>
+<ul>
+<li>flex-start(项目位于容器的开头)</li>
+<li>flext-end(项目位于容器的结尾)</li>
+<li>center(项目位于容器的中心)</li>
+<li>stretch(让子元素高度拉伸以适应父容器-前提是子元素没有高度的情况下)</li>
+</ul>
+<hr>
+<blockquote>
+<p>flex-wrap（控制是否换行）</p>
+</blockquote>
+<ul>
+<li>nowrap(默认值。规定灵活的项目不拆行或不拆列，收缩显示)</li>
+<li>wrap(规定灵活的项目在必要时拆行或拆列)</li>
+<li>wrap-reverse(逆序拆行或拆列)</li>
+</ul>
+<hr>
+<blockquote>
+<p>align-content堆栈对齐</p>
+</blockquote>
+<ul>
+<li>align-content是针对flex容器里面多轴(多行的情况)，align-items是针对一行的情况进行排列</li>
+<li>*使用条件：父元素设置<code>display: flex;</code>并且排列方式设置横向排列<code>flex-direction: row;</code>并且设置换行<code>flex-wrap: wrap;</code>这样属性才能使用**<br>stretch(默认值项目拉伸以适应容器)<br>center/flex-start/flex-end/space-between/space-around</li>
+<li><strong>flex-flow是flex-direction和flex-wrap的简写(flex-flow: row wrap)</strong><br><code>order</code>用css来控制盒子的前后顺序,正序方式排列，从小到大.用整数值来定义排列顺序，数值小的排在前面。可以为负值。默认值是0.</li>
+</ul>
+<h3 id="添加ico图标"><a href="#添加ico图标" class="headerlink" title="添加ico图标"></a>添加ico图标</h3><blockquote>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+**也可以在线将png转化成favicon.ico文件**
+</blockquote>
+<h2 id="SEO引擎优化"><a href="#SEO引擎优化" class="headerlink" title="SEO引擎优化"></a>SEO引擎优化</h2><blockquote>
+<p>三大标签 <code>title</code> <code>description</code> <code>Keywords</code></p>
+</blockquote>
+<h3 id="title"><a href="#title" class="headerlink" title="title"></a>title</h3><blockquote>
+<p>title具有不可代替性：<br>是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点<br>标题的长度： Google(70kb),35个中文|||百度(56kb),28个中文<br>关键字分布：最先出现的词语权重越高<br>关键字词频：主关键词出现3次，辅关键词出现一次<br>建议：网址名(产品名)-网站的介绍</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="Description网站说明"><a href="#Description网站说明" class="headerlink" title="Description网站说明"></a>Description网站说明</h3><blockquote>
+<p>对于关键词的作用明显减低，但由于很多搜索引擎，仍然大量采用网页的META标签中描述部分作为搜索结果的内容摘要.就是简要说明我们网站主要做什么</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h3><blockquote>
+<p>Keywords：关键字，是搜索引擎关注点之一。Keywords应该限制6~8关键词左右</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;网上购物,网上商城,手机,笔记本,电脑,MP3,CD,VCD,DV,相机,数码,配件,手表,存储卡,京东&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -370,6 +439,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E4%BC%AA%E7%B1%BB%E9%80%89%E6%8B%A9%E5%99%A8-CSS3"><span class="toc-number">1.</span> <span class="toc-text">结构伪类选择器(CSS3) </span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%83%8C%E6%99%AF"><span class="toc-number">2.</span> <span class="toc-text">背景</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E6%8A%80%E5%B7%A7"><span class="toc-number">3.</span> <span class="toc-text">小技巧</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#css%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%EF%BC%9A%E5%B1%82%E5%8F%A0%E6%80%A7%EF%BC%8C%E7%BB%A7%E6%89%BF%E6%80%A7%EF%BC%8C%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number"></span> <span class="toc-text">css三大特性：层叠性，继承性，优先级</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B1%82%E5%8F%A0%E6%80%A7%EF%BC%9A%E6%B5%8F%E8%A7%88%E5%99%A8%E5%A4%84%E7%90%86%E5%86%B2%E7%AA%81%E7%9A%84%E4%B8%80%E4%B8%AA%E8%83%BD%E5%8A%9B"><span class="toc-number">1.</span> <span class="toc-text">层叠性：浏览器处理冲突的一个能力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%A7%E6%89%BF%E6%80%A7"><span class="toc-number">2.</span> <span class="toc-text">继承性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7"><span class="toc-number">3.</span> <span class="toc-text">优先级</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8"><span class="toc-number"></span> <span class="toc-text">浮动</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%AE%E5%8A%A8%E8%AF%A6%E7%BB%86%E5%86%85%E5%B9%95%E7%89%B9%E6%80%A7"><span class="toc-number">1.</span> <span class="toc-text">浮动详细内幕特性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%85%E9%99%A4%E6%B5%AE%E5%8A%A8%E6%9C%AC%E8%B4%A8"><span class="toc-number">2.</span> <span class="toc-text">清除浮动本质</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%BD%8D%EF%BC%9A%E8%BE%B9%E5%81%8F%E7%A7%BB%E5%92%8C%E5%AE%9A%E4%BD%8D%E6%A8%A1%E5%BC%8F"><span class="toc-number"></span> <span class="toc-text">定位：边偏移和定位模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BA%A2%E5%87%BA%E6%96%87%E5%AD%97%E9%9A%90%E8%97%8F"><span class="toc-number">1.</span> <span class="toc-text">溢出文字隐藏</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#flex%E5%B8%83%E5%B1%80"><span class="toc-number"></span> <span class="toc-text">flex布局</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0ico%E5%9B%BE%E6%A0%87"><span class="toc-number">1.</span> <span class="toc-text">添加ico图标</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SEO%E5%BC%95%E6%93%8E%E4%BC%98%E5%8C%96"><span class="toc-number"></span> <span class="toc-text">SEO引擎优化</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#title"><span class="toc-number">1.</span> <span class="toc-text">title</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Description%E7%BD%91%E7%AB%99%E8%AF%B4%E6%98%8E"><span class="toc-number">2.</span> <span class="toc-text">Description网站说明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#keywords"><span class="toc-number">3.</span> <span class="toc-text">keywords</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
