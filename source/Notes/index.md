@@ -2,6 +2,10 @@
 title: 技术栈
 date: 2020-10-24 18:48:47
 ---
+
+## 练习
+>[练习](/practice "练习")
+
 ## HTML5
 >[html5](/html5 "html5")
 

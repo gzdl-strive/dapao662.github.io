@@ -4,6 +4,9 @@ date: 2020-10-26 21:20:02
 tag: js
 ---
 
+## js笔记(实践中遇到的问题)
+> [js笔记](/js/jsnote 'js笔记')
+
 ## js高级程序设计(第三版)
 
 > [js高级程序设计-unit3](/js/javaScript/Unit3 "第三章")

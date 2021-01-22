@@ -15,3 +15,7 @@ tag: js
 ## 第三天 防抖
 
 > [防抖](/js/jsTest/Test/03-debounce "防抖函数")
+
+## 第四天 节流
+
+>[节流](/js/jsTest/Test/04-throttle "节流函数")
