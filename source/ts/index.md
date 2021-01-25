@@ -11,3 +11,7 @@ tag: ts
 ## TypeScript练习
 
 > [Ts练习](/ts/practice "ts练习")
+
+## TypeScript官网文档笔记
+
+> [Ts官网笔记](/ts/official "ts官网笔记")
