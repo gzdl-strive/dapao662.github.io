@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tag: webpack | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="缓存bable缓存:cacheDirectory:true--&gt;让第二次打包构建速度更快 文件资源缓存: hash:每次webpack构建时会生成一个唯一的hash值问题：因为js和css同时使用一个hash值。如果重新打包，会导致所以缓存失效。（可能我却只改动一个文件） chunkhash:根据chunk生成的Hash值。如果打包来源于同一个chunk,那么hash值一样问题:js和css">
+  <meta name="description" content="缓存bable缓存:cacheDirectory:true--&gt;让第二次打包构建速度更快  文件资源缓存: hash:每次webpack构建时会生成一个唯一的hash值问题：因为js和css同时使用一个hash值。如果重新打包，会导致所以缓存失效。（可能我却只改动一个文件） chunkhash:根据chunk生成的Hash值。如果打包来源于同一个chunk,那么hash值一样问题:js和cs">
 <meta property="og:type" content="website">
 <meta property="og:title" content="babel缓存与文件资源缓存">
 <meta property="og:url" content="http://example.com/webpack/webpackTest/four/babelCache.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="缓存bable缓存:cacheDirectory:true--&gt;让第二次打包构建速度更快 文件资源缓存: hash:每次webpack构建时会生成一个唯一的hash值问题：因为js和css同时使用一个hash值。如果重新打包，会导致所以缓存失效。（可能我却只改动一个文件） chunkhash:根据chunk生成的Hash值。如果打包来源于同一个chunk,那么hash值一样问题:js和css">
+<meta property="og:description" content="缓存bable缓存:cacheDirectory:true--&gt;让第二次打包构建速度更快  文件资源缓存: hash:每次webpack构建时会生成一个唯一的hash值问题：因为js和css同时使用一个hash值。如果重新打包，会导致所以缓存失效。（可能我却只改动一个文件） chunkhash:根据chunk生成的Hash值。如果打包来源于同一个chunk,那么hash值一样问题:js和cs">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-03T15:41:02.000Z">
-<meta property="article:modified_time" content="2021-01-25T13:34:16.150Z">
+<meta property="article:modified_time" content="2021-01-28T02:28:33.368Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -162,7 +162,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><h3 id="bable缓存"><a href="#bable缓存" class="headerlink" title="bable缓存:"></a>bable缓存:</h3><pre><code>cacheDirectory:true--&gt;让第二次打包构建速度更快</code></pre>
+        <h2 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h2><h3 id="bable缓存"><a href="#bable缓存" class="headerlink" title="bable缓存:"></a>bable缓存:</h3><pre><code>cacheDirectory:true--&gt;让第二次打包构建速度更快
+</code></pre>
 <h3 id="文件资源缓存"><a href="#文件资源缓存" class="headerlink" title="文件资源缓存:"></a>文件资源缓存:</h3><ul>
 <li><strong>hash</strong>:每次<code>webpack</code>构建时会生成一个唯一的<code>hash</code>值<br>问题：因为<code>js</code>和<code>css</code>同时使用一个<code>hash</code>值。<br>如果重新打包，会导致所以缓存失效。（可能我却只改动一个文件）</li>
 <li><strong>chunkhash</strong>:根据<code>chunk</code>生成的<code>Hash</code>值。如果打包来源于同一个<code>chunk</code>,那么<code>hash</code>值一样<br>问题:<code>js</code>和<code>css</code>的<code>hash</code>值还是一样的<br>因为<code>css</code>是在<code>js</code>中被引入的,所以同属于一个<code>chunk</code></li>

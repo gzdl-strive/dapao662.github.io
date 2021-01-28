@@ -16,7 +16,7 @@
 <meta property="og:description" content="13、函数柯里化 指的是将一个接受多个参数的函数 变为 接受一个参数返回一个函数的固定形式，这样便于再次调用，例如f(1)(2)经典面试题：实现add(1)(2)(3)(4)&#x3D;10; 、 add(1)(1,2,3)(2)&#x3D;9;  1234567891011function add() &amp;#123;    const _args &#x3D; [...arguments];    function fn()">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-31T18:23:30.000Z">
-<meta property="article:modified_time" content="2021-01-25T13:34:16.146Z">
+<meta property="article:modified_time" content="2021-01-28T02:28:33.364Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -169,7 +169,8 @@
 <h3 id="14、模拟new操作"><a href="#14、模拟new操作" class="headerlink" title="14、模拟new操作"></a>14、模拟new操作</h3><pre><code>**3个步骤**:
 1. 以`ctor.prototype`为原型创建一个对象.
 2. 执行构造函数并将this绑定到新创建的对象上.
-3. 判断构造函数执行返回的结果是否是引用数据类型，若是则返回返回构造函数执行的结果，否则返回创建的对象.</code></pre>
+3. 判断构造函数执行返回的结果是否是引用数据类型，若是则返回返回构造函数执行的结果，否则返回创建的对象.
+</code></pre>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newOperator</span>(<span class="params">ctor, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> ctor !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(ctor.prototype);</span><br><span class="line">    <span class="keyword">const</span> res = ctor.apply(obj, args);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> isObject = <span class="keyword">typeof</span> res === <span class="string">&#x27;Object&#x27;</span> &amp;&amp; res !== <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">const</span> isFunction = <span class="keyword">typeof</span> res === <span class="string">&#x27;function&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> isObject || isFunction ? res : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h3 id="15、instanceof"><a href="#15、instanceof" class="headerlink" title="15、instanceof"></a>15、instanceof</h3><blockquote>

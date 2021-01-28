@@ -16,7 +16,7 @@
 <meta property="og:description" content="什么是TDZ？ Temporal Dead Zone(TDZ)是 ES6(ES2015) 中对新作用域的专业语义。  let&#x2F;const和var的区别在ES6之前，JS的scope只有两种，全局作用域和函数作用域，但是在ES6中出现了块级作用域，即使用let&#x2F;const可以定义块级作用域。那么在ES6的新特性中，最容易看到TDZ作用的就是使用let&#x2F;const的使用上面。let&#x2F;const与var">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-30T10:44:36.000Z">
-<meta property="article:modified_time" content="2021-01-25T13:34:16.066Z">
+<meta property="article:modified_time" content="2021-01-28T02:28:33.292Z">
 <meta property="article:author" content="Zoro">
 <meta property="article:tag" content="js">
 <meta name="twitter:card" content="summary">
@@ -196,7 +196,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <p>总之，<code>暂时性死区的本质</code>就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
 </blockquote>
 <pre><code>注: TDZ最一开始是为了const所设计的，但后来的对let的设计也是一致的。
-注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。</code></pre>
+注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。
+</code></pre>
 
       
 
@@ -280,7 +281,7 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
   
 <nav id="article-nav">
   
-    <a href="/2021/01/25/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2021/01/28/hello-world/" id="article-nav-newer" class="article-nav-link-wrap">
       <i class="icon-circle-left"></i>
       <div class="article-nav-title">
         

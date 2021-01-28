@@ -147,13 +147,13 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2021/01/25/hello-world/">Hexo 起始页</a>
+      <a class="article-title" href="/2021/01/28/hello-world/">Hexo 起始页</a>
     </h1>
   
 
         
-        <a href="/2021/01/25/hello-world/" class="archive-article-date">
-  	<time datetime="2021-01-25T13:34:16.066Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-25</time>
+        <a href="/2021/01/28/hello-world/" class="archive-article-date">
+  	<time datetime="2021-01-28T02:28:33.292Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-28</time>
 </a>
         
       </header>
@@ -192,7 +192,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2021/01/25/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2021/01/28/hello-world/">展开全文 >></a>
         </p>
       
 
@@ -275,7 +275,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <p>总之，<code>暂时性死区的本质</code>就是，只要一进入当前作用域，所要使用的变量就已经存在了，但是不可获取，只有等到声明变量的那一行代码出现，才可以获取和使用该变量。</p>
 </blockquote>
 <pre><code>注: TDZ最一开始是为了const所设计的，但后来的对let的设计也是一致的。
-注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。</code></pre>
+注: 在ES6标准中，对于const所声明的识别子仍然也经常为variable(变量)，称为constant variable(固定的变量)。以const声明所创建出来的常量，在JS中只是不能再被赋(can’t re-assignment)，并不是不可被改变(immutable)的，这两种概念仍然有很大的差异。
+</code></pre>
 
       
 
@@ -493,7 +494,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
         -普通变量
 *执行
 先预解析全局作用域，然后执行全局作用域中的代码
-在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。</code></pre>
+在执行全局代码的过程中遇到函数调用就会先进行函数预解析，然后执行函数内代码。
+</code></pre>
 <h3 id="什么是面向对象"><a href="#什么是面向对象" class="headerlink" title="什么是面向对象?"></a>什么是面向对象?</h3><blockquote>
 <p>面向对象不是新的东西，它只是<strong>过程式代码</strong>的一种高度封装，目的在于提高代码的开发效率和可维护性。<br>面向对象编程————<code>Object Oriented Programming</code>,简称<code>OOP</code>,是一种编程开发思想.<br><strong>面向对象与面向过程：</strong></p>
 </blockquote>
@@ -861,30 +863,35 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 ## 二级标题
 ### 三级标题
 ...
-注意：#号后面有空格</code></pre>
+注意：#号后面有空格
+</code></pre>
 <p>第二种:</p>
 <pre><code>这是一级标题
 ===============
 这是二级标题
 ---------------
-注意:这种方式好像只能表示以及和二级，而且=和-没有限制</code></pre>
+注意:这种方式好像只能表示以及和二级，而且=和-没有限制
+</code></pre>
 <p>第三种:</p>
 <pre><code># 一级标题 #
 ## 二级标题 ##
 ### 三级标题 ###
-...</code></pre>
+...
+</code></pre>
 <h2 id="2、列表"><a href="#2、列表" class="headerlink" title="2、列表"></a>2、列表</h2><p>无序列表:</p>
 <pre><code>+ 1
 - 2
 * 3
 
-可以看到,无序列表可以使用 * , + , - ,来创建</code></pre>
+可以看到,无序列表可以使用 * , + , - ,来创建
+</code></pre>
 <p>有序列表:</p>
 <pre><code>3. 列表1
 2. 列表2
 1. 列表3
 
-有序列表就相对简单一点，只有这一种方式，注意，数字后面的点只能是英文的点</code></pre>
+有序列表就相对简单一点，只有这一种方式，注意，数字后面的点只能是英文的点
+</code></pre>
 <h2 id="3、区块引用"><a href="#3、区块引用" class="headerlink" title="3、区块引用"></a>3、区块引用</h2><p>比如说，你想对某个部分做的内容做一些说明或者引用某某的话等，可以用这个语句<br>        * 我可是吃了迷路果实的剑客<br>        &gt; 罗罗诺亚.索隆</p>
 <ul>
 <li>我可是吃了迷路果实的剑客<blockquote>
@@ -895,7 +902,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <h3 id="另一种用法"><a href="#另一种用法" class="headerlink" title="另一种用法"></a>另一种用法</h3><pre><code>&gt; 一级引用
 &gt;&gt; 二级引用
 &gt;&gt;&gt; 三级引用
-&gt;&gt;&gt;&gt; 四级引用</code></pre>
+&gt;&gt;&gt;&gt; 四级引用
+</code></pre>
 <blockquote>
 <p>一级引用</p>
 <blockquote>
@@ -914,12 +922,14 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 -------
 - - - - 
 ******
-* * ** * *</code></pre>
+* * ** * *
+</code></pre>
 <h2 id="5、链接"><a href="#5、链接" class="headerlink" title="5、链接"></a>5、链接</h2><p>支持两种链接方式: 行内式和参数式，不管是哪一种，链接文字都是用 [方括号] 来标记</p>
 <h3 id="行内式"><a href="#行内式" class="headerlink" title="行内式"></a>行内式</h3><p><a target="_blank" rel="noopener" href="http://www.baidu.com/">RGB</a>是什么意思<br>链接还可以带title属性：左[RGB】(<a target="_blank" rel="noopener" href="http://www.baidu.com/">http://www.baidu.com</a> “三原色”)<br><a target="_blank" rel="noopener" href="http://www.baidu.com/" title="三原色">RGB</a>—移动鼠标至此可以看到title</p>
 <h3 id="参数式"><a href="#参数式" class="headerlink" title="参数式"></a>参数式</h3><pre><code>[RGB]: http://www.baidu.com &quot;三原色&quot;
 [RGBA]: http://www.baidu.com &quot;A代表透明度&quot;
-这里是[RGB],这里是[RGBA]</code></pre>
+这里是[RGB],这里是[RGBA]
+</code></pre>
 <p>这里是<a target="_blank" rel="noopener" href="http://www.baidu.com/" title="三原色">RGB</a>,这里是<a target="_blank" rel="noopener" href="http://www.baidu.com/" title="A代表透明度">RGBA</a></p>
 <h2 id="6、图片"><a href="#6、图片" class="headerlink" title="6、图片"></a>6、图片</h2><p>图片也有两种方式：行内式和参数式<br>用法跟链接的基本一样，唯一的不同就是，图片前面要写一个！<br><img src="https://imgchr.com/i/dBqWuQ" alt="我是图片" title="火蛇"></p>
 <h2 id="7、代码框"><a href="#7、代码框" class="headerlink" title="7、代码框"></a>7、代码框</h2><p>如果代码量比较少，只有单行的话，可以用单反引号包起来,多行用三个反引号，如果要写注释，可以在反引号后面写.</p>
@@ -928,7 +938,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <h2 id="8、表格"><a href="#8、表格" class="headerlink" title="8、表格"></a>8、表格</h2><pre><code>| name | age | sex |
 |:------:|:-----|------:|冒号写左边，左对齐，写右边，右对齐
 | tony | 20  |  男 |
-| lucy | 18  |  女 |</code></pre>
+| lucy | 18  |  女 |
+</code></pre>
 <table>
 <thead>
 <tr>
@@ -954,7 +965,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 * \~
 * \*
 * \_
-* \!</code></pre>
+* \!
+</code></pre>
 <ul>
 <li>\</li>
 <li>`</li>
@@ -963,7 +975,8 @@ ES6 明确规定，如果区块中存在<code>let</code>和<code>const</code>命
 <li>_</li>
 <li>!<br>…基本上跟js转义是一样的</li>
 </ul>
-<h2 id="11、删除线"><a href="#11、删除线" class="headerlink" title="11、删除线"></a>11、删除线</h2><pre><code>~~删除线~~</code></pre>
+<h2 id="11、删除线"><a href="#11、删除线" class="headerlink" title="11、删除线"></a>11、删除线</h2><pre><code>~~删除线~~
+</code></pre>
 <p><del>删除线</del></p>
 
       

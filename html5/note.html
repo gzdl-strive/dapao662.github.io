@@ -16,7 +16,7 @@
 <meta property="og:description" content="HTML5:1、geolocation–定位2、video、audio3、localStorage    类似cookie：   小(4k)-出现时间早、浏览器和服务器共享    localStorage    大（5M）、浏览器独享4、*WebWorker    多进程5、WebSQL、IndexedDB–安全隐患（几乎用不着）    *W3C删除了6、文件操作、文件拖拽7、canvas–画图">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-29T10:15:19.000Z">
-<meta property="article:modified_time" content="2021-01-25T13:34:16.142Z">
+<meta property="article:modified_time" content="2021-01-28T02:28:33.360Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -229,7 +229,8 @@ w:200 h:300
 0行55列       55
 1行0列        200
 2行0列        400
-r行c列        r*w+c</code></pre>
+r行c列        r*w+c
+</code></pre>
 <p>3、video和canvas配合<br>    视频滤镜</p>
 <p>4、图形后续处理<br>    用户打开、下载、存到服务器<br>canvassend.html 1.jepg server.js</p>
 <hr>
@@ -240,7 +241,8 @@ r行c列        r*w+c</code></pre>
 </blockquote>
 <hr>
 <p>SVG标签：<br>    只能做属性–决定图形形状<br>    可以放样式（style）–视觉上效果-颜色…<br>    *放样式里<br>    **属性的样式优先级太低了</p>
-<pre><code>属性&lt;*&lt;标签&lt;class&lt;ID&lt;行间</code></pre>
+<pre><code>属性&lt;*&lt;标签&lt;class&lt;ID&lt;行间
+</code></pre>
 <p>1、SVG由标签组成-svg、line、…<br>2、属性：形状的参数<br>    样式：视觉<br>3、事件-修改<br>    添加事件    –一样<br>    修改样式    –一样<br>    属性操作    –.setAttribute,.getAttribute</p>
 <h2 id="矢量图都没有单位"><a href="#矢量图都没有单位" class="headerlink" title="矢量图都没有单位"></a>矢量图都没有单位</h2><h2 id="SVG和HTML–兄弟（基于XML-SVG更像XML）"><a href="#SVG和HTML–兄弟（基于XML-SVG更像XML）" class="headerlink" title="SVG和HTML–兄弟（基于XML,SVG更像XML）"></a>SVG和HTML–兄弟（基于XML,SVG更像XML）</h2><p>图形：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span> <span class="attr">y1</span> <span class="attr">x2</span> <span class="attr">y2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span> <span class="attr">y</span> <span class="attr">width</span> <span class="attr">height</span> <span class="attr">rx</span> <span class="attr">ry</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span> <span class="attr">cy</span> <span class="attr">r</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span> <span class="attr">cy</span> <span class="attr">rx</span> <span class="attr">ry</span>&gt;</span></span><br></pre></td></tr></table></figure>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="假设我们使用上面的办法管理一些全局的小状态，Provider 变的越来越多了，有时候会遇到嵌套地狱的情况: 1234567891011121314151617181920const StateProviders &#x3D; (&amp;#123; children &amp;#125;) &#x3D;&gt; (  &lt;LogProvider&gt;    &lt;UserProvider&gt;      &lt;MenuP">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-14T20:08:53.000Z">
-<meta property="article:modified_time" content="2021-01-25T13:34:16.142Z">
+<meta property="article:modified_time" content="2021-01-28T02:28:33.360Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -172,7 +172,8 @@
 1. 尽量提升渲染无关的子组件元素到「有状态组件」的外部。
 2. 在需要的情况下对 Context 进行读写分离。
 3. 包装Context 的使用，注意错误处理。
-4. 组合多个 Context，优化代码。</code></pre>
+4. 组合多个 Context，优化代码。
+</code></pre>
 
       
 
