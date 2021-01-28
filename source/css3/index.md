@@ -10,6 +10,9 @@ tag: CSS
 ## CSS笔记
 >[CSS笔记](/css3/cssTest "CSS笔记")
 
+## CSS颜色表示法
+>[颜色表示](/css3/color "CSS颜色")
+
 ## CSS3练习
 
 ### 圆角

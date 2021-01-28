@@ -15,3 +15,11 @@ tag: ts
 ### 接口
 
 > [接口](/ts/official/unit/03-interface "接口")
+
+### 类
+
+> [类](/ts/official/unit/04-class "类")
+
+### 函数
+
+> [函数](/ts/official/unit/05-function "函数")
