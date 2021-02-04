@@ -23,3 +23,15 @@ tag: ts
 ### 函数
 
 > [函数](/ts/official/unit/05-function "函数")
+
+### 泛型
+
+> [泛型](/ts/official/unit/06-fanxing "泛型")
+
+### 枚举
+
+> [枚举](/ts/official/unit/07-enum "枚举")
+
+### 类型推论
+
+> [类型推论](/ts/official/unit/08-typeInference "类型推论")

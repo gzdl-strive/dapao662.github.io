@@ -50,9 +50,40 @@ a();
 新->老（晋升条件）: 1、标记 2、存活
 老生代垃圾回收触发条件： 新生代晋升老生代-》内存没了，触发老生代垃圾回收
 * 老生代:上一次扫描没有被清理掉-》不容易被回收(不断晋升)
-存货多-》不能用拷贝的方法-->删死数据
+存活多-》不能用拷贝的方法-->删死数据
 两个算法：标记清除、标记整理
 标记清除(mark sweep)：
 1. 遍历 存活 =》 GC 时间长 => 浏览器卡顿
 2. 删除没有被使用的数据(少数)
 数据段 不连续 -> 还有内存 分配不了大数据 =>(不会触发垃圾回收，没有意义)=>标记整理 移动整合内存段 多 成本大(GC 时间长 => 浏览器卡顿) => 增量标记(增量整理,只处理一部分)
+
+
+## 浏览器架构
+### 渲染进程
+>一个tab相对于一个渲染进程
+
+一个进程：
+* Compositor Thread 排版线程 接收用户事件的输入(如果没有绑定事件的js不会经过主线程会直接提交给GPU)
+* Main Thread 主线程 处理js执行、html,css解析、排版
+* Compositor Title 栅格化
+
+一帧：
+Frame Start ->
+    `Main Thread(主线程)`: Input event handlers -> requestAnimationFrame -> Parse HTML(解析HTML) -> Recaic(重新计算) Styles -> Layout(Layout树) -> Update Layer Tree -> Paint(控制层级) -> Composite -> commit -> Raster Scheduled -> Rasterize 
+-> Frame End 
+    requestIdleCallback
+
+### GPU进程
+GPU负责渲染
+
+
+### 杂谈
+parseHTML时 遇到js会阻塞 => 执行完js完回来继续执行
+setTimeout => 是浏览器提供的监听timer
+事件循环 独立于 js执行(堆,栈...)
+
+### nodejs v8 libuv
+1. v8不负责事件循环 setTimeout
+2. node维护事件 处理逻辑 是一个队列吗?? ->多个队列 多个优先级
+3. 事件循环和js执行在同一个线程吗? 是在同一个线程
+4. 事件循环的先后顺序

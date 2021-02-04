@@ -19,3 +19,7 @@ tag: js
 ## 第四天 节流
 
 >[节流](/js/jsTest/Test/04-throttle "节流函数")
+
+## 第五天 获取一个页面的标签数和出现次数最多的三个标签
+
+>[获取标签数](/js/jsTest/Test/05-getNum "获取标签数")
