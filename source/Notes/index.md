@@ -47,3 +47,6 @@ date: 2020-10-24 18:48:47
 
 ## Node
 >[Node](/node "node")
+
+## 算法
+>[Algorithm](/algorithm "算法")
