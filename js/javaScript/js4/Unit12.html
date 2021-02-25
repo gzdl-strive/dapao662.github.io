@@ -16,7 +16,7 @@
 <meta property="og:description" content="像素比-window.devicePixelRatio–物理像素和css像素之间的转换比率   window.open()跳转到新窗口-三个参数:要跳转的url、目标窗口、特性字符串特性字符串是一个用逗号分隔的设置字符串，用于指定新窗口包含的特性  12345678910111213141516171819&#x2F;*设置            值            说明fullscreen  &amp;q">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-25T09:05:10.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.452Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.056Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -171,6 +171,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">设置            值            说明</span></span><br><span class="line"><span class="comment">fullscreen  &quot;yes&quot;或&quot;no&quot;     表示新窗口是否最大化，仅限ie支持</span></span><br><span class="line"><span class="comment">height          数值        新窗口高度，不能小于100</span></span><br><span class="line"><span class="comment">left            数值        新窗口x轴坐标,不能是负数</span></span><br><span class="line"><span class="comment">location     &quot;yes&quot;或&quot;no&quot;    表示是否隐藏地址栏。不同浏览器默认值不同</span></span><br><span class="line"><span class="comment">Menubar     &quot;yes&quot;或&quot;no&quot;     表示是否显示菜单栏,默任为&quot;no&quot;</span></span><br><span class="line"><span class="comment">resizable   &quot;yes&quot;或&quot;no&quot;     表示是否可以拖动改变新窗口大小，默认为&quot;no&quot;</span></span><br><span class="line"><span class="comment">scrollbars  &quot;yes&quot;或&quot;no&quot;     表示是否可以在内容过长时滚动。默认为&quot;no&quot;</span></span><br><span class="line"><span class="comment">status      &quot;yes&quot;或&quot;no&quot;     表示是否显示状态栏</span></span><br><span class="line"><span class="comment">toolbar     &quot;yes&quot;或&quot;no&quot;     表示是否显示工具栏</span></span><br><span class="line"><span class="comment">top             数值        新窗口y轴坐标.不能是负数</span></span><br><span class="line"><span class="comment">width           数值        新窗口宽度，不能小于100</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="built_in">window</span>.open(<span class="string">&#x27;http://www.baidu.com&#x27;</span>, <span class="string">&#x27;百度&#x27;</span>, <span class="string">&#x27;height=400,width=400,top=10,left=10,resizable=yes,Menubar=&quot;yes&quot;&#x27;</span>)</span><br><span class="line"><span class="comment">//例子</span></span><br><span class="line"><span class="keyword">let</span> wrowin = <span class="built_in">window</span>.open(<span class="string">&#x27;http://www.baidu.com&#x27;</span>, <span class="string">&quot;百度&quot;</span>, <span class="string">&quot;top=0,width=200,height=200,left=100&quot;</span>)</span><br><span class="line">wrowin.resizeTo(<span class="number">500</span>,<span class="number">500</span>);</span><br><span class="line">wrowin.moveTo(<span class="number">100</span>,<span class="number">200</span>);</span><br></pre></td></tr></table></figure>
 <p><strong>还可以使用<code>window.close</code>关闭新打开的窗口</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wrowin.close();<span class="comment">// 只能用于window.open创建的弹出窗口</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>系统对话框alert()、confirm()、prompt()、find()、print()</p>
 </blockquote>
@@ -187,6 +188,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">location.assign(<span class="string">&quot;http://www.baidu.com&quot;</span>)<span class="comment">//立即启动到新url</span></span><br></pre></td></tr></table></figure>
 <p><strong>如果给<code>window.location</code>或<code>document.location</code>设置一个url，也会以同一个url调用<code>assign</code>方法-修改<code>location属性</code>也会修改当前加载的页面</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">location.hash = <span class="string">&quot;#section1&quot;</span>;</span><br><span class="line">location.search = <span class="string">&quot;?p=javascript1&quot;</span>;</span><br><span class="line">location.hostname = <span class="string">&quot;xxx&quot;</span></span><br><span class="line">location.pathname = <span class="string">&quot;xxx&quot;</span></span><br><span class="line">location.port = <span class="number">9000</span>;</span><br><span class="line"><span class="comment">// 除hash外，修改location的一个任一属性，就会导致页面重新加载新URL</span></span><br><span class="line"><span class="comment">//用以上方法修改url后，可以回退到前一个页面，如果不希望回退，可以使用replace方法</span></span><br><span class="line"><span class="comment">//最后一个修改地址的方法是reload(),他能重新加载当前显示的页面</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>navigator对象<br>screen对象</p>
 </blockquote>

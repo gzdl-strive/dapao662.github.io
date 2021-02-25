@@ -16,7 +16,7 @@
 <meta property="og:description" content="锚点定位  1&lt;a href&#x3D;&quot;#open&quot;&gt;&lt;&#x2F;a&gt; ... &lt;h1 id&#x3D;&quot;open&quot;&gt;&lt;&#x2F;h1&gt;  base标签 可以给页面所有a标签添加属性 在head标签内 &lt;base target&#x3D;&quot;_blank&quot;&gt;&lt;&#x2F;base&gt;链接伪类选择器: a:link,a:ho">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-03T12:36:19.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.448Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.052Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -180,9 +180,9 @@
 </blockquote>
 <hr>
 <p><code>多背景CSS3</code> :以逗号分隔可以设置多背景,可用于自适应布局</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">background-image: url(&#x27;img/1.png&#x27;) no-repeat left top, url(&#x27;img/2.png&#x27;) no-repeat right bottom</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">&#x27;img/1.png&#x27;</span>) no-repeat left top, <span class="built_in">url</span>(<span class="string">&#x27;img/2.png&#x27;</span>) no-repeat right bottom</span><br></pre></td></tr></table></figure>
 <p>一个元素可以设置多重背景图像，每组属性间使用逗号分隔，如果多重背景存在交集，前面的背景图会覆盖在后面的背景图之上<br>为了避免背景色将图像盖住，背景色通常都定义在最后一组上</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:url()</span> ..., <span class="selector-tag">url</span>() ..., <span class="selector-tag">url</span>() , <span class="selector-id">#f00</span>;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">background</span>:<span class="built_in">url</span>() ..., <span class="built_in">url</span>() ..., <span class="built_in">url</span>() , <span class="number">#f00</span>;</span><br></pre></td></tr></table></figure>
 <h3 id="小技巧"><a href="#小技巧" class="headerlink" title="小技巧"></a>小技巧</h3><p><strong>在一行内的盒子内，我们设定行高等于盒子的高度，就可以使文字垂直居中</strong><br><strong>如果设置了行高就可以不用设置高度，行高会撑开</strong></p>
 <h2 id="css三大特性：层叠性，继承性，优先级"><a href="#css三大特性：层叠性，继承性，优先级" class="headerlink" title="css三大特性：层叠性，继承性，优先级"></a>css三大特性：层叠性，继承性，优先级</h2><h3 id="层叠性：浏览器处理冲突的一个能力"><a href="#层叠性：浏览器处理冲突的一个能力" class="headerlink" title="层叠性：浏览器处理冲突的一个能力"></a>层叠性：浏览器处理冲突的一个能力</h3><blockquote>
 <p>如果样式冲突，遵循的原则是就近原则,哪个样式离结构近，就执行那个样式.如果样式不冲突，不会层叠</p>
@@ -254,13 +254,14 @@
 <ul>
 <li>1、额外标签法，在浮动元素末尾添加一个空标签，例如<code>&lt;div style=&quot;clear: both&quot;&gt;&lt;/div&gt;</code>,或者其他标签br等亦可。<strong>缺点：添加了许多无意义的标签，结构化较差</strong></li>
 <li>2、父级添加<code>overflow:hidden/auto/scroll方法</code>-》通过触发<code>BFC</code>的方式，可以实现清除浮动效果。<strong>优点：代码简洁</strong> 。<strong>缺点：内容增多时候容易造成不会自动换行导致内容被隐藏调，无法显示需要溢出的元素</strong></li>
-<li>3、是由after伪元素清除浮动<br>:after是空标签的升级版，好处是不用单独添加标签<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&#x27;.&#x27;</span>;   <span class="comment">/*内容为. ,尽量加不要空，否则旧版本浏览器有空隙*/</span></span><br><span class="line">    <span class="attribute">display</span>: block; <span class="comment">/*转换为块级元素*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>; <span class="comment">/*高度为0*/</span></span><br><span class="line">    <span class="attribute">visibility</span>: hidden; <span class="comment">/*隐藏盒子*/</span></span><br><span class="line">    <span class="attribute">clear</span>: both; <span class="comment">/*清除浮动*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* ie6，7处理的方式 */</span></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    <span class="attribute">*zoom</span>: <span class="number">1</span>; </span><br><span class="line">    <span class="comment">/* *代表ie6、7能识别的特殊符号,待遇这个*的属性，只有ie6,7才执行</span></span><br><span class="line"><span class="comment">    zoom就是ie6,7清除浮动的方法 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>4、双伪元素清除浮动<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:before</span>, <span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">content</span>: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>: table;<span class="comment">/*触发bfc防止外边距合并*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">:after</span> &#123;</span><br><span class="line">    <span class="attribute">clear</span>: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    <span class="attribute">*zoom</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>3、是由after伪元素清除浮动<br>:after是空标签的升级版，好处是不用单独添加标签<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    content: <span class="string">&#x27;.&#x27;</span>;   <span class="comment">/*内容为. ,尽量加不要空，否则旧版本浏览器有空隙*/</span></span><br><span class="line">    <span class="attribute">display</span>: block; <span class="comment">/*转换为块级元素*/</span></span><br><span class="line">    <span class="attribute">height</span>: <span class="number">0</span>; <span class="comment">/*高度为0*/</span></span><br><span class="line">    <span class="attribute">visibility</span>: hidden; <span class="comment">/*隐藏盒子*/</span></span><br><span class="line">    <span class="attribute">clear</span>: both; <span class="comment">/*清除浮动*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/* ie6，7处理的方式 */</span></span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    *zoom: <span class="number">1</span>; </span><br><span class="line">    <span class="comment">/* *代表ie6、7能识别的特殊符号,待遇这个*的属性，只有ie6,7才执行</span></span><br><span class="line"><span class="comment">    zoom就是ie6,7清除浮动的方法 */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>4、双伪元素清除浮动<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span>:before, .clearfix:after &#123;</span><br><span class="line">    content: <span class="string">&quot;&quot;</span>;</span><br><span class="line">    <span class="attribute">display</span>: table;<span class="comment">/*触发bfc防止外边距合并*/</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span>:after &#123;</span><br><span class="line">    clear: both;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.clearfix</span> &#123;</span><br><span class="line">    *zoom: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
 <h2 id="定位：边偏移和定位模式"><a href="#定位：边偏移和定位模式" class="headerlink" title="定位：边偏移和定位模式"></a>定位：边偏移和定位模式</h2><blockquote>
 <p>边偏移：<code>left/right/top/bottom</code><br>定位模式：position: static（自动定位,默认）/relative(相对定位-相对于原文档流位置进行定位)/ absolute（绝对定位-相对于其上一个已经定位的父元素进行定位）/fixed（固定定位-相对于浏览器窗口进行定位）</p>
 </blockquote>
-</li>
-</ul>
 <p>relative:相对定位–》相对定位的盒子仍在标准流中，他后面的盒子仍以标准流的方式对待他(相对定位不脱标)<br>absolute:绝对定位–》绝对定位完全脱离标准流，它不占有位置<br>    1、如果父元素没有定位，会以浏览器为准对齐(document)<br>    2、如果父元素有定位，会以父元素为准对齐<br>子绝父相的由来（父元素如果加绝对定位，那么就不占有位置脱离标准流）：<br>    1、相对定位： 占有位置 不脱标<br>    2、绝对定位： 不占有位置 完全脱标<br><strong>定位模式转换</strong><br>跟浮动一样，当元素添加了绝对定位/固定定位后，元素模式发生转换，都变成行内块模式</p>
 <hr>
 <blockquote>
@@ -275,6 +276,7 @@
 </blockquote>
 <h3 id="溢出文字隐藏"><a href="#溢出文字隐藏" class="headerlink" title="溢出文字隐藏"></a>溢出文字隐藏</h3><p>word-break: break-all;允许单词拆开显示<br>            keep-all;保持完整性,连字符特殊（-）<br>white-space: 设置或检索对象内文本显示方式<br>    normal:默认处理方式<br>    nowrap: 强制在同一行显示所有文本，直到文本结束或遭遇br标签对象才换行<br>text-overflow：文字溢出<br>    clip 不显示省略标记(…),而是简单的裁切<br>    ellipsis: 当对象内文本溢出时显示省略标记(…)</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 120px; height: 20px; border: 1px solid #f00; word-break: keep-all;&quot;</span>&gt;</span>my name is ze-ro<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 120px; height: 20px; border: 1px solid #f00; white-space: nowrap;&quot;</span>&gt;</span>我的名字是索隆，是个剑客<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&quot;width: 120px; height: 20px; border: 1px solid #f00; text-overflow: ellipsis; white-space: nowrap;overflow: hidden;&quot;</span>&gt;</span>我的名字是索隆，是个剑客<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>拉门技术: a标签包含一个span标签,a标签当左圆角，span为右圆角</p>
 </blockquote>
@@ -349,10 +351,12 @@
 <p>title具有不可代替性：<br>是搜索引擎了解网页的入口，和对网页主题归属的最佳判断点<br>标题的长度： Google(70kb),35个中文|||百度(56kb),28个中文<br>关键字分布：最先出现的词语权重越高<br>关键字词频：主关键词出现3次，辅关键词出现一次<br>建议：网址名(产品名)-网站的介绍</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">title</span>&gt;</span>京东(JD.COM)-正品低价、品质保障、配送及时、轻松购物！<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="Description网站说明"><a href="#Description网站说明" class="headerlink" title="Description网站说明"></a>Description网站说明</h3><blockquote>
 <p>对于关键词的作用明显减低，但由于很多搜索引擎，仍然大量采用网页的META标签中描述部分作为搜索结果的内容摘要.就是简要说明我们网站主要做什么</p>
 </blockquote>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;京东JD.COM-专业的综合网上购物商城,销售家电、数码通讯、电脑、家居百货、服装服饰、母婴、图书、食品等数万个品牌优质商品.便捷、诚信的服务，为您提供愉悦的网上购物体验!&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <h3 id="keywords"><a href="#keywords" class="headerlink" title="keywords"></a>keywords</h3><blockquote>
 <p>Keywords：关键字，是搜索引擎关注点之一。Keywords应该限制6~8关键词左右</p>
 </blockquote>

@@ -16,7 +16,7 @@
 <meta property="og:description" content="获取一个页面有多少个标签 1、获取所有标签对象(document.querySelectorAll(‘*’)) 2、获取所有标签对象的标签名 3、去重(使用Set) 4、输出标签数量(.size)  12let nums &#x3D; new Set([...document.querySelectorAll(&amp;#x27;*&amp;#x27;)].map(item &#x3D;&gt; item.tagName)).siz">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-31T20:08:24.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.452Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.056Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -169,12 +169,14 @@
 <li>4、输出标签数量(.size)</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> nums = <span class="keyword">new</span> <span class="built_in">Set</span>([...document.querySelectorAll(<span class="string">&#x27;*&#x27;</span>)].map(<span class="function"><span class="params">item</span> =&gt;</span> item.tagName)).size;</span><br><span class="line"><span class="built_in">console</span>.log(nums);</span><br></pre></td></tr></table></figure>
+
 <h3 id="获取一个页面出现次数最多的三个标签"><a href="#获取一个页面出现次数最多的三个标签" class="headerlink" title="获取一个页面出现次数最多的三个标签"></a>获取一个页面出现次数最多的三个标签</h3><ul>
 <li>1、先把所有标签列出来</li>
 <li>2、按出现次数的多少排序</li>
 <li>3、取前三个</li>
 </ul>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> ret = [...document.querySelector(<span class="string">&#x27;*&#x27;</span>)]</span><br><span class="line">    .map(<span class="function"><span class="params">item</span> =&gt;</span> item.tagName)</span><br><span class="line">    <span class="comment">// 归并方法reduce接收两个参数(归并函数，起始值)</span></span><br><span class="line">    <span class="comment">// 归并函数可接收4个参数(上一个归并值，当前值，当前项索引，数组本身)</span></span><br><span class="line">    .reduce(<span class="function">(<span class="params">pre, cur</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="comment">//pre刚开始为&#123;&#125;</span></span><br><span class="line">        <span class="comment">//如果之前存在这个属性就+1，否则为1</span></span><br><span class="line">        pre[cur] = pre[cur] ? pre[cur] + <span class="number">1</span> : <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">return</span> pre;</span><br><span class="line">    &#125;, &#123;&#125;);</span><br><span class="line"><span class="comment">//此时ret是一个对象-&gt;迭代后排序</span></span><br><span class="line"><span class="comment">//使得对象可迭代-》两种方法(Object.values(接收一个对象，返回它们内容的数组)和Object.entries(接收一个对象，返回键/值对数组))</span></span><br><span class="line"><span class="keyword">let</span> res = <span class="built_in">Object</span>.entries(ret).sort(<span class="function">(<span class="params">a, b</span>) =&gt;</span> b[<span class="number">1</span>] - a[<span class="number">1</span>]);</span><br><span class="line"><span class="built_in">console</span>.table(res.spilce(<span class="number">0</span>, <span class="number">3</span>));</span><br></pre></td></tr></table></figure>
+
       
 
       

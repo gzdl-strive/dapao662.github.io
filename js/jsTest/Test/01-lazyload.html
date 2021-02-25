@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/jsImg/Test/lazyload.png">
 <meta property="article:published_time" content="2020-12-08T22:27:16.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.452Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.056Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/jsImg/Test/lazyload.png">
@@ -38,7 +38,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -181,8 +181,10 @@
 <li>如何控制图片的加载</li>
 </ul>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">data-src</span>=<span class="string">&quot;1.png&quot;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>首先设置一个临时属性 <code>data-src</code> , 控制加载时使用 <code>src</code> 代替 <code>data-src</code></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;img alt=&quot;lalalala&quot; data-src=&quot;./zero.png&quot;/&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lazyload</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img[data-src]&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> len = imgs.length;</span><br><span class="line">    <span class="comment">//视口的高度</span></span><br><span class="line">    <span class="keyword">const</span> viewHeight = <span class="built_in">document</span>.documentElement.clientHeight;</span><br><span class="line">    <span class="keyword">const</span> scrollHeight = <span class="built_in">document</span>.documentElement.scrollTop || <span class="built_in">document</span>.body.scrollTop;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">const</span> offsetHeight = imgs[i].offsetTop;</span><br><span class="line">        <span class="keyword">if</span> (offsetHeight &lt; viewHeight + scrollHeight) &#123;</span><br><span class="line">            imgs[i].src = imgs[i].dataset.src;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, lazyload);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
 <h2 id="方案二"><a href="#方案二" class="headerlink" title="方案二"></a>方案二</h2><ul>
 <li>如何判断图片出现在了当前视口</li>
 </ul>
@@ -190,16 +192,21 @@
 <p><img src="/assets/jsImg/Test/lazyload.png" alt="1" title="1"></p>
 <p>那如何判断图片出现在了当前视口呢，根据示例图示意，代码如下:</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//clientHeight 代表当前视口的高度</span></span><br><span class="line">img.getBoundingClientRect().top &lt; <span class="built_in">document</span>.documentElement.clientHeight;</span><br></pre></td></tr></table></figure>
+
 <p>监听 <code>window.scroll</code> 事件也优化一下<br>加个节流器，提高性能。工作中一般使用 <code>lodash.throttle</code> 就可以了，万能的 <code>lodash</code> 啊</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">_.throttle(func, [wait = <span class="number">0</span>], [options = &#123;&#125;])</span><br></pre></td></tr></table></figure>
+
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&lt;img alt=&quot;lalalala&quot; data-src=&quot;./zero.png&quot;/&gt;</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">lazyload</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img[data-src]&#x27;</span>);</span><br><span class="line">    <span class="keyword">const</span> len = imgs.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (img[i].getBoundingClientRect().top &lt; <span class="built_in">document</span>.documentElement.clientHeight) &#123;</span><br><span class="line">            imgs[i].src = imgs[i].dataset.src;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">window</span>.addEventListener(<span class="string">&#x27;scroll&#x27;</span>, lazyload);</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure>
+
 <h2 id="方案三"><a href="#方案三" class="headerlink" title="方案三"></a>方案三</h2><ul>
 <li>如何判断图片出现在了当前视口</li>
 </ul>
 <p>方案二使用的方法是: <code>window.scroll</code> 监听 <code>Element.getBoundingClientRect() </code> 并使用 <code> _.throttle</code> 节流<br>一系列组合动作太复杂了，于是浏览器出了一个三合一事件: <code>IntersectionObserver</code> API，一个能够监听元素是否到了当前视口的事件，一步到位！<br>事件回调的参数是 <code>IntersectionObserverEntry</code> 的集合，代表关于是否在可见视口的一系列值. 其中， <code>entry.isIntersecting</code> 代表目标元素可见</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> observer = <span class="keyword">new</span> IntersectionObserver(<span class="function">(<span class="params">changes</span>) =&gt;</span> &#123;</span><br><span class="line">    changes.forEach(<span class="function">(<span class="params">change</span>) =&gt;</span> &#123;</span><br><span class="line">        <span class="keyword">if</span> (change.isIntersecting) &#123;</span><br><span class="line">            <span class="keyword">const</span> img = change.target;</span><br><span class="line">            img.src = img.dataset.src;</span><br><span class="line">            observer.unobserve(img);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line">&#125;)</span><br><span class="line"><span class="keyword">const</span> imgs = <span class="built_in">document</span>.querySelectorAll(<span class="string">&#x27;img[data-src]&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> len = imgs.length;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; len; i++) &#123;</span><br><span class="line">    observer.observe(imgs[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h2 id="方案四"><a href="#方案四" class="headerlink" title="方案四"></a>方案四</h2><p>浏览器觉得懒加载这事可以交给自己做，你们开发者加个属性就好了。实在是…！</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">&quot;shanyue.jpg&quot;</span> <span class="attr">loading</span>=<span class="string">&quot;lazy&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
 <p>不过目前浏览器兼容性不太好</p>
 
       

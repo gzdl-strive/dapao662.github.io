@@ -16,7 +16,7 @@
 <meta property="og:description" content="9、Function.prototype.call() 于apply唯一不同的是，call()方法接受的是一个参数列表  123456789101112Function.prototype.call &#x3D; function(context &#x3D; window, ...args) &amp;#123;    if (typeof this !&#x3D;&#x3D; &amp;#x27;function&amp;#x27;) &amp;#123;">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-31T18:12:30.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.452Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.056Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -167,7 +167,9 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.call = <span class="function"><span class="keyword">function</span>(<span class="params">context = <span class="built_in">window</span>, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名</span></span><br><span class="line">    <span class="keyword">const</span> fn = <span class="built_in">Symbol</span>(<span class="string">&#x27;fn&#x27;</span>);</span><br><span class="line">    context[fn] = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> res = context[fn](...args);</span><br><span class="line">    <span class="keyword">delete</span> context[fn];</span><br><span class="line">    <span class="keyword">return</span> res;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
 <h3 id="10、Function-prototype-bind"><a href="#10、Function-prototype-bind" class="headerlink" title="10、Function.prototype.bind"></a>10、Function.prototype.bind</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Function</span>.prototype.bind = <span class="function"><span class="keyword">function</span> (<span class="params">context, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> <span class="built_in">this</span> !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">Error</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//保存this的值</span></span><br><span class="line">    <span class="keyword">var</span> self = <span class="built_in">this</span>;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="comment">//考虑new的情况</span></span><br><span class="line">        <span class="keyword">if</span>(<span class="built_in">this</span> <span class="keyword">instanceof</span> F) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> self(...args, ...arguments);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> self.apply(context, [...args, ...arguments]);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 <h3 id="11、debounce（防抖）"><a href="#11、debounce（防抖）" class="headerlink" title="11、debounce（防抖）"></a>11、debounce（防抖）</h3><blockquote>
 <p>触发高频时间后n秒内函数只会执行一次,如果n秒内高频时间再次触发,则重新计算时间。<br>当持续触发事件时，一定时间段内没有再触发事件，事件处理函数才会执行一次，如果设定时间到来之前，又触发了事件，就重新开始延时。也就是说当一个用户一直触发这个函数，且每次触发函数的间隔小于既定时间，那么防抖的情况下只会执行一次。</p>
 </blockquote>

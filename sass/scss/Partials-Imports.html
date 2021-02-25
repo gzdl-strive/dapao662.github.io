@@ -16,7 +16,7 @@
 <meta property="og:description" content="Sass允许您创建部分文件。这可以帮助您保持Sass代码的模块化。部分文件应以“_”开头，例如_reset.css。部分内容不会生成到CSS中。  123456789&#x2F;*_reset.scss*&#x2F;html, body, ul, ol &amp;#123;    margin: 0;    padding: 0;&amp;#125;$primary-color: #00f;.abc &amp;#123;    color">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-06T21:04:24.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.456Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.060Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -166,6 +166,7 @@
 <p>Sass允许您创建部分文件。这可以帮助您保持Sass代码的模块化。部分文件应以“_”开头，例如<code>_reset.css</code>。部分内容不会生成到CSS中。</p>
 </blockquote>
 <figure class="highlight scss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*_reset.scss*/</span></span><br><span class="line"><span class="selector-tag">html</span>, <span class="selector-tag">body</span>, <span class="selector-tag">ul</span>, <span class="selector-tag">ol</span> &#123;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="variable">$primary-color</span>: <span class="number">#00f</span>;</span><br><span class="line"><span class="selector-class">.abc</span> &#123;</span><br><span class="line">    <span class="attribute">color</span>: <span class="variable">$primary-color</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <blockquote>
 <p>Sass提供了<code>@import</code>，可用于将部分导入到文件中。这不同于传统的<code>CSS @import</code>语句，后者发出另一个HTTP请求以提取导入的文件。Sass提取导入的文件，并将其与编译后的代码合并。</p>
 </blockquote>

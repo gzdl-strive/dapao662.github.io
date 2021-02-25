@@ -16,7 +16,7 @@
 <meta property="og:description" content="使用枚举我们可以定义一些带名字的常量。 使用枚举可以清晰地表达意图或创建一组有区别的用例。 TypeScript支持数字的和基于字符串的枚举。 数字枚举123456enum Direction &amp;#123;    Up &#x3D; 1,    Down,    Left,    Right&amp;#125; 如上，我们定义了一个数字枚举， Up使用初始化为 1。其余的成员会从 1开始自动增长。 换句话说， Di">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-01-29T11:06:02.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.456Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.060Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -192,6 +192,7 @@
 </ul>
 <p><strong>所有其它情况的枚举成员被当作是需要计算得出的值</strong></p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> FileAccess &#123;</span><br><span class="line">    <span class="comment">// constant members</span></span><br><span class="line">    None,</span><br><span class="line">    Read = <span class="number">1</span> &lt;&lt; <span class="number">1</span>,</span><br><span class="line">    Write = <span class="number">1</span> &lt;&lt; <span class="number">2</span>,</span><br><span class="line">    ReadWrite = Read | Write,</span><br><span class="line">    <span class="comment">// computed member</span></span><br><span class="line">    G = <span class="string">&#x27;123&#x27;</span>.length</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="联合枚举与枚举成员的类型"><a href="#联合枚举与枚举成员的类型" class="headerlink" title="联合枚举与枚举成员的类型"></a>联合枚举与枚举成员的类型</h3><p>存在一种特殊的非计算的常量枚举成员的子集：字面量枚举成员。字面量枚举成员是指<strong>不带有初始值的常量枚举成员</strong>，或者是值被初始化为:</p>
 <ul>
 <li>任何字符串字面量（例如： “foo”， “bar”， “baz”）</li>
@@ -202,6 +203,7 @@ move这个例子里，我们先检查 x是否不是 E.Foo。 如果通过了这�
 </ul>
 <h3 id="运行时的枚举"><a href="#运行时的枚举" class="headerlink" title="运行时的枚举"></a>运行时的枚举</h3><p>枚举是在运行时真正存在的对象。 例如下面的枚举：</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> E &#123;</span><br><span class="line">    X, Y, Z</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">f</span>(<span class="params">obj: &#123; X: <span class="built_in">number</span> &#125;</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">return</span> obj.X;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// / Works, since &#x27;E&#x27; has a property named &#x27;X&#x27; which is a number.</span></span><br><span class="line">f(E);</span><br></pre></td></tr></table></figure>
+
 <h3 id="反向映射"><a href="#反向映射" class="headerlink" title="反向映射"></a>反向映射</h3><p>除了创建一个以属性名做为对象成员的对象之外，数字枚举成员还具有了 反向映射，从枚举值到枚举名字。 </p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">enum</span> Enum &#123;</span><br><span class="line">    A</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a = Enum.A;<span class="comment">//0</span></span><br><span class="line"><span class="keyword">let</span> nameOfA = Enum[a];<span class="comment">//A</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;nameOfA:&#x27;</span>,nameOfA);<span class="comment">//nameOfA: A</span></span><br></pre></td></tr></table></figure>
 <p>生成的代码中，枚举类型被编译成一个对象，它包含了正向映射（ name -&gt; value）和反向映射（ value -&gt; name）。<br>引用枚举成员总会生成为对属性访问并且永远也不会内联代码。<br><strong>要注意的是 不会为字符串枚举成员生成反向映射</strong></p>
@@ -211,6 +213,7 @@ move这个例子里，我们先检查 x是否不是 E.Foo。 如果通过了这�
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> <span class="built_in">enum</span> Directions4 &#123;</span><br><span class="line">    Up,</span><br><span class="line">    Down,</span><br><span class="line">    Left,</span><br><span class="line">    Right  </span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> directions = [Directions4.Up, Directions4.Down, Directions4.Left, Directions4.Right]</span><br></pre></td></tr></table></figure>
 <p><strong>生成后的代码：</strong></p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> directions = [<span class="number">0</span> <span class="comment">/* Up */</span>, <span class="number">1</span> <span class="comment">/* Down */</span>, <span class="number">2</span> <span class="comment">/* Left */</span>, <span class="number">3</span> <span class="comment">/* Right */</span>];</span><br></pre></td></tr></table></figure>
+
 <h3 id="外部枚举"><a href="#外部枚举" class="headerlink" title="外部枚举"></a>外部枚举</h3><p>外部枚举用来描述已经存在的枚举类型的形状</p>
 <figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">declare</span> <span class="built_in">enum</span> Enum3 &#123;</span><br><span class="line">    A = <span class="number">1</span>, </span><br><span class="line">    B,</span><br><span class="line">    C = <span class="number">2</span>,</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>外部枚举和非外部枚举之间有一个重要的区别，在正常的枚举里，没有初始化方法的成员被当成常数成员。 对于非常数的外部枚举而言，没有初始化方法时被当做需要经过计算的</p>

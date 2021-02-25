@@ -16,7 +16,7 @@
 <meta property="og:description" content="13、函数柯里化 指的是将一个接受多个参数的函数 变为 接受一个参数返回一个函数的固定形式，这样便于再次调用，例如f(1)(2)经典面试题：实现add(1)(2)(3)(4)&#x3D;10; 、 add(1)(1,2,3)(2)&#x3D;9;  1234567891011function add() &amp;#123;    const _args &#x3D; [...arguments];    function fn()">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-10-31T18:23:30.000Z">
-<meta property="article:modified_time" content="2021-02-07T07:30:39.452Z">
+<meta property="article:modified_time" content="2021-02-25T09:59:04.056Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.3.0"></head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -166,6 +166,7 @@
 <p>指的是将一个接受多个参数的函数 变为 接受一个参数返回一个函数的固定形式，这样便于再次调用，例如f(1)(2)<br>经典面试题：实现<code>add(1)(2)(3)(4)=10;</code> 、 <code>add(1)(1,2,3)(2)=9;</code></p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">add</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> _args = [...arguments];</span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        _args.push(...arguments);</span><br><span class="line">        <span class="keyword">return</span> fn;</span><br><span class="line">    &#125;</span><br><span class="line">    fn.toString = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> _args.reduce(<span class="function">(<span class="params">sum, cur</span>) =&gt;</span> sum + cur);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fn;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="14、模拟new操作"><a href="#14、模拟new操作" class="headerlink" title="14、模拟new操作"></a>14、模拟new操作</h3><pre><code>**3个步骤**:
 1. 以`ctor.prototype`为原型创建一个对象.
 2. 执行构造函数并将this绑定到新创建的对象上.
@@ -173,14 +174,17 @@
 </code></pre>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">newOperator</span>(<span class="params">ctor, ...args</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">typeof</span> ctor !== <span class="string">&#x27;function&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="built_in">TypeError</span>(<span class="string">&#x27;Type Error&#x27;</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">const</span> obj = <span class="built_in">Object</span>.create(ctor.prototype);</span><br><span class="line">    <span class="keyword">const</span> res = ctor.apply(obj, args);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">const</span> isObject = <span class="keyword">typeof</span> res === <span class="string">&#x27;Object&#x27;</span> &amp;&amp; res !== <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">const</span> isFunction = <span class="keyword">typeof</span> res === <span class="string">&#x27;function&#x27;</span>;</span><br><span class="line">    <span class="keyword">return</span> isObject || isFunction ? res : obj;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+
 <h3 id="15、instanceof"><a href="#15、instanceof" class="headerlink" title="15、instanceof"></a>15、instanceof</h3><blockquote>
 <p><code>instanceof</code>运算符用于检测构造函数的<code>prototype</code>属性是否出现在某个实例对象的原型链上。</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> myInstanceof = <span class="function">(<span class="params">left, right</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="comment">//基本数据类型都返回false</span></span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">typeof</span> left !== <span class="string">&#x27;object&#x27;</span> || left === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> proto = <span class="built_in">Object</span>.getPrototypeOf(left);</span><br><span class="line">    <span class="keyword">while</span>(<span class="literal">true</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span> (proto === <span class="literal">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (proto === right.prototype) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        proto = <span class="built_in">Object</span>.getPrototypeOf(proto);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 <h3 id="16、原型继承"><a href="#16、原型继承" class="headerlink" title="16、原型继承"></a>16、原型继承</h3><blockquote>
 <p>这里只写寄生组合继承了，中间还有几个演变过来的继承但都有一些缺陷</p>
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">this</span>.name = <span class="string">&#x27;parent&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    Parent.call(<span class="built_in">this</span>);</span><br><span class="line">    <span class="built_in">this</span>.type = <span class="string">&#x27;children&#x27;</span>;</span><br><span class="line">&#125;</span><br><span class="line">Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype);</span><br><span class="line">Child.prototype.constructor = Child;</span><br></pre></td></tr></table></figure>
+
       
 
       
