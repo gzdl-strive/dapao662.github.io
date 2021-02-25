@@ -6,3 +6,6 @@ tag: Algorithm
 
 ### 初级算法
 >[Primary Algorithm](/algorithm/primary "初级算法")
+
+### JavaScript数据结构和算法
+>[JavaScript数据结构和算法](/algorithm/structure-algorithm "js数据结构和算法")
