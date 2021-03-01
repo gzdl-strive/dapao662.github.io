@@ -15,3 +15,6 @@ tag: Algorithm
 
 ## 集合
 >[Set](/algorithm/structure-algorithm/Set "集合")
+
+## 哈希表
+>[HashTable](/algorithm/structure-algorithm/HashTable "哈希表")

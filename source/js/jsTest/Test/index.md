@@ -23,3 +23,7 @@ tag: js
 ## 第五天 获取一个页面的标签数和出现次数最多的三个标签
 
 >[获取标签数](/js/jsTest/Test/05-getNum "获取标签数")
+
+## 第六条 React中createElement和cloneElement的区别
+
+>[create/clone-Element](/js/jsTest/Test/06-createElement-cloneELement "createElement和cloneElement的区别")
