@@ -16,5 +16,11 @@ tag: Algorithm
 ## 集合
 >[Set](/algorithm/structure-algorithm/Set "集合")
 
+## 字典
+>[Dictionnary](/algorithm/structure-algorithm/Dictionary "字典")
+
 ## 哈希表
 >[HashTable](/algorithm/structure-algorithm/HashTable "哈希表")
+
+## 树
+>[Tree](/algorithm/structure-algorithm/Tree "树")
