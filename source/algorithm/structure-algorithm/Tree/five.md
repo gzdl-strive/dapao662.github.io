@@ -36,6 +36,42 @@ remove(key):从树中移除某个键
  2、后序遍历其右子树
  3、访问根节点
 
+### 二叉树的删除操作
+>删除节点要从查找要删的节点开始，找到节点后，需要考虑三种情况：
+1、该节点是叶节点(没有子节点，比较简单)
+2、该节点有一个子节点(也相对简单)
+3、该节点有两个子节点(情况比较复杂，我们后面慢慢道来)
+
+1、先找到要删除的节点，如果没有找到,不需要删除
+2、找到要删除的节点
+(1)、删除叶子节点
+(2)、删除只有一个子节点的节点
+(3)、删除有两个子节点的节点
+
+**情况一：没有子节点**
+* 我们需要检查current的left和right是否都为null
+* 都为null之后还有检查一个东西，就是是否current就是根节点,如果是，相当于清空了根
+* 否则直接把父节点的left或right设置为Null即可
+
+**情况二：有一个子节点**
+
+**情况三：有两个子节点**
+如果我们要删除的节点有两个子节点，甚至子节点还有子节点，这种情况下我们需要从下面的子节点中找到一个节点，来替换当前的节点
+但是找到的这个节点有什么特征呢？
+
+**应该是current节点下面所有节点中最接近current节点的**
+要么比current节点小一点点，要么比current节点大一点点
+总结你最接近current，你可以用来替换current的位置
+这个节点怎么找呢？
+
+* 比current小一点点的节点，一定是current左子树的最大值
+* 比current大一点点的节点，一定是current右子树的最小值
+
+**前驱和后继**
+在二叉搜索树中，这两个特别的节点，有两个特别的名字
+* 比current小一点点的节点，称为current节点的**前驱**
+* 比current大一点点的节点，称为current节点的**后继**
+
 ### 封装二叉搜索树类
 ```js
 function BinarySearchTree() {
@@ -139,6 +175,47 @@ function BinarySearchTree() {
         }
         return key;
     }
+
+    // 递归实现搜索
+    BinarySearchTree.prototype.search = function (key) {
+        this.searchNode(this.root, key);
+    }
+    BinarySearchTree.ptototype.searchNode = function (node, key) {
+        // 1、如果传入的Node为空，那么就退出递归
+        if (node === null) {
+            return false;
+        }
+        // 2、判断node节点的值和key大小
+        if (node.key > key) {
+            // 2.1传入的key较小，向左查找
+            return this.searchNode(node.left, key);
+        } else if (node.key < key) {
+            // 2.2传入的key较大，向右查找
+            return this.searchNode(node.right, key);
+        } else {
+            // 2.3相等返回true
+            return true;
+        }
+    }
+
+    // 循环实现搜索
+    BinarySearchTree.prototype.search2 = function (key) {
+        // 1、获取根节点
+        let node = this.root;
+        // 2、循环搜索key
+        while (node !== null) {
+            if (node.key > key) {
+                node = node.left;
+            } else if (node.key < key) {
+                node = node.right;
+            } else {
+                return true;
+            }
+        }
+        // node为空还没有找到,返回false
+        return false;
+    }
+
     BinarySearchTree.prototype.min = function () {
         // 1、获取根节点
         let node = this.root;
@@ -149,6 +226,96 @@ function BinarySearchTree() {
             node = node.left;
         }
         return key;
+    }
+
+    // 删除操作
+    BinarySearchTree.prototype.remove = (key) {
+        // 1、先寻找要删除的节点
+        // 1.1定义变量，保持信息
+        let current = this.root;
+        let parent = null;
+        let isLeftChild = true;
+
+        // 1.2寻找要删除的节点
+        while (current.key !== key) {
+            parent = current;
+            if (key < current.key) {
+                isLeftChild = true;
+                current = current.left;
+            } else {
+                isLeftChild = false;
+                current = current.right;
+            }
+            // 某种情况：已经找到了最后的节点，依然没有找到=key
+            if (current === null) {
+                return false;
+            }
+        }
+        // 循环结束->说明current就是要删除的节点
+
+        // 2、根据对应情况删除节点
+        // 2.1删除的节点是叶子节点(没有子节点)
+        if (current.left === null && current.right === null) {
+            if (current === this.root) {
+                this.root = null;
+            } else if (isLeftChild) {
+                parent.left = null;
+            } else {
+                parent.right = null;
+            }
+        } else if (current.right === null) {
+        // 2.2删除的节点有一个子节点
+            if (current === this.root) {
+                this.root = current.left;
+            } else if (isLeftChild) {
+                parent.left = current.left;
+            } else {
+                parent.right = current.left;
+            }
+        } else if (current.left === null) {
+            if (current === this.root) {
+                this.root = current.right;
+            } else if (isLeftChild) {
+                parent.left = current.right;
+            } else {
+                parent.right = current.right;
+            }
+        } else {
+            // 2.3删除的节点有两个子节点
+            // 2.3.1 获取后继节点
+            let succssor = this.getSuccssor(current);
+            // 2.3.2 判断是否是根节点
+            if (current === this.root) {
+                this.root = succssor;
+            } else if (isLeftChild) {
+                parent.left = succssor;
+            } else {
+                parent.right = succssor;
+            }
+            // 2.3.3 将后继节点的left指向删除节点的left
+            succssor.left = current.left;
+        }
+    }
+    // 找后继的方法
+    BinarySearchTree.prototype.getSuccssor = function (delNode) {
+        // 1、定义变量，保存找到的后继节点->右子树中最小值
+        let succssor = delNode;
+        let current = delNode.right;
+        let succssorParent = delNode;//后继节点的父节点
+        // 2、循环查找
+        while (current !== null) {
+            succssorParent = succssor;
+            succssor = current;
+            current = current.left;
+        }
+        // 3、判断寻找到的后继节点是否直接就是delNode的right节点(可能不是直接连接在delNode的right上)
+        if (succssor !== delNode.right) {
+            // 后继节点的父节点的left指向后继节点(后继节点是最小的，只能在left中)
+            // 后继节点是没有left节点的，因为有的话，后继节点就不会是他，而是它的left节点，所以后继节点只可能有right节点
+            succssorParent.left = succssor.right;
+            succssor.right = delNode.right;
+        }
+        return succssor;
     }
 }
 ```
@@ -200,4 +367,26 @@ let max = bst.max();
 let min = bst.min();
 console.log(`最小值: ${min}`)
 console.log(`最大值: ${max}`)
+
+// 5、测试递归搜索
+let search = bst.search(11);
+let search2 = bst.search(99);
+console.log(search);//true
+console.log(search2);//false
+
+// 6、测试循环搜索
+let search3 = bst.search(11);
+let search4 = bst.search(99);
+console.log(search3);//true
+console.log(search4);//false
+
+// 7、测试删除代码
+bst.remove(9);
+bst.remove(7);
+bst.remove(15);
+let resultString4 = '';
+bst.postOrderTraversal(function (key) {
+    resultString4 += key + ' ';
+})
+console.log(resultString4);
 ```
