@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="买卖股票的最佳时机 题目描述：给定一个数组，它的第i个元素是一支给定股票第i天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易(多次买卖一支股票)。注意: 你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)  示例示例：输入: [7,1,5,3,6,4]输出: 7解释: 在第 2 天（股票价格 &#x3D; 1）的时候买入，在第 3 天（股票价格 &#x3D; 5）的时候卖出,">
+  <meta name="description" content="1、链表的基础知识 链表是一种物理存储单元上非连续、非顺序的存储解构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。  抽象概念：链表代表了一种唯一指向思想链表适合用于存储一些经常增加、删除的数据 节点    。数据域    。指针">
 <meta property="og:type" content="website">
-<meta property="og:title" content="买卖股票的最佳时机">
-<meta property="og:url" content="http://example.com/algorithm/primary/test/second.html">
+<meta property="og:title" content="链表笔记">
+<meta property="og:url" content="http://example.com/algorithm/Study/LinkedList/Note.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="买卖股票的最佳时机 题目描述：给定一个数组，它的第i个元素是一支给定股票第i天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易(多次买卖一支股票)。注意: 你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)  示例示例：输入: [7,1,5,3,6,4]输出: 7解释: 在第 2 天（股票价格 &#x3D; 1）的时候买入，在第 3 天（股票价格 &#x3D; 5）的时候卖出,">
+<meta property="og:description" content="1、链表的基础知识 链表是一种物理存储单元上非连续、非顺序的存储解构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。  抽象概念：链表代表了一种唯一指向思想链表适合用于存储一些经常增加、删除的数据 节点    。数据域    。指针">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-05T09:25:24.000Z">
-<meta property="article:modified_time" content="2021-03-03T02:03:12.863Z">
+<meta property="article:published_time" content="2021-03-08T10:09:24.000Z">
+<meta property="article:modified_time" content="2021-03-09T02:40:01.887Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,48 +149,65 @@
         
   
     <h1 class="article-title" itemprop="name">
-      买卖股票的最佳时机
+      链表笔记
     </h1>
   
 
         
-        <a href="/algorithm/primary/test/second.html" class="archive-article-date">
-  	<time datetime="2021-02-05T09:25:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-05</time>
+        <a href="/algorithm/Study/LinkedList/Note.html" class="archive-article-date">
+  	<time datetime="2021-03-08T10:09:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="买卖股票的最佳时机"><a href="#买卖股票的最佳时机" class="headerlink" title="买卖股票的最佳时机"></a>买卖股票的最佳时机</h3><blockquote>
-<p>题目描述：给定一个数组，它的第i个元素是一支给定股票第i天的价格。设计一个算法来计算你所能获取的最大利润。你可以尽可能地完成更多的交易(多次买卖一支股票)。注意: 你不能同时参与多笔交易(你必须在再次购买前出售掉之前的股票)</p>
+        <h3 id="1、链表的基础知识"><a href="#1、链表的基础知识" class="headerlink" title="1、链表的基础知识"></a>1、链表的基础知识</h3><blockquote>
+<p>链表是一种物理存储单元上非连续、非顺序的存储解构，数据元素的逻辑顺序是通过链表中的指针链接次序实现的。链表由一系列结点（链表中每一个元素称为结点）组成，结点可以在运行时动态生成。每个结点包括两个部分：<strong>一个是存储数据元素的数据域，另一个是存储下一个结点地址的指针域。</strong></p>
 </blockquote>
-<p><strong>示例</strong><br>示例：<br>输入: [7,1,5,3,6,4]<br>输出: 7<br>解释: 在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5-1 = 4 。随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6-3 = 3 。</p>
-<p><strong>解决方法：贪心算法</strong></p>
-<blockquote>
-<p>贪心算法：求解最优化问题的算法通常需要经过一系列的步骤，在每个步骤都面临多种选择。对于许多最优化问题，使用动态规划算法求最优解有些杀鸡用牛刀了，可以使用更简单、更高效的算法。贪心算法(greedy algorithm)就是这样的算法。它在每一步都做出当时看起来最佳的选择。也就是说，它总是做出局部最优的选择，寄希望这样的选择能导致全局最优解。</p>
-</blockquote>
-<p><strong>解题思路</strong><br>股票买卖策略：</p>
+<p><strong>抽象概念：链表代表了一种唯一指向思想</strong><br><strong>链表适合用于存储一些经常增加、删除的数据</strong></p>
+<p>节点<br>    。数据域<br>    。指针域<br>实现方式包括地址、下标(相对地址)、引用<br>链状结构<br>    。通过指针域的值形成了一个线性结构</p>
+<p><strong>链表不适合快速的定位数据，适合动态的插入和删除的应用场景</strong></p>
+<p><strong>访问链表的时间复杂度</strong><br>查找节点O(N)<br>插入节点O(1)<br>删除节点O(1)</p>
+<p><strong>几种经典的链表实现方式</strong></p>
 <ul>
-<li>单独交易日： 设今天价格p1、明天价格p2,则今天买入，明天卖出可赚取p2 - p1(负值代表亏损)</li>
-<li>连续上涨交易日： 设此上涨交易日股票价格分别为p1, p2, … pn,则第一天买入，最后一天卖出收益最大，即pn -p1,<strong>等价于每天都买卖</strong>，即pn - p1 = (p2 - p1) + (p3 - p2) + (p4 - p3) + … + (pn - pn-1)</li>
-<li>连续下降交易日: 则不买卖收益最大，即不会亏钱</li>
+<li>传统方法(节点+指针)</li>
+<li>使用数组模拟<ul>
+<li>指针域和数据域分离</li>
+<li>利用数组存放下标进行索引<br>…</li>
 </ul>
-<p><strong>算法流程</strong></p>
-<blockquote>
-<p>遍历整个股票交易日价格列表 price，策略是所有上涨交易日都买卖（赚到所有利润），所有下降交易日都不买卖（永不亏钱）</p>
+</li>
+</ul>
+<h3 id="链表的典型应用场景"><a href="#链表的典型应用场景" class="headerlink" title="链表的典型应用场景"></a>链表的典型应用场景</h3><blockquote>
+<p>1、操作系统内的动态内存分配问题  2、LRU淘汰算法（LRU = Least Recently Used）</p>
 </blockquote>
-<ol>
-<li>设 tmp 为第 i-1 日买入与第 i 日卖出赚取的利润，即 tmp = prices[i] - prices[i - 1]</li>
-<li>当该天利润为正 tmp &gt; 0，则将利润加入总利润 profit；当利润为 0 或为负，则直接跳过；</li>
-<li>遍历完成后，返回总利润 profit</li>
-</ol>
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>时间复杂度O(N): 只需遍历一次price<br>空间复杂度O(1): 变量使用常数额外空间</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> maxProfit = <span class="function"><span class="keyword">function</span>(<span class="params">prices</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> ans = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">let</span> len = prices.length;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">1</span>; i &lt; len; i++) &#123;</span><br><span class="line">        ans += <span class="built_in">Math</span>.max(<span class="number">0</span>, prices[i] - prices[i - <span class="number">1</span>]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> prices = [<span class="number">7</span>, <span class="number">1</span>, <span class="number">5</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">4</span>];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">`贪心算法：<span class="subst">$&#123;maxProfit(prices)&#125;</span>`</span>);</span><br></pre></td></tr></table></figure>
-
+<p><strong>缓存是一种高速的数据结构</strong><br>设备间存在速度差异，可以通过使用较多的数据存放在高速区域，而将使用较少的内容存放在相对低速的区域的方式，来对系统进行优化</p>
+<h3 id="经典面试题"><a href="#经典面试题" class="headerlink" title="经典面试题"></a>经典面试题</h3><h4 id="链表的访问"><a href="#链表的访问" class="headerlink" title="链表的访问"></a>链表的访问</h4><p><strong>LeetCode#141环状链表</strong></p>
+<ul>
+<li>思路1：使用哈希表(额外的存储区)存储已经遍历过的节点</li>
+<li>思路2: 双指针做法<ul>
+<li>使用快慢指针 快指针一次向前2个节点 慢指针一次向前1个节点</li>
+<li>有环的链表中，快指针和慢指针一定会在环中相遇</li>
+<li>无环的链表中，快指针会率先访问到链表尾部 从而终结检测过程</li>
+</ul>
+</li>
+</ul>
+<p><strong>LeetCode#142环状链表II</strong><br><strong>思路</strong>：使用快慢指针判断是否是环，如果是环，重新设置一个指针，与慢指针相遇时就是入环第一个节点<br><strong>原因</strong>：假设之前慢指针走到入环第一个节点的距离为a,那么快指针已经走了2a（已经在环中了）,那么假设快指针距离慢指针x,那么就是说环的长度是a+x<br>而快指针一次走两，慢指针一次走一，那么需要x次才能相遇==》也就是慢指针走了x步(从入环的第一个节点走了x步),又环总长为a+x=&gt;那么慢指针只需要再走a步就能回到入环的第一个节点处<br>那么怎样才能走a步呢，只需要重新设置一个指针ptr，每次走一步，因为慢指针也是走一步，那么等走了a次走，两个节点相遇，即此时ptr节点的位置就是入环的第一个节点</p>
+<p><strong>LeetCode#202快乐数</strong><br><strong>思路</strong>：转换为判断链表是否有环的问题</p>
+<ul>
+<li>收敛性的证明<ul>
+<li>32位int的表示正整数大概是21亿(2^31-1)<br>  在这个范围内 各位数字平方和最大的数是1999999999和为(9^2 * 9 + 1)730<br>  根据鸽巢原理(pigeonhole’s principle,也译作抽屉原理)在730次循环后必定会出现重复<br>  抽屉原理的一般含义为：“如果每个抽屉代表一个集合，每一个苹果就可以代表一个元素，假如有n+1个元素放到n个集合中去，其中必定有一个集合里至少有两个元素。” 抽屉原理有时也被称为鸽巢原理。</li>
+</ul>
+</li>
+</ul>
+<h4 id="链表的反转"><a href="#链表的反转" class="headerlink" title="链表的反转"></a>链表的反转</h4><p><strong>leetCode#206反转链表</strong><br><strong>思路1</strong>：迭代反转:可以使用虚拟头节点来进行头插法<br><strong>思路2</strong>：递归反转(一次拆掉一个节点并递归处理剩余的子链表)</p>
+<p><strong>LeetCode#92反转链表II</strong><br><strong>技巧</strong>：使用虚拟头节点(<code>dummy head</code>)<br><strong>通常用于链表的首地址有可能改变的情况</strong></p>
+<p><strong>LeetCode#25K个一组反转链表</strong><br><strong>思路</strong>：基于reverseN(反转前N个节点的链表),和新建一个reverse函数(用来判断是否够需要反转的n的节点,如果不够则返回原来的链表)</p>
+<p><strong>LeetCode#61旋转链表</strong><br><strong>思路</strong>:把整个链表首页相接，向后走k位后将环拆开</p>
+<p><strong>LeetCode#24两两交换链表中的节点</strong><br><strong>思路与LeetCode#25完全一致</strong>，是k=2的简单情形</p>
+<h4 id="链表的节点删除"><a href="#链表的节点删除" class="headerlink" title="链表的节点删除"></a>链表的节点删除</h4><p><strong>LeetCode#19删除链表的倒数第N个节点</strong><br><strong>思路</strong>：找到前一个节点 删除后调整指针</p>
+<p><strong>LeetCode#83删除排序链表中的重复节点</strong></p>
+<p><strong>LeetCode#82删除排序链表中的重复节点II</strong></p>
 
       
 
@@ -249,7 +266,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/primary/test/second.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/LinkedList/Note.html" alt="微信分享二维码">
     </div>
 </div>
 

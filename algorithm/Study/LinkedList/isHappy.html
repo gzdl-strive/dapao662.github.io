@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="旋转数组 题目描述：给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？  示例输入: nums &#x3D; [1,2,3,4,5,6,7], k &#x3D; 3输出: [5,6,7,1,2,3,4]解释:向右旋转 1 步: [7,1,2,3,4,5,6]向右旋转 2">
+  <meta name="description" content="题目描述 编写一个算法来判断一个数n是不是快乐数[快乐数]定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。如果 可以变为  1，那么这个数就是快乐数。如果 n 是快乐数就返回 true ；不是，则返回 false 。  示例示例 1：输入：19输出：true解释：1^2 + 9^2 &#x3D; 828^2 +">
 <meta property="og:type" content="website">
-<meta property="og:title" content="旋转数组">
-<meta property="og:url" content="http://example.com/algorithm/primary/test/third.html">
+<meta property="og:title" content="快乐数">
+<meta property="og:url" content="http://example.com/algorithm/Study/LinkedList/isHappy.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="旋转数组 题目描述：给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？  示例输入: nums &#x3D; [1,2,3,4,5,6,7], k &#x3D; 3输出: [5,6,7,1,2,3,4]解释:向右旋转 1 步: [7,1,2,3,4,5,6]向右旋转 2">
+<meta property="og:description" content="题目描述 编写一个算法来判断一个数n是不是快乐数[快乐数]定义为：对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。如果 可以变为  1，那么这个数就是快乐数。如果 n 是快乐数就返回 true ；不是，则返回 false 。  示例示例 1：输入：19输出：true解释：1^2 + 9^2 &#x3D; 828^2 +">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-07T15:06:24.000Z">
-<meta property="article:modified_time" content="2021-03-03T02:03:12.863Z">
+<meta property="article:published_time" content="2021-03-08T10:37:24.000Z">
+<meta property="article:modified_time" content="2021-03-09T02:40:01.887Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,37 +149,29 @@
         
   
     <h1 class="article-title" itemprop="name">
-      旋转数组
+      快乐数
     </h1>
   
 
         
-        <a href="/algorithm/primary/test/third.html" class="archive-article-date">
-  	<time datetime="2021-02-07T15:06:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-02-07</time>
+        <a href="/algorithm/Study/LinkedList/isHappy.html" class="archive-article-date">
+  	<time datetime="2021-03-08T10:37:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="旋转数组"><a href="#旋转数组" class="headerlink" title="旋转数组"></a>旋转数组</h3><blockquote>
-<p>题目描述：给定一个数组，将数组中的元素向右移动 k 个位置，其中 k 是非负数。尽可能想出更多的解决方案，至少有三种不同的方法可以解决这个问题。你可以使用空间复杂度为 O(1) 的 原地 算法解决这个问题吗？</p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>编写一个算法来判断一个数n是不是快乐数<br>[快乐数]定义为：<br>对于一个正整数，每一次将该数替换为它每个位置上的数字的平方和。<br>然后重复这个过程直到这个数变为 1，也可能是 无限循环 但始终变不到 1。<br>如果 可以变为  1，那么这个数就是快乐数。<br>如果 n 是快乐数就返回 true ；不是，则返回 false 。</p>
 </blockquote>
-<p><strong>示例</strong><br>输入: nums = [1,2,3,4,5,6,7], k = 3<br>输出: [5,6,7,1,2,3,4]<br>解释:<br>向右旋转 1 步: [7,1,2,3,4,5,6]<br>向右旋转 2 步: [6,7,1,2,3,4,5]<br>向右旋转 3 步: [5,6,7,1,2,3,4]</p>
-<h4 id="解题一、使用额外的数组"><a href="#解题一、使用额外的数组" class="headerlink" title="解题一、使用额外的数组**"></a>解题一、使用额外的数组**</h4><p>我们可以使用额外的数组来将每个元素存放到正确的位置。<br>用n表示数组长度，我们遍历原数组，将原数组下标为i的元素放至新数组下标为(i + k) mod n的位置，最后将新数组拷贝给原数组即可。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = nums.length;</span><br><span class="line">    <span class="keyword">const</span> newArr = <span class="keyword">new</span> <span class="built_in">Array</span>(n);</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        newArr[(i + k) % n] = nums[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        nums[i] = newArr[i];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> arr1 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="built_in">console</span>.log(rotate(arr1, <span class="number">3</span>));<span class="comment">//[5, 6, 7, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>时间复杂度O(n),其中n为数组长度<br>空间复杂度O(n)</p>
+<p><strong>示例</strong><br>示例 1：<br>输入：19<br>输出：true<br>解释：<br>1^2 + 9^2 = 82<br>8^2 + 2^2 = 68<br>6^2 + 8^2 = 100<br>1^2 + 0^2 + 0^2 = 1<br>示例 2：<br>输入：n = 2<br>输出：false</p>
+<p><strong>提示</strong><br>1 &lt;= n &lt;= 2^31 - 1</p>
+<h3 id="快慢指针"><a href="#快慢指针" class="headerlink" title="快慢指针"></a>快慢指针</h3><blockquote>
+<p>路：转换为判断链表是否有环的问题–&gt;如果无限循环说明存在环</p>
 </blockquote>
-<h4 id="解题二、数组翻转-推荐"><a href="#解题二、数组翻转-推荐" class="headerlink" title="解题二、数组翻转(推荐)"></a>解题二、数组翻转(推荐)</h4><blockquote>
-<p>该方法基于如下的事实：当我们将数组的元素向右移动k次后，尾部k mod n 个元素会移动至数组头部，其余元素向后移动k mod n个位置<br>该方法为数组的翻转：我们可以先将所有元素翻转，这样尾部的k mod n 个元素就被移动至数组头部，然后我们再翻转[0, k mod n - 1]区间的元素和[k mod n, n-1]区间的元素即能得到最后的答案。<br>我们以n = 7, k = 3为例<br>操作                            结果<br>原始数组                        1234567<br>翻转所有元素                    7654321<br>翻转[0, k mod n - 1]区间元素    5674321<br>赋值[k mod n, n - 1]区间元素    5671234</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> reverse = <span class="function">(<span class="params">nums, start, end</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">while</span> (start &lt; end) &#123;</span><br><span class="line">        <span class="keyword">let</span> temp = nums[start];</span><br><span class="line">        nums[start] = nums[end];</span><br><span class="line">        nums[end] = temp;</span><br><span class="line">        start ++;</span><br><span class="line">        end --;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">nums, k</span>) =&gt; </span>&#123;</span><br><span class="line">    k %= nums.length;</span><br><span class="line">    reverse(nums, <span class="number">0</span>, nums.length - <span class="number">1</span>);</span><br><span class="line">    reverse(nums, <span class="number">0</span>, k - <span class="number">1</span>);</span><br><span class="line">    reverse(nums, k, nums.length - <span class="number">1</span>);</span><br><span class="line">    <span class="keyword">return</span> nums;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> arr2 = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>,<span class="number">7</span>];</span><br><span class="line"><span class="built_in">console</span>.log(rotate(arr2, <span class="number">3</span>));<span class="comment">//[5, 6, 7, 1, 2, 3, 4]</span></span><br></pre></td></tr></table></figure>
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>时间复杂度: O(n),n为数组的长度。每个元素被翻转两次，一共n个元素，因此总时间复杂度为O(2n) = O(n)<br>空间复杂度：O(1)</p>
-</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> isHappy = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> slow = head, fast = head;</span><br><span class="line">    <span class="keyword">while</span> (fast !== <span class="number">1</span> &amp;&amp; fast !== slow) &#123;</span><br><span class="line">        slow = getNext(slow);</span><br><span class="line">        fast = getNext(getNext(fast));</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> fast === <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">getNext</span>(<span class="params">num</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> sum = <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">while</span> (num) &#123;</span><br><span class="line">        sum += (num % <span class="number">10</span>) * (num % <span class="number">10</span>);</span><br><span class="line">        num = <span class="built_in">Math</span>.floor(num / <span class="number">10</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> sum;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
 
@@ -238,7 +230,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/primary/test/third.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/LinkedList/isHappy.html" alt="微信分享二维码">
     </div>
 </div>
 

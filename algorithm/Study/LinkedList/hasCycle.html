@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。  请你将图像顺时针旋转 90 度。你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。 示例输入：matrix &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]输出：[[7, 4, 1], [8, 5, 2], [9, 6, 3]]输入：matrix &#x3D; [">
+  <meta name="description" content="题目描述 给定一个链表，判断链表中是否有环。  说明如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。如果链表中存在环，则返回 true 。 否则，返回 false">
 <meta property="og:type" content="website">
-<meta property="og:title" content="旋转图像">
-<meta property="og:url" content="http://example.com/algorithm/primary/test/ten.html">
+<meta property="og:title" content="环形链表">
+<meta property="og:url" content="http://example.com/algorithm/Study/LinkedList/hasCycle.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。  请你将图像顺时针旋转 90 度。你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。 示例输入：matrix &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]输出：[[7, 4, 1], [8, 5, 2], [9, 6, 3]]输入：matrix &#x3D; [">
+<meta property="og:description" content="题目描述 给定一个链表，判断链表中是否有环。  说明如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。如果链表中存在环，则返回 true 。 否则，返回 false">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-02T16:17:24.000Z">
-<meta property="article:modified_time" content="2021-03-03T02:03:12.863Z">
+<meta property="article:published_time" content="2021-03-08T10:28:24.000Z">
+<meta property="article:modified_time" content="2021-03-09T02:40:01.887Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,121 +149,36 @@
         
   
     <h1 class="article-title" itemprop="name">
-      旋转图像
+      环形链表
     </h1>
   
 
         
-        <a href="/algorithm/primary/test/ten.html" class="archive-article-date">
-  	<time datetime="2021-03-02T16:17:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-02</time>
+        <a href="/algorithm/Study/LinkedList/hasCycle.html" class="archive-article-date">
+  	<time datetime="2021-03-08T10:28:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="旋转图像"><a href="#旋转图像" class="headerlink" title="旋转图像"></a>旋转图像</h3><blockquote>
-<p>给定一个 n × n 的二维矩阵 matrix 表示一个图像。</p>
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>给定一个链表，判断链表中是否有环。</p>
 </blockquote>
-<p>请你将图像顺时针旋转 90 度。<br>你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。</p>
-<p><strong>示例</strong><br>输入：matrix = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]<br>输出：[[7, 4, 1], [8, 5, 2], [9, 6, 3]]<br>输入：matrix = [[5, 1, 9, 11], [2, 4, 8, 10], [13, 3, 6, 7], [15, 14, 12, 16]]<br>输出：[[15, 13, 2, 5], [14, 3, 4, 1], [12, 6, 8, 9], [16, 7, 10, 11]]</p>
-<h3 id="方法一、使用辅助数组"><a href="#方法一、使用辅助数组" class="headerlink" title="方法一、使用辅助数组"></a>方法一、使用辅助数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">5 1 9 11        x x x 5</span></span><br><span class="line"><span class="comment">x x x x    =&gt;   x x x 1 </span></span><br><span class="line"><span class="comment">x x x x         x x x 9</span></span><br><span class="line"><span class="comment">x x x x         x x x 11</span></span><br><span class="line"><span class="comment">第一行的第x个元素在旋转后出现在倒数第一列的第x个元素</span></span><br><span class="line"><span class="comment">x x x x         x  x 2 x</span></span><br><span class="line"><span class="comment">2 4 8 10  =&gt;    x  x 4 x</span></span><br><span class="line"><span class="comment">x x x x         x  x 8 x</span></span><br><span class="line"><span class="comment">x x x x         x  x 10 x</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p><strong>说明</strong><br>如果链表中有某个节点，可以通过连续跟踪 next 指针再次到达，则链表中存在环。<br>为了表示给定链表中的环，我们使用整数 pos 来表示链表尾连接到链表中的位置（索引从 0 开始）。<br>如果 pos 是 -1，则在该链表中没有环。注意：pos 不作为参数进行传递，仅仅是为了标识链表的实际情况。<br>如果链表中存在环，则返回 true 。 否则，返回 false</p>
+<p><strong>进阶</strong><br>你能用 O(1)（即，常量）内存解决此问题吗？</p>
+<h3 id="方法一、哈希表存储出现过的节点，如果再次出现说明存在环"><a href="#方法一、哈希表存储出现过的节点，如果再次出现说明存在环" class="headerlink" title="方法一、哈希表存储出现过的节点，如果再次出现说明存在环"></a>方法一、哈希表存储出现过的节点，如果再次出现说明存在环</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hasCycle = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> cur = head;</span><br><span class="line">    <span class="keyword">const</span> map = <span class="keyword">new</span> <span class="built_in">Map</span>();</span><br><span class="line">    <span class="keyword">while</span> (cur) &#123;</span><br><span class="line">        <span class="keyword">if</span> (map.has(cur)) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        map.set(cur, <span class="literal">true</span>);</span><br><span class="line">        cur = cur.next;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>第二行的第x个元素在旋转后出现在倒数第二列的第x个元素<br>对于矩阵中的第三行和第四行同理。这样我们可以得到规律：</p>
-<pre><code>**对于矩阵中第i行的第j个元素，在旋转后，它会出现在倒数第i列的第j个位置**
-</code></pre>
-<p>将其翻译成代码： <code>matrix[row][col]</code> =&gt; 旋转后 =&gt; <code> matrixNew[col][n - 1 - row]</code></p>
-<p>这样以来，我们使用一个与matrix 大小相同的辅助数组matrixnew，临时存储旋转后的结果。<br>我们遍历matrix 中的每一个元素，根据上述规则将该元素存放到matrixnew中对应的位置。<br>在遍历完成之后，再将matrixnew中的结果复制到原数组中即可。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = matrix.length;</span><br><span class="line">    <span class="keyword">const</span> matrixNew = <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            matrixNew[j][n - i - <span class="number">1</span>] = matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            matrix[i][j] = matrixNew[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> matrix;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> matrix = [</span><br><span class="line">    [<span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">    [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>],</span><br><span class="line">    [<span class="number">13</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">15</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">16</span>]</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.log(matrix);</span><br><span class="line"><span class="built_in">console</span>.log(rotate(matrix));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  [ 5, 1, 9, 11 ],</span></span><br><span class="line"><span class="comment">  [ 2, 4, 8, 10 ],</span></span><br><span class="line"><span class="comment">  [ 13, 3, 6, 7 ],</span></span><br><span class="line"><span class="comment">  [ 15, 14, 12, 16 ]</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  [ 15, 13, 2, 5 ],</span></span><br><span class="line"><span class="comment">  [ 14, 3, 4, 1 ],</span></span><br><span class="line"><span class="comment">  [ 12, 6, 8, 9 ],</span></span><br><span class="line"><span class="comment">  [ 16, 7, 10, 11 ]</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>1、时间复杂度：O(N^2), 其中N是matrix的边长</p>
+<h3 id="方法二、快慢指针"><a href="#方法二、快慢指针" class="headerlink" title="方法二、快慢指针"></a>方法二、快慢指针</h3><blockquote>
+<p>使用快慢指针 快指针一次向前2个节点 慢指针一次向前1个节点</p>
+<ul>
+<li>有环的链表中，快指针和慢指针一定会在环中相遇</li>
+<li>无环的链表中，快指针会率先访问到链表尾部 从而终结检测过程</li>
+</ul>
 </blockquote>
-<p>2、空间复杂度：O(N^2)，我们需要使用一个和matrix大小相同的辅助数组</p>
-<h3 id="方法二：原地旋转"><a href="#方法二：原地旋转" class="headerlink" title="方法二：原地旋转"></a>方法二：原地旋转</h3><p>题目中要求我们尝试在不使用额外内存空间的情况下进行矩阵的旋转，也就是说，我们需要「原地旋转」这个矩阵。那么我们如何在方法一的基础上完成原地旋转呢？<br>我们观察方法一中的关键等式：<br> <code>matrixnew[col][n−row−1]=matrix[row][col]</code></p>
-<p>它阻止了我们进行原地旋转，这是因为如果我们直接将 <code>matrix[row][col]</code> 放到原矩阵中的目标位置 <code>matrix[col][n−row−1]</code> ： <code>matrix[col][n−row−1]=matrix[row][col]</code></p>
-<p>原矩阵中的 <code>matrix[col][n−row−1]</code> 就被覆盖了！这并不是我们想要的结果;<br>因此我们可以考虑用一个临时变量 <code>temp</code> 暂存 <code>matrix[col][n−row−1]</code> 的值<br>这样虽然 <code>matrix[col][n−row−1]</code> 被覆盖了，我们还是可以通过 temp 获取它原来的值：</p>
-<pre><code>&#123;
-    temp                 = matrix[col][n-row-1]
-    matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
-<p>那么 <code>matrix[col][n-row-1]</code> 经过旋转操作之后会到哪个位置呢?<br>我们还是使用方法一中的等式，这次，我们需要将</p>
-<pre><code>&#123;
-    row = col
-    col = n - row - 1
-&#125;
-</code></pre>
-<p>带入关键等式，就可以得到</p>
-<p> <code>martrix[n-row-1][n-col-1] = matrix[col][n-row-1];</code></p>
-<p>同样的，直接复制会覆盖掉matrix[n-row-1][n-col-1]原来的值，因此我们还是需要使用temp存储, 不过这次，我们可以直接使用之前的临时变量temp:</p>
-<pre><code>&#123;
-    temp = matrix[n-row-1][n-col-1]
-    matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
-    matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
-<p>我们再重复一次之前的操作， <code>matrix[n−row−1][n−col−1]</code> 经过旋转操作之后会到哪个位置呢？</p>
-<pre><code>&#123;
-   row = n-row-1
-   col = n-col-1 
-&#125;
-</code></pre>
-<p>带入关键等式，就可以得到</p>
-<p> <code>matrix[n-col-1][row] = matrix[n-row-1][n-col-1]</code></p>
-<p>写入 </p>
-<pre><code>&#123;
-    temp = matrix[n-col-1][row]
-    matrix[n-col-1][row] = matrix[n-row-1][n-col-1]
-    matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
-    matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
-<p>再来一次, </p>
-<pre><code>&#123;
-    row = n-col -1
-    col = row
-&#125;
-</code></pre>
-<p>带入关键等式，就可以得到</p>
-<p> <code>matrix[row][col] = matrix[n-col-1][row]</code></p>
-<p>我们回到了最初的起点matrix[row][col]，也就是说</p>
-<pre><code>&#123;   
-    matrix[row][col] = matrix[n-col-1][row]
-    matrix[n-col-1][row] = matrix[n-row-1][n-col-1]
-    matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
-    matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
-<p>这四项处于一个循环中, 并且每一项旋转后的位置就是下一项所在的位置！<br>因此我们可以使用一个临时变量 temp 完成这四项的原地交换：</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    temp = matrix[row][col]</span><br><span class="line">    matrix[row][col] = matrix[n - col - <span class="number">1</span>][row]</span><br><span class="line">    matrix[n - col - <span class="number">1</span>][row] = matrix[n - row - <span class="number">1</span>][n - col - <span class="number">1</span>]</span><br><span class="line">    matrix[n - row - <span class="number">1</span>][n - col - <span class="number">1</span>] = matrix[col][n - row - <span class="number">1</span>]</span><br><span class="line">    matrix[col][n - row - <span class="number">1</span>] = temp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> hasCycle = <span class="function"><span class="keyword">function</span> (<span class="params">head</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> slow = head, fast = head;</span><br><span class="line">    <span class="keyword">while</span> (fast &amp;&amp; fast.next) &#123;</span><br><span class="line">        slow = slow.next;</span><br><span class="line">        fast = fast.next.next;</span><br><span class="line">        <span class="keyword">if</span> (slow === fast) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>当我们知道了如何原地旋转矩阵之后，还有一个重要的问题在于：<strong>我们应该枚举哪些位置 (row, col) 进行上述的原地交换操作呢？</strong>由于每一次原地交换四个位置，因此：</p>
-<blockquote>
-<p>当 n 为偶数时，我们需要枚举 n^2 / 4 = (n/2)x(n/2)个位置，可以将该图形分为四块，以4×4的矩阵为例：</p>
-</blockquote>
-<p>保证了不重复、不遗漏；<br>当 n 为奇数时，由于中心的位置经过旋转后位置不变，我们需要枚举(n^2)-1 /4 = ((n-1)/2)x((n+1)/2)个位置<br>同样保证了不重复、不遗漏，矩阵正中央的点无需旋转。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate2 = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = matrix.length;</span><br><span class="line">    <span class="comment">// 枚举次数： 当n为偶数时 n/2 x n/2 例如：4 = 2 * 2  当n为奇数时 (n-1)/2 (n+1)/2 例如：5 = 2 * 3 </span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.floor(n / <span class="number">2</span>); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; <span class="built_in">Math</span>.floor((n + <span class="number">1</span>) / <span class="number">2</span>); j++) &#123;</span><br><span class="line">            <span class="comment">/*</span></span><br><span class="line"><span class="comment">            temp = matrix[row][col]</span></span><br><span class="line"><span class="comment">            matrix[row][col] = matrix[n-col-1][row]</span></span><br><span class="line"><span class="comment">            matrix[n-col-1][row] = matrix[n-row-1][n-col-1]</span></span><br><span class="line"><span class="comment">            matrix[n-row-1][n-col-1] = matrix[col][n-row-1]</span></span><br><span class="line"><span class="comment">            matrix[col][n-row-1] = temp</span></span><br><span class="line"><span class="comment">            */</span></span><br><span class="line">            <span class="keyword">const</span> temp = matrix[i][j];</span><br><span class="line">            matrix[i][j] = matrix[n - j - <span class="number">1</span>][i];</span><br><span class="line">            matrix[n - j - <span class="number">1</span>][i] = matrix[n - i - <span class="number">1</span>][n - j - <span class="number">1</span>];</span><br><span class="line">            matrix[n - i - <span class="number">1</span>][n - j - <span class="number">1</span>] = matrix[j][n - i - <span class="number">1</span>];</span><br><span class="line">            matrix[j][n - i - <span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> matrix;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> matrix2 = [</span><br><span class="line">    [<span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">    [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>],</span><br><span class="line">    [<span class="number">13</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">15</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">16</span>]</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.log(matrix2);</span><br><span class="line"><span class="built_in">console</span>.log(rotate2(matrix2));</span><br></pre></td></tr></table></figure>
-
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>1、时间复杂度：O(N^2), 其中N是matrix的边长。我们需要枚举的子矩阵大小为O(n/2) x O((n+1)/2) = O(N^2)</p>
-</blockquote>
-<p>2、空间复杂度：O(1)，为原地旋转</p>
-<h3 id="方法三：使用翻转代替旋转"><a href="#方法三：使用翻转代替旋转" class="headerlink" title="方法三：使用翻转代替旋转"></a>方法三：使用翻转代替旋转</h3><p>我们还可以另辟蹊径，用翻转代替旋转操作。以示例二为例</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> 5  1  9  11</span></span><br><span class="line"><span class="comment"> 2  4  8  10</span></span><br><span class="line"><span class="comment"> 13 3  6  7</span></span><br><span class="line"><span class="comment"> 15 14 12 16</span></span><br><span class="line"><span class="comment">先将其按水平轴翻转得到:</span></span><br><span class="line"><span class="comment"> 15 14 12 16</span></span><br><span class="line"><span class="comment"> 13  3  6  7</span></span><br><span class="line"><span class="comment"> 2  4  8  10</span></span><br><span class="line"><span class="comment"> 5  1  9  11</span></span><br><span class="line"><span class="comment">再根据主对角线翻转得到：</span></span><br><span class="line"><span class="comment"> 15 13 2  5</span></span><br><span class="line"><span class="comment"> 14 3  4  1</span></span><br><span class="line"><span class="comment"> 12 6  8  9</span></span><br><span class="line"><span class="comment"> 16 7  10 11</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-
-<p>就得到了答案。这是为什么呢？对于水平轴翻转而言，我们只需要枚举矩阵上半部分的元素，和下半部分的元素进行交换，即<br> <code>matrix[row][col] ==&gt; (水平轴翻转) ==&gt; matrix[n-row-1][col]</code></p>
-<p>对于主对角线翻转而言，我们只需要枚举对角线左侧的元素，和右侧的元素进行交换，即<br> <code> matrix[row][col] ==&gt; (主对角线翻转) ==&gt; matrix[col][row]</code></p>
-<p>将它们联立即可得到：</p>
-<p> <code>matrix[row][col] ==&gt; (水平轴翻转) ==&gt; matrix[n-row-1][col] ==&gt; (主对角线翻转) ==&gt; matrix[col][n-row-1]</code></p>
-<p>和方法一、方法二中的关键等式<br><code>martixNew[col][n-row-1] = matrix[row][col]</code> 是一致的</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate3 = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = matrix.length;</span><br><span class="line">    <span class="comment">// 水平翻转</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; <span class="built_in">Math</span>.floor(n / <span class="number">2</span>); i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            [matrix[i][j], matrix[n - i - <span class="number">1</span>][j]] = [matrix[n - i - <span class="number">1</span>][j], matrix[i][j]]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 主对角线翻转</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; i; j++) &#123;</span><br><span class="line">            [matrix[i][j], matrix[j][i]] = [matrix[j][i], matrix[i][j]];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> matrix;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> matrix3 = [[<span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">11</span>], [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>], [<span class="number">13</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>], [<span class="number">15</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">16</span>]];</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;matrix3:&#x27;</span>, rotate3(matrix3));</span><br></pre></td></tr></table></figure>
-<p><strong>复杂度分析</strong></p>
-<blockquote>
-<p>1、时间复杂度：O(N^2),其中N是matrix的边长。对于每一次翻转操作，我们都需要枚举矩阵中一半的元素<br>2、空间复杂度：O(1)，为原地翻转得到的原地旋转</p>
-</blockquote>
 
       
 
@@ -322,7 +237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/primary/test/ten.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/LinkedList/hasCycle.html" alt="微信分享二维码">
     </div>
 </div>
 

@@ -6,19 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Hexo 起始页 | 学习笔记</title>
+  <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Hexo 起始页">
-<meta property="og:url" content="http://example.com/2021/03/03/hello-world/index.html">
+  <meta name="description" content="二叉搜索树作为数据存储的结构有重要的优势：可以快速的找到给定关键字的数据项，并且可以快速的插入和删除数据项  但是，二叉搜索树有一个麻烦的问题如果插入的数据是有序的数据，比如下面的情况有一棵初始化为 9 8 12的二叉树 12345&#x2F;*     9     &#x2F; \    8  12*&#x2F; 插入下面的数据: 7 6 5 123456789101112&#x2F;*     9     &#x2F; \    8  12">
+<meta property="og:type" content="website">
+<meta property="og:title" content="平衡树">
+<meta property="og:url" content="http://example.com/algorithm/structure-algorithm/Tree/six.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="二叉搜索树作为数据存储的结构有重要的优势：可以快速的找到给定关键字的数据项，并且可以快速的插入和删除数据项  但是，二叉搜索树有一个麻烦的问题如果插入的数据是有序的数据，比如下面的情况有一棵初始化为 9 8 12的二叉树 12345&#x2F;*     9     &#x2F; \    8  12*&#x2F; 插入下面的数据: 7 6 5 123456789101112&#x2F;*     9     &#x2F; \    8  12">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-03T02:03:12.863Z">
-<meta property="article:modified_time" content="2021-03-03T02:03:12.863Z">
+<meta property="article:published_time" content="2021-03-04T09:08:02.000Z">
+<meta property="article:modified_time" content="2021-03-09T02:40:01.891Z">
 <meta property="article:author" content="Zoro">
-<meta property="article:tag" content="hello">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
@@ -143,39 +142,43 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-hello-world" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Hexo 起始页
+      平衡树
     </h1>
   
 
         
-        <a href="/2021/03/03/hello-world/" class="archive-article-date">
-  	<time datetime="2021-03-03T02:03:12.863Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-03</time>
+        <a href="/algorithm/structure-algorithm/Tree/six.html" class="archive-article-date">
+  	<time datetime="2021-03-04T09:08:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span>--创建一个新的模板</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>二叉搜索树作为数据存储的结构有重要的优势：<strong>可以快速的找到给定关键字的数据项，并且可以快速的插入和删除数据项</strong></p>
+</blockquote>
+<p><strong>但是，二叉搜索树有一个麻烦的问题</strong><br>如果插入的数据是有序的数据，比如下面的情况<br>有一棵初始化为 9 8 12的二叉树</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     9 </span></span><br><span class="line"><span class="comment">    / \ </span></span><br><span class="line"><span class="comment">   8  12</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<p>插入下面的数据: 7 6 5</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">     9 </span></span><br><span class="line"><span class="comment">    / \ </span></span><br><span class="line"><span class="comment">   8  12</span></span><br><span class="line"><span class="comment">   /</span></span><br><span class="line"><span class="comment">   7</span></span><br><span class="line"><span class="comment">   /</span></span><br><span class="line"><span class="comment">   6</span></span><br><span class="line"><span class="comment">   /</span></span><br><span class="line"><span class="comment">   5</span></span><br><span class="line"><span class="comment">   ...</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server--启动服务-默认4000端口</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+<h3 id="非平衡树"><a href="#非平衡树" class="headerlink" title="非平衡树"></a>非平衡树</h3><p>比较好的二叉搜索树数据应该是作用分布均匀的<br>但是插入连续数据后，分布的不均匀，我称这种树为非平衡树<br><strong>对于一个平衡二叉树来说，插入/查找等操作的效率是O(logN)</strong><br><strong>对于一棵非平衡二叉树来说，相当于编写了一个链表，查找效率变成了O(N)</strong></p>
+<h3 id="树的平衡性"><a href="#树的平衡性" class="headerlink" title="树的平衡性"></a>树的平衡性</h3><p>为了能较快的时间<code>O(logN)</code>来操作一棵树，我们需要保证树总是平衡的：</p>
+<ul>
+<li>至少大部分是平衡的，那么时间复杂度也是接近<code>O(logN)</code></li>
+<li>也就是说树中每个节点左边的子孙节点的个数，应该尽可能的等于右边的子孙节点的个数</li>
+<li>常见的平衡树有哪些呢？</li>
+</ul>
+<h4 id="AVL树"><a href="#AVL树" class="headerlink" title="AVL树"></a>AVL树</h4><p>AVL树是最早的一种平衡树，他总有办法保持树的平衡(<strong>每个节点多存储一个额外的数据</strong>)<br>因为AVL树是平衡的，所有时间复杂度也是<code>O(logN)</code><br>但是，每次插入/删除操作相对于红黑树效率都不高，所以整体效率不如红黑树</p>
+<h4 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h4><p>红黑树也通过一些特性来保持树的平衡<br>因为是平衡树，所以时间复杂度也是在<code>O(logN)</code><br><strong>另外插入/删除等操作，红黑树的性能要优于AVL树，所以现在平衡树的应用基本都是红黑树</strong></p>
 
       
 
@@ -184,17 +187,6 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
       
 
       
@@ -245,7 +237,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2021/03/03/hello-world/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/structure-algorithm/Tree/six.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -257,16 +249,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-  
-    <a href="/2020/10/30/TDZ/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">ES6的TDZ(暂时性死区)</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -317,9 +299,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
