@@ -23,3 +23,11 @@ tag: Algorithm
 ### 二叉搜索树的操作实现
 
 > [二叉搜索树的操作实现](/algorithm/structure-algorithm/Tree/five "二叉搜索树的操作实现")
+
+### 平衡树
+
+> [平衡树](/algorithm/structure-algorithm/Tree/six "平衡树")
+
+### 红黑树
+
+> [红黑树](/algorithm/structure-algorithm/Tree/seven "红黑树")

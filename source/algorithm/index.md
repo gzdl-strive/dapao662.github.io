@@ -9,3 +9,6 @@ tag: Algorithm
 
 ### JavaScript数据结构和算法
 >[JavaScript数据结构和算法](/algorithm/structure-algorithm "js数据结构和算法")
+
+### 门徒算法
+>[门徒算法](/algorithm/Study "门徒算法")
