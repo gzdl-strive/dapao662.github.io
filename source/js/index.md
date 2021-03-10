@@ -33,6 +33,9 @@ tag: js
 ## 变量提升
 > [变量提升](/js/variablePromotion "变量提升")
 
+## 闭包
+> [闭包](/js/colsure "闭包")
+
 ## 匿名函数
 
 ### 匿名函数
@@ -68,3 +71,7 @@ tag: js
 ## ES11
 
 > [ES11](/js/ES11/index "ES11")
+
+
+
+
