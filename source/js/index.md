@@ -30,6 +30,9 @@ tag: js
 
 > [js高级程序设计(第四版)-unit12](/js/javaScript/js4/Unit12 "BOM")
 
+## 变量提升
+> [变量提升](/js/variablePromotion "变量提升")
+
 ## 匿名函数
 
 ### 匿名函数

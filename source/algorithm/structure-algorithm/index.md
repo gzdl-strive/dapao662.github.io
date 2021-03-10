@@ -27,3 +27,9 @@ tag: Algorithm
 
 ## 图论
 >[Graph](/algorithm/structure-algorithm/Graph "图论")
+
+## 大O表示法
+>[大O表示法](/algorithm/structure-algorithm/bigO "大O表示法")
+
+## 排序算法
+>[排序算法](/algorithm/structure-algorithm/sort "排序算法")

@@ -17,6 +17,7 @@ tag: Algorithm
 >[反转链表II(LeetCode#92)](/algorithm/Study/LinkedList/reverseBetween "反转链表II")
 >[K个一组反转链表(LeetCode#25)](/algorithm/Study/LinkedList/reverseK "K个一组反转链表")
 >[旋转链表(LeetCode#61)](/algorithm/Study/LinkedList/rotateRight "旋转链表")
+>[两两交换链表中的节点(LeetCode#24)](/algorithm/Study/LinkedList/swapPairs "两两交换链表中的节点")
 
 ### 链表的删除
 >[删除链表的倒数第N个节点(LeetCode#19)](/algorithm/Study/LinkedList/removeNthFromEnd "删除链表的倒数第N个节点")

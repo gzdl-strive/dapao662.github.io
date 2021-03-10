@@ -34,6 +34,10 @@ function Dictionary() {
     Dictionary.prototype.keys = function () {
         return Object.keys(this.items);
     }
+    // 获取所有的values
+    Dictionary.prototype.values = function () {
+        return Object.values(this.items);
+    }
     // size
     Dictionary.prototype.size = function () {
         return this.keys.length;
@@ -63,7 +67,9 @@ console.log(dic.has('a'));//false
 //根据key获取value
 console.log(dic.get('b'));//456
 // 获取所有的keys
-console.log(dic.keys());['b', 'c']
+console.log(dic.keys());//['b', 'c']
+// 获取所有的values
+console.log(dic.values());//[456, 789]
 // clear
 dic.clear();
 console.log(dic.size());//0
