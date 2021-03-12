@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/AlgorithmImg/sort/shell.png">
 <meta property="article:published_time" content="2021-03-10T09:51:24.000Z">
-<meta property="article:modified_time" content="2021-03-10T09:57:14.809Z">
+<meta property="article:modified_time" content="2021-03-12T09:50:47.121Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/AlgorithmImg/sort/shell.png">
@@ -177,7 +177,11 @@
 <h4 id="Sedgewick增量序列"><a href="#Sedgewick增量序列" class="headerlink" title="Sedgewick增量序列"></a>Sedgewick增量序列</h4><blockquote>
 <p>{1, 5, 19, 41, 109, …}该序列中的项或者是94^i - 9*2^i + 1或者是4^i-32^i+1.这种增量的最坏复杂度为<code>O(N^4/3)</code>,平均复杂度为<code>O(N^7/6)</code>,但是均未被证明</p>
 </blockquote>
-<h3 id="希尔排序的效率"><a href="#希尔排序的效率" class="headerlink" title="希尔排序的效率"></a>希尔排序的效率</h3>
+<h3 id="希尔排序的效率"><a href="#希尔排序的效率" class="headerlink" title="希尔排序的效率"></a>希尔排序的效率</h3><blockquote>
+<p>希尔排序的效率和增量是有关系的.但是，它的效率是非常困难的，甚至某些增量的效率到目前依然没有被证明处理.但是经过统计，希尔排序使用元素增量，最坏的情况下时间复杂度为<code>O(N^2)</code>,通常情况下都要好于<code>O(N^2)</code></p>
+</blockquote>
+<p><strong>总之，我们使用希尔排序大多数情况下效率都高于简单排序.这个可以通过统计排序算法的时间来证明.甚至在合适的增量和某些数量N的情况下，还好于快速排序</strong></p>
+
       
 
       
