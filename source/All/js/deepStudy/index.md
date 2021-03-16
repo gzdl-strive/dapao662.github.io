@@ -30,3 +30,12 @@ tag: js
 
 ### 参数按值传递
 >[参数按值传递](/All/js/deepStudy/nine "参数按值传递")
+
+### call和apply模拟实现
+>[call和apply模拟实现](/All/js/deepStudy/ten "call和apply模拟实现")
+
+### bind模拟实现
+>[bind模拟实现](/All/js/deepStudy/eleven "bind模拟实现")
+
+### new的模拟实现
+>[new模拟实现](/All/js/deepStudy/twelve "new模拟实现")
