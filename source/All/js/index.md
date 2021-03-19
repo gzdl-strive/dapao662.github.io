@@ -9,3 +9,6 @@ tag: js
 
 ### 浅谈instanceof和typeof
 >[浅谈instanceof和typeof](/All/js/other/instanceof "浅谈instanceof和typeof")
+
+### Object.create(null)与{}的区别
+>[Object.create(null)](/All/js/other/objectCreate "Object.create(null)")

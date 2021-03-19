@@ -39,3 +39,9 @@ tag: js
 
 ### new的模拟实现
 >[new模拟实现](/All/js/deepStudy/twelve "new模拟实现")
+
+### 类数组对象
+>[类数组对象](/All/js/deepStudy/thirteen "类数组对象")
+
+### 创建对象的多种方式
+>[创建对象的多种方式](/All/js/deepStudy/fourteen "创建对象的多种方式")
