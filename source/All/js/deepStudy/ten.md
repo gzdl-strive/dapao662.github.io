@@ -216,10 +216,11 @@ Object {
 
 **另外加上使用ES6实现的方法**
 ```js
-Function.prototype.call = function (context = window, ...args) {
+Function.prototype.call = function (context, ...args) {
     if (typeof this !== 'function') {
         throw new TypeError('Type Error');
     }
+    context = context || window;
     //ES6 引入了一种新的原始数据类型 Symbol ，表示独一无二的值，最大的用法是用来定义对象的唯一属性名
     const fn = Symbol('fn');
     context[fn] = this;
@@ -253,10 +254,11 @@ Function.prototype.apply2 = function(context, arr) {
 
 **另外加上使用ES6实现的方法**
 ```js
-Function.prototype.apply = function(context = window, args) {
+Function.prototype.apply = function(context, args) {
     if (typeof this !== 'function') {
         throw new TypeError('Type Error');
     }
+    context = context || window;
     const fn = Symbol('fn');
     context[fn] = this;
     

@@ -12,3 +12,9 @@ tag: js
 
 ### Object.create(null)与{}的区别
 >[Object.create(null)](/All/js/other/objectCreate "Object.create(null)")
+
+### 浮点数精度
+>[浮点数精度](/All/js/other/float "浮点数精度")
+
+### 位运算
+>[位运算](/All/js/other/bitOperation "位运算")

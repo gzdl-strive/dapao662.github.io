@@ -37,7 +37,7 @@ function bar(o) {
     console.log(o.value);//2
 }
 bar(obj);
-console.log(obj.value);//1
+console.log(obj.value);//2
 ```
 哎，不对啊，连我们的红宝书都说了 ECMAScript 中所有函数的参数都是按值传递的，这怎么能按"引用传递"成功呢？
 而这究竟是不是引用传递呢？
