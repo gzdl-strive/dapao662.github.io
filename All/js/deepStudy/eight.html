@@ -16,7 +16,7 @@
 <meta property="og:description" content="定义 MDN 对闭包的定义为：闭包是指那些能够访问自由变量的函数。  那什么是自由变量呢？自由变量是指在函数中使用的，但既不是函数参数也不是函数的局部变量的变量。由此，我们可以看出闭包共有两部分组成：闭包 &#x3D; 函数 + 函数能够访问的自由变量 举个例子 12345var a &#x3D; 1;function foo() &amp;#123;    console.log(a);&amp;#125;foo(); foo 函">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-12T17:27:20.000Z">
-<meta property="article:modified_time" content="2021-03-19T02:18:48.021Z">
+<meta property="article:modified_time" content="2021-03-30T02:27:38.472Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -184,7 +184,7 @@
 <hr>
 <p>这里直接给出简要的执行过程：</p>
 <blockquote>
-<p>1、进入全局代码，创建全局执行上下文，checkscope执行上下文被压入执行上下文栈<br>2、全局执行上下文初始化<br>3、执行checkscope函数，创建checkscope函数执行上下文，checkscope执行上下文被压入执行上下文栈<br>4、checkscope执行上下文初始化，创建变量对象、作用域链、this等<br>5、checkscope函数执行完毕，checkscope执行上下文从执行上下文栈中弹出<br>6、执行f函数，创建f函数执行上下文，f执行上下文被压入执行上下文栈<br>7、f执行上下文初始化，创建变量对象、作用域链、this等<br>8、f函数执行完毕，f函数上下文从执行上下文栈中弹出</p>
+<p>1、进入全局代码，创建全局执行上下文，全局执行上下文被压入执行上下文栈<br>2、全局执行上下文初始化<br>3、执行checkscope函数，创建checkscope函数执行上下文，checkscope执行上下文被压入执行上下文栈<br>4、checkscope执行上下文初始化，创建变量对象、作用域链、this等<br>5、checkscope函数执行完毕，checkscope执行上下文从执行上下文栈中弹出<br>6、执行f函数，创建f函数执行上下文，f执行上下文被压入执行上下文栈<br>7、f执行上下文初始化，创建变量对象、作用域链、this等<br>8、f函数执行完毕，f函数上下文从执行上下文栈中弹出</p>
 </blockquote>
 <hr>
 <p>了解到这个过程，我们应该思考一个问题，那就是：<br>当f函数执行的时候，checkscope函数上下文已经被销毁了(即从执行上下文栈中被弹出),怎么还会读取到 checkscope 作用域下的 scope 值呢？<br>以上的代码，要是转换成 PHP，就会报错，因为在 PHP 中，f 函数只能读取到自己作用域和全局作用域里的值，所以读不到 checkscope 下的 scope 值。<br>然而 JavaScript 却是可以的！<br>当我们了解了具体的执行过程后，我们知道 f 执行上下文维护了一个作用域链：</p>
