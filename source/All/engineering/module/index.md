@@ -6,13 +6,13 @@ toc: true
 ---
 
 ## 一、模块化的理解
->[模块化的理解](/All/js/other/module/understand "模块化理解")
+>[模块化的理解](/All/engineering/module/understand "模块化理解")
 
 ## 二、模块化的规范
->[CommomJS](/All/js/other/module/cjs "CommonJS")
->[AMD](/All/js/other/module/amd "AMD")
->[CMD](/All/js/other/module/cmd "CMD")
->[ES6模块化](/All/js/other/module/es6 "ES6")
+>[CommomJS](/All/engineering/module/cjs "CommonJS")
+>[AMD](/All/engineering/module/amd "AMD")
+>[CMD](/All/engineering/module/cmd "CMD")
+>[ES6模块化](/All/engineering/module/es6 "ES6")
 
 ## 三、总结
 >* CommonJS规范主要用于服务端编程，加载模块是同步的，这并不适合在浏览器环境，因为同步意味着阻塞加载，浏览器资源是异步加载的，因此有了AMD,CMD解决方案

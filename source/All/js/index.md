@@ -24,6 +24,3 @@ tag: js
 
 ### 事件循环
 >[事件循环](/All/js/other/eventLoop "事件循环")
-
-### 模块化
->[模块化](/All/js/other/module "模块化")
