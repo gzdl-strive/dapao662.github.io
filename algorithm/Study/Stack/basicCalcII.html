@@ -6,13 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2021 | 学习笔记</title>
+  <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="学习笔记">
-<meta property="og:url" content="http://example.com/archives/2021/index.html">
+  <meta name="description" content="题目描述 给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。  示例示例 1：输入：s &#x3D; “3+2*2”输出：7示例 2：输入：s &#x3D; “ 3&#x2F;2 “输出：1示例 3：输入：s &#x3D; “ 3+5 &#x2F; 2 “输出：5 提示：1 &lt;&#x3D; s.length &lt;&#x3D; 3 * 105s 由整数和算符 (‘+’, ‘-‘, ‘*’, ‘&#x2F;‘) 组成，中间由一">
+<meta property="og:type" content="website">
+<meta property="og:title" content="基本计算器II">
+<meta property="og:url" content="http://example.com/algorithm/Study/Stack/basicCalcII.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="题目描述 给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。  示例示例 1：输入：s &#x3D; “3+2*2”输出：7示例 2：输入：s &#x3D; “ 3&#x2F;2 “输出：1示例 3：输入：s &#x3D; “ 3+5 &#x2F; 2 “输出：5 提示：1 &lt;&#x3D; s.length &lt;&#x3D; 3 * 105s 由整数和算符 (‘+’, ‘-‘, ‘*’, ‘&#x2F;‘) 组成，中间由一">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-03-31T10:52:24.000Z">
+<meta property="article:modified_time" content="2021-04-06T02:45:19.099Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -138,60 +142,143 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2021" class="archive-year">2021</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2021/03/30/hello-world/" class="archive-article-date">
-  	<time datetime="2021-03-30T02:27:38.472Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-30</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2021/03/30/hello-world/">Hexo 起始页</a>
+    <h1 class="article-title" itemprop="name">
+      基本计算器II
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">hello</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+        <a href="/algorithm/Study/Stack/basicCalcII.html" class="archive-article-date">
+  	<time datetime="2021-03-31T10:52:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-31</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
+<p>给你一个字符串表达式 s ，请你实现一个基本计算器来计算并返回它的值。整数除法仅保留整数部分。</p>
+</blockquote>
+<p><strong>示例</strong><br>示例 1：<br>输入：s = “3+2*2”<br>输出：7<br>示例 2：<br>输入：s = “ 3/2 “<br>输出：1<br>示例 3：<br>输入：s = “ 3+5 / 2 “<br>输出：5</p>
+<p><strong>提示：</strong><br>1 &lt;= s.length &lt;= 3 * 105<br>s 由整数和算符 (‘+’, ‘-‘, ‘*’, ‘/‘) 组成，中间由一些空格隔开<br>s 表示一个 有效表达式<br>表达式中的所有整数都是非负整数，且在范围 [0, 231 - 1] 内<br>题目数据保证答案是一个 32-bit 整数</p>
+<h3 id="解题思路：利用双栈解法，一个用于存储操作数，一个用于存储运算符"><a href="#解题思路：利用双栈解法，一个用于存储操作数，一个用于存储运算符" class="headerlink" title="解题思路：利用双栈解法，一个用于存储操作数，一个用于存储运算符"></a>解题思路：利用双栈解法，一个用于存储操作数，一个用于存储运算符</h3><p>遍历字符串，当遇到空格则跳过，遇到操作数则把当前操作数暂时存起来，继续匹配后面的，如果后面的不是操作数了，就把这个数压入操作数栈中，接下来遍历的就是运算符了，如果当前运算符的优先级小于或等于运算符栈栈顶的优先级，则取出操作数栈栈顶(弹出栈并赋值变量)的两个操作数并与运算符栈栈顶的运算符计算，把计算结果压入操作数栈中<br>压入操作符到运算符栈中<br>返回操作数栈顶元素（有一个小技巧，在字符串后加一个特殊字符，用于表示表示最低的运算符）</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//计算优先级</span></span><br><span class="line"><span class="keyword">const</span> level = <span class="function"><span class="keyword">function</span> (<span class="params">ops</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span>(ops) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>: </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>: <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>: </span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>: <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;@&#x27;</span>: <span class="keyword">return</span> -<span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//计算操作数和对应的运算符结果</span></span><br><span class="line"><span class="keyword">const</span> calc = <span class="function"><span class="keyword">function</span> (<span class="params">a, ops, b</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">switch</span> (ops) &#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;+&#x27;</span>: <span class="keyword">return</span> a + b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;-&#x27;</span>: <span class="keyword">return</span> a - b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;*&#x27;</span>: <span class="keyword">return</span> a * b;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">&#x27;/&#x27;</span>: <span class="keyword">return</span> <span class="built_in">parseInt</span>(a / b);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> </span>s </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> calculate = <span class="function"><span class="keyword">function</span> (<span class="params">s</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> num = [];<span class="comment">//操作数栈</span></span><br><span class="line">    <span class="keyword">const</span> ops = [];<span class="comment">//运算符栈</span></span><br><span class="line">    <span class="comment">//给s字符串末尾加上一个@操作符，用于表示优先级最低，这样后面就可以让循环里面自己计算，而不用我们在计算一下(后面会判断优先级，优先级于运算符栈顶的优先级就会计算之前的结果)</span></span><br><span class="line">    s += <span class="string">&#x27;@&#x27;</span>;</span><br><span class="line">    <span class="comment">//n用于存储当前操作数的值,如果一个操作数为123=&gt;那么遍历到1时，会存储一个1,当遍历到2时，会计算之前的操作数*10+当前操作数，即1*10+2 = 12 ...</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, n = <span class="number">0</span>; i &lt; s.length; i++) &#123;</span><br><span class="line">        <span class="comment">//遍历到&#x27; &#x27;时，跳过</span></span><br><span class="line">        <span class="keyword">if</span> (s[i] === <span class="string">&#x27; &#x27;</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//遍历到数字</span></span><br><span class="line">        <span class="keyword">if</span> (s[i] &gt;= <span class="string">&#x27;0&#x27;</span> &amp;&amp; s[i] &lt;= <span class="string">&#x27;9&#x27;</span>) &#123;</span><br><span class="line">            n = n * <span class="number">10</span> + (s[i] - <span class="string">&#x27;0&#x27;</span>);</span><br><span class="line">            <span class="keyword">continue</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        num.push(n);</span><br><span class="line">        <span class="comment">//n致为0，用于下一次存储</span></span><br><span class="line">        n = <span class="number">0</span>;</span><br><span class="line">        <span class="comment">//遍历到运算符</span></span><br><span class="line">        <span class="comment">//如果当前运算符栈不为空且当前运算符的优先级小于运算符栈顶的元素的优先级</span></span><br><span class="line">        <span class="keyword">while</span> (ops.length &amp;&amp; level(s[i]) &lt;= level(ops[ops.length - <span class="number">1</span>])) &#123;</span><br><span class="line">            <span class="comment">//出栈栈顶两个元素，因为栈的特性，先进后出的关系，如果a - b,那么b就要先出栈，然后a出栈</span></span><br><span class="line">            <span class="keyword">let</span> b = num.pop();</span><br><span class="line">            <span class="keyword">let</span> a = num.pop();</span><br><span class="line">            num.push(calc(a, ops[ops.length - <span class="number">1</span>], b));</span><br><span class="line">            ops.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        ops.push(s[i]);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> num[num.length - <span class="number">1</span>];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
 
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/Stack/basicCalcII.html" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
+
   
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%9A%E5%88%A9%E7%94%A8%E5%8F%8C%E6%A0%88%E8%A7%A3%E6%B3%95%EF%BC%8C%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E6%93%8D%E4%BD%9C%E6%95%B0%EF%BC%8C%E4%B8%80%E4%B8%AA%E7%94%A8%E4%BA%8E%E5%AD%98%E5%82%A8%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="toc-number">2.</span> <span class="toc-text">解题思路：利用双栈解法，一个用于存储操作数，一个用于存储运算符</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
+  
+
+  
+
+  
+
+  
 
 
           </div>
@@ -215,8 +302,8 @@
 		mathjax: false,
 		isHome: false,
 		isPost: false,
-		isArchive: true,
-		isTag: false,
+		isArchive: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -289,10 +376,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
              
               <li class="article-tag-list-item">

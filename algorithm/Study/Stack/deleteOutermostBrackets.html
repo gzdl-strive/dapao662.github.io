@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>无状态函数组件认识 | 学习笔记</title>
+  <title>Tag: Algorithm | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
-<meta property="og:title" content="无状态函数组件认识">
-<meta property="og:url" content="http://example.com/2020/10/25/function-Component/index.html">
+  <meta name="description" content="题目描述： 有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其为原语（primitive），其中 A 和 B 都是非空有效括号字符串。给出一个非空有">
+<meta property="og:type" content="website">
+<meta property="og:title" content="删除最外层的括号">
+<meta property="og:url" content="http://example.com/algorithm/Study/Stack/deleteOutermostBrackets.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="题目描述： 有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。如果有效字符串 S 非空，且不存在将其拆分为 S &#x3D; A+B 的方法，我们称其为原语（primitive），其中 A 和 B 都是非空有效括号字符串。给出一个非空有">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-10-25T12:54:34.000Z">
-<meta property="article:modified_time" content="2021-03-30T02:27:38.472Z">
+<meta property="article:published_time" content="2021-03-31T10:02:24.000Z">
+<meta property="article:modified_time" content="2021-04-06T02:45:19.099Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -140,27 +142,33 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-function-Component" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="page-" class="article article-type-page " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      无状态函数组件认识
+      删除最外层的括号
     </h1>
   
 
         
-        <a href="/2020/10/25/function-Component/" class="archive-article-date">
-  	<time datetime="2020-10-25T12:54:34.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-10-25</time>
+        <a href="/algorithm/Study/Stack/deleteOutermostBrackets.html" class="archive-article-date">
+  	<time datetime="2021-03-31T10:02:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-31</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="题目描述："><a href="#题目描述：" class="headerlink" title="题目描述："></a>题目描述：</h2><blockquote>
+<p>有效括号字符串为空 (“”)、”(“ + A + “)” 或 A + B，其中 A 和 B 都是有效的括号字符串，+ 代表字符串的连接。例如，””，”()”，”(())()” 和 “(()(()))” 都是有效的括号字符串。<br>如果有效字符串 S 非空，且不存在将其拆分为 S = A+B 的方法，我们称其为原语（primitive），其中 A 和 B 都是非空有效括号字符串。<br>给出一个非空有效字符串 S，考虑将其进行原语化分解，使得：S = P_1 + P_2 + … + P_k，其中 P_i 是有效括号字符串原语。<br>对 S 进行原语化分解，删除分解中每个原语字符串的最外层括号，返回 S 。</p>
+</blockquote>
+<p><strong>示例</strong><br>示例 1：<br>输入：”(()())(())”<br>输出：”()()()”<br>解释：<br>输入字符串为 “(()())(())”，原语化分解得到 “(()())” + “(())”，<br>删除每个部分中的最外层括号后得到 “()()” + “()” = “()()()”。<br>示例 2：<br>输入：”(()())(())(()(()))”<br>输出：”()()()()(())”<br>解释：<br>输入字符串为 “(()())(())(()(()))”，原语化分解得到 “(()())” + “(())” + “(()(()))”，<br>删除每个部分中的最外层括号后得到 “()()” + “()” + “()(())” = “()()()()(())”。<br>示例 3：<br>输入：”()()”<br>输出：””<br>解释：<br>输入字符串为 “()()”，原语化分解得到 “()” + “()”，<br>删除每个部分中的最外层括号后得到 “” + “” = “”。</p>
+<p><strong>提示：</strong><br>S.length &lt;= 10000<br>S[i] 为 “(“ 或 “)”<br>S 是一个有效括号字符串</p>
+<h3 id="解题思路：栈"><a href="#解题思路：栈" class="headerlink" title="解题思路：栈"></a>解题思路：栈</h3><p><strong>首先我们解决这道题的关键在于需要知道哪些是需要去除的外层括号</strong><br>设置一个cnt计算左括号和右括号的差值，遇到左括号相当于入栈，cnt + 1, 遇到右括号相当于出栈 cnt - 1<br>这样，一对有效保留的括号，总共让计数器归零，若不归零，则代表当前遍历到的括号中，一定存在多余括号</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;string&#125;</span> <span class="variable">S</span></span></span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;string&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">var</span> removeOuterParentheses = <span class="function"><span class="keyword">function</span> (<span class="params">S</span>) </span>&#123;</span><br><span class="line">    <span class="comment">//str用于保存最后去掉最外层括号后的结果</span></span><br><span class="line">    <span class="keyword">let</span> str = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    <span class="comment">//pre用于指向最外层括号的起始位置,当cnt为0的位置就是最外层括号结束的位置</span></span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>, cnt = <span class="number">0</span>, pre = <span class="number">0</span>; i &lt; S.length; i++) &#123;</span><br><span class="line">        <span class="keyword">if</span> (S[i] === <span class="string">&#x27;(&#x27;</span>) &#123;</span><br><span class="line">            cnt += <span class="number">1</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            cnt -= <span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (cnt !== <span class="number">0</span>) <span class="keyword">continue</span>;</span><br><span class="line">        <span class="comment">//cnt = 0，找到最外层括号的结束位置，然后把最外层括号包裹的中间字符串复制到str中</span></span><br><span class="line">        <span class="comment">//substr()方法:可在字符串中抽取从 start 下标开始的指定数目的字符</span></span><br><span class="line">        <span class="comment">//起始位置是pre + 1，个数是i - pre + 1 - 2(去掉的最外层括号个数是2) = i - pre - 1</span></span><br><span class="line">        str += S.substr(pre + <span class="number">1</span>, i - pre - <span class="number">1</span>);</span><br><span class="line">        <span class="comment">//最后还要接着循环，把pre设置为下一个最外层括号的位置： i + 1开始</span></span><br><span class="line">        pre = i + <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> str;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -218,7 +226,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2020/10/25/function-Component/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/Stack/deleteOutermostBrackets.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -230,25 +238,6 @@
 </article>
 
   
-<nav id="article-nav">
-  
-    <a href="/2020/10/26/JSON.Stringify/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          JSON. Stringify
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2020/10/24/markdown-md-basic/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">markdown(md)基础用法</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -262,6 +251,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">题目描述：</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A7%A3%E9%A2%98%E6%80%9D%E8%B7%AF%EF%BC%9A%E6%A0%88"><span class="toc-number">1.1.</span> <span class="toc-text">解题思路：栈</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -299,9 +301,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
@@ -374,10 +376,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">react</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">hello</a>
               </li>
              
               <li class="article-tag-list-item">
