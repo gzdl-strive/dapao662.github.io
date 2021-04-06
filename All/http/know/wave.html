@@ -6,19 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: js | 学习笔记</title>
+  <title>四次挥手 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述 Node应用由模块组成，采用CommonJS模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。  特点 所有代码都运行在模块作用域，不会污染全局作用域。 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取">
+  <meta name="description" content="第一次挥手：客户端和服务器打电话，通话即将结束后 第二次挥手：客户端说”我没啥要说的了”，服务器回答”我知道了”,但是服务器可能还有要说的话 第三次挥手：客户端不能要求服务器跟着自己的节奏结束通话，于是服务器可能又巴拉巴拉说了一通，最后服务器说”我说完了”. 第四次挥手：客户端回答”知道了”，这样通话才算结束  TCP为什么要进行四次挥手： 因为数据传输结束后发出连接释放的通知，待对方确认后进">
 <meta property="og:type" content="website">
-<meta property="og:title" content="CommonJS">
-<meta property="og:url" content="http://example.com/All/js/other/module/cjs.html">
+<meta property="og:title" content="四次挥手">
+<meta property="og:url" content="http://example.com/All/http/know/wave.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="概述 Node应用由模块组成，采用CommonJS模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。  特点 所有代码都运行在模块作用域，不会污染全局作用域。 模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取">
+<meta property="og:description" content="第一次挥手：客户端和服务器打电话，通话即将结束后 第二次挥手：客户端说”我没啥要说的了”，服务器回答”我知道了”,但是服务器可能还有要说的话 第三次挥手：客户端不能要求服务器跟着自己的节奏结束通话，于是服务器可能又巴拉巴拉说了一通，最后服务器说”我说完了”. 第四次挥手：客户端回答”知道了”，这样通话才算结束  TCP为什么要进行四次挥手： 因为数据传输结束后发出连接释放的通知，待对方确认后进">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-04T14:29:20.000Z">
-<meta property="article:modified_time" content="2021-04-06T02:45:19.095Z">
+<meta property="og:image" content="http://example.com/assets/httpImg/tcp4.png">
+<meta property="article:published_time" content="2021-04-06T15:36:20.000Z">
+<meta property="article:modified_time" content="2021-04-06T07:37:50.225Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/assets/httpImg/tcp4.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -149,70 +151,29 @@
         
   
     <h1 class="article-title" itemprop="name">
-      CommonJS
+      四次挥手
     </h1>
   
 
         
-        <a href="/All/js/other/module/cjs.html" class="archive-article-date">
-  	<time datetime="2021-04-04T14:29:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-04</time>
+        <a href="/All/http/know/wave.html" class="archive-article-date">
+  	<time datetime="2021-04-06T15:36:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><blockquote>
-<p>Node应用由模块组成，采用CommonJS模块规范。每个文件就是一个模块，有自己的作用域。在一个文件里面定义的变量、函数、类，都是私有的，对其他文件不可见。在服务器端，模块的加载是运行时同步加载的；在浏览器端，模块需要提前编译打包处理。</p>
-</blockquote>
-<h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><ol>
-<li>所有代码都运行在模块作用域，不会污染全局作用域。</li>
-<li>模块可以多次加载，但是只会在第一次加载时运行一次，然后运行结果就被缓存了，以后再加载，就直接读取缓存结果。要想让模块再次运行，必须清除缓存。</li>
-<li>模块加载的顺序，按照其在代码中出现的顺序。</li>
-</ol>
-<h3 id="基本语法"><a href="#基本语法" class="headerlink" title="基本语法"></a>基本语法</h3><ul>
-<li>暴露模块：<code>module.exports = value 或 exports.xxx = value</code></li>
-<li>引入模块：<code>require(xxx)</code>,如果是第三方模块，xxx为模块名；如果是自定义模块，xxx为模块文件路径</li>
-</ul>
-<p>此处我们有个疑问：<strong>CommonJS暴露的模块到底是什么?</strong></p>
-<blockquote>
-<p>CommonJS规范规定，每个模块内部，module变量代表当前模块。这个模块是一个对象，它的exports属性(即module.exports)是对外的接口。<br>加载某个模块，其实是加载该模块的module.exports属性.</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// example.js</span></span><br><span class="line"><span class="keyword">var</span> x = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">var</span> addX = <span class="function"><span class="keyword">function</span> (<span class="params">value</span>) </span>&#123;</span><br><span class="line"><span class="keyword">return</span> value + x;</span><br><span class="line">&#125;;</span><br><span class="line"><span class="built_in">module</span>.exports.x = x;</span><br><span class="line"><span class="built_in">module</span>.exports.addX = addX;</span><br><span class="line"><span class="comment">//上面代码通过module.exports输出变量x和函数addX。</span></span><br><span class="line"><span class="keyword">var</span> example = <span class="built_in">require</span>(<span class="string">&#x27;./example.js&#x27;</span>);<span class="comment">//如果参数字符串以“./”开头，则表示加载的是一个位于相对路径</span></span><br><span class="line"><span class="built_in">console</span>.log(example.x); <span class="comment">// 5</span></span><br><span class="line"><span class="built_in">console</span>.log(example.addX(<span class="number">1</span>)); <span class="comment">// 6</span></span><br></pre></td></tr></table></figure>
-<p>require命令用于加载模块文件。require命令的基本功能是，读入并执行一个JavaScript文件，然后返回该模块的exports对象。如果没有发现指定模块，会报错。</p>
-<h3 id="模块的加载机制"><a href="#模块的加载机制" class="headerlink" title="模块的加载机制"></a>模块的加载机制</h3><p>CommonJS模块的加载机制是，<strong>输入的是被输出的值的拷贝</strong>。也就是所，一旦输出一个值，模块内部的变化就影响不到这个值。<br>这点和ES6模块化由重大差异，请看下面这个例子:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// lib.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="number">3</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">incCounter</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">counter++;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">counter: counter,</span><br><span class="line">incCounter: incCounter,</span><br><span class="line">&#125;;</span><br><span class="line"><span class="comment">//上面代码输出内部变量counter和改写这个变量的内部方法incCounter。</span></span><br><span class="line"><span class="comment">// main.js</span></span><br><span class="line"><span class="keyword">var</span> counter = <span class="built_in">require</span>(<span class="string">&#x27;./lib&#x27;</span>).counter;</span><br><span class="line"><span class="keyword">var</span> incCounter = <span class="built_in">require</span>(<span class="string">&#x27;./lib&#x27;</span>).incCounter;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(counter);  <span class="comment">// 3</span></span><br><span class="line">incCounter();</span><br><span class="line"><span class="built_in">console</span>.log(counter); <span class="comment">// 3</span></span><br></pre></td></tr></table></figure>
-<p>上面代码说明，counter输出以后，lib.js模块内部的变化就影响不到counter了。<strong>这是因为counter是一个原始类型的值，会被缓存。除非写成一个函数，才能得到内部变动后的值。</strong></p>
-<h3 id="服务器端实现"><a href="#服务器端实现" class="headerlink" title="服务器端实现"></a>服务器端实现</h3><ol>
-<li>下载安装node.js</li>
-<li>创建项目目录<br>注意：用<code>npm init </code>自动生成package.json时，package name(包名)不能有中文和大写<blockquote>
-<p>|-app.js<br>|-package.json<br>|-modules</p>
-<blockquote>
-<p>|-module1.js<br>|-module2.js<br>|-module3.js</p>
-</blockquote>
-</blockquote>
-</li>
-</ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;commonJS-node&quot;</span>,</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<ol start="3">
-<li>下载第三方模块<br><code>npm install uniq --save</code> // 用于数组去重</li>
-<li>定义模块代码<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//module1.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    msg: <span class="string">&#x27;module1&#x27;</span>,</span><br><span class="line">    <span class="function"><span class="title">foo</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">this</span>.msg)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//module2.js</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;module2&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//module3.js</span></span><br><span class="line"><span class="built_in">exports</span>.foo = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;foo() module3&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">exports</span>.arr = [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">4</span>];</span><br><span class="line"><span class="comment">// app.js文件</span></span><br><span class="line"><span class="comment">// 引入第三方库，应该放置在最前面</span></span><br><span class="line"><span class="keyword">let</span> uniq = <span class="built_in">require</span>(<span class="string">&#x27;uniq&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> module1 = <span class="built_in">require</span>(<span class="string">&#x27;./modules/module1&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> module2 = <span class="built_in">require</span>(<span class="string">&#x27;./modules/module2&#x27;</span>)</span><br><span class="line"><span class="keyword">let</span> module3 = <span class="built_in">require</span>(<span class="string">&#x27;./modules/module3&#x27;</span>)</span><br><span class="line"></span><br><span class="line">module1.foo() <span class="comment">//module1</span></span><br><span class="line">module2() <span class="comment">//module2</span></span><br><span class="line">module3.foo() <span class="comment">//foo() module3</span></span><br><span class="line"><span class="built_in">console</span>.log(uniq(module3.arr)) <span class="comment">//[ 1, 2, 3, 4 ]</span></span><br></pre></td></tr></table></figure></li>
-<li>通过node运行app.js<br>命令行输入<code>node app.js</code>，运行js文件</li>
-</ol>
-<h3 id="浏览器端实现-实现Browserify"><a href="#浏览器端实现-实现Browserify" class="headerlink" title="浏览器端实现(实现Browserify)"></a>浏览器端实现(实现Browserify)</h3><ol>
-<li>创建项目结构<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">|-js</span><br><span class="line">|-dist <span class="comment">//打包生成文件的目录</span></span><br><span class="line">|-src <span class="comment">//源码所在的目录</span></span><br><span class="line">    |-module1.js</span><br><span class="line">    |-module2.js</span><br><span class="line">    |-module3.js</span><br><span class="line">    |-app.js <span class="comment">//应用主源文件</span></span><br><span class="line">|-index.html <span class="comment">//运行于浏览器上</span></span><br><span class="line">|-package.json</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;name&quot;</span>: <span class="string">&quot;browserify-test&quot;</span>,</span><br><span class="line">    <span class="string">&quot;version&quot;</span>: <span class="string">&quot;1.0.0&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
-<li>下载browserify</li>
-</ol>
+        <p><img src="/assets/httpImg/tcp4.png" alt="tcp四次挥手" title="四次挥手"></p>
 <ul>
-<li>全局 npm install browserify -g</li>
-<li>局部 npm install browserify –save-dev</li>
+<li>第一次挥手：客户端和服务器打电话，通话即将结束后</li>
+<li>第二次挥手：客户端说”我没啥要说的了”，服务器回答”我知道了”,但是服务器可能还有要说的话</li>
+<li>第三次挥手：客户端不能要求服务器跟着自己的节奏结束通话，于是服务器可能又巴拉巴拉说了一通，最后服务器说”我说完了”.</li>
+<li>第四次挥手：客户端回答”知道了”，这样通话才算结束</li>
 </ul>
-<ol start="3">
-<li>定义模块代码(同服务器端)<br>注意：Index.html文件要运行在浏览器端，需要借助browserify将app.js文件打包编译，如果直接在index.html引入app.js就会报错</li>
-<li>打包处理<br>根目录下运行<code>browserify js/src/app.js -o js/dist/bundle.js</code></li>
-<li>页面引入使用<br>在index.html文件中引入<code>&lt;script src=&quot;js/dist/bundle.js&quot;&gt;&lt;/script&gt;</code></li>
-</ol>
+<h3 id="TCP为什么要进行四次挥手："><a href="#TCP为什么要进行四次挥手：" class="headerlink" title="TCP为什么要进行四次挥手："></a>TCP为什么要进行四次挥手：</h3><blockquote>
+<p>因为数据传输结束后发出连接释放的通知，待对方确认后进入半关闭状态。当另一方也没有数据再发送的时候，则发出连接释放通知，对方确认后就完全关闭了TCP连接.<br><strong>TCP挥手是为了防止数据丢失，可能关闭了数据还存在</strong></p>
+</blockquote>
 
       
 
@@ -271,7 +232,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/js/other/module/cjs.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/http/know/wave.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -304,7 +265,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%89%B9%E7%82%B9"><span class="toc-number">2.</span> <span class="toc-text">特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E8%AF%AD%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">基本语法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9D%97%E7%9A%84%E5%8A%A0%E8%BD%BD%E6%9C%BA%E5%88%B6"><span class="toc-number">4.</span> <span class="toc-text">模块的加载机制</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%AB%AF%E5%AE%9E%E7%8E%B0"><span class="toc-number">5.</span> <span class="toc-text">服务器端实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8%E7%AB%AF%E5%AE%9E%E7%8E%B0-%E5%AE%9E%E7%8E%B0Browserify"><span class="toc-number">6.</span> <span class="toc-text">浏览器端实现(实现Browserify)</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B%EF%BC%9A"><span class="toc-number">1.</span> <span class="toc-text">TCP为什么要进行四次挥手：</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -348,7 +309,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
