@@ -32,21 +32,25 @@ tag: Algorithm
 >路：转换为判断链表是否有环的问题-->如果无限循环说明存在环
 
 ```js
-const isHappy = function (head) {
-    let slow = head, fast = head;
-    while (fast !== 1 && fast !== slow) {
-        slow = getNext(slow);
-        fast = getNext(getNext(fast));
+/**
+ * @param {number} n 
+ * @return {boolean} 
+ */
+const isHappy = function (n) {
+    function sum (n) {
+        n += '';//转换为字符串，才能使用for..of（如果是number类型会报n is not iterable）
+        let sum = 0;
+        for (let x of n) {
+            sum += x * x;
+        }
+        return sum;
+    }
+    let slow = sum(n), fast = sum(slow);
+    while (slow !== fast && fast !== 1) {
+        slow = sum(slow);
+        fast = sum(sum(fast));
     }
     return fast === 1;
-}
-function getNext(num) {
-    let sum = 0;
-    while (num) {
-        sum += (num % 10) * (num % 10);
-        num = Math.floor(num / 10);
-    }
-    return sum;
 }
 ```
 
