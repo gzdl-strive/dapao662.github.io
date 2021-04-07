@@ -23,4 +23,4 @@ toc: true
 >[LeetCode 222.完全二叉树的节点个数](/algorithm/Study/BinaryTree/countNodes "完全二叉树的节点个数")
 >[LeetCode 剑指 Offer 54. 二叉搜索树的第 k 大结点](/algorithm/Study/BinaryTree/kthLargest "二叉搜索树的第k大结点")
 >[LeetCode 剑指 Offer 26. 树的子结构](/algorithm/Study/BinaryTree/subStructure "树的子结构")
->[LeetCode 662. 二叉树最大宽度](/algorithm/Study/BinaryTree/)
+>[LeetCode 662. 二叉树最大宽度](/algorithm/Study/BinaryTree/mostWidth "二叉树的最大宽度")
