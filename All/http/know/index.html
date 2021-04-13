@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>认识HTTP | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="TCP&#x2F;IP经典五层模型 经典五层模型  HTTP协议的发展历史 HTTP协议的发展历史  TCP三次握手 三次握手  TCP四次挥手 四次挥手  HTTP报文 http报文">
+  <meta name="description" content="TCP&#x2F;IP经典五层模型 经典五层模型  HTTP协议的发展历史 HTTP协议的发展历史  TCP三次握手 三次握手  TCP四次挥手 四次挥手  HTTP报文 http报文  跨域(CORS) 跨域  Cache-Control Cache-Control  Cookie Cookie  HTTP长连接 长连接  数据协商 数据协商  CSP(内容安全策略) Content Security P">
 <meta property="og:type" content="website">
 <meta property="og:title" content="认识HTTP">
 <meta property="og:url" content="http://example.com/All/http/know/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="TCP&#x2F;IP经典五层模型 经典五层模型  HTTP协议的发展历史 HTTP协议的发展历史  TCP三次握手 三次握手  TCP四次挥手 四次挥手  HTTP报文 http报文">
+<meta property="og:description" content="TCP&#x2F;IP经典五层模型 经典五层模型  HTTP协议的发展历史 HTTP协议的发展历史  TCP三次握手 三次握手  TCP四次挥手 四次挥手  HTTP报文 http报文  跨域(CORS) 跨域  Cache-Control Cache-Control  Cookie Cookie  HTTP长连接 长连接  数据协商 数据协商  CSP(内容安全策略) Content Security P">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-06T15:26:20.000Z">
-<meta property="article:modified_time" content="2021-04-07T09:56:51.351Z">
+<meta property="article:modified_time" content="2021-04-13T03:00:33.047Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -177,6 +177,33 @@
 <h3 id="HTTP报文"><a href="#HTTP报文" class="headerlink" title="HTTP报文"></a>HTTP报文</h3><blockquote>
 <p><a href="/All/http/know/message" title="http报文">http报文</a></p>
 </blockquote>
+<h3 id="跨域-CORS"><a href="#跨域-CORS" class="headerlink" title="跨域(CORS)"></a>跨域(CORS)</h3><blockquote>
+<p><a href="/All/http/know/cors" title="跨域">跨域</a></p>
+</blockquote>
+<h3 id="Cache-Control"><a href="#Cache-Control" class="headerlink" title="Cache-Control"></a>Cache-Control</h3><blockquote>
+<p><a href="/All/http/know/cacheControl" title="Cache-Control">Cache-Control</a></p>
+</blockquote>
+<h3 id="Cookie"><a href="#Cookie" class="headerlink" title="Cookie"></a>Cookie</h3><blockquote>
+<p><a href="/All/http/know/cookie" title="Cookie">Cookie</a></p>
+</blockquote>
+<h3 id="HTTP长连接"><a href="#HTTP长连接" class="headerlink" title="HTTP长连接"></a>HTTP长连接</h3><blockquote>
+<p><a href="/All/http/know/keepAlive" title="长连接">长连接</a></p>
+</blockquote>
+<h3 id="数据协商"><a href="#数据协商" class="headerlink" title="数据协商"></a>数据协商</h3><blockquote>
+<p><a href="/All/http/know/data" title="数据协商">数据协商</a></p>
+</blockquote>
+<h3 id="CSP-内容安全策略"><a href="#CSP-内容安全策略" class="headerlink" title="CSP(内容安全策略)"></a>CSP(内容安全策略)</h3><blockquote>
+<p><a href="/All/http/know/csp" title="CSP">Content Security Policy</a></p>
+</blockquote>
+<h3 id="HTTPS"><a href="#HTTPS" class="headerlink" title="HTTPS"></a>HTTPS</h3><blockquote>
+<p><a href="/All/http/know/https" title="https">https</a></p>
+</blockquote>
+<h3 id="HTTP2"><a href="#HTTP2" class="headerlink" title="HTTP2"></a>HTTP2</h3><blockquote>
+<p><a href="/All/http/know/http2" title="http2">http2</a></p>
+</blockquote>
+<h3 id="Nginx简单配置"><a href="#Nginx简单配置" class="headerlink" title="Nginx简单配置"></a>Nginx简单配置</h3><blockquote>
+<p><a href="/All/http/know/nginxEasy" title="nginx简单配置">nginx简单配置</a></p>
+</blockquote>
 
       
 
@@ -268,7 +295,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP%E7%BB%8F%E5%85%B8%E4%BA%94%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">TCP&#x2F;IP经典五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text">HTTP协议的发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">4.</span> <span class="toc-text">TCP四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E6%8A%A5%E6%96%87"><span class="toc-number">5.</span> <span class="toc-text">HTTP报文</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP-IP%E7%BB%8F%E5%85%B8%E4%BA%94%E5%B1%82%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">TCP&#x2F;IP经典五层模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E5%8D%8F%E8%AE%AE%E7%9A%84%E5%8F%91%E5%B1%95%E5%8E%86%E5%8F%B2"><span class="toc-number">2.</span> <span class="toc-text">HTTP协议的发展历史</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E4%B8%89%E6%AC%A1%E6%8F%A1%E6%89%8B"><span class="toc-number">3.</span> <span class="toc-text">TCP三次握手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TCP%E5%9B%9B%E6%AC%A1%E6%8C%A5%E6%89%8B"><span class="toc-number">4.</span> <span class="toc-text">TCP四次挥手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E6%8A%A5%E6%96%87"><span class="toc-number">5.</span> <span class="toc-text">HTTP报文</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%9F%9F-CORS"><span class="toc-number">6.</span> <span class="toc-text">跨域(CORS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cache-Control"><span class="toc-number">7.</span> <span class="toc-text">Cache-Control</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Cookie"><span class="toc-number">8.</span> <span class="toc-text">Cookie</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP%E9%95%BF%E8%BF%9E%E6%8E%A5"><span class="toc-number">9.</span> <span class="toc-text">HTTP长连接</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E5%8D%8F%E5%95%86"><span class="toc-number">10.</span> <span class="toc-text">数据协商</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CSP-%E5%86%85%E5%AE%B9%E5%AE%89%E5%85%A8%E7%AD%96%E7%95%A5"><span class="toc-number">11.</span> <span class="toc-text">CSP(内容安全策略)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTPS"><span class="toc-number">12.</span> <span class="toc-text">HTTPS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTTP2"><span class="toc-number">13.</span> <span class="toc-text">HTTP2</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Nginx%E7%AE%80%E5%8D%95%E9%85%8D%E7%BD%AE"><span class="toc-number">14.</span> <span class="toc-text">Nginx简单配置</span></a></li></ol>
                     </div>
                 </span>
             </div>
