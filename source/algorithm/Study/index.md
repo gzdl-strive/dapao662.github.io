@@ -15,3 +15,6 @@ tag: Algorithm
 
 ### 二叉树和经典问题
 >[二叉树和经典问题](/algorithm/Study/BinaryTree "二叉树和经典问题")
+
+### 堆和优先队列
+>[堆和优先队列](/algorithm/Study/HeapAndPriorityQueue "堆和优先队列")
