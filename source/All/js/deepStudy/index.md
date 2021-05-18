@@ -45,3 +45,6 @@ tag: js
 
 ### 创建对象的多种方式
 >[创建对象的多种方式](/All/js/deepStudy/fourteen "创建对象的多种方式")
+
+### 继承的多种方式和优缺点
+>[继承的多种方式和优缺点](/All/js/deepStudy/fifteen "继承的多种方式和优缺点")

@@ -3,11 +3,11 @@ title: 技术栈
 date: 2020-10-24 18:48:47
 ---
 
-## 知识整理
+<!-- ## 知识整理
 >[知识整理](/All "整理知识点")
 
 ## 练习
->[练习](/practice "练习")
+>[练习](/practice "练习") -->
 
 ## HTML5
 >[html5](/html5 "html5")
@@ -45,8 +45,8 @@ date: 2020-10-24 18:48:47
 ## 前端优化
 >[前端优化](/optimization "optimization")
 
-## GraphQL
->[GraphQL](/graphQL "GraphQL")
+<!-- ## GraphQL
+>[GraphQL](/graphQL "GraphQL") -->
 
 ## Node
 >[Node](/node "node")
