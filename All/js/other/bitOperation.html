@@ -16,7 +16,7 @@
 <meta property="og:description" content="常见编码方式1、移码 浮点数精度中IEEE-754中，我们知道了移码(双精度浮点数的阶码是右移了1023),是二进制数字编码方式的一种。  2、原码 原码 非常简单直观，用第一位来表示数字的正负，剩余的位（bit）用来表示数值。看下 11 和 -11 在一个字节里用原码是如何表示的。  1234&#x2F;&#x2F; +1100001011&#x2F;&#x2F; -11 只有第一位不一样10001011 原码表示的好处是符合直观理解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-23T15:36:20.000Z">
-<meta property="article:modified_time" content="2021-04-13T03:00:33.047Z">
+<meta property="article:modified_time" content="2021-05-18T14:10:07.187Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -198,7 +198,7 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">15.</span>.toString(<span class="number">2</span>));<span class="comment">//1111</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">585.</span>.toString(<span class="number">8</span>));<span class="comment">//1111</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4369.</span>.toString(<span class="number">16</span>));<span class="comment">//1111</span></span><br></pre></td></tr></table></figure>
 <p><strong>例子中的 .. 是新学到的暗黑操作，数字字面量是不能直接调用原型链上的方法的，多一个点回被 JavaScript 解析成 Number 对象。也可以直接用 Number(15).toString(2) 的写法。</strong><br>对了，需要当心，负数的 toString 方法会得到 <code>-</code> + 绝对值的对应进制表示。例如 -11..toString(2) 的结果是 -1011。如果需要得到正确的负数补码，可以使用后面会介绍的无符号右移。</p>
 <h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><p>需要注意，在做位运算时所有的运算数以及运算结果只会保留 32 位的整数（为了方便后面的例子只使用8位），而在上一篇文章中我们知道，JavaScript 所能表示的最大安全数字范围是 <code>-(2^53 - 1) ~ 2^53 - 1</code>。不知道这个细节可能会对一些运算结果产生困惑。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before: <span class="number">11100110111110100000000000000110000000000001</span></span><br><span class="line">After:              <span class="number">10100000000000000110000000000001</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before: <span class="number">11100110111110100000000000000110000000000001</span></span><br><span class="line"><span class="attr">After</span>:              <span class="number">10100000000000000110000000000001</span></span><br></pre></td></tr></table></figure>
 <p>接下来将一一细数位运算及其应用，为了方便例子中使用 8 位的二进制表示。</p>
 <h3 id="按位与-amp"><a href="#按位与-amp" class="headerlink" title="按位与&amp;"></a>按位与&amp;</h3><blockquote>
 <p>两个位都是 1 时，结果为 1，否则为 0</p>
