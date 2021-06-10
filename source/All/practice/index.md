@@ -2,7 +2,8 @@
 title: 练习题
 date: 2021-05-14 10:42:20
 tag: note
+toc: true
 ---
 
-### 1、应用开发什么情况下需要状态管理
->[状态管理](/All/practice/test/no1 "状态管理")
+### 1、什么时候用TCP,什么时候适合用UDP
+>[TCP与UDP](/All/practice/test/no1 "什么时候用TCP,什么时候适合用UDP")

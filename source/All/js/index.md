@@ -4,8 +4,8 @@ date: 2021-03-11 10:13:20
 tag: js
 ---
 
-### 基础
->[js基础](/All/js/basic "js基础")
+### 教程
+>[js教程](/All/js/basic "js教程")
 
 ### 深入学习JavaScript
 >[深入学习js](/All/js/deepStudy "深入学习js")
@@ -27,3 +27,6 @@ tag: js
 
 ### 事件循环
 >[事件循环](/All/js/other/eventLoop "事件循环")
+
+### 手写JS
+>[手写JS](/All/js/write "手写JS")
