@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>手写JS例子 | 学习笔记</title>
+  <title>JS练习 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="柯里化函数 柯里化">
+  <meta name="description" content="预编译练习 预编译  this练习 this练习  箭头函数中的this 箭头函数中的this  深浅拷贝 深浅拷贝  防抖函数 防抖函数  柯里化函数 柯里化">
 <meta property="og:type" content="website">
-<meta property="og:title" content="手写JS例子">
+<meta property="og:title" content="JS练习">
 <meta property="og:url" content="http://example.com/All/js/write/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="柯里化函数 柯里化">
+<meta property="og:description" content="预编译练习 预编译  this练习 this练习  箭头函数中的this 箭头函数中的this  深浅拷贝 深浅拷贝  防抖函数 防抖函数  柯里化函数 柯里化">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-06-09T14:36:24.000Z">
-<meta property="article:modified_time" content="2021-06-24T07:16:13.782Z">
+<meta property="article:modified_time" content="2021-07-18T12:58:44.357Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,7 +149,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      手写JS例子
+      JS练习
     </h1>
   
 
@@ -162,7 +162,22 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h3><blockquote>
+        <h3 id="预编译练习"><a href="#预编译练习" class="headerlink" title="预编译练习"></a>预编译练习</h3><blockquote>
+<p><a href="/All/js/write/precompile" title="预编译">预编译</a></p>
+</blockquote>
+<h3 id="this练习"><a href="#this练习" class="headerlink" title="this练习"></a>this练习</h3><blockquote>
+<p><a href="/All/js/write/this" title="this">this练习</a></p>
+</blockquote>
+<h3 id="箭头函数中的this"><a href="#箭头函数中的this" class="headerlink" title="箭头函数中的this"></a>箭头函数中的this</h3><blockquote>
+<p><a href="/All/js/write/es6This" title="this">箭头函数中的this</a></p>
+</blockquote>
+<h3 id="深浅拷贝"><a href="#深浅拷贝" class="headerlink" title="深浅拷贝"></a>深浅拷贝</h3><blockquote>
+<p><a href="/All/js/write/deepShallowCopy" title="深浅拷贝">深浅拷贝</a></p>
+</blockquote>
+<h3 id="防抖函数"><a href="#防抖函数" class="headerlink" title="防抖函数"></a>防抖函数</h3><blockquote>
+<p><a href="/All/js/write/debounce" title="防抖函数">防抖函数</a></p>
+</blockquote>
+<h3 id="柯里化函数"><a href="#柯里化函数" class="headerlink" title="柯里化函数"></a>柯里化函数</h3><blockquote>
 <p><a href="/All/js/write/curry" title="柯里化">柯里化</a></p>
 </blockquote>
 
@@ -256,7 +271,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">柯里化函数</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%84%E7%BC%96%E8%AF%91%E7%BB%83%E4%B9%A0"><span class="toc-number">1.</span> <span class="toc-text">预编译练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#this%E7%BB%83%E4%B9%A0"><span class="toc-number">2.</span> <span class="toc-text">this练习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%AD%E5%A4%B4%E5%87%BD%E6%95%B0%E4%B8%AD%E7%9A%84this"><span class="toc-number">3.</span> <span class="toc-text">箭头函数中的this</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E6%B5%85%E6%8B%B7%E8%B4%9D"><span class="toc-number">4.</span> <span class="toc-text">深浅拷贝</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B2%E6%8A%96%E5%87%BD%E6%95%B0"><span class="toc-number">5.</span> <span class="toc-text">防抖函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9F%AF%E9%87%8C%E5%8C%96%E5%87%BD%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">柯里化函数</span></a></li></ol>
                     </div>
                 </span>
             </div>
