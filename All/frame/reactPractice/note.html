@@ -6,15 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>JSX | 学习笔记</title>
+  <title>react笔记 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="JSX">
-<meta property="og:url" content="http://example.com/All/frame/react/JSX/index.html">
+  <meta name="description" content="React导出导入语法 import React的导出语法写法是export default，import &amp;#123; Component &amp;#125;的导出语法写法是export &amp;#123;Component&amp;#125;为什两者可以一起使用呢?  导出写法如下： 1234export &amp;#123;  React as default  Component&amp;#125;  React插槽功能使用">
+<meta property="og:type" content="website">
+<meta property="og:title" content="react笔记">
+<meta property="og:url" content="http://example.com/All/frame/reactPractice/note.html">
 <meta property="og:site_name" content="学习笔记">
+<meta property="og:description" content="React导出导入语法 import React的导出语法写法是export default，import &amp;#123; Component &amp;#125;的导出语法写法是export &amp;#123;Component&amp;#125;为什两者可以一起使用呢?  导出写法如下： 1234export &amp;#123;  React as default  Component&amp;#125;  React插槽功能使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-06-24T09:10:02.000Z">
-<meta property="article:modified_time" content="2021-07-18T12:58:44.353Z">
+<meta property="article:published_time" content="2021-07-19T16:30:24.000Z">
+<meta property="article:modified_time" content="2021-09-04T11:55:38.537Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -147,20 +149,124 @@
         
   
     <h1 class="article-title" itemprop="name">
-      JSX
+      react笔记
     </h1>
   
 
         
-        <a href="/All/frame/react/JSX/index.html" class="archive-article-date">
-  	<time datetime="2021-06-24T09:10:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-24</time>
+        <a href="/All/frame/reactPractice/note.html" class="archive-article-date">
+  	<time datetime="2021-07-19T16:30:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-07-19</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id="React导出导入语法"><a href="#React导出导入语法" class="headerlink" title="React导出导入语法"></a>React导出导入语法</h2><blockquote>
+<p><code>import React</code>的导出语法写法是<code>export default</code>，<code>import &#123; Component &#125;</code>的导出语法写法是<code>export &#123;Component&#125;</code><br>为什两者可以一起使用呢?</p>
+</blockquote>
+<p>导出写法如下：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  React <span class="keyword">as</span> <span class="keyword">default</span></span><br><span class="line">  Component</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="React插槽功能"><a href="#React插槽功能" class="headerlink" title="React插槽功能"></a>React插槽功能</h2><p><strong>使用props.children来实现</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//Parent.jsx</span></span><br><span class="line">&lt;Child name=<span class="string">&quot;Parent-Child&quot;</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;http://www.baidu.com&quot;</span>&gt;</span>百度<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span></span><br><span class="line">&lt;/Child&gt;</span><br><span class="line"><span class="comment">//Child.jsx</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  &#123;props.children&#125;</span></span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+
+<h2 id="状态提升"><a href="#状态提升" class="headerlink" title="状态提升"></a>状态提升</h2><p>在两个Input组件中，它们各自的内容保存在各自的state当中，要怎么做才能使两个组件共享数据呢?</p>
+<blockquote>
+<p>答案是状态提升，即将两个组件需要共享的数据保存在共同的父组件中，然后子组件通过props获取父组件数据</p>
+</blockquote>
+<h2 id="受控组件和非受控组件"><a href="#受控组件和非受控组件" class="headerlink" title="受控组件和非受控组件"></a>受控组件和非受控组件</h2><blockquote>
+<ul>
+<li>在HTML中，标签<code>&lt;input&gt;、&lt;textarea&gt;、&lt;select&gt;</code>的值的改变通常是根据用户输入进行更新。在react中，可变状态通常保存在组件的状态属性中，并且只能使用setState()更新，而呈现表单的React组件也控制着在后续用户输入时该表单中发生的情况，以这种由React控制的输入表单元素而改变其值的方式，称为<strong>受控组件</strong>.</li>
+<li>表单数据由DOM本身处理。即不受setState()控制，与传统的HTML表单输入相似，input输入值即显示最新值。<strong>使用ref从DOM获取表单值</strong></li>
+</ul>
+</blockquote>
+<h2 id="类组件事件处理"><a href="#类组件事件处理" class="headerlink" title="类组件事件处理"></a>类组件事件处理</h2><h3 id="事件绑定this"><a href="#事件绑定this" class="headerlink" title="事件绑定this?"></a>事件绑定this?</h3><ul>
+<li>在DOM元素上直接使用<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;div onClick=&#123;<span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>)&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+该方法缺点：每次点击都调用一次</li>
+</ul>
+<p><strong>优化：在constructor中定义</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">constructor</span>(<span class="params">props</span>)</span> &#123;</span><br><span class="line">  <span class="built_in">super</span>(props);</span><br><span class="line">  <span class="built_in">this</span>.handleClick = <span class="built_in">this</span>.handleClick.bind(<span class="built_in">this</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>优点：只调用一次</p>
+<h3 id="点击事件"><a href="#点击事件" class="headerlink" title="点击事件"></a>点击事件</h3><blockquote>
+<p>点击事件最好使用柯里化函数</p>
+</blockquote>
+<p><strong>不传参情况没有什么问题</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">handleClick</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">&#x27;xxx&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line">&lt;div onClick=&#123;<span class="built_in">this</span>.handleClick&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<p><strong>传参时：函数会直接被调用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">handleClick</span>(<span class="params">val</span>)</span> &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val);</span><br><span class="line">&#125;</span><br><span class="line">&lt;div onClick=&#123;<span class="built_in">this</span>.handleClick(<span class="string">&#x27;aaa&#x27;</span>)&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>函数会立即执行，不点击也会执行</p>
+<p><strong>优化</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">handleClick</span>(<span class="params">val</span>)</span>&#123;</span><br><span class="line">  <span class="built_in">console</span>.log(val);</span><br><span class="line">&#125;</span><br><span class="line">&lt;div onClick=&#123;<span class="function">(<span class="params"><span class="string">&#x27;aaa&#x27;</span></span>) =&gt;</span> <span class="built_in">this</span>.handleClick(<span class="string">&#x27;aaa&#x27;</span>)&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+<p>onClick后是一个柯里化的函数，返回handleClick</p>
+<p><strong>进一步优化</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">handleClick = <span class="function">(<span class="params">args</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="function"><span class="keyword">function</span> (<span class="params">e</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(args, e)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;div onClick=&#123;<span class="built_in">this</span>.handleClick(<span class="string">&#x27;hello&#x27;</span>)&#125;&gt;&lt;/div&gt;</span><br></pre></td></tr></table></figure>
+
+<h2 id="类组件的生命周期"><a href="#类组件的生命周期" class="headerlink" title="类组件的生命周期"></a>类组件的生命周期</h2><p><strong>三个阶段</strong></p>
+<blockquote>
+<ol>
+<li>Mounting</li>
+<li>Updation</li>
+<li>Unmounting</li>
+</ol>
+<p><strong>父组件render,子组件肯定也render</strong><br><strong><code>shouldComponentUpdate(nextProps, nextState)</code>在子组件中，子组件首次渲染不调用该生命周期函数，该函数返回值为<code>boolean</code>类型，如果返回true则会重新render，如果返回false则不会render</strong></p>
+</blockquote>
+<h3 id="Component和PureComponent区别"><a href="#Component和PureComponent区别" class="headerlink" title="Component和PureComponent区别"></a>Component和PureComponent区别</h3><blockquote>
+<p><code>PureComponent</code>其实就是一个继承自<code>Component</code>的子类，会自动加载<code>shouldComponentUpdate</code>函数。当组件需要更新的时候，<code>shouldComponentUpdate</code>会对组件的props和state进行一次浅比较。如果props和state都没有发生变化，那么render方法也就不会出发，当然也就省去了之后的虚拟dom的生成和对比，在react性能方面得到了优化。</p>
+</blockquote>
+<h3 id="新生命周期"><a href="#新生命周期" class="headerlink" title="新生命周期"></a>新生命周期</h3><p><code>getDerivedStateFromProps</code> 会在调用 render 方法之前调用，并且在初始挂载及后续更新时都会被调用。它应返回一个对象来更新 state，如果返回 null 则不更新任何内容。</p>
+<p><code>getSnapshotBeforeUpdate()</code> 在最近一次渲染输出（提交到 DOM 节点）之前调用。它使得组件能在发生更改之前从 DOM 中捕获一些信息（例如，滚动位置）。此生命周期方法的任何返回值将作为参数传递给 <code>componentDidUpdate()</code>。</p>
+<h2 id="组件间通信"><a href="#组件间通信" class="headerlink" title="组件间通信"></a>组件间通信</h2><blockquote>
+<ol>
+<li>父-&gt;子组件(props或this.props)</li>
+<li>子-&gt;父组件(通过属性方法)</li>
+<li>兄弟组件通信(通过状态提升到同一父组件)</li>
+<li>如果传递的参数需要经过多个子组件(使用context)</li>
+<li>状态管理</li>
+</ol>
+</blockquote>
+<h2 id="Context"><a href="#Context" class="headerlink" title="Context"></a>Context</h2><p>使用<code>react</code>的<code>createContext</code>创建</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createContext &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> testContext = createContext();</span><br><span class="line"><span class="keyword">const</span> &#123; Provider, Consumer &#125; = testContext;</span><br><span class="line"><span class="keyword">export</span> &#123;</span><br><span class="line">  testContext,</span><br><span class="line">  Provider,</span><br><span class="line">  Consumer</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><strong>使用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Provider value=<span class="string">&quot;hello&quot;</span>&gt;</span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">ChildA</span> /&gt;</span></span></span><br><span class="line">  <span class="xml"><span class="tag">&lt;<span class="name">ChildB</span> /&gt;</span></span></span><br><span class="line">&lt;/Provider&gt;</span><br></pre></td></tr></table></figure>
+<p><strong>怎么接收呢？(类组件和函数组件)</strong><br><strong>类组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildA</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="keyword">static</span> contextType = testContext;</span><br><span class="line">  <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="built_in">this</span>);</span><br><span class="line">    <span class="keyword">return</span> (</span><br><span class="line">      <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>ChildA-&#123;this.context&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    )</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>函数组件</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&lt;Consumer&gt;</span><br><span class="line">  &#123;</span><br><span class="line">    <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(value)</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>&#123;value&#125;<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/Consumer&gt;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>context例子：可以封装一个context组件，类似于状态管理，统一存放变量</strong></p>
+</blockquote>
+<h2 id="HOC-高阶组件"><a href="#HOC-高阶组件" class="headerlink" title="HOC(高阶组件)"></a>HOC(高阶组件)</h2><blockquote>
+<p><code>Higher-Order Components</code>就是一个函数，传给它一个组件，它返回一个新的组件</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> NewComponent = higherOrderComponent(YourComponent);</span><br></pre></td></tr></table></figure>
+<p>例子：该高阶组件(hoc.js)接收一个组件并返回一个新的组件，该新的组件增强了新的功能(这边只是多增加了一个属性)</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//hoc.js</span></span><br><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">&#x27;react&#x27;</span>;</span><br><span class="line"><span class="keyword">const</span> hoc = <span class="function">(<span class="params">Comp</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="class"><span class="keyword">class</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">Comp</span> <span class="attr">title</span>=<span class="string">&quot;hello&quot;</span> &#123;<span class="attr">...this.props</span>&#125;&gt;</span><span class="tag">&lt;/<span class="name">Comp</span>&gt;</span></span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> hoc;</span><br></pre></td></tr></table></figure>
+<p><strong>如何使用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.jsx</span></span><br><span class="line"><span class="keyword">import</span> hoc <span class="keyword">from</span> <span class="string">&#x27;./hoc.js&#x27;</span>;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> hoc(App);</span><br></pre></td></tr></table></figure>
+<p><strong>导出的就是增强后的新组件</strong></p>
+<h2 id="高阶组件更优雅的写法：修饰器-decorators"><a href="#高阶组件更优雅的写法：修饰器-decorators" class="headerlink" title="高阶组件更优雅的写法：修饰器(decorators)"></a>高阶组件更优雅的写法：修饰器(decorators)</h2><ol>
+<li>安装babel插件<code>yarn add @babel/core @babel/plugin-proposal-decorators @babel-preset</code></li>
+<li>在根目录下创建<code>.babelrc</code>文件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//.babelrc</span></span><br><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;presets&quot;</span>: [</span><br><span class="line">    <span class="string">&quot;@babel/preset-env&quot;</span></span><br><span class="line">  ],</span><br><span class="line">  <span class="string">&quot;plugins&quot;</span>: [</span><br><span class="line">    [</span><br><span class="line">      <span class="string">&quot;@babel/plugin-proposal-decorators&quot;</span>,</span><br><span class="line">      &#123;</span><br><span class="line">        <span class="string">&quot;legacy&quot;</span>: <span class="literal">true</span></span><br><span class="line">      &#125;</span><br><span class="line">    ]</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>安装插件<code>yarn add customize-cra react-app-rewired</code></li>
+<li>在根目录下创建<code>config-overriders.js</code>文件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> path = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> &#123; override, addDecoratorsLegacy &#125; = <span class="built_in">require</span>(<span class="string">&#x27;customize-cra&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">resolve</span>(<span class="params">dir</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">return</span> path.join(__dirname, dir);</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">const</span> customize = <span class="function">() =&gt;</span> <span class="function">(<span class="params">config, env</span>) =&gt;</span> &#123;</span><br><span class="line">  config.resolve.alias[<span class="string">&#x27;@&#x27;</span>] = resolve(<span class="string">&#x27;src&#x27;</span>)</span><br><span class="line">  <span class="keyword">if</span> (env === <span class="string">&#x27;production&#x27;</span>) &#123;</span><br><span class="line">    config.externals = &#123;</span><br><span class="line">      <span class="string">&#x27;react&#x27;</span>: <span class="string">&#x27;React&#x27;</span>,</span><br><span class="line">      <span class="string">&#x27;react-dom&#x27;</span>: <span class="string">&#x27;ReactDOM&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> config</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = override(addDecoratorsLegacy(), customize())</span><br></pre></td></tr></table></figure></li>
+</ol>
+<p><strong>如何使用</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//App.jsx</span></span><br><span class="line"><span class="keyword">import</span> hoc <span class="keyword">from</span> <span class="string">&#x27;./hoc.js&#x27;</span>;</span><br><span class="line">@hoc</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">App</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  <span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="Protal"><a href="#Protal" class="headerlink" title="Protal"></a>Protal</h2><blockquote>
+<p>Portal提供了一种将子节点渲染到存在于父组件以外的DOM节点的优秀的方案</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.createPortal(child, container)</span><br></pre></td></tr></table></figure>
+<p>第一个参数（child）是任何可渲染的 React 子元素，例如一个元素，字符串或 fragment。第二个参数（container）是一个 DOM 元素。</p>
+<h3 id="用法"><a href="#用法" class="headerlink" title="用法"></a>用法</h3><p>通常来讲，当你从组件的 render 方法返回一个元素时，该元素将被挂载到 DOM 节点中离其最近的父节点：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="comment">// React 挂载了一个新的 div，并且把子元素渲染其中</span></span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      &#123;this.props.children&#125;</span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然而，有时候将子元素插入到 DOM 节点中的不同位置也是有好处的：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">render</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">  <span class="comment">// React 并*没有*创建一个新的 div。它只是把子元素渲染到 `domNode` 中。</span></span><br><span class="line">  <span class="comment">// `domNode` 是一个可以在任何位置的有效 DOM 节点。</span></span><br><span class="line">  <span class="keyword">return</span> ReactDOM.createPortal(</span><br><span class="line">    <span class="built_in">this</span>.props.children,</span><br><span class="line">    domNode</span><br><span class="line">  );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>一个 portal 的典型用例是当父组件有 overflow: hidden 或 z-index 样式时，但你需要子组件能够在视觉上“跳出”其容器。例如，对话框、悬浮卡以及提示框</p>
+
       
 
       
@@ -218,7 +324,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/frame/react/JSX/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/frame/reactPractice/note.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -251,7 +357,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    目录，不存在的…
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#React%E5%AF%BC%E5%87%BA%E5%AF%BC%E5%85%A5%E8%AF%AD%E6%B3%95"><span class="toc-number">1.</span> <span class="toc-text">React导出导入语法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#React%E6%8F%92%E6%A7%BD%E5%8A%9F%E8%83%BD"><span class="toc-number">2.</span> <span class="toc-text">React插槽功能</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81%E6%8F%90%E5%8D%87"><span class="toc-number">3.</span> <span class="toc-text">状态提升</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6%E5%92%8C%E9%9D%9E%E5%8F%97%E6%8E%A7%E7%BB%84%E4%BB%B6"><span class="toc-number">4.</span> <span class="toc-text">受控组件和非受控组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E4%BA%8B%E4%BB%B6%E5%A4%84%E7%90%86"><span class="toc-number">5.</span> <span class="toc-text">类组件事件处理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8B%E4%BB%B6%E7%BB%91%E5%AE%9Athis"><span class="toc-number">5.1.</span> <span class="toc-text">事件绑定this?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6"><span class="toc-number">5.2.</span> <span class="toc-text">点击事件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E7%BB%84%E4%BB%B6%E7%9A%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">6.</span> <span class="toc-text">类组件的生命周期</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Component%E5%92%8CPureComponent%E5%8C%BA%E5%88%AB"><span class="toc-number">6.1.</span> <span class="toc-text">Component和PureComponent区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%B0%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F"><span class="toc-number">6.2.</span> <span class="toc-text">新生命周期</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%84%E4%BB%B6%E9%97%B4%E9%80%9A%E4%BF%A1"><span class="toc-number">7.</span> <span class="toc-text">组件间通信</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Context"><span class="toc-number">8.</span> <span class="toc-text">Context</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#HOC-%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6"><span class="toc-number">9.</span> <span class="toc-text">HOC(高阶组件)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AB%98%E9%98%B6%E7%BB%84%E4%BB%B6%E6%9B%B4%E4%BC%98%E9%9B%85%E7%9A%84%E5%86%99%E6%B3%95%EF%BC%9A%E4%BF%AE%E9%A5%B0%E5%99%A8-decorators"><span class="toc-number">10.</span> <span class="toc-text">高阶组件更优雅的写法：修饰器(decorators)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Protal"><span class="toc-number">11.</span> <span class="toc-text">Protal</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8%E6%B3%95"><span class="toc-number">11.1.</span> <span class="toc-text">用法</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
