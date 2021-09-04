@@ -104,7 +104,7 @@ theme: yilia
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/dapao662/dapao662.github.io
+  repo: https://github.com/gzdl-strive/dapao662.github.io
   branch: master
 
 jsonContent:

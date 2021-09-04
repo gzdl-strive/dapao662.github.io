@@ -19,6 +19,44 @@ toc: true
 ### 防抖函数
 >[防抖函数](/All/js/write/debounce "防抖函数")
 
+### 节流函数
+>[节流函数](/All/js/write/throttle "节流函数")
+
+### 图片懒加载
+
+### 作用域理解
+
+### 闭包底层理解
+
+### 时间循环机制
+
+### 单例模式
+>[单例](/All/js/write/singleton "单例模式")
+
+### 策略模式
+>[策略模式](/All/js/write/strategy "策略模式")
+
+### 发布订阅模式
+>[发布订阅](/All/js/write/pubsub "发布订阅模式")
+
+### 数组扁平化处理
+>[数组扁平化](/All/js/write/flatten "数组扁平化")
+
+### reduce详解
+>[reduce](/All/js/write/reduce "reduce")
+
+### call、apply、bind应用
+>[call、apply、bind](/All/js/write/cab "call,apply,bind")
+
+### 继承
+>[继承](/All/js/write/inherit "继承")
+
+### 使用js编写更好的条件语句
+>[更好的条件语句](/All/js/write/condition "更好的条件语句")
+
 ### 柯里化函数
 >[柯里化](/All/js/write/curry "柯里化")
+
+### 扁平数据结构转Tree
+>[扁平数据结构转Tree](/All/js/write/json2tree "扁平数据结构转Tree")
 

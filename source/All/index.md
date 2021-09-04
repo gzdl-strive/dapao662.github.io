@@ -27,6 +27,9 @@ toc: true
 ## 前端监控
 >[前端监控](/All/monitor "前端监控")
 
+## Nginx
+>[Nginx](/All/Nginx "Nginx")
+
 ## 练习题
 >[练习题](/All/practice "练习题")
 

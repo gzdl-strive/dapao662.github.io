@@ -15,3 +15,6 @@ toc: true
 
 ## 二叉树
 >[二叉树](/All/algorithm/BinaryTree "二叉树")
+
+## 堆和优先队列
+>[堆和优先队列](/All/algorithm/Heap "堆和优先队列")
