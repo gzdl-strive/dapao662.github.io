@@ -18,3 +18,8 @@ toc: true
 
 ## 堆和优先队列
 >[堆和优先队列](/All/algorithm/Heap "堆和优先队列")
+
+## 并查集
+
+## 快速排序
+>[快速排序](/All/algorithm/QuickSort "快速排序")
