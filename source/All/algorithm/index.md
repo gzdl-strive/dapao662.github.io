@@ -23,3 +23,6 @@ toc: true
 
 ## 快速排序
 >[快速排序](/All/algorithm/QuickSort "快速排序")
+
+## 归并排序
+>[归并排序](/All/algorithm/MergeSort "归并排序")

@@ -12,3 +12,6 @@ tag: Algorithm
 
 ### 门徒算法
 >[门徒算法](/algorithm/Study "门徒算法")
+
+### 算法专项练习
+>[练习](/algorithm/practice "专项练习")
