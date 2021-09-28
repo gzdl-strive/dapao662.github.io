@@ -60,7 +60,7 @@ var lengthOfLongestSubstring = function(s) {
 };
 ```
 
->#LeetCode 203 长度最小的子数组
+>#LeetCode 209 长度最小的子数组
 ```js
 var minSubArrayLen = function(target, nums) {
   //定义一个left,right用于表示滑动窗口起始和结束位置
