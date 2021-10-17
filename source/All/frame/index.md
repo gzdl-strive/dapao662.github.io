@@ -12,3 +12,6 @@ toc: true
 
 ## Vue相关知识
 >[vue知识了解](/All/frame/vue "vue知识")
+
+## 封装Axios
+>[封装Axios](/All/frame/axios "封装")

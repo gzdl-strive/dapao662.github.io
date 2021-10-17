@@ -23,3 +23,26 @@ watch监听器能做到的计算属性computed也能做到，什么时候适合�
 主要适用于与事件和交互有关的场景，数据变化为条件，适用于一个数据同时触发多个事物.
 如当借款额度大于可借额度时，弹出toast提示，并将当前借款额度调整到最大额度.
 可以看到，数据的变化为触发弹框提示，有且仅在一定金额条件下才触发，而不是实时触发
+
+### computed和watch之间的区别：
+1. computed能完成的功能，watch都可以完成
+2. watch能完成的功能，computed不一定能完成,例如：watch可以进行异步操作
+
+### 两个重要的小原则：
+1. 所有被Vue管理的函数，最好读写从普通函数，这样this的指向才是vm 或 组件实例对象
+2. 所有不被Vue所管理的函数(定时器的回调函数，ajax的回调函数，promise的回调函数)，最好写成箭头函数，这样this的指向才是vm 或 组件实例对象
+
+```js
+watch: {
+  firstName(newVal) {
+    setTimeout(() => {
+      //该回调不能写成普通函数，如果写成普通函数，定时器会交给浏览器执行，那么this就会执行window
+      //如果是箭头函数的形式，本身没有this，会向外找，父作用域的this是由Vue管理的，那么this就指向vm或组件实例对象
+      this.fullName = newVal + '-' + this.lastName
+    }, 1000)
+  },
+  lastName(newVal) {
+    this.fullName = this.firstName + '-' + newVal
+  }
+}
+```
