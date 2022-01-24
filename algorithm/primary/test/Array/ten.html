@@ -16,7 +16,7 @@
 <meta property="og:description" content="旋转图像 给定一个 n × n 的二维矩阵 matrix 表示一个图像。  请你将图像顺时针旋转 90 度。你必须在 原地 旋转图像，这意味着你需要直接修改输入的二维矩阵。请不要 使用另一个矩阵来旋转图像。 示例输入：matrix &#x3D; [[1, 2, 3], [4, 5, 6], [7, 8, 9]]输出：[[7, 4, 1], [8, 5, 2], [9, 6, 3]]输入：matrix &#x3D; [">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-02T16:17:24.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.202Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.135Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -170,8 +170,7 @@
 <h3 id="方法一、使用辅助数组"><a href="#方法一、使用辅助数组" class="headerlink" title="方法一、使用辅助数组"></a>方法一、使用辅助数组</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">5 1 9 11        x x x 5</span></span><br><span class="line"><span class="comment">x x x x    =&gt;   x x x 1 </span></span><br><span class="line"><span class="comment">x x x x         x x x 9</span></span><br><span class="line"><span class="comment">x x x x         x x x 11</span></span><br><span class="line"><span class="comment">第一行的第x个元素在旋转后出现在倒数第一列的第x个元素</span></span><br><span class="line"><span class="comment">x x x x         x  x 2 x</span></span><br><span class="line"><span class="comment">2 4 8 10  =&gt;    x  x 4 x</span></span><br><span class="line"><span class="comment">x x x x         x  x 8 x</span></span><br><span class="line"><span class="comment">x x x x         x  x 10 x</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
 
 <p>第二行的第x个元素在旋转后出现在倒数第二列的第x个元素<br>对于矩阵中的第三行和第四行同理。这样我们可以得到规律：</p>
-<pre><code>**对于矩阵中第i行的第j个元素，在旋转后，它会出现在倒数第i列的第j个位置**
-</code></pre>
+<pre><code>**对于矩阵中第i行的第j个元素，在旋转后，它会出现在倒数第i列的第j个位置**</code></pre>
 <p>将其翻译成代码： <code>matrix[row][col]</code> =&gt; 旋转后 =&gt; <code> matrixNew[col][n - 1 - row]</code></p>
 <p>这样以来，我们使用一个与matrix 大小相同的辅助数组matrixnew，临时存储旋转后的结果。<br>我们遍历matrix 中的每一个元素，根据上述规则将该元素存放到matrixnew中对应的位置。<br>在遍历完成之后，再将matrixnew中的结果复制到原数组中即可。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotate = <span class="function"><span class="keyword">function</span>(<span class="params">matrix</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> n = matrix.length;</span><br><span class="line">    <span class="keyword">const</span> matrixNew = <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>).map(<span class="function">() =&gt;</span> <span class="keyword">new</span> <span class="built_in">Array</span>(n).fill(<span class="number">0</span>));</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            matrixNew[j][n - i - <span class="number">1</span>] = matrix[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; n; i++) &#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">let</span> j = <span class="number">0</span>; j &lt; n; j++) &#123;</span><br><span class="line">            matrix[i][j] = matrixNew[i][j];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> matrix;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> matrix = [</span><br><span class="line">    [<span class="number">5</span>, <span class="number">1</span>, <span class="number">9</span>, <span class="number">11</span>],</span><br><span class="line">    [<span class="number">2</span>, <span class="number">4</span>, <span class="number">8</span>, <span class="number">10</span>],</span><br><span class="line">    [<span class="number">13</span>, <span class="number">3</span>, <span class="number">6</span>, <span class="number">7</span>],</span><br><span class="line">    [<span class="number">15</span>, <span class="number">14</span>, <span class="number">12</span>, <span class="number">16</span>]</span><br><span class="line">];</span><br><span class="line"><span class="built_in">console</span>.log(matrix);</span><br><span class="line"><span class="built_in">console</span>.log(rotate(matrix));</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  [ 5, 1, 9, 11 ],</span></span><br><span class="line"><span class="comment">  [ 2, 4, 8, 10 ],</span></span><br><span class="line"><span class="comment">  [ 13, 3, 6, 7 ],</span></span><br><span class="line"><span class="comment">  [ 15, 14, 12, 16 ]</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">[</span></span><br><span class="line"><span class="comment">  [ 15, 13, 2, 5 ],</span></span><br><span class="line"><span class="comment">  [ 14, 3, 4, 1 ],</span></span><br><span class="line"><span class="comment">  [ 12, 6, 8, 9 ],</span></span><br><span class="line"><span class="comment">  [ 16, 7, 10, 11 ]</span></span><br><span class="line"><span class="comment">]</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
@@ -187,14 +186,12 @@
 <pre><code>&#123;
     temp                 = matrix[col][n-row-1]
     matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>那么 <code>matrix[col][n-row-1]</code> 经过旋转操作之后会到哪个位置呢?<br>我们还是使用方法一中的等式，这次，我们需要将</p>
 <pre><code>&#123;
     row = col
     col = n - row - 1
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>带入关键等式，就可以得到</p>
 <p> <code>martrix[n-row-1][n-col-1] = matrix[col][n-row-1];</code></p>
 <p>同样的，直接复制会覆盖掉matrix[n-row-1][n-col-1]原来的值，因此我们还是需要使用temp存储, 不过这次，我们可以直接使用之前的临时变量temp:</p>
@@ -202,14 +199,12 @@
     temp = matrix[n-row-1][n-col-1]
     matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
     matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>我们再重复一次之前的操作， <code>matrix[n−row−1][n−col−1]</code> 经过旋转操作之后会到哪个位置呢？</p>
 <pre><code>&#123;
    row = n-row-1
    col = n-col-1 
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>带入关键等式，就可以得到</p>
 <p> <code>matrix[n-col-1][row] = matrix[n-row-1][n-col-1]</code></p>
 <p>写入 </p>
@@ -218,14 +213,12 @@
     matrix[n-col-1][row] = matrix[n-row-1][n-col-1]
     matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
     matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>再来一次, </p>
 <pre><code>&#123;
     row = n-col -1
     col = row
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>带入关键等式，就可以得到</p>
 <p> <code>matrix[row][col] = matrix[n-col-1][row]</code></p>
 <p>我们回到了最初的起点matrix[row][col]，也就是说</p>
@@ -234,8 +227,7 @@
     matrix[n-col-1][row] = matrix[n-row-1][n-col-1]
     matrix[n-row-1][n-col-1] = matrix[col][n-row-1]
     matrix[col][n-row-1] = matrix[row][col]
-&#125;
-</code></pre>
+&#125;</code></pre>
 <p>这四项处于一个循环中, 并且每一项旋转后的位置就是下一项所在的位置！<br>因此我们可以使用一个临时变量 temp 完成这四项的原地交换：</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    temp = matrix[row][col]</span><br><span class="line">    matrix[row][col] = matrix[n - col - <span class="number">1</span>][row]</span><br><span class="line">    matrix[n - col - <span class="number">1</span>][row] = matrix[n - row - <span class="number">1</span>][n - col - <span class="number">1</span>]</span><br><span class="line">    matrix[n - row - <span class="number">1</span>][n - col - <span class="number">1</span>] = matrix[col][n - row - <span class="number">1</span>]</span><br><span class="line">    matrix[col][n - row - <span class="number">1</span>] = temp</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -371,7 +363,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

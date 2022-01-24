@@ -16,7 +16,7 @@
 <meta property="og:description" content="错误-4.x版本 Each child in a list should have a unique “key” prop.  解决方法来看看官网对rowKey的解释：表格行 key 的取值，可以是字符串或一个函数 12345678910111213141516&#x2F;&#x2F;在Table组件中加入rowKey属性即可：&lt;Table columns &#x3D; &amp;#123; columns &amp;#125; dat">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-12-03T16:56:16.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.206Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.139Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -166,7 +166,7 @@
 <p><strong>Each child in a list should have a unique “key” prop.</strong></p>
 </blockquote>
 <p><strong>解决方法</strong><br><strong>来看看官网对rowKey的解释：表格行 key 的取值，可以是字符串或一个函数</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Table组件中加入rowKey属性即可：</span></span><br><span class="line">&lt;Table columns = &#123; columns &#125; dataSource = &#123; tableData &#125; rowSelection = &#123; rowSelection &#125; rowKey = &#123; <span class="function"><span class="params">row</span> =&gt;</span> row.id &#125;/&gt;</span><br><span class="line"><span class="comment">//同时每条数据需要有个id：</span></span><br><span class="line"><span class="keyword">const</span> data = [&#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;John Brown&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;New York No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;Jim Green&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;London No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    <span class="attr">id</span>: <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    <span class="attr">user</span>: <span class="string">&#x27;Joe Black&#x27;</span>,</span><br><span class="line">    <span class="attr">address</span>: <span class="string">&#x27;Sidney No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//在Table组件中加入rowKey属性即可：</span></span><br><span class="line">&lt;Table columns = &#123; columns &#125; dataSource = &#123; tableData &#125; rowSelection = &#123; rowSelection &#125; rowKey = &#123; <span class="function"><span class="params">row</span> =&gt;</span> row.id &#125;/&gt;</span><br><span class="line"><span class="comment">//同时每条数据需要有个id：</span></span><br><span class="line"><span class="keyword">const</span> data = [&#123;</span><br><span class="line">    id: <span class="string">&#x27;1&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;John Brown&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;New York No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="string">&#x27;2&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;Jim Green&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;London No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;, &#123;</span><br><span class="line">    id: <span class="string">&#x27;3&#x27;</span>,</span><br><span class="line">    user: <span class="string">&#x27;Joe Black&#x27;</span>,</span><br><span class="line">    address: <span class="string">&#x27;Sidney No. 1 Lake Park&#x27;</span>,</span><br><span class="line">&#125;];</span><br></pre></td></tr></table></figure>
 
 <h2 id="错误-3-x版本"><a href="#错误-3-x版本" class="headerlink" title="错误-3.x版本"></a>错误-3.x版本</h2><blockquote>
 <p><strong>Warning: Each record in table should have a unique <code>key</code> prop, or set <code>rowKey</code> to an unique primary key. Warning: [antd: Table] Each record in dataSource of table should have a unique <code>key</code> prop, or set <code>rowKey</code> of Table to an unique primary key, see <a target="_blank" rel="noopener" href="https://u.ant.design/table-row-key">https://u.ant.design/table-row-key</a></strong><br><strong>翻译为：</strong>表中的每条记录都应具有唯一的“key”属性，或将“rowKey”设置为唯一的主键。table的dataSource中的每个记录都应该有一个惟一的<code>key</code> prop，或者将table的<code>rowKey</code>设置为唯一的主键<br>意思就是：这个报错是说需要对dataSource的行加key，不是对列加key，同时这里的rowKey需要使用行的唯一的属性名，不能使用不唯一的属性名或不存在的属性名，不然还是报那个错。列是否加key均可。<br><strong>解决方法</strong><br>同上4.x的解决方法–加rowKey属性</p>
@@ -278,7 +278,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/cssImg/allBasic/23.png">
 <meta property="article:published_time" content="2021-03-30T09:28:20.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.190Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.119Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/cssImg/allBasic/23.png">
@@ -38,7 +38,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -177,13 +177,13 @@
 </li>
 </ul>
 <p><img src="/assets/cssImg/allBasic/23.png" alt="23"><br>除了通过 <code>&lt;link&gt;</code> 让指定设备生效外，还可以通过 <code>@media </code>让 CSS 规则在特定的条件下才能生效。响应式页面就是使用了 @media 才让一个页面能够同时适配 PC、Pad 和手机端。</p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width</span>: <span class="number">1000px</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-width:</span> <span class="number">1000px</span>) &#123;&#125;</span><br></pre></td></tr></table></figure>
 <p>媒体查询支持逻辑操作符：</p>
 <ul>
 <li>and：查询条件都满足的时候才生效；</li>
 <li>not：查询条件取反；</li>
 <li>only：整个查询匹配的时候才生效，常用语兼容旧浏览器，使用时候必须指定媒体类型；</li>
-<li>逗号或者 or：查询条件满足一项即可匹配；<br>媒体查询还支持众多的媒体特性，使得它可以写出很复杂的查询条件：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 用户设备的最小高度为680px或为纵向模式的屏幕设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-height</span>: <span class="number">680px</span>), screen <span class="keyword">and</span> (<span class="attribute">orientation</span>: portrait) &#123;&#125;</span><br></pre></td></tr></table></figure>
+<li>逗号或者 or：查询条件满足一项即可匹配；<br>媒体查询还支持众多的媒体特性，使得它可以写出很复杂的查询条件：<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 用户设备的最小高度为680px或为纵向模式的屏幕设备 */</span></span><br><span class="line"><span class="keyword">@media</span> (<span class="attribute">min-height:</span> <span class="number">680px</span>), screen <span class="keyword">and</span> (<span class="attribute">orientation:</span> portrait) &#123;&#125;</span><br></pre></td></tr></table></figure>
 
 
 
@@ -310,7 +310,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

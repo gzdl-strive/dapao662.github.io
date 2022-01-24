@@ -16,7 +16,7 @@
 <meta property="og:description" content="8.&lt;router-link&gt;的replace属性 作用：控制路由跳转时操作浏览器历史记录的模式 浏览器的历史记录有两种写入方式：分别为push和replace，push是追加历史记录，replace是替换当前记录。路由跳转时候默认为push 如何开启replace模式：&lt;router-link replace .......&gt;News&lt;&#x2F;router-link&amp;gt">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-15T11:29:02.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.190Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.123Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -173,7 +173,7 @@
 <ol start="2">
 <li>具体编码：</li>
 </ol>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//$router的两个API</span></span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;</span><br><span class="line">  <span class="attr">name</span>:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">  <span class="attr">params</span>:&#123;</span><br><span class="line">    <span class="attr">id</span>:xxx,</span><br><span class="line">    <span class="attr">title</span>:xxx</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.$router.replace(&#123;</span><br><span class="line">  <span class="attr">name</span>:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">  <span class="attr">params</span>:&#123;</span><br><span class="line">    <span class="attr">id</span>:xxx,</span><br><span class="line">    <span class="attr">title</span>:xxx</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">this</span>.$router.forward() <span class="comment">//前进</span></span><br><span class="line"><span class="built_in">this</span>.$router.back() <span class="comment">//后退</span></span><br><span class="line"><span class="built_in">this</span>.$router.go() <span class="comment">//可前进也可后退</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//$router的两个API</span></span><br><span class="line"><span class="built_in">this</span>.$router.push(&#123;</span><br><span class="line">  name:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">  params:&#123;</span><br><span class="line">    id:xxx,</span><br><span class="line">    title:xxx</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="built_in">this</span>.$router.replace(&#123;</span><br><span class="line">  name:<span class="string">&#x27;xiangqing&#x27;</span>,</span><br><span class="line">  params:&#123;</span><br><span class="line">    id:xxx,</span><br><span class="line">    title:xxx</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line"><span class="built_in">this</span>.$router.forward() <span class="comment">//前进</span></span><br><span class="line"><span class="built_in">this</span>.$router.back() <span class="comment">//后退</span></span><br><span class="line"><span class="built_in">this</span>.$router.go() <span class="comment">//可前进也可后退</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -293,7 +293,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

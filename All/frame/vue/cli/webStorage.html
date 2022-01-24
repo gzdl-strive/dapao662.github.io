@@ -16,7 +16,7 @@
 <meta property="og:description" content="webStorage 存储内容大小一般支持5MB左右（不同浏览器可能还不一样） 浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。 相关API： xxxxxStorage.setItem(&#39;key&#39;, &#39;value&#39;);该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-14T11:07:24.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.194Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.127Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -165,16 +165,20 @@
         <h2 id="webStorage"><a href="#webStorage" class="headerlink" title="webStorage"></a>webStorage</h2><ol>
 <li>存储内容大小一般支持5MB左右（不同浏览器可能还不一样）</li>
 <li>浏览器端通过 Window.sessionStorage 和 Window.localStorage 属性来实现本地存储机制。</li>
-<li>相关API：</li>
+<li>相关API：<ol>
 <li><code>xxxxxStorage.setItem(&#39;key&#39;, &#39;value&#39;);</code><br>该方法接受一个键和值作为参数，会把键值对添加到存储中，如果键名存在，则更新其对应的值。</li>
 <li><code>xxxxxStorage.getItem(&#39;person&#39;);</code><br>​        该方法接受一个键名作为参数，返回键名对应的值。</li>
 <li><code>xxxxxStorage.removeItem(&#39;key&#39;);</code><br>​        该方法接受一个键名作为参数，并把该键名从存储中删除。</li>
 <li><code> xxxxxStorage.clear()</code><br>​        该方法会清空存储中的所有数据。</li>
-<li>备注：</li>
+</ol>
+</li>
+<li>备注：<ol>
 <li>SessionStorage存储的内容会随着浏览器窗口关闭而消失。</li>
 <li>LocalStorage存储的内容，需要手动清除才会消失。</li>
 <li><code>xxxxxStorage.getItem(xxx)</code>如果xxx对应的value获取不到，那么getItem的返回值是null。</li>
 <li><code>JSON.parse(null)</code>的结果依然是null。</li>
+</ol>
+</li>
 </ol>
 
       
@@ -296,7 +300,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

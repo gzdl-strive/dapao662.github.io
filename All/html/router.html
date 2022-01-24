@@ -17,7 +17,7 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://example.com/assets/browserImg/hash.png">
 <meta property="article:published_time" content="2021-05-26T15:58:20.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.194Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.127Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://example.com/assets/browserImg/hash.png">
@@ -38,7 +38,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -175,19 +175,27 @@
 </ul>
 <h3 id="hash模式"><a href="#hash模式" class="headerlink" title="hash模式"></a>hash模式</h3><ul>
 <li>监听url中hash的变化，渲染不同的内容</li>
-<li>hash: url尾巴后的#以及后面的字符</li>
+<li>hash: url尾巴后的#以及后面的字符<ul>
 <li>#代表网页中的一个位置，其右边的字符，就是该位置的标识符。</li>
-<li>HTTP请求中不包含#</li>
+</ul>
+</li>
+<li>HTTP请求中不包含#<ul>
 <li>也就是说改变#后的内容不会像服务器发起请求，因此也就不会引起页面重载。</li>
 <li>比如访问: <code>http://jquery.com#hello</code></li>
 <li>浏览器实际发出的请求时这样的：<br><img src="/assets/browserImg/hash.png" alt="hash" title="hash"></li>
-<li>改变#后的内容</li>
+</ul>
+</li>
+<li>改变#后的内容<ul>
 <li>浏览器只会滚动到相应位置，不会重新加载网页</li>
 <li>改变#会改变浏览器的访问历史</li>
 <li>使用”后退”按钮，就可以回到上一个位置</li>
-<li>window.location.hash</li>
+</ul>
+</li>
+<li>window.location.hash<ul>
 <li>读取时，可以用来判断网页状态是否改变</li>
 <li>写入时，则会在不重载网页的前提下，创造一条访问历史记录</li>
+</ul>
+</li>
 <li>每次hash发生改变是，会触发hashchange事件<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.location.hash = <span class="string">&quot;qq&quot;</span>;<span class="comment">//设置url的hash,会在当前url后加上&quot;#qq&quot;;</span></span><br><span class="line"><span class="keyword">let</span> hash = <span class="built_in">window</span>.location.hash;</span><br><span class="line"><span class="built_in">window</span>.addEventerListener(<span class="string">&#x27;hashchange&#x27;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
 </li>
@@ -196,37 +204,36 @@
 <li><p>监听 url 中的路径变化，需要客户端和服务端共同的支持</p>
 </li>
 <li><p>h5之前，通过 history 对象能够访问浏览器历史记录    —前进/后退</p>
-</li>
-<li><p>length 属性可以访问历史记录对象的长度</p>
-</li>
-<li><p>forward 和 back 方法如同浏览器的前进和后退功能</p>
-</li>
-<li><p>go 方法可以通过指定一个相对于当前页面的索引值来跳转到相应的记录。(正进负退)</p>
+<ul>
+<li>length 属性可以访问历史记录对象的长度</li>
+<li>forward 和 back 方法如同浏览器的前进和后退功能</li>
+<li>go 方法可以通过指定一个相对于当前页面的索引值来跳转到相应的记录。(正进负退)</li>
+</ul>
 </li>
 <li><p>h5之后，通过 history 对象能够操纵浏览器历史记录    —到达指定url</p>
-</li>
-<li><p>pushState 方法    —添加</p>
 <ul>
+<li>pushState 方法    —添加<ul>
 <li>能在不刷新页面(不发请求)的前提下，将当前页面地址保存为最近一条历史记录，同时修改当前页面地址</li>
 </ul>
 </li>
-<li><p>replaceState 方法    —替换</p>
-<ul>
+<li>replaceState 方法    —替换<ul>
 <li>与 pushState 很相似，区别在于是修改当前历史记录(只修改当前页面地址)，而 pushState 是创建新的历史记录<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.history.pushState(state, title, url);</span><br><span class="line"><span class="built_in">window</span>.history.replaceState(state, title, url);</span><br><span class="line"><span class="built_in">window</span>.addEventListener(<span class="string">&quot;popstate&quot;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </li>
-<li><p>popstate事件</p>
+</ul>
 </li>
-<li><p>触发：</p>
+<li><p>popstate事件</p>
 <ul>
+<li>触发：<ul>
 <li>点击浏览器的前进后退按钮</li>
 <li>调用history.forward( )方法 或者 history.back( )方法</li>
 </ul>
 </li>
-<li><p>不触发：</p>
-<ul>
+<li>不触发：<ul>
 <li>调用history.pushState( )方法 或者 history.replaceState( )方法</li>
+</ul>
+</li>
 </ul>
 </li>
 <li><p>history 在刷新页面时，如果服务器中没有相应的响应或资源，就会出现404。因为刷新浏览器后，是真实地向服务器发送了一个 http 的网页请求。因此若要使用 history 路由，需要服务端的支持。</p>
@@ -234,15 +241,14 @@
 <li><p>hash 的改变会触发 onhashchange 事件，history 的改变却不会触发什么事件，但我们能通过罗列出所有可能改变 history 的途径，然后在这些途径一一进行拦截，这样也相当于监听了 history 的改变。</p>
 </li>
 <li><p>在单页面应用中，URL 改变只能由下面三种情况引起：</p>
-</li>
-<li><p>点击浏览器的前进或者后退按钮；    —通过popstate事件监听</p>
-</li>
-<li><p>点击 a 标签；</p>
-</li>
-<li><p>调用pushState( )方法 或者 replaceState( )方法</p>
 <ul>
+<li>点击浏览器的前进或者后退按钮；    —通过popstate事件监听</li>
+<li>点击 a 标签；</li>
+<li>调用pushState( )方法 或者 replaceState( )方法<ul>
 <li>后两种途径可以看成是一种，因为 a 标签的默认事件可以被禁止，进而调用 JS 方法。</li>
 <li>即点击a标签也相当于调用了pushState( )方法 或者 replaceState( )方法</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -366,7 +372,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

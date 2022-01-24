@@ -16,7 +16,7 @@
 <meta property="og:description" content="常见编码方式1、移码 浮点数精度中IEEE-754中，我们知道了移码(双精度浮点数的阶码是右移了1023),是二进制数字编码方式的一种。  2、原码 原码 非常简单直观，用第一位来表示数字的正负，剩余的位（bit）用来表示数值。看下 11 和 -11 在一个字节里用原码是如何表示的。  1234&#x2F;&#x2F; +1100001011&#x2F;&#x2F; -11 只有第一位不一样10001011 原码表示的好处是符合直观理解">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-03-23T15:36:20.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.198Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.131Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -168,21 +168,21 @@
 <h3 id="2、原码"><a href="#2、原码" class="headerlink" title="2、原码"></a>2、原码</h3><blockquote>
 <p>原码 非常简单直观，用第一位来表示数字的正负，剩余的位（bit）用来表示数值。看下 11 和 -11 在一个字节里用原码是如何表示的。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">00001011</span></span><br><span class="line"><span class="comment">// -11 只有第一位不一样</span></span><br><span class="line"><span class="number">10001011</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">0</span>0001011</span><br><span class="line"><span class="comment">// -11 只有第一位不一样</span></span><br><span class="line"><span class="number">10001011</span></span><br></pre></td></tr></table></figure>
 <p>原码表示的好处是符合直观理解，对阅读友好，缺点是对运算不友好，计算机无法直接拿这两个数做运算（比如加法）。</p>
 <h3 id="3、反码"><a href="#3、反码" class="headerlink" title="3、反码"></a>3、反码</h3><blockquote>
 <p>反码 是在原码的基础上，保留符号位，负数的数值位全部“取反”，如果原来是 1，变为 0，0 变为 1。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">00001011</span></span><br><span class="line"><span class="comment">// -11 除了符号位，全部取反</span></span><br><span class="line"><span class="number">11110100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">0</span>0001011</span><br><span class="line"><span class="comment">// -11 除了符号位，全部取反</span></span><br><span class="line"><span class="number">11110100</span></span><br></pre></td></tr></table></figure>
 <p>这样编码之后，做运算就相当方便了，<code>a + -a</code> 会等于 <code>11111111 (-0)</code>。遗留的问题当然是，这样的编码产生了 <code>0 和 -0</code>。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="number">00000000</span></span><br><span class="line"><span class="comment">// -0</span></span><br><span class="line"><span class="number">11111111</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 0</span></span><br><span class="line"><span class="number">0</span>0000000</span><br><span class="line"><span class="comment">// -0</span></span><br><span class="line"><span class="number">11111111</span></span><br></pre></td></tr></table></figure>
 <p>同一个数字有两种表示势必会产生不必要的判断。于是补码出现了。</p>
 <h3 id="4、补码"><a href="#4、补码" class="headerlink" title="4、补码"></a>4、补码</h3><blockquote>
 <p>补码 是在反码的基础上继续优化，符号位任然不变，负数数值在原来的基础上 +1。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">00001011</span></span><br><span class="line"><span class="comment">// 反码中的 -11</span></span><br><span class="line"><span class="number">11110100</span></span><br><span class="line"><span class="comment">// 补码的 -11</span></span><br><span class="line"><span class="number">11110101</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// +11</span></span><br><span class="line"><span class="number">0</span>0001011</span><br><span class="line"><span class="comment">// 反码中的 -11</span></span><br><span class="line"><span class="number">11110100</span></span><br><span class="line"><span class="comment">// 补码的 -11</span></span><br><span class="line"><span class="number">11110101</span></span><br></pre></td></tr></table></figure>
 <p><strong>由于加 1，a + -a 相加将会产生进位。</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">00001011</span> (<span class="number">11</span>)</span><br><span class="line">+ <span class="number">11110101</span> (-<span class="number">11</span>)</span><br><span class="line">________________</span><br><span class="line"> <span class="number">100000000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">0</span>0001011 (<span class="number">11</span>)</span><br><span class="line">+ <span class="number">11110101</span> (-<span class="number">11</span>)</span><br><span class="line">________________</span><br><span class="line"> <span class="number">100000000</span></span><br></pre></td></tr></table></figure>
 <p>多出来的一位会因为溢出被忽略掉，于是 <code>a + -a = 0</code> 仍然成立。这样设计之后 -0 就不存在了。<code>00000000</code> 取反之后再加一 仍然是 <code>00000000</code>。<br><code>10000000</code> 仍被用来表示负数，所以在补码的设计里面，负数比正式多了一位。在现代计算机系统中，提到位运算时都是使用补码。</p>
 <h2 id="js中和进制相关的方法"><a href="#js中和进制相关的方法" class="headerlink" title="js中和进制相关的方法"></a>js中和进制相关的方法</h2><blockquote>
 <p>在位运算之前，先介绍一下两个常见的 Javascript 方法中和进制相关的方法 <code>parseInt</code> 和 <code>Number.prototype.toString(base)</code></p>
@@ -198,19 +198,19 @@
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="number">15.</span>.toString(<span class="number">2</span>));<span class="comment">//1111</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">585.</span>.toString(<span class="number">8</span>));<span class="comment">//1111</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="number">4369.</span>.toString(<span class="number">16</span>));<span class="comment">//1111</span></span><br></pre></td></tr></table></figure>
 <p><strong>例子中的 .. 是新学到的暗黑操作，数字字面量是不能直接调用原型链上的方法的，多一个点回被 JavaScript 解析成 Number 对象。也可以直接用 Number(15).toString(2) 的写法。</strong><br>对了，需要当心，负数的 toString 方法会得到 <code>-</code> + 绝对值的对应进制表示。例如 -11..toString(2) 的结果是 -1011。如果需要得到正确的负数补码，可以使用后面会介绍的无符号右移。</p>
 <h2 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h2><p>需要注意，在做位运算时所有的运算数以及运算结果只会保留 32 位的整数（为了方便后面的例子只使用8位），而在上一篇文章中我们知道，JavaScript 所能表示的最大安全数字范围是 <code>-(2^53 - 1) ~ 2^53 - 1</code>。不知道这个细节可能会对一些运算结果产生困惑。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before: <span class="number">11100110111110100000000000000110000000000001</span></span><br><span class="line"><span class="attr">After</span>:              <span class="number">10100000000000000110000000000001</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Before: <span class="number">11100110111110100000000000000110000000000001</span></span><br><span class="line">After:              <span class="number">10100000000000000110000000000001</span></span><br></pre></td></tr></table></figure>
 <p>接下来将一一细数位运算及其应用，为了方便例子中使用 8 位的二进制表示。</p>
 <h3 id="按位与-amp"><a href="#按位与-amp" class="headerlink" title="按位与&amp;"></a>按位与&amp;</h3><blockquote>
 <p>两个位都是 1 时，结果为 1，否则为 0</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">00001011</span> (<span class="number">11</span>)</span><br><span class="line">&amp; <span class="number">00001001</span> (<span class="number">9</span>)</span><br><span class="line">__________</span><br><span class="line">  <span class="number">00001001</span> (<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">0</span>0001011 (<span class="number">11</span>)</span><br><span class="line">&amp; <span class="number">0</span>0001001 (<span class="number">9</span>)</span><br><span class="line">__________</span><br><span class="line">  <span class="number">0</span>0001001 (<span class="number">9</span>)</span><br></pre></td></tr></table></figure>
 <p><strong>常见应用</strong><br>用于判断数字某一位是否为 1，例如可以使用 num &amp; 1 来判断数字的奇偶性。</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span>(<span class="number">00001000</span>) &amp; <span class="number">1</span> === <span class="number">0</span></span><br><span class="line"><span class="number">9</span>(<span class="number">00001001</span>) &amp; <span class="number">1</span> === <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">8</span>(<span class="number">0</span>0001000) &amp; <span class="number">1</span> === <span class="number">0</span></span><br><span class="line"><span class="number">9</span>(<span class="number">0</span>0001001) &amp; <span class="number">1</span> === <span class="number">1</span></span><br></pre></td></tr></table></figure>
 
 <h3 id="按位或"><a href="#按位或" class="headerlink" title="按位或|"></a>按位或|</h3><blockquote>
 <p>两个位都是 0 时，结果为 0，否则为 1</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">00001011</span> (<span class="number">11</span>)</span><br><span class="line">| <span class="number">00001001</span> (<span class="number">9</span>)</span><br><span class="line">__________</span><br><span class="line">  <span class="number">00001011</span> (<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  <span class="number">0</span>0001011 (<span class="number">11</span>)</span><br><span class="line">| <span class="number">0</span>0001001 (<span class="number">9</span>)</span><br><span class="line">__________</span><br><span class="line">  <span class="number">0</span>0001011 (<span class="number">11</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="按位异或"><a href="#按位异或" class="headerlink" title="按位异或 ^"></a>按位异或 ^</h3><blockquote>
 <p>两个位都是 0 或者都是 1 时，结果为 0，否则为 1。<strong>任何数和自身异或结果都为零，和零异或结果都是其本身。</strong></p>
@@ -224,12 +224,12 @@
 <h3 id="按位非"><a href="#按位非" class="headerlink" title="按位非 ~"></a>按位非 ~</h3><blockquote>
 <p>按位非是 1 变为 0，0 变为 1，结果按补码形式出现。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~ <span class="number">00001001</span> (<span class="number">9</span>)</span><br><span class="line">_______________</span><br><span class="line">  <span class="number">11110110</span> (-<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">~ <span class="number">0</span>0001001 (<span class="number">9</span>)</span><br><span class="line">_______________</span><br><span class="line">  <span class="number">11110110</span> (-<span class="number">10</span>)</span><br></pre></td></tr></table></figure>
 
 <h3 id="左移-lt-lt"><a href="#左移-lt-lt" class="headerlink" title="左移 &lt;&lt;"></a>左移 &lt;&lt;</h3><blockquote>
 <p>把数值的二进制表示向左移位，移除的位会被遗弃，末尾补 0</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">01100001</span> &lt;&lt; <span class="number">2</span></span><br><span class="line">____________________</span><br><span class="line"><span class="number">10000100</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span>1100001 &lt;&lt; <span class="number">2</span></span><br><span class="line">____________________</span><br><span class="line"><span class="number">10000100</span></span><br></pre></td></tr></table></figure>
 <p><strong>常见应用</strong><br><strong>左移一位相当于将数值在原来的基础上乘以2</strong>。需要留意位运算只有 32 位的问题。超过 32 位会产生”诡异“的结果。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">30</span> <span class="comment">// 1073741824</span></span><br><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">31</span> <span class="comment">// -2147483648</span></span><br><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">32</span> <span class="comment">// 1</span></span><br><span class="line"><span class="number">3</span> &lt;&lt; <span class="number">31</span> <span class="comment">// -2147483648</span></span><br><span class="line"><span class="number">3</span> &lt;&lt; <span class="number">32</span> <span class="comment">// 3 </span></span><br></pre></td></tr></table></figure>
 
@@ -241,7 +241,7 @@
 <h3 id="无符号右移-gt-gt-gt"><a href="#无符号右移-gt-gt-gt" class="headerlink" title="无符号右移 &gt;&gt;&gt;"></a>无符号右移 &gt;&gt;&gt;</h3><blockquote>
 <p>无符号右移，顾名思义就是右移的时候，不考虑符号位，前面统统补 0。</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11010011</span> &gt;&gt;&gt; <span class="number">1</span></span><br><span class="line">____________________</span><br><span class="line"><span class="number">01101001</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">11010011</span> &gt;&gt;&gt; <span class="number">1</span></span><br><span class="line">____________________</span><br><span class="line"><span class="number">0</span>1101001</span><br></pre></td></tr></table></figure>
 <p><strong>常见应用</strong><br>在 JavaScript 中，不存在无符号整数的类型，并且二进制运算只能保留 32 位结果（而 JS 的最大安全表示范围可以到 53 位）。如果需要在位运算过程中保留32位无符号的结果，可以使用无符号右移运算符，它的结果就是 32-bit 无符号整数。</p>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">31</span> <span class="comment">// -2147483648</span></span><br><span class="line"><span class="number">1</span> &lt;&lt; <span class="number">31</span> &gt;&gt;&gt; <span class="number">0</span> <span class="comment">// 2147483648</span></span><br></pre></td></tr></table></figure>
 <p>前面提到负数执行 <code>Number.prototype.toString(2)</code> 的结果得不到补码，使用无符号右移就可以了。</p>
@@ -366,7 +366,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

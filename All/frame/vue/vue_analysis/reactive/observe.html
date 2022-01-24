@@ -6,24 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>知识架构 | 学习笔记</title>
+  <title>递归侦测对象的全部属性 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="前端知识模块1、JavaScript主要会从文法和运行时的角度去讨论JavaScript语言.它们是互相关联的，而语义就是文法到运行时之间的桥梁;它们分别又是完备的，任何语言特性都离不开两者，所以从文法和运行时的角度，我们都可以了解完整的JavaScript。 2、CSS&amp;HTML从语言和设计思想的角度来讲解，我们同样可以对两者的全貌建立一些认知。 3、浏览器包含了浏览器工作的原理和一些重">
+  <meta name="description" content="utils.js12345678export const def &#x3D; function (data, key, val, enumerable) &amp;#123;  Object.defineProperty(data, key, &amp;#123;    value: val,    enumerable,    writable: true,    configurable: true,  &amp;#125">
 <meta property="og:type" content="website">
-<meta property="og:title" content="知识架构">
-<meta property="og:url" content="http://example.com/reLearn/note.html">
+<meta property="og:title" content="递归侦测对象的全部属性">
+<meta property="og:url" content="http://example.com/All/frame/vue/vue_analysis/reactive/observe.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="前端知识模块1、JavaScript主要会从文法和运行时的角度去讨论JavaScript语言.它们是互相关联的，而语义就是文法到运行时之间的桥梁;它们分别又是完备的，任何语言特性都离不开两者，所以从文法和运行时的角度，我们都可以了解完整的JavaScript。 2、CSS&amp;HTML从语言和设计思想的角度来讲解，我们同样可以对两者的全貌建立一些认知。 3、浏览器包含了浏览器工作的原理和一些重">
+<meta property="og:description" content="utils.js12345678export const def &#x3D; function (data, key, val, enumerable) &amp;#123;  Object.defineProperty(data, key, &amp;#123;    value: val,    enumerable,    writable: true,    configurable: true,  &amp;#125">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/reLearnImg/js.svg">
-<meta property="og:image" content="http://example.com/assets/reLearnImg/html.svg">
-<meta property="og:image" content="http://example.com/assets/reLearnImg/browser.svg">
-<meta property="og:image" content="http://example.com/assets/reLearnImg/en.svg">
-<meta property="article:published_time" content="2021-06-24T15:50:24.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.350Z">
+<meta property="og:image" content="http://example.com/assets/vueImg/vueSource/reactive5.png">
+<meta property="article:published_time" content="2021-01-17T10:16:24.000Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.127Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/reLearnImg/js.svg">
+<meta name="twitter:image" content="http://example.com/assets/vueImg/vueSource/reactive5.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -41,7 +38,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -154,57 +151,29 @@
         
   
     <h1 class="article-title" itemprop="name">
-      知识架构
+      递归侦测对象的全部属性
     </h1>
   
 
         
-        <a href="/reLearn/note.html" class="archive-article-date">
-  	<time datetime="2021-06-24T15:50:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-06-24</time>
+        <a href="/All/frame/vue/vue_analysis/reactive/observe.html" class="archive-article-date">
+  	<time datetime="2021-01-17T10:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-01-17</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="前端知识模块"><a href="#前端知识模块" class="headerlink" title="前端知识模块"></a>前端知识模块</h2><h3 id="1、JavaScript"><a href="#1、JavaScript" class="headerlink" title="1、JavaScript"></a>1、JavaScript</h3><p>主要会从<strong>文法</strong>和<strong>运行时</strong>的角度去讨论JavaScript语言.<br>它们是互相关联的，而<strong>语义</strong>就是<strong>文法</strong>到<strong>运行时</strong>之间的桥梁;<br>它们分别又是完备的，任何语言特性都离不开两者，所以从文法和运行时的角度，我们都可以了解完整的JavaScript。</p>
-<h3 id="2、CSS-amp-HTML"><a href="#2、CSS-amp-HTML" class="headerlink" title="2、CSS&amp;HTML"></a>2、CSS&amp;HTML</h3><p>从<strong>语言</strong>和<strong>设计思想</strong>的角度来讲解，我们同样可以对两者的全貌建立一些认知。</p>
-<h3 id="3、浏览器"><a href="#3、浏览器" class="headerlink" title="3、浏览器"></a>3、浏览器</h3><p>包含了<strong>浏览器工作的原理</strong>和一些<strong>重要的API</strong>，包括BOM、DOM、CSSOM和其他一些内容。</p>
-<h2 id="建立前端知识架构"><a href="#建立前端知识架构" class="headerlink" title="建立前端知识架构"></a>建立前端知识架构</h2><p>什么叫做知识架构？<br>我们可以把它理解为知识的目录或者索引，<strong>它能够帮助我么把零散的知识组织起来，也能够帮助我们发现一些知识上的盲区</strong><br>当然，知识的架构是有优劣之分的，最重要的就是逻辑性和完备性。<br>我们来思考一个问题，如果我们要给 JavaScript 知识做一个顶层目录，该怎么做呢？</p>
-<ul>
-<li>文法</li>
-<li>语义</li>
-<li>运行时<blockquote>
-<p>对于任何计算机语言来说，必定是<strong>用规定的文法，去表达特定语义，最终操作运行时一个过程</strong><br>JavaScript 的任何知识都不会出现在这个范围之外，这是知识架构的完备性<br>我们再往下细分一个层级，就变成了这个样子：</p>
-</blockquote>
-</li>
-<li>文法<ul>
-<li>词法</li>
-<li>语法</li>
-</ul>
-</li>
-<li>语义</li>
-<li>运行时<ul>
-<li>类型</li>
-<li>执行过程</li>
-</ul>
-</li>
-</ul>
-<p>文法可以分成词法和语法，这来自编译原理的划分，同样是完备的。<br>对于运行时部分，这个划分保持了完备性，我们都知道：<strong>程序 = 算法 + 数据结构，那么，对运行时来说，类型就是数据结构，执行过程就是算法。</strong><br>当我们再往下细分的时候，就会看到熟悉的概念了，词法中有各种直接量、关键字、运算符，语法和语义则是表达式、语句、函数、对象、模块，类型则包含了对象、数字、字符串等……</p>
-<h2 id="知识架构图"><a href="#知识架构图" class="headerlink" title="知识架构图"></a>知识架构图</h2><h3 id="js"><a href="#js" class="headerlink" title="js"></a>js</h3><p><img src="/assets/reLearnImg/js.svg" alt="js知识架构图"><br>用在 JavaScript 的模块中，首先我们可以把语言按照文法、语义和运行时来拆分，这符合编程语言的一般规律：<strong>用一定的词法和语法，表达一定语义，从而操作运行时。</strong></p>
-<h3 id="HTML-amp-CSS"><a href="#HTML-amp-CSS" class="headerlink" title="HTML&amp;CSS"></a>HTML&amp;CSS</h3><p><img src="/assets/reLearnImg/html.svg" alt="html&amp;CSS知识架构图"><br>在 HTML 的部分，我们会按照 <strong>功能</strong> 和 <strong>语言</strong> 来划分它的知识，HTML 的功能主要由标签来承担，所以我们首先会把标签做一些分类，并对它们分别进行讲解。</p>
-<ol>
-<li>文档元信息：通常是出现在 head 标签中的元素，包含了描述文档自身的一些信息；</li>
-<li>语义相关：扩展了纯文本，表达文章结构、不同语言要素的标签；</li>
-<li>链接：提供到文档内和文档外的链接；</li>
-<li>替换型标签：引入声音、图片、视频等外部元素替换自身的一类标签；</li>
-<li>表单：用于填写和提交信息的一类标签；</li>
-<li>表格：表头、表尾、单元格等表格的结构。</li>
-</ol>
-<p>CSS 部分，按照惯例，我们也会从 语言 和 功能 两个角度去介绍</p>
-<h3 id="浏览器"><a href="#浏览器" class="headerlink" title="浏览器"></a>浏览器</h3><p><img src="/assets/reLearnImg/browser.svg" alt="浏览器"></p>
-<h3 id="工程"><a href="#工程" class="headerlink" title="工程"></a>工程</h3><p><img src="/assets/reLearnImg/en.svg" alt="工程"></p>
+        <p><img src="/assets/vueImg/vueSource/reactive5.png" alt="reactive" title="递归侦测对象的全部属性"></p>
+<h2 id="utils-js"><a href="#utils-js" class="headerlink" title="utils.js"></a>utils.js</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> def = <span class="function"><span class="keyword">function</span> (<span class="params">data, key, val, enumerable</span>) </span>&#123;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">    value: val,</span><br><span class="line">    enumerable,</span><br><span class="line">    writable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
+<h2 id="Observer类"><a href="#Observer类" class="headerlink" title="Observer类"></a>Observer类</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> defineReactive <span class="keyword">from</span> <span class="string">&#x27;./defineReactive&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; def &#125; <span class="keyword">from</span> <span class="string">&#x27;./utils&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="class"><span class="keyword">class</span> <span class="title">Observer</span> </span>&#123;</span><br><span class="line">  <span class="function"><span class="title">constructor</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">    <span class="comment">// 给实例（this，一定要注意，构造函数中的this不是表示类本身，而是表示实例）添加了__ob__属性，值是这次new的实例</span></span><br><span class="line">    def(value, <span class="string">&#x27;__ob__&#x27;</span>, <span class="built_in">this</span>, <span class="literal">false</span>);</span><br><span class="line">    <span class="comment">// 不要忘记初心，Observer类的目的是：将一个正常的object转换为每个层级的属性都是响应式（可以被侦测的）的object</span></span><br><span class="line"></span><br><span class="line">    <span class="built_in">this</span>.walk(value);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//遍历</span></span><br><span class="line">  <span class="function"><span class="title">walk</span>(<span class="params">value</span>)</span> &#123;</span><br><span class="line">    <span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> key <span class="keyword">in</span> value</span>)</span> &#123;</span><br><span class="line">      defineReactive(value, key);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<h2 id="defineReactive修改"><a href="#defineReactive修改" class="headerlink" title="defineReactive修改"></a>defineReactive修改</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> observe <span class="keyword">from</span> <span class="string">&quot;./observe&quot;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">defineReactive</span>(<span class="params">data, key, val</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">if</span> (<span class="built_in">arguments</span>.length === <span class="number">2</span>) &#123;</span><br><span class="line">    val = data[key];</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 子元素要进行observe，至此形成了递归。这个递归不是函数自己调用自己，而是多个函数、类循环调用</span></span><br><span class="line">  <span class="keyword">let</span> childOb = observe(val);</span><br><span class="line"></span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(data, key, &#123;</span><br><span class="line">    enumerable: <span class="literal">true</span>,</span><br><span class="line">    configurable: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">//getter</span></span><br><span class="line">    <span class="function"><span class="title">get</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;正在访问&#x27;</span> + key + <span class="string">&#x27;属性&#x27;</span>);</span><br><span class="line">      <span class="keyword">return</span> val;</span><br><span class="line">    &#125;,</span><br><span class="line">    <span class="comment">//setter</span></span><br><span class="line">    <span class="function"><span class="title">set</span>(<span class="params">newVal</span>)</span> &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(<span class="string">&#x27;正在修改&#x27;</span> + key + <span class="string">&#x27;属性&#x27;</span>, newVal);</span><br><span class="line">      <span class="keyword">if</span> (newVal === val) <span class="keyword">return</span>;</span><br><span class="line">      val = newVal;</span><br><span class="line">      childOb = observe(newVal);<span class="comment">//修改的是一个对象时，需要把对象里的属性都变成响应式的</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="observe"><a href="#observe" class="headerlink" title="observe"></a>observe</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Observer <span class="keyword">from</span> <span class="string">&#x27;./Observer&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="function"><span class="keyword">function</span> <span class="title">observe</span>(<span class="params">value</span>) </span>&#123;</span><br><span class="line">  <span class="comment">//如果value不是对象，什么都不做</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> value !== <span class="string">&#x27;object&#x27;</span>) <span class="keyword">return</span>;</span><br><span class="line">  <span class="comment">//定义ob</span></span><br><span class="line">  <span class="keyword">let</span> ob;</span><br><span class="line">  <span class="keyword">if</span> (value.__ob__ !== <span class="literal">undefined</span>) &#123;</span><br><span class="line">    ob = value.__ob__;</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">    ob = <span class="keyword">new</span> Observer(value);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> ob;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//index.js</span></span><br><span class="line"><span class="keyword">const</span> obj = &#123;</span><br><span class="line">  a: &#123;</span><br><span class="line">    m: &#123;</span><br><span class="line">      n: <span class="number">10</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line">  b: <span class="number">55</span>,</span><br><span class="line">  c: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">observe(obj);</span><br></pre></td></tr></table></figure>
       
 
       
@@ -262,7 +231,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/reLearn/note.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/frame/vue/vue_analysis/reactive/observe.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -295,7 +264,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%A8%A1%E5%9D%97"><span class="toc-number">1.</span> <span class="toc-text">前端知识模块</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81JavaScript"><span class="toc-number">1.1.</span> <span class="toc-text">1、JavaScript</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81CSS-amp-HTML"><span class="toc-number">1.2.</span> <span class="toc-text">2、CSS&amp;HTML</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">1.3.</span> <span class="toc-text">3、浏览器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B%E5%89%8D%E7%AB%AF%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84"><span class="toc-number">2.</span> <span class="toc-text">建立前端知识架构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AF%86%E6%9E%B6%E6%9E%84%E5%9B%BE"><span class="toc-number">3.</span> <span class="toc-text">知识架构图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#js"><span class="toc-number">3.1.</span> <span class="toc-text">js</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#HTML-amp-CSS"><span class="toc-number">3.2.</span> <span class="toc-text">HTML&amp;CSS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8F%E8%A7%88%E5%99%A8"><span class="toc-number">3.3.</span> <span class="toc-text">浏览器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E7%A8%8B"><span class="toc-number">3.4.</span> <span class="toc-text">工程</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#utils-js"><span class="toc-number">1.</span> <span class="toc-text">utils.js</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Observer%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">Observer类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#defineReactive%E4%BF%AE%E6%94%B9"><span class="toc-number">3.</span> <span class="toc-text">defineReactive修改</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#observe"><span class="toc-number">4.</span> <span class="toc-text">observe</span></a></li></ol>
                     </div>
                 </span>
             </div>
@@ -324,7 +293,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

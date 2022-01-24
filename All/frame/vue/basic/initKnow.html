@@ -16,7 +16,7 @@
 <meta property="og:description" content="插值语法&amp;#123;&amp;#123;&amp;#125;&amp;#125;：里面要写js表达式  js表达式和js代码(语句)js表达式 一个表达式会产生一个值，可以放在任何一个需要值的地方:  1234(1). a(2). a + b(3). demo(1)(4). x &#x3D;&#x3D;&#x3D; y ? &amp;#x27;a&amp;#x27; : &amp;#x27;b&amp;#x27;  js代码(语句)12(1). if()&amp;#123;&amp;#125;(">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-10-08T09:36:24.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.194Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.123Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -170,9 +170,9 @@
 </blockquote>
 <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>). a</span><br><span class="line">(<span class="number">2</span>). a + b</span><br><span class="line">(<span class="number">3</span>). demo(<span class="number">1</span>)</span><br><span class="line">(<span class="number">4</span>). x === y ? <span class="string">&#x27;a&#x27;</span> : <span class="string">&#x27;b&#x27;</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="js代码-语句"><a href="#js代码-语句" class="headerlink" title="js代码(语句)"></a>js代码(语句)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>). <span class="keyword">if</span>()&#123;&#125;</span><br><span class="line">(<span class="number">2</span>). <span class="keyword">for</span>()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="js代码-语句"><a href="#js代码-语句" class="headerlink" title="js代码(语句)"></a>js代码(语句)</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">(<span class="number">1</span>). <span class="function"><span class="title">if</span>(<span class="params"></span>)</span>&#123;&#125;</span><br><span class="line">(<span class="number">2</span>). <span class="function"><span class="title">for</span>(<span class="params"></span>)</span>&#123;&#125;</span><br></pre></td></tr></table></figure>
 
-<h3 id="初步应用Vue"><a href="#初步应用Vue" class="headerlink" title="初步应用Vue"></a>初步应用Vue</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue.config.devtools = false; //配置是否允许 vue-devtools 检查代码</span></span><br><span class="line">Vue.config.productionTip= <span class="literal">false</span>;<span class="comment">//阻止vue在启动时生成生产提示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建Vue实例</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  <span class="attr">el</span>: <span class="string">&#x27;#app&#x27;</span>,<span class="comment">//el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串</span></span><br><span class="line">  <span class="comment">//data中用于存储数据，数据供el所指定的容器去使用</span></span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      <span class="attr">msg</span>: <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h3 id="初步应用Vue"><a href="#初步应用Vue" class="headerlink" title="初步应用Vue"></a>初步应用Vue</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Vue.config.devtools = false; //配置是否允许 vue-devtools 检查代码</span></span><br><span class="line">Vue.config.productionTip= <span class="literal">false</span>;<span class="comment">//阻止vue在启动时生成生产提示</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//创建Vue实例</span></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">  el: <span class="string">&#x27;#app&#x27;</span>,<span class="comment">//el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串</span></span><br><span class="line">  <span class="comment">//data中用于存储数据，数据供el所指定的容器去使用</span></span><br><span class="line">  <span class="function"><span class="title">data</span>(<span class="params"></span>)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">      msg: <span class="string">&#x27;Hello World!&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -292,7 +292,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten

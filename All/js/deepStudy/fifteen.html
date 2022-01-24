@@ -16,7 +16,7 @@
 <meta property="og:description" content="1、原型链继承12345678910111213function Parent() &amp;#123;    this.name &#x3D; &amp;#x27;kevin&amp;#x27;;&amp;#125;Parent.prototype.getName &#x3D; function () &amp;#123;    console.log(this.name);&amp;#125;function Child() &amp;#123;&amp;#125;Child">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-04-14T15:15:20.000Z">
-<meta property="article:modified_time" content="2021-10-17T10:48:31.194Z">
+<meta property="article:modified_time" content="2022-01-24T08:57:16.127Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -36,7 +36,7 @@
 
   
 
-<meta name="generator" content="Hexo 5.4.0"></head>
+<meta name="generator" content="Hexo 5.2.0"></head>
 
 <body>
   <div id="container" q-class="show:isCtnShow">
@@ -181,7 +181,7 @@
 <blockquote>
 <p>就是 <code>ES5 Object.create</code> 的模拟实现，将传入的对象作为创建的对象的原型。<br>缺点：包含引用类型的属性值始终都会共享相应的值，这点跟原型链继承一样.</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    <span class="attr">name</span>: <span class="string">&#x27;perfector&#x27;</span>,</span><br><span class="line">    <span class="attr">friends</span>: [<span class="string">&#x27;boomb14&#x27;</span>, <span class="string">&#x27;flami&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = createObj(person);</span><br><span class="line"><span class="keyword">let</span> person2 = createObj(person);</span><br><span class="line"></span><br><span class="line">person1.name = <span class="string">&#x27;person1&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person2.name);<span class="comment">//perfector，修改person1.name的值，person</span></span><br><span class="line"></span><br><span class="line">person1.friends.push(<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person2.friends);<span class="comment">//[&#x27;boomb14&#x27;, &#x27;flami&#x27;, &#x27;666&#x27;]</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> person = &#123;</span><br><span class="line">    name: <span class="string">&#x27;perfector&#x27;</span>,</span><br><span class="line">    friends: [<span class="string">&#x27;boomb14&#x27;</span>, <span class="string">&#x27;flami&#x27;</span>]</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> person1 = createObj(person);</span><br><span class="line"><span class="keyword">let</span> person2 = createObj(person);</span><br><span class="line"></span><br><span class="line">person1.name = <span class="string">&#x27;person1&#x27;</span>;</span><br><span class="line"><span class="built_in">console</span>.log(person2.name);<span class="comment">//perfector，修改person1.name的值，person</span></span><br><span class="line"></span><br><span class="line">person1.friends.push(<span class="string">&#x27;666&#x27;</span>);</span><br><span class="line"><span class="built_in">console</span>.log(person2.friends);<span class="comment">//[&#x27;boomb14&#x27;, &#x27;flami&#x27;, &#x27;666&#x27;]</span></span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>注意：修改person1.name的值，person2.name的值并未发生改变，并不是因为person1和person2有独立的name值，而是因为person1.name = ‘person1’，给person1添加了name值，并非修改了原型上的name值</p>
 </blockquote>
@@ -336,7 +336,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2021 Zoro
+    		&copy; 2022 Zoro
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
