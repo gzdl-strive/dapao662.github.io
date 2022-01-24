@@ -25,5 +25,17 @@ tag: js
 ### 事件循环
 >[事件循环](/All/js/other/eventLoop "事件循环")
 
+### Promise
+>[Promise](/All/js/promise "Promise")
+
+### Ts
+>[Ts及其练习](/All/js/ts "TS")
+
+### Axios使用及源码解析
+>[Axios](/All/js/axios "axios")
+
+### ES6-ES11
+>[ES6-ES11](/All/js/es "es6-es11")
+
 ### JS练习
 >[JS练习](/All/js/write "JS练习")

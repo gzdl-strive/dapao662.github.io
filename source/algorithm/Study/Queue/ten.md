@@ -73,7 +73,7 @@ const pancakeSort = function (arr) {
         reverseK(arr, max);//这边反转前k个元素传入两个参数[需要反转的数组，最后一个的下标值(即最大值的下标值max)]
         reverseK(arr, arr.length - 1);//这次反转整个数组，传入[需要反转的数组，最后一个元素的下标值(即arr.length - 1)]
         ans.push(arr.length);//这次ans传入的是数组长度
-        ans.pop();//把最后一个元素弹出
+        arr.pop();//把最后一个元素弹出
     }
     return ans;
 }
