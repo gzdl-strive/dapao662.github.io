@@ -27,4 +27,8 @@ toc: true
 >[虚拟DOM与diff算法](/All/frame/vue/vue_analysis/snabbdom "snabbdom")
 >[数据响应式](/All/frame/vue/vue_analysis/reactive "dataReactive")
 >[AST抽象语法树](/All/frame/vue/vue_analysis/ast "Abstract Syntax Tree")
+>[指令](/All/frame/vue/vue_analysis/directive "指令")
+
+## Vite2 + Vue3 + TS + Vue-Router4 + Element-Plus2 + Pinia项目搭建
+>[项目搭建过程以及遇到的问题](/All/frame/vue/vite_project "项目搭建过程以及遇到的问题")
 

@@ -33,6 +33,10 @@ toc: true
 ## 代码管理
 >[代码管理](/All/CodeManager "代码管理")
 
+## 计算机基础
+>[计算机科学](/All/computer/computerScience "计算机科学")
+>[计算机网络](/All/computer/computerNetwork "计算机网络")
+
 ## 练习题
 >[练习题](/All/practice "练习题")
 
