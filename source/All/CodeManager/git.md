@@ -103,3 +103,5 @@ A 就可以在自己的仓库中的pull request上看到B提交的pull request,�
 （-C:一种描述）
 生成.ssh目录，我们需要该目录下的公钥,即以.pub结尾的文件，获取到公钥后，我们登录github -> settings -> SSH and GPG keys -> New SSH key，把公钥添加进去
  这样我们以后就可以通过SSH来拉取/推送到github
+
+ 
