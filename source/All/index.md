@@ -24,6 +24,9 @@ toc: true
 ## 数据结构与算法
 >[数据结构与算法](/All/algorithm "数据结构与算法")
 
+## 数据结构与算法-TS
+>[数据结构与算法-TS](/All/algorithm-ts "数据结构与算法-TS")
+
 ## 前端监控
 >[前端监控](/All/monitor "前端监控")
 
