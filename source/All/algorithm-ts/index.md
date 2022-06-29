@@ -6,3 +6,6 @@ toc: true
 
 ## 链表
 >[链表](/All/algorithm-ts/LinkedList "链表")
+
+## 队列
+>[队列](/All/algorithm-ts/Queue "队列")
