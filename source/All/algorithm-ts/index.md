@@ -9,3 +9,6 @@ toc: true
 
 ## 队列
 >[队列](/All/algorithm-ts/Queue "队列")
+
+## 栈
+>[栈](/All/algorithm-ts/Stack "栈")
