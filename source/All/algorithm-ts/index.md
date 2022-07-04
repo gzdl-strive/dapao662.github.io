@@ -12,3 +12,6 @@ toc: true
 
 ## 栈
 >[栈](/All/algorithm-ts/Stack "栈")
+
+## 集合
+>[集合](/All/algorithm-ts/Set "集合")
