@@ -15,3 +15,6 @@ toc: true
 
 ## 集合
 >[集合](/All/algorithm-ts/Set "集合")
+
+## 字典
+>[字典](/All/algorithm-ts/Dictionnary "集合")
