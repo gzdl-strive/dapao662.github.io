@@ -5,6 +5,7 @@ toc: true
 ---
 
 ## 认识字典
+>[认识字典](/All/algorithm-ts/Dictionnary/knowledge "认识字典")
 
 ## 字典类
 >[Dictionnary](/All/algorithm-ts/Dictionnary/DictionnaryClass "字典类")
