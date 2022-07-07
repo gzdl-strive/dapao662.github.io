@@ -218,7 +218,7 @@ function HashTable() {
         // 1、获取num的平方根
         let sqrt = parseInt(Math.sqrt(num));
         // 2、循环判断
-        for (let i = 0; i <= sqrt; i++) {
+        for (let i = 2; i <= sqrt; i++) {
             if (num % i === 0) {
                 return false;
             }

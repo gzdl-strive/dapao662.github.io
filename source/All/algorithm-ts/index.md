@@ -18,3 +18,6 @@ toc: true
 
 ## 字典
 >[字典](/All/algorithm-ts/Dictionnary "集合")
+
+## 哈希表
+>[哈希表](/All/algorithm-ts/HashTable "哈希表")
