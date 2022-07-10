@@ -21,3 +21,6 @@ toc: true
 
 ## 哈希表
 >[哈希表](/All/algorithm-ts/HashTable "哈希表")
+
+## 树
+>[树](/All/algorithm-ts/Tree "树")
