@@ -5,8 +5,10 @@ toc: true
 ---
 
 ## 认识树
+>[树的认识](/All/algorithm-ts/Tree/knowledge "树的认识")
 
 ## 二叉树
+>[二叉树知识点](/All/algorithm-ts/Tree/BinaryTree "二叉树")
 
 ## 二叉搜索树的封装
 >[二叉搜索树BST](/All/algorithm-ts/Tree/BinarySearchTreeClass "二叉搜索树")
