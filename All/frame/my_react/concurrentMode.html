@@ -16,7 +16,7 @@
 <meta property="og:description" content="上一节我们已经使用了递归调用的方式完成了DOM节点的创建挂载到容器上了，但是递归调用方式存在问题，那就是当我们的渲染开始了，就不能停止了，直到我们渲染了完整的element tree.如果element tree很大，就会阻塞主线程时间太久。而此时如果浏览器需要做优先级比较高的任务，比如用户输入或动画，就必须等到渲染完成才能执行。 所以我们要将工作分解为一个个小单元，在我们完成每个单元后，如果还有">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-08-15T09:51:02.000Z">
-<meta property="article:modified_time" content="2022-07-14T02:23:50.701Z">
+<meta property="article:modified_time" content="2022-07-16T04:19:34.065Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
