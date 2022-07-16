@@ -9,3 +9,6 @@ toc: true
 
 ## 队列类
 >[队列类](/All/algorithm-ts/Queue/QueueClass "队列类")
+
+## 练习
+>[练习](/All/algorithm-ts/Queue/practice "练习")

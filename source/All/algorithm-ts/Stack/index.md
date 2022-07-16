@@ -9,3 +9,6 @@ toc: true
 
 ## 栈类
 >[栈类](/All/algorithm-ts/Stack/StackClass "栈类")
+
+## 栈练习
+>[练习](/All/algorithm-ts/Stack/practice "练习")
