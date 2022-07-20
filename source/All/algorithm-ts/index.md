@@ -24,3 +24,6 @@ toc: true
 
 ## 树
 >[树](/All/algorithm-ts/Tree "树")
+
+## 堆
+>[堆](/All/algorithm-ts/Heap "堆")
