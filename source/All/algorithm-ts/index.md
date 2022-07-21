@@ -25,5 +25,5 @@ toc: true
 ## 树
 >[树](/All/algorithm-ts/Tree "树")
 
-## 堆
->[堆](/All/algorithm-ts/Heap "堆")
+## 堆和优先队列
+>[堆和优先队列](/All/algorithm-ts/Heap "堆和优先队列")
