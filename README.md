@@ -1,7 +1,7 @@
 ## gzdl-strive的个人博客
 >该博客主要用于自我学习积累
 >前端基础(HTML、CSS、JS)
->浏览器、HTTP
+>浏览器、HTTP、HTTPS、HTTP2
 >TS、Vue(Vue3)、React
 >数据结构和算法
 >WebGL和Three.js
