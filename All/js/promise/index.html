@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Promise | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="1、Promise的基本使用 Promise基本使用  2、PromiseAPI 几个API  3、Promise的关键问题 关键问题  4、自定义封装Promise 封装Promise  5、class版本封装 class版本封装  6、async&#x2F;await async&#x2F;await">
+  <meta name="description" content="1、Promise的基本使用 Promise基本使用  2、PromiseAPI 几个API  3、Promise的关键问题 关键问题  4、自定义封装Promise 封装Promise  5、class版本封装 class版本封装  6、class-ts版本封装 class-ts  7、async&#x2F;await async&#x2F;await">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Promise">
 <meta property="og:url" content="http://example.com/All/js/promise/index.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="1、Promise的基本使用 Promise基本使用  2、PromiseAPI 几个API  3、Promise的关键问题 关键问题  4、自定义封装Promise 封装Promise  5、class版本封装 class版本封装  6、async&#x2F;await async&#x2F;await">
+<meta property="og:description" content="1、Promise的基本使用 Promise基本使用  2、PromiseAPI 几个API  3、Promise的关键问题 关键问题  4、自定义封装Promise 封装Promise  5、class版本封装 class版本封装  6、class-ts版本封装 class-ts  7、async&#x2F;await async&#x2F;await">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-11-01T09:26:24.000Z">
-<meta property="article:modified_time" content="2022-07-27T09:55:15.217Z">
+<meta property="article:modified_time" content="2022-07-28T02:53:43.662Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -177,7 +177,10 @@
 <h2 id="5、class版本封装"><a href="#5、class版本封装" class="headerlink" title="5、class版本封装"></a>5、class版本封装</h2><blockquote>
 <p><a href="/All/js/promise/package_class" title="class版本">class版本封装</a></p>
 </blockquote>
-<h3 id="6、async-await"><a href="#6、async-await" class="headerlink" title="6、async/await"></a>6、async/await</h3><blockquote>
+<h2 id="6、class-ts版本封装"><a href="#6、class-ts版本封装" class="headerlink" title="6、class-ts版本封装"></a>6、class-ts版本封装</h2><blockquote>
+<p><a href="/All/js/promise/package_class_ts" title="class-ts版本">class-ts</a></p>
+</blockquote>
+<h2 id="7、async-await"><a href="#7、async-await" class="headerlink" title="7、async/await"></a>7、async/await</h2><blockquote>
 <p><a href="/All/js/promise/async" title="async">async/await</a></p>
 </blockquote>
 
@@ -271,7 +274,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Promise%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1、Promise的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81PromiseAPI"><span class="toc-number">2.</span> <span class="toc-text">2、PromiseAPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Promise%E7%9A%84%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3、Promise的关键问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85Promise"><span class="toc-number">4.</span> <span class="toc-text">4、自定义封装Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81class%E7%89%88%E6%9C%AC%E5%B0%81%E8%A3%85"><span class="toc-number">5.</span> <span class="toc-text">5、class版本封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#6%E3%80%81async-await"><span class="toc-number">5.1.</span> <span class="toc-text">6、async&#x2F;await</span></a></li></ol></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1%E3%80%81Promise%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8"><span class="toc-number">1.</span> <span class="toc-text">1、Promise的基本使用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2%E3%80%81PromiseAPI"><span class="toc-number">2.</span> <span class="toc-text">2、PromiseAPI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E3%80%81Promise%E7%9A%84%E5%85%B3%E9%94%AE%E9%97%AE%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">3、Promise的关键问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4%E3%80%81%E8%87%AA%E5%AE%9A%E4%B9%89%E5%B0%81%E8%A3%85Promise"><span class="toc-number">4.</span> <span class="toc-text">4、自定义封装Promise</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5%E3%80%81class%E7%89%88%E6%9C%AC%E5%B0%81%E8%A3%85"><span class="toc-number">5.</span> <span class="toc-text">5、class版本封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6%E3%80%81class-ts%E7%89%88%E6%9C%AC%E5%B0%81%E8%A3%85"><span class="toc-number">6.</span> <span class="toc-text">6、class-ts版本封装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7%E3%80%81async-await"><span class="toc-number">7.</span> <span class="toc-text">7、async&#x2F;await</span></a></li></ol>
                     </div>
                 </span>
             </div>
