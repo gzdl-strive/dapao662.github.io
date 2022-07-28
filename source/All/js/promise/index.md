@@ -19,5 +19,8 @@ toc: true
 ## 5、class版本封装
 >[class版本封装](/All/js/promise/package_class "class版本")
 
-### 6、async/await
+## 6、class-ts版本封装
+>[class-ts](/All/js/promise/package_class_ts "class-ts版本")
+
+## 7、async/await
 >[async/await](/All/js/promise/async "async")
