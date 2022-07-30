@@ -48,3 +48,9 @@ tag: js
 
 ### 继承的多种方式和优缺点
 >[继承的多种方式和优缺点](/All/js/deepStudy/fifteen "继承的多种方式和优缺点")
+
+### 数组方法实现
+>[数组方法实现](/All/js/deepStudy/sixteen "数组方法的实现")
+
+### 模板字符串实现
+>[模板字符串](/All/js/deepStudy/seventeen "模板字符串实现")
