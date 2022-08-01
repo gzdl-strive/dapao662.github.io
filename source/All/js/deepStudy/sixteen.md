@@ -69,8 +69,34 @@ Array.prototype.myUnshift = function (...items) {
 
 ## 遍历方法
 ### 1、map
+>返回一个处理过的新数组
+>第一个参数：生成新数组元素的函数
+>第二个参数：执行callback时的this指向
+```js
+Array.prototype.myMap = function (callback, thisArg) {
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + 'is not a function');
+  }
+  const newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    newArr.push(callback.call(thisArg, this[i], i, this));
+  }
+  return newArr;
+}
+```
 
 ### 2、forEach
+>forEach和map类似，唯一区别是forEach是没有返回值的
+```js
+Array.prototype.myForEach = function (callback, thisArg) {
+  if (typeof callback !== 'function') {
+    throw new TypeError(callback + 'is not a function');
+  }
+  for (let i = 0; i < this.length; i++) {
+    callback.call(thisArg, this[i], i, this);
+  }
+}
+```
 
 ### 3、filter
 
