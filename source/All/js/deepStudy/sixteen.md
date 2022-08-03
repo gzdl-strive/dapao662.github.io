@@ -99,11 +99,73 @@ Array.prototype.myForEach = function (callback, thisArg) {
 ```
 
 ### 3、filter
+>过滤，filter使用指定的函数测试所有元素，并创建一个包含所有通过测试的新数组
+```js
+Array.prototype.myFilter = function (fn) {
+  const newArr = [];
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i])) {
+      newArr.push(this[i]);
+    }
+  }
+  return newArr;
+}
+```
 
 ### 4、reduce
+>reduce方法接收一个函数作为累加器，数组中的每个值(从左到右)开始缩减，最终计算为一个值
+```js
+Array.prototype.myReduce = function (reducer, initVal) {
+  if (!this.length) {
+    throw new Error('Reduce of Empty Array');
+  };
+  let i = 0;
+  if (!initVal) {
+    i = 1;
+    initVal = this[0];
+  }
+  for (i; i < this.length; i++) {
+    initVal = reducer(initVal, this[i], i, this);
+  }
+  return initVal;
+}
+```
 
 ### 5、find
+>find方法返回通过测试(函数内判断)的数组的第一个元素
+```js
+Array.prototype.myFind = function (fn) {
+  if (!this.length) return null;
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i])) return this[i];
+  }
+  return null;
+}
+```
 
 ### 6、some
+>some方法会依次执行数组的每个元素
+>如果有一个元素满足条件，返回true
+>如果一个都没有满足，返回false
+```js
+Array.prototype.mySome = function (fn) {
+  if (!this.length) return false;
+  for (let i = 0; i < this.length; i++) {
+    if (fn(this[i])) return true;
+  }
+  return false;
+}
+```
 
 ### 7、every
+>用于检测数组中所有元素是否都符合条件
+
+```js
+Array.prototype.myEvery = function (fn) {
+  if (!this.length) return false;
+  for (let i = 0; i < this.length; i++) {
+    if (!fn(this[i])) return false;
+  }
+  return true;
+}
+```
