@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Algorithm | 学习笔记</title>
+  <title>AJAX | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述 给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。你需要计算">
+  <meta name="description" content="-  XMLHttpRequest是AJAX的基础，可以解释为可扩展超文本传输请求  12345678910111213141516171819202122232425262728293031323334const getJSON &#x3D; (url) &#x3D;&gt; &amp;#123;  return new Promise((resolve, reject) &#x3D;&gt; &amp;#123;    const xhr">
 <meta property="og:type" content="website">
-<meta property="og:title" content="任务器调度">
-<meta property="og:url" content="http://example.com/algorithm/Study/Queue/eleven.html">
+<meta property="og:title" content="AJAX">
+<meta property="og:url" content="http://example.com/All/js/write/ajax.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="题目描述 给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。你需要计算">
+<meta property="og:description" content="-  XMLHttpRequest是AJAX的基础，可以解释为可扩展超文本传输请求  12345678910111213141516171819202122232425262728293031323334const getJSON &#x3D; (url) &#x3D;&gt; &amp;#123;  return new Promise((resolve, reject) &#x3D;&gt; &amp;#123;    const xhr">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-21T21:56:24.000Z">
-<meta property="article:modified_time" content="2022-08-06T10:57:50.397Z">
+<meta property="article:published_time" content="2022-08-06T18:52:24.000Z">
+<meta property="article:modified_time" content="2022-08-06T10:57:50.393Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,28 +149,32 @@
         
   
     <h1 class="article-title" itemprop="name">
-      任务器调度
+      AJAX
     </h1>
   
 
         
-        <a href="/algorithm/Study/Queue/eleven.html" class="archive-article-date">
-  	<time datetime="2021-03-21T21:56:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-21</time>
+        <a href="/All/js/write/ajax.html" class="archive-article-date">
+  	<time datetime="2022-08-06T18:52:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-06</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>给你一个用字符数组 tasks 表示的 CPU 需要执行的任务列表。其中每个字母表示一种不同种类的任务。任务可以以任意顺序执行，并且每个任务都可以在 1 个单位时间内执行完。在任何一个单位时间，CPU 可以完成一个任务，或者处于待命状态。<br>然而，两个 相同种类 的任务之间必须有长度为整数 n 的冷却时间，因此至少有连续 n 个单位时间内 CPU 在执行不同的任务，或者在待命状态。<br>你需要计算完成所有任务所需要的 最短时间 。</p>
+        <p>-</p>
+<blockquote>
+<p>XMLHttpRequest是AJAX的基础，可以解释为可扩展超文本传输请求</p>
 </blockquote>
-<p><strong>示例</strong><br>示例 1：<br>输入：tasks = [“A”,”A”,”A”,”B”,”B”,”B”], n = 2<br>输出：8<br>解释：A -&gt; B -&gt; (待命) -&gt; A -&gt; B -&gt; (待命) -&gt; A -&gt; B<br>     在本示例中，两个相同类型任务之间必须间隔长度为 n = 2 的冷却时间，而执行一个任务只需要一个单位时间，所以中间出现了（待命）状态。<br>示例 2：<br>输入：tasks = [“A”,”A”,”A”,”B”,”B”,”B”], n = 0<br>输出：6<br>解释：在这种情况下，任何大小为 6 的排列都可以满足要求，因为 n = 0<br>[“A”,”A”,”A”,”B”,”B”,”B”]<br>[“A”,”B”,”A”,”B”,”A”,”B”]<br>[“B”,”B”,”B”,”A”,”A”,”A”]<br>…<br>诸如此类<br>示例 3：<br>输入：tasks = [“A”,”A”,”A”,”A”,”A”,”A”,”B”,”C”,”D”,”E”,”F”,”G”], n = 2<br>输出：16<br>解释：一种可能的解决方案是：<br>     A -&gt; B -&gt; C -&gt; A -&gt; D -&gt; E -&gt; A -&gt; F -&gt; G -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A -&gt; (待命) -&gt; (待命) -&gt; A</p>
-<p><strong>提示：</strong><br>1 &lt;= task.length &lt;= 104<br>tasks[i] 是大写英文字母<br>n 的取值范围为 [0, 100]</p>
-<p><strong>解题思路：</strong><br>1、所有冷却时间都填满=》那么时间就等于任务总数量<br>2、当冷却时间没有填满：n为出现最多的元素个数，假设m种出现n次，k为冷却时间:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">那么时间就为：(n - 1) * (k + 1) + m</span></span><br><span class="line"><span class="comment">例如：n = 4, m = 2, k = 2,那么时间就是(n - 1) * (k + 1) + m</span></span><br><span class="line"><span class="comment">A B  【c】</span></span><br><span class="line"><span class="comment">A B  【】</span></span><br><span class="line"><span class="comment">A B  【】</span></span><br><span class="line"><span class="comment">A B  </span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> getJSON = <span class="function">(<span class="params">url</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">const</span> xhr = XMLHttpRequest ? <span class="keyword">new</span> XMLHttpRequest() : <span class="keyword">new</span> ActiveXObject(<span class="string">&#x27;Mscrosoft.XMLHttp&#x27;</span>);</span><br><span class="line">    <span class="comment">// method、url、async(true异步，false同步)</span></span><br><span class="line">    xhr.open(<span class="string">&#x27;GET&#x27;</span>, url, <span class="literal">false</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// setRequestHeader(label, value): 将标签/值对添加到要发送的HTTP标头</span></span><br><span class="line">    xhr.setRequestHeader(<span class="string">&#x27;Accept&#x27;</span>, <span class="string">&#x27;application/json&#x27;</span>);</span><br><span class="line">    <span class="comment">// onreadystatechange: 存储函数，每当readyState的属性改变时，就会调用该函数。</span></span><br><span class="line">    xhr.onreadystatechange = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">      <span class="comment">// readyState：存有的XHR的状态从0到4发生变化</span></span><br><span class="line">      <span class="comment">// 0 -&gt; 请求未初始化</span></span><br><span class="line">      <span class="comment">// 1 -&gt; 服务器连接已建立</span></span><br><span class="line">      <span class="comment">// 2 -&gt; 请求已接收</span></span><br><span class="line">      <span class="comment">// 3 -&gt; 请求处理中</span></span><br><span class="line">      <span class="comment">// 4 -&gt; 请求已完成，且响应已就绪</span></span><br><span class="line">      <span class="keyword">if</span> (xhr.readyState !== <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// status: 将状态返回为数字</span></span><br><span class="line">      <span class="comment">// statusText: 以字符串形式返回状态</span></span><br><span class="line">      <span class="keyword">if</span> (xhr.status === <span class="number">200</span> || xhr.status === <span class="number">304</span>) &#123;</span><br><span class="line">        <span class="comment">// responseText -&gt; 字符串形式的响应数据</span></span><br><span class="line">        <span class="comment">// responseXML -&gt; XML形式的响应数据</span></span><br><span class="line">        resolve(xhr.responseText);</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        reject(<span class="keyword">new</span> <span class="built_in">Error</span>(xhr.responseText))</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 将请求发送到服务器</span></span><br><span class="line">    <span class="comment">// 参数string --&gt; 仅用于POST请求</span></span><br><span class="line">    xhr.send();</span><br><span class="line">  &#125;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;character[]&#125;</span> </span>tasks </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;number&#125;</span> </span>n </span></span><br><span class="line"><span class="comment"> * <span class="doctag">@return <span class="type">&#123;number&#125;</span></span></span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">const</span> leastInterval = <span class="function"><span class="keyword">function</span> (<span class="params">tasks, n</span>) </span>&#123;</span><br><span class="line">     <span class="comment">//如果冷却时间为0，那么就不需要待命状态，直接返回任务数量即可</span></span><br><span class="line">     <span class="keyword">if</span> (n === <span class="number">0</span>) &#123;</span><br><span class="line">          <span class="keyword">return</span> tasks.length;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">//1、先计算出各个元素出现的次数</span></span><br><span class="line">     <span class="keyword">let</span> arr = <span class="keyword">new</span> <span class="built_in">Array</span>(<span class="number">260</span>).fill(<span class="number">0</span>);</span><br><span class="line">     <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; tasks.length; i++) &#123;</span><br><span class="line">          arr[tasks[i].charCodeAt() - <span class="number">65</span>]++;</span><br><span class="line">     &#125;</span><br><span class="line">     <span class="comment">//2、得到出现次数最多的数和有几种出现最多</span></span><br><span class="line">     <span class="keyword">let</span> max = <span class="built_in">Math</span>.max(...arr), maxCount = <span class="number">0</span>;</span><br><span class="line">     arr.forEach(<span class="function"><span class="params">v</span> =&gt;</span> &#123;</span><br><span class="line">          <span class="keyword">if</span> (v === max) &#123;</span><br><span class="line">               maxCount++;</span><br><span class="line">          &#125;</span><br><span class="line">     &#125;);</span><br><span class="line">     <span class="comment">//(1)如果任务能填满待命空格，那么task.length一定大于或等于公式计算处理的</span></span><br><span class="line">     <span class="comment">//(2)如果任务不能填满待命空格，那么位置数量就为公式计算出来的，一定大于任务数量</span></span><br><span class="line">     <span class="comment">//所以不管哪种情况都取的的两者较大的那个数</span></span><br><span class="line">     <span class="keyword">return</span> <span class="built_in">Math</span>.max(((max - <span class="number">1</span>) * (n + <span class="number">1</span>) + maxCount),tasks.length);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>其他方法</p>
+<ul>
+<li>1、<code>abort()</code> -&gt; 取消当前请求</li>
+<li>2、<code>getAllResponseHeaders()</code> -&gt; 已字符串形式返回完整的HTTP标头集</li>
+<li>3、<code>getResponseHeader(headerName)</code>-&gt; 返回指定HTTP标头的值</li>
+</ul>
+
       
 
       
@@ -228,7 +232,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/Queue/eleven.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/js/write/ajax.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,7 +265,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%98%E7%9B%AE%E6%8F%8F%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">题目描述</span></a></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -305,7 +309,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
