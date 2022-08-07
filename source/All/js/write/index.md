@@ -56,6 +56,7 @@ toc: true
 >[AJAX](/All/js/write/ajax "AJAX")
 
 ### 深拷贝
+>[深拷贝](/All/js/write/deepClone "深拷贝")
 
 ### 懒加载
 
