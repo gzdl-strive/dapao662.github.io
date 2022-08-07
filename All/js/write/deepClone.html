@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: HTML | 学习笔记</title>
+  <title>深拷贝 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="HTML5:1、geolocation–定位2、video、audio3、localStorage    类似cookie：   小(4k)-出现时间早、浏览器和服务器共享    localStorage    大（5M）、浏览器独享4、*WebWorker    多进程5、WebSQL、IndexedDB–安全隐患（几乎用不着）    *W3C删除了6、文件操作、文件拖拽7、canvas–画图">
+  <meta name="description" content="12345678910111213141516171819202122const cloneDeep &#x3D; (target, hash &#x3D; new WeakMap()) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 对传入的参数进行处理————如果是非对象类型或Null直接返回即可  if (typeof target !&#x3D;&#x3D; &amp;#x27;object&amp;#x27; || target &#x3D;&#x3D;&#x3D; null) &amp;#1">
 <meta property="og:type" content="website">
-<meta property="og:title" content="HTML5笔记">
-<meta property="og:url" content="http://example.com/html5/note.html">
+<meta property="og:title" content="深拷贝">
+<meta property="og:url" content="http://example.com/All/js/write/deepClone.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="HTML5:1、geolocation–定位2、video、audio3、localStorage    类似cookie：   小(4k)-出现时间早、浏览器和服务器共享    localStorage    大（5M）、浏览器独享4、*WebWorker    多进程5、WebSQL、IndexedDB–安全隐患（几乎用不着）    *W3C删除了6、文件操作、文件拖拽7、canvas–画图">
+<meta property="og:description" content="12345678910111213141516171819202122const cloneDeep &#x3D; (target, hash &#x3D; new WeakMap()) &#x3D;&gt; &amp;#123;  &#x2F;&#x2F; 对传入的参数进行处理————如果是非对象类型或Null直接返回即可  if (typeof target !&#x3D;&#x3D; &amp;#x27;object&amp;#x27; || target &#x3D;&#x3D;&#x3D; null) &amp;#1">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-29T10:15:19.000Z">
-<meta property="article:modified_time" content="2022-08-07T12:37:26.320Z">
+<meta property="article:published_time" content="2022-08-07T20:32:24.000Z">
+<meta property="article:modified_time" content="2022-08-07T12:37:26.144Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,135 +149,20 @@
         
   
     <h1 class="article-title" itemprop="name">
-      HTML5笔记
+      深拷贝
     </h1>
   
 
         
-        <a href="/html5/note.html" class="archive-article-date">
-  	<time datetime="2020-12-29T10:15:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-29</time>
+        <a href="/All/js/write/deepClone.html" class="archive-article-date">
+  	<time datetime="2022-08-07T20:32:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <blockquote>
-<p>HTML5:<br>1、geolocation–定位<br>2、video、audio<br>3、localStorage<br>    类似cookie：   小(4k)-出现时间早、浏览器和服务器共享<br>    localStorage    大（5M）、浏览器独享<br>4、*WebWorker<br>    多进程<br>5、WebSQL、IndexedDB–安全隐患（几乎用不着）<br>    *W3C删除了<br>6、文件操作、文件拖拽<br>7、canvas–画图<br>    SVG/VML<br>8、manifest文件        前台控制缓存<br>    *本地应用(用处不大)</p>
-</blockquote>
-<h2 id="geolocation–定位"><a href="#geolocation–定位" class="headerlink" title="geolocation–定位"></a>geolocation–定位</h2><p>1、原理<br>    PC端:IP地址    精度非常差<br>    移动:GPS      精度很高<br>2、PC端<br>    IP地址–IP库<br>    Chorme-&gt;找google.com要IP库<br>    IE-&gt;mircosoft.com</p>
-<hr>
-<p><code>getCurrentPosition</code>      获取位置（一次）</p>
-<p><code>watchPosition</code>           不断获取位置<br>clearWatch</p>
-<hr>
-<p>coords.latitude    十进制数的纬度<br>coords.longitude    十进制数的经度<br>coords.accuracy    位置精度<br>coords.altitude    海拔，海平面以上以米计<br>coords.altitudeAccuracy    位置的海拔精度<br>coords.heading    方向，从正北开始以度计<br>coords.speed    速度，以米/每秒计<br>timestamp    响应的日期/时间</p>
-<p><strong>练习</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// html代码：&lt;p id=&quot;p1&quot;&gt;&lt;/p&gt; &lt;button onclick=&quot;geolocation()&quot;&gt;点击&lt;/button&gt;</span></span><br><span class="line"><span class="keyword">const</span> x = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;p1&#x27;</span>);</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">geolocation</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">if</span>(<span class="params">navigator.geolocation</span>)</span>&#123;</span><br><span class="line">        <span class="comment">//getCurrentPosition（成功，失败，参数）</span></span><br><span class="line">        navigator.geolocation.getCurrentPosition(<span class="function"><span class="keyword">function</span> (<span class="params">res</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;ok&#x27;</span>);</span><br><span class="line">            alert(<span class="string">&#x27;成功&#x27;</span>) ;</span><br><span class="line">        &#125;,<span class="function"><span class="keyword">function</span> (<span class="params">err</span>) </span>&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="string">&#x27;fail&#x27;</span>);</span><br><span class="line">            alert(<span class="string">&#x27;失败&#x27;</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">        x.innerHTML=<span class="string">&#x27;这个浏览器不支持Geolocation定位&#x27;</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<h2 id="localStorage-5M-域名"><a href="#localStorage-5M-域名" class="headerlink" title="localStorage: 5M/域名"></a>localStorage: 5M/域名</h2><blockquote>
-<p>1、域名，跨域<br>2、极其方便<br>3、用途:记录用户名、保存草稿<br>localStorage    永久储存<br>sessionStorage  会话期间存储–浏览器一关就没了</p>
-</blockquote>
-<p><strong>练习1</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">localStorage</span>.a = <span class="number">12</span>; <span class="comment">//存</span></span><br><span class="line">alert(<span class="built_in">localStorage</span>.a); <span class="comment">//取</span></span><br><span class="line"><span class="built_in">localStorage</span>.b=<span class="number">24</span>;</span><br><span class="line"><span class="comment">//遍历</span></span><br><span class="line"><span class="function"><span class="title">for</span>(<span class="params"><span class="keyword">let</span> name <span class="keyword">in</span> <span class="built_in">localStorage</span></span>)</span>&#123;</span><br><span class="line">    alert(<span class="string">`<span class="subst">$&#123;name&#125;</span>: <span class="subst">$&#123;<span class="built_in">localStorage</span>[name]&#125;</span>`</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//删除</span></span><br><span class="line"><span class="keyword">delete</span> <span class="built_in">localStorage</span>.b;</span><br></pre></td></tr></table></figure>
-<p><strong>练习2–&gt;保存草稿</strong></p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">textarea</span> <span class="attr">row</span>=<span class="string">&quot;20&quot;</span> <span class="attr">cols</span>=<span class="string">&quot;50&quot;</span> <span class="attr">id</span>=<span class="string">&quot;txt&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;button&quot;</span> <span class="attr">value</span>=<span class="string">&quot;发送&quot;</span> <span class="attr">id</span>=<span class="string">&quot;btn&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span>.onload = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> txt = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;txt&#x27;</span>);</span><br><span class="line">    <span class="keyword">let</span> btn = <span class="built_in">document</span>.getElementById(<span class="string">&#x27;btn&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    txt.value = <span class="built_in">localStorage</span>.temp_txt || <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">    txt.oninput = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        <span class="built_in">localStorage</span>.temp_txt = txt.value;</span><br><span class="line">    &#125;</span><br><span class="line">    btn.click = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">        alert(<span class="string">&#x27;发送成功&#x27;</span>);</span><br><span class="line">        <span class="keyword">delete</span> <span class="built_in">localStorage</span>.temp_txt;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="webWorker-web多进程"><a href="#webWorker-web多进程" class="headerlink" title="webWorker-web多进程"></a>webWorker-web多进程</h2><blockquote>
-<p>主进程–UI进程<br>子进程–工作进程<br>webWorker–工作进程<br>1、不能控制UI的东西，可以数据交互<br>2、子进程不能再创建子进程<br>3、跨域<br>多进程–更充分发挥计算机资源(不是内存，不是IO,不是网络，而是CPU)</p>
-</blockquote>
-<p><strong>练习</strong></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// webworker.html</span></span><br><span class="line"><span class="keyword">let</span> ow=<span class="keyword">new</span> Worker(<span class="string">&#x27;1.js&#x27;</span>);</span><br><span class="line">ow.onmessage=<span class="function"><span class="keyword">function</span>(<span class="params">ev</span>)</span>&#123;</span><br><span class="line">    alert(ev.data);</span><br><span class="line">&#125;</span><br><span class="line">ow.postMessage(&#123;<span class="attr">n1</span>:<span class="number">66</span>,<span class="attr">n2</span>:<span class="number">33</span>&#125;);</span><br></pre></td></tr></table></figure>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.js</span></span><br><span class="line"><span class="built_in">this</span>.onmessage=<span class="function"><span class="keyword">function</span> (<span class="params">ev</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">let</span> &#123;n1,n2&#125;=ev.data;</span><br><span class="line">    <span class="keyword">let</span> result=n1+n2;</span><br><span class="line">    <span class="built_in">this</span>.postMessage(result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h2 id="画图"><a href="#画图" class="headerlink" title="画图"></a>画图</h2><blockquote>
-<p>canvas  位图–放大失真    html5标准<br>SVG     矢量图–无限缩放   不是html5的东西，是一个独立标准<br>VML     矢量图             IE的矢量图</p>
-</blockquote>
-<h3 id="canvas"><a href="#canvas" class="headerlink" title="canvas"></a>canvas</h3><blockquote>
-<p>1、路径操作：<br>    相当于选取-没有效果,还需要后续操作<br>    moveTo<br>    lineTo<br>2、边线：stroke()<br>3、填充：fill（）<br>线宽：lineWidth<br>线色，填充颜色:strokeStyle,fillStyle<br>一切路径操作之前，一定要<strong>beginPath()</strong></p>
-</blockquote>
-<hr>
-<p><code>beginPath()</code>         <strong>清楚之前路径</strong>      <strong>必须加</strong><br><code>closePath()</code>         <strong>闭合之前路径</strong></p>
-<hr>
-<h2 id="Canvas怎么自适应-gt-window-onresize"><a href="#Canvas怎么自适应-gt-window-onresize" class="headerlink" title="Canvas怎么自适应-&gt;window.onresize"></a>Canvas怎么自适应-&gt;<code>window.onresize</code></h2><p><strong>矩形：</strong><br>rect()          路径操作<br>strokeRect()    图形操作<br>fillRect()      图形操作<br>clearRect       删除一块图形<br>Canvas–不会保存图形（速度极快）<br>1、图形不能修改–删了重画<br>2、也没有事件（图形）–整个canvas有事件（canvas是一个标签）<br>1000/16=62.5(人体极限60帧)</p>
-<hr>
-<p>Canvas动画–擦了重画：<br>1、全擦-重画<br>2、动画-requestAnimationFrame函数</p>
-<hr>
-<p>线：moveTO/lineTo<br>矩形：rect<br>圆：arc(弧)        路径操作</p>
-<hr>
-<p><strong>文字</strong><br>strokeText()  gd.fillText(‘你好’,100,100);100，100是基线位置（左下角）<br>fillText<br>gd.font=’40px 楷体’;</p>
-<hr>
-<p>canvas也有transform<br>1、rotate<br>2、translate<br>3、scale</p>
-<hr>
-<p><strong>注意</strong></p>
-<blockquote>
-<p>canvas–建议必加<br>1、beginPath<br>2、save,restore</p>
-</blockquote>
-<hr>
-<p>canvas:<br>1、路径操作<br>2、beginPath、save/restore<br>3、形状:线、弧、矩形<br>4、变换：canvas左上角</p>
-<hr>
-<p>canvas–游戏、图表</p>
-<p>canvas:<br>1、图片操作–90%<br>    drawImage(oImg,x,y)–整张图片<br>    oImg对象:<img>、Image对象、另一个canvas、另一个video、base64(一种编码方式)<br>    drawImage(<br>        oImg<br>        sx,sy,sw,sh         source<br>        dx,dy,dw,dh         dest<br>    )<br>    停止、暂停、移动…<br>2、像素级操作<br>    <strong>性能极低</strong><br>    获取一块像素      =&gt;  “数组”<br>    设置一块像素      =&gt;  “数组”-&gt;Canvas<br>    创建一块像素      =&gt;  “空白数组”</p>
-<pre><code>1像素占4位:rgba
-r:  0~255
-g:  0~255
-b:  0~255
-a:  0~255
-
-w:200 h:300
-0行0列        0
-0行1列        1
-0行55列       55
-1行0列        200
-2行0列        400
-r行c列        r*w+c</code></pre>
-<p>3、video和canvas配合<br>    视频滤镜</p>
-<p>4、图形后续处理<br>    用户打开、下载、存到服务器<br>canvassend.html 1.jepg server.js</p>
-<hr>
-<p>canvas 位图-缩放失真； 不保存图形-不能修改、没有事件； 性能非常高<br>        适合:游戏、大型图表</p>
-<p>SVG    矢量图-缩放不失真； 保留图形-能修改、有事件；   性能一般（跟普通标签一样）<br>        适合：交互频繁–普通图表</p>
-<h3 id="SVG"><a href="#SVG" class="headerlink" title="SVG"></a>SVG</h3><blockquote>
-<p>1、矢量<br>2、保存-事件、属性<br>3、性能一般<br>SVG虽然是标签，不是HTML标准–SVG标准</p>
-</blockquote>
-<hr>
-<p>SVG标签：<br>    只能做属性–决定图形形状<br>    可以放样式（style）–视觉上效果-颜色…<br>    *放样式里<br>    **属性的样式优先级太低了</p>
-<pre><code>属性&lt;*&lt;标签&lt;class&lt;ID&lt;行间</code></pre>
-<p>1、SVG由标签组成-svg、line、…<br>2、属性：形状的参数<br>    样式：视觉<br>3、事件-修改<br>    添加事件    –一样<br>    修改样式    –一样<br>    属性操作    –.setAttribute,.getAttribute</p>
-<h2 id="矢量图都没有单位"><a href="#矢量图都没有单位" class="headerlink" title="矢量图都没有单位"></a>矢量图都没有单位</h2><h2 id="SVG和HTML–兄弟（基于XML-SVG更像XML）"><a href="#SVG和HTML–兄弟（基于XML-SVG更像XML）" class="headerlink" title="SVG和HTML–兄弟（基于XML,SVG更像XML）"></a>SVG和HTML–兄弟（基于XML,SVG更像XML）</h2><p>图形：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">line</span> <span class="attr">x1</span> <span class="attr">y1</span> <span class="attr">x2</span> <span class="attr">y2</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">rect</span> <span class="attr">x</span> <span class="attr">y</span> <span class="attr">width</span> <span class="attr">height</span> <span class="attr">rx</span> <span class="attr">ry</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">circle</span> <span class="attr">cx</span> <span class="attr">cy</span> <span class="attr">r</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ellipse</span> <span class="attr">cx</span> <span class="attr">cy</span> <span class="attr">rx</span> <span class="attr">ry</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>样式：<br>stroke  边线颜色<br>stroke-width    线宽<br>fill        填充</p>
-<hr>
-<p>M = moveto<br>L = lineto<br>H = horizontal lineto<br>V = vertical lineto<br>C = curveto<br>S = smooth curveto<br>Q = quadratic Belzier curve<br>T = smooth quadratic Belzier curveto<br>A = elliptical Arc<br>Z = closepath<br><path><br>M   moveTo  x y<br>L   lineTo  (x y)+<br>A   arc     rx ry x旋转 大弧标志(大弧：1,小弧0) 镜像标志（起点终点连线，左：0，右：1）  终点x y</p>
-<hr>
-<p>SVG:<br>1、标签:</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">svg</span>&gt;</span><span class="tag">&lt;<span class="name">line</span>&gt;</span><span class="tag">&lt;<span class="name">circle</span>&gt;</span><span class="tag">&lt;<span class="name">path</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<p>2、样式:style<br>3、属性:JS操作–getAttribute/set<br>4、事件<br>5、css3样式–不认<br>    动画</p>
-<hr>
-<p>JS生成元素<br>document.createElement  创建HTML元素</p>
-<p>NS–&gt;Name Space(document.createElementNS(‘<a target="_blank" rel="noopener" href="http://www.w3.org/2000/svg&#39;,&#39;line&#39;">http://www.w3.org/2000/svg&#39;,&#39;line&#39;</a>))</p>
-<p>document.createElement=&gt;document.createElementNS(“<a target="_blank" rel="noopener" href="http://www.w3.org/1999/xhtml&quot;">http://www.w3.org/1999/xhtml&quot;</a>)</p>
-<h2 id="如果要创建svg标签也要用NS"><a href="#如果要创建svg标签也要用NS" class="headerlink" title="如果要创建svg标签也要用NS"></a>如果要创建svg标签也要用NS</h2><p>矢量图-用库</p>
-<h2 id="Raphael-强"><a href="#Raphael-强" class="headerlink" title="Raphael 强"></a>Raphael 强</h2><p>echarts     简单、方便–图表<br>d3          复杂、强大</p>
-<hr>
-<h2 id="CSS3样式"><a href="#CSS3样式" class="headerlink" title="CSS3样式"></a>CSS3样式</h2><blockquote>
-<p>1、圆角 border-radius<br>2、阴影 text-shadow、box-shadow<br>3、渐变 linear(线性渐变)、radial（径向渐变）     渐变其实是一种图片<br>4、rgba(red,green,blue,alpha)alpha 参数是介于 0.0（完全透明）与 1.0（完全不透明）的数字<br>5、transform<br>    rotate(旋转)/scale(缩放)/translate(平移)——移动端特别爱用translate/skew(倾斜)<br>    **transform一定要加初始值<br>6、transition、animation</p>
-</blockquote>
-<h3 id="Css3性能："><a href="#Css3性能：" class="headerlink" title="Css3性能："></a>Css3性能：</h3><blockquote>
-<p>css3样式不改变盒模型<br>盒模型：物体占据的空间<br>css3样式（尤其是translate）不会引起重排重绘——性能更高</p>
-</blockquote>
-<hr>
-<p>DOM操作——（为什么耗费时间）——越大越慢<br>1、重排（）<br>2、重绘</p>
-<hr>
-<p>动画：<br>1、transition        简单、容易、方便    常用<br>2、animation         强大、麻烦          复杂的链式动画</p>
-<hr>
-<p>transform高级<br>transform：rotate(45deg) scale(2,1)<strong>先执行后面的再执行前面的</strong><br>2d                  3d<br>rotate              rotateX/rotateY/rotateZ<br>translate           translateX/translateY/translateY</p>
-<hr>
-<p>移动端——布局、touch、库<br>图形——canvas、SVG、echars、d3</p>
-<hr>
-<p>3d transform–perspective、preserver-3d<br>1、perspective–自己       <strong>视觉效果</strong><br>    <em>只给最外层加一次</em><br>2、preserver-3d–子元素     <strong>子元素可以脱离父级</strong><br>    <em>每个需要子级出来的地方</em></p>
-
+        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> cloneDeep = <span class="function">(<span class="params">target, hash = <span class="keyword">new</span> <span class="built_in">WeakMap</span>()</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 对传入的参数进行处理————如果是非对象类型或Null直接返回即可</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> target !== <span class="string">&#x27;object&#x27;</span> || target === <span class="literal">null</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> target;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 哈希表中如果存在直接返回</span></span><br><span class="line">  <span class="keyword">if</span> (hash.has(target)) &#123;</span><br><span class="line">    <span class="keyword">return</span> hash.get(target);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">const</span> cloneTarget = <span class="built_in">Array</span>.isArray(target) ? [] : &#123;&#125;;</span><br><span class="line">  hash.set(target, cloneTarget);</span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> i <span class="keyword">in</span> target) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="built_in">Object</span>.prototype.hasOwnProperty.call(target, i)) &#123;</span><br><span class="line">      cloneTarget[i] = </span><br><span class="line">        <span class="keyword">typeof</span> target[i] === <span class="string">&#x27;object&#x27;</span></span><br><span class="line">          &amp;&amp; target[i] !== <span class="literal">null</span></span><br><span class="line">            ? cloneDeep(target[i], hash)</span><br><span class="line">            : target[i];</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="keyword">return</span> cloneTarget;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
 
       
@@ -335,7 +220,7 @@ r行c列        r*w+c</code></pre>
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/html5/note.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/js/write/deepClone.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -368,7 +253,7 @@ r行c列        r*w+c</code></pre>
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#geolocation%E2%80%93%E5%AE%9A%E4%BD%8D"><span class="toc-number">1.</span> <span class="toc-text">geolocation–定位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#localStorage-5M-%E5%9F%9F%E5%90%8D"><span class="toc-number">2.</span> <span class="toc-text">localStorage: 5M&#x2F;域名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#webWorker-web%E5%A4%9A%E8%BF%9B%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">webWorker-web多进程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%BB%E5%9B%BE"><span class="toc-number">4.</span> <span class="toc-text">画图</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#canvas"><span class="toc-number">4.1.</span> <span class="toc-text">canvas</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Canvas%E6%80%8E%E4%B9%88%E8%87%AA%E9%80%82%E5%BA%94-gt-window-onresize"><span class="toc-number">5.</span> <span class="toc-text">Canvas怎么自适应-&gt;window.onresize</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#SVG"><span class="toc-number">5.1.</span> <span class="toc-text">SVG</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A2%E9%87%8F%E5%9B%BE%E9%83%BD%E6%B2%A1%E6%9C%89%E5%8D%95%E4%BD%8D"><span class="toc-number">6.</span> <span class="toc-text">矢量图都没有单位</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVG%E5%92%8CHTML%E2%80%93%E5%85%84%E5%BC%9F%EF%BC%88%E5%9F%BA%E4%BA%8EXML-SVG%E6%9B%B4%E5%83%8FXML%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">SVG和HTML–兄弟（基于XML,SVG更像XML）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E8%A6%81%E5%88%9B%E5%BB%BAsvg%E6%A0%87%E7%AD%BE%E4%B9%9F%E8%A6%81%E7%94%A8NS"><span class="toc-number">8.</span> <span class="toc-text">如果要创建svg标签也要用NS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Raphael-%E5%BC%BA"><span class="toc-number">9.</span> <span class="toc-text">Raphael 强</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS3%E6%A0%B7%E5%BC%8F"><span class="toc-number">10.</span> <span class="toc-text">CSS3样式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Css3%E6%80%A7%E8%83%BD%EF%BC%9A"><span class="toc-number">10.1.</span> <span class="toc-text">Css3性能：</span></a></li></ol></li></ol>
+                    目录，不存在的…
                     </div>
                 </span>
             </div>
@@ -412,7 +297,7 @@ r行c列        r*w+c</code></pre>
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
