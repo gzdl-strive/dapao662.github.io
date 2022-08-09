@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: webpack | 学习笔记</title>
+  <title>渲染10万条数据 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="123456789101112131415161718192021const &amp;#123;resolve&amp;#125; &#x3D; require(&amp;#x27;path&amp;#x27;);const HtmlWbpackPlugin &#x3D; require(&amp;#x27;html-webpack-plugin&amp;#x27;);module.exports&#x3D;&amp;#123;    entry:&amp;#x27;.&#x2F;src&#x2F;js&#x2F;i">
+  <meta name="description" content="渲染大数据，使用createDocumentFragment和requestAnimationFrame,将操作切分成一小段一小段执行。 createDocumentFragment方法创建了一虚拟的节点对象，节点对象包含所有属性和方法。 createDocumentFragment创建的文档片段存在于内存中，所以将子元素插入到文档片段时不会引起页面回流(对元素位置和几何上的计算) 因此，使">
 <meta property="og:type" content="website">
-<meta property="og:title" content="externals">
-<meta property="og:url" content="http://example.com/webpack/webpackTest/four/externals.html">
+<meta property="og:title" content="渲染10万条数据">
+<meta property="og:url" content="http://example.com/All/js/write/renderBigData.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="123456789101112131415161718192021const &amp;#123;resolve&amp;#125; &#x3D; require(&amp;#x27;path&amp;#x27;);const HtmlWbpackPlugin &#x3D; require(&amp;#x27;html-webpack-plugin&amp;#x27;);module.exports&#x3D;&amp;#123;    entry:&amp;#x27;.&#x2F;src&#x2F;js&#x2F;i">
+<meta property="og:description" content="渲染大数据，使用createDocumentFragment和requestAnimationFrame,将操作切分成一小段一小段执行。 createDocumentFragment方法创建了一虚拟的节点对象，节点对象包含所有属性和方法。 createDocumentFragment创建的文档片段存在于内存中，所以将子元素插入到文档片段时不会引起页面回流(对元素位置和几何上的计算) 因此，使">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-11-03T21:35:24.000Z">
-<meta property="article:modified_time" content="2022-08-09T09:44:16.428Z">
+<meta property="article:published_time" content="2022-08-09T09:48:24.000Z">
+<meta property="article:modified_time" content="2022-08-09T09:44:16.232Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,20 +149,28 @@
         
   
     <h1 class="article-title" itemprop="name">
-      externals
+      渲染10万条数据
     </h1>
   
 
         
-        <a href="/webpack/webpackTest/four/externals.html" class="archive-article-date">
-  	<time datetime="2020-11-03T21:35:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-11-03</time>
+        <a href="/All/js/write/renderBigData.html" class="archive-article-date">
+  	<time datetime="2022-08-09T09:48:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-09</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> &#123;resolve&#125; = <span class="built_in">require</span>(<span class="string">&#x27;path&#x27;</span>);</span><br><span class="line"><span class="keyword">const</span> HtmlWbpackPlugin = <span class="built_in">require</span>(<span class="string">&#x27;html-webpack-plugin&#x27;</span>);</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;</span><br><span class="line">    entry:<span class="string">&#x27;./src/js/index.js&#x27;</span>,</span><br><span class="line">    output:&#123;</span><br><span class="line">        filename:<span class="string">&#x27;js/built.js&#x27;</span>,</span><br><span class="line">        path:resolve(__dirname,<span class="string">&#x27;build&#x27;</span>)</span><br><span class="line">    &#125;,</span><br><span class="line">    plugins:[</span><br><span class="line">        <span class="keyword">new</span> HtmlWbpackPlugin(&#123;</span><br><span class="line">            template:<span class="string">&#x27;./src/index.html&#x27;</span></span><br><span class="line">        &#125;)</span><br><span class="line">    ],</span><br><span class="line">    mode:<span class="string">&#x27;production&#x27;</span>,</span><br><span class="line">    externals: &#123;</span><br><span class="line">        <span class="comment">//忽略库名 -- npm 包名</span></span><br><span class="line">        <span class="comment">//拒绝jQuery被打包进来</span></span><br><span class="line">        jquery: <span class="string">&#x27;jQuery&#x27;</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <blockquote>
+</blockquote>
+<ul>
+<li>渲染大数据，使用createDocumentFragment和requestAnimationFrame,将操作切分成一小段一小段执行。</li>
+<li>createDocumentFragment方法创建了一虚拟的节点对象，节点对象包含所有属性和方法。</li>
+<li>createDocumentFragment创建的文档片段存在于内存中，所以将子元素插入到文档片段时不会引起页面回流(对元素位置和几何上的计算)</li>
+<li>因此，使用文档片段通常会带来更好的性能</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">setTimeout</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 插入10万条数据</span></span><br><span class="line">  <span class="keyword">const</span> total = <span class="number">100000</span>;</span><br><span class="line">  <span class="comment">// 一次插入的数据</span></span><br><span class="line">  <span class="keyword">const</span> once = <span class="number">20</span>;</span><br><span class="line">  <span class="comment">// 插入数据需要的次数</span></span><br><span class="line">  <span class="keyword">const</span> loopCount = <span class="built_in">Math</span>.ceil(total / once);</span><br><span class="line">  <span class="keyword">let</span> countOfRender = <span class="number">0</span>;</span><br><span class="line">  <span class="keyword">const</span> ul = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;ul&#x27;</span>);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 添加数据的方法</span></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">add</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">const</span> fragment = <span class="built_in">document</span>.createDocumentFragment();</span><br><span class="line">    <span class="keyword">for</span> (<span class="keyword">let</span> i = <span class="number">0</span>; i &lt; once; i++) &#123;</span><br><span class="line">      <span class="keyword">const</span> li = <span class="built_in">document</span>.createElement(<span class="string">&#x27;li&#x27;</span>);</span><br><span class="line">      li.innerText = <span class="string">`【<span class="subst">$&#123;<span class="number">20</span> * (countOfRender + <span class="number">1</span>)&#125;</span>】- <span class="subst">$&#123;<span class="built_in">Math</span>.floor(<span class="built_in">Math</span>.random() * total)&#125;</span>`</span> ;</span><br><span class="line">      fragment.appendChild(li);</span><br><span class="line">    &#125;</span><br><span class="line">    ul.appendChild(fragment);</span><br><span class="line">    countOfRender += <span class="number">1</span>;</span><br><span class="line">    loop();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">function</span> <span class="title">loop</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (countOfRender &lt; loopCount) &#123;</span><br><span class="line">      <span class="built_in">window</span>.requestAnimationFrame(add);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  loop();</span><br><span class="line">&#125;, <span class="number">0</span>);</span><br></pre></td></tr></table></figure>
       
 
       
@@ -220,7 +228,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/webpack/webpackTest/four/externals.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/js/write/renderBigData.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -245,6 +253,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -284,7 +305,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
