@@ -62,6 +62,7 @@ toc: true
 >[懒加载](/All/js/write/lazyload "懒加载")
 
 ### 渲染10万条数据
+>[渲染大数据](/All/js/write/renderBigData "渲染大数据")
 
 ### 虚拟DOM转DOM
 
