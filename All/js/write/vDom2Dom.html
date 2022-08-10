@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: ts | 学习笔记</title>
+  <title>虚拟DOM转真实DOM | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="抽象 抽象类只能作为父级使用，不能之间实例化  1234567891011121314151617181920212223242526272829303132333435363738394041abstract class Shape &amp;#123;    abstract draw(gd): void;    abstract area(): number;    abstract pointin">
+  <meta name="description" content="vnode结构(虚拟节点结构)  12345&amp;#123;  tag,  attrs,  children&amp;#125;  1234567891011121314151617181920212223242526function render(vnode, container) &amp;#123;  container.appendChild(_render(vnode));&amp;#125;function _">
 <meta property="og:type" content="website">
-<meta property="og:title" content="抽象、接口">
-<meta property="og:url" content="http://example.com/ts/firstKnow/eight.html">
+<meta property="og:title" content="虚拟DOM转真实DOM">
+<meta property="og:url" content="http://example.com/All/js/write/vDom2Dom.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="抽象 抽象类只能作为父级使用，不能之间实例化  1234567891011121314151617181920212223242526272829303132333435363738394041abstract class Shape &amp;#123;    abstract draw(gd): void;    abstract area(): number;    abstract pointin">
+<meta property="og:description" content="vnode结构(虚拟节点结构)  12345&amp;#123;  tag,  attrs,  children&amp;#125;  1234567891011121314151617181920212223242526function render(vnode, container) &amp;#123;  container.appendChild(_render(vnode));&amp;#125;function _">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-12-28T10:33:02.000Z">
-<meta property="article:modified_time" content="2022-08-10T09:49:57.737Z">
+<meta property="article:published_time" content="2022-08-10T09:31:24.000Z">
+<meta property="article:modified_time" content="2022-08-10T09:49:57.524Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,25 +149,29 @@
         
   
     <h1 class="article-title" itemprop="name">
-      抽象、接口
+      虚拟DOM转真实DOM
     </h1>
   
 
         
-        <a href="/ts/firstKnow/eight.html" class="archive-article-date">
-  	<time datetime="2020-12-28T10:33:02.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-12-28</time>
+        <a href="/All/js/write/vDom2Dom.html" class="archive-article-date">
+  	<time datetime="2022-08-10T09:31:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-10</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="抽象"><a href="#抽象" class="headerlink" title="抽象"></a>抽象</h2><blockquote>
-<p>抽象类只能作为父级使用，不能之间实例化</p>
+        <blockquote>
+<p>vnode结构(虚拟节点结构)</p>
 </blockquote>
-<figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="keyword">abstract</span> draw(gd): <span class="built_in">void</span>;</span><br><span class="line">    <span class="keyword">abstract</span> area(): <span class="built_in">number</span>;</span><br><span class="line">    <span class="keyword">abstract</span> pointin(x: <span class="built_in">number</span>, <span class="attr">y</span>: <span class="built_in">number</span>):<span class="built_in">boolean</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> width: <span class="built_in">number</span>, <span class="keyword">private</span> height: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    draw(gd): <span class="built_in">void</span> &#123;</span><br><span class="line">        gd.fillRect(<span class="number">0</span>, <span class="number">0</span>, <span class="built_in">this</span>.width, <span class="built_in">this</span>.height);</span><br><span class="line">    &#125;</span><br><span class="line">    area(): <span class="built_in">number</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width*<span class="built_in">this</span>.height;</span><br><span class="line">    &#125;</span><br><span class="line">    pointin(x: <span class="built_in">number</span>, <span class="attr">y</span>: <span class="built_in">number</span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Circle</span> <span class="keyword">extends</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> cx: <span class="built_in">number</span>, <span class="keyword">private</span> cy: <span class="built_in">number</span>, <span class="keyword">private</span> r: <span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">        <span class="built_in">super</span>();</span><br><span class="line">    &#125;</span><br><span class="line">    draw(gd): <span class="built_in">void</span> &#123;</span><br><span class="line">        gd.arc();</span><br><span class="line">    &#125;</span><br><span class="line">    area(): <span class="built_in">number</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">Math</span>.PI * <span class="built_in">Math</span>.pow(<span class="built_in">this</span>.r, <span class="number">2</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    pointin(x: <span class="built_in">number</span>, <span class="attr">y</span>: <span class="built_in">number</span>): <span class="built_in">boolean</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> a: Rect;</span><br><span class="line">a = <span class="keyword">new</span> Rect(<span class="number">400</span>, <span class="number">300</span>);</span><br><span class="line"><span class="built_in">console</span>.log(a.area());<span class="comment">//120000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> c: Circle;</span><br><span class="line">c = <span class="keyword">new</span> Circle(<span class="number">400</span>, <span class="number">300</span>, <span class="number">150</span>);</span><br><span class="line"><span class="built_in">console</span>.log(c.area());<span class="comment">//70685.83470577035</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  tag,</span><br><span class="line">  attrs,</span><br><span class="line">  children</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<h2 id="接口"><a href="#接口" class="headerlink" title="接口"></a>接口</h2><figure class="highlight ts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">interface</span> Shape &#123;</span><br><span class="line">    area(): <span class="built_in">number</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rect</span> <span class="title">implements</span> <span class="title">Shape</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="title">constructor</span>(<span class="params"><span class="keyword">private</span> width:<span class="built_in">number</span>,<span class="keyword">private</span> height:<span class="built_in">number</span></span>)</span> &#123;</span><br><span class="line">    &#125;</span><br><span class="line">    area(): <span class="built_in">number</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="built_in">this</span>.width*<span class="built_in">this</span>.height;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">let</span> r: Shape = <span class="keyword">new</span> Rect(<span class="number">100</span>, <span class="number">200</span>);</span><br><span class="line"><span class="built_in">console</span>.log(r.area());<span class="comment">//20000</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">render</span>(<span class="params">vnode, container</span>) </span>&#123;</span><br><span class="line">  container.appendChild(_render(vnode));</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">_render</span>(<span class="params">vnode</span>) </span>&#123;</span><br><span class="line">  <span class="comment">// 如果是数字类型转化为字符串</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> vnode === <span class="string">&#x27;number&#x27;</span>) &#123;</span><br><span class="line">    vnode = <span class="built_in">String</span>(vnode);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 字符串类型直接就是文本节点</span></span><br><span class="line">  <span class="keyword">if</span> (<span class="keyword">typeof</span> vnode === <span class="string">&#x27;string&#x27;</span>) &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">document</span>.createTextNode(vnode);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 普通DOM</span></span><br><span class="line">  <span class="keyword">const</span> dom = <span class="built_in">document</span>.createElement(vnode.tag);</span><br><span class="line">  <span class="keyword">if</span> (vnode.attrs) &#123;</span><br><span class="line">    <span class="comment">// 遍历属性</span></span><br><span class="line">    <span class="built_in">Object</span>.keys(vnode.attrs).forEach(<span class="function"><span class="params">key</span> =&gt;</span> &#123;</span><br><span class="line">      <span class="keyword">const</span> value = vnode.attrs[key];</span><br><span class="line">      dom.setAttribute(key, value);</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="comment">// 子数组进行递归操作</span></span><br><span class="line">  <span class="built_in">Array</span>.isArray(vnode.children) &amp;&amp; vnode.children.length &gt; <span class="number">0</span> &amp;&amp; vnode.children.forEach(<span class="function"><span class="params">child</span> =&gt;</span> render(child, dom));</span><br><span class="line">  <span class="keyword">return</span> dom;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><strong>测试</strong></p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> vnode = &#123;</span><br><span class="line">  tag: <span class="string">&#x27;div&#x27;</span>,</span><br><span class="line">  attrs: &#123;</span><br><span class="line">    class: &#x27;container&#x27;,</span><br><span class="line">  &#125;,</span><br><span class="line">  children: [</span><br><span class="line">    &#123;</span><br><span class="line">      tag: <span class="string">&#x27;h1&#x27;</span>,</span><br><span class="line">      attrs: &#123;&#125;,</span><br><span class="line">      children: [<span class="string">&#x27;hello&#x27;</span>]</span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      tag: <span class="string">&#x27;span&#x27;</span>,</span><br><span class="line">      attrs: &#123;</span><br><span class="line">        id: <span class="string">&#x27;text&#x27;</span>,</span><br><span class="line">        style: <span class="string">&quot;color: red; font-size: 40px; background: aqua;&quot;</span></span><br><span class="line">      &#125;,</span><br><span class="line">      children: [<span class="string">&#x27;span666&#x27;</span>]</span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> body = <span class="built_in">document</span>.querySelector(<span class="string">&#x27;body&#x27;</span>);</span><br><span class="line">render(vnode, body);</span><br></pre></td></tr></table></figure>
+
       
 
       
@@ -225,7 +229,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/ts/firstKnow/eight.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/js/write/vDom2Dom.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -250,6 +254,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    目录，不存在的…
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -289,7 +306,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
