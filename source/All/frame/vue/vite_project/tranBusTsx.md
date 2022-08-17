@@ -15,7 +15,7 @@ Vue提供了transition的封装组件，可以给任何元素和组件添加进�
 ### 1、过渡的类名
 在进入/离开的过渡中，会有 6 个 class 切换。
 > v-enter-from、v-enter-active、v-enter-to、v-leave-from、v-leave-active、v-leave-to
-```vue
+```
 <button @click="flag = !flag">切换</button>
 <transition name='fade'><div v-if="flag"></div></transition>
 
@@ -122,7 +122,7 @@ appear
 - 过渡模式不可用，因为我们不再相互切换特有的元素
 - 内部元素**总是需要**提供唯一的key attritube值
 - CSS过渡的类会将应用在内部的元素中，而不是这个组/容器本身。
-```vue
+```js
 <transition-group>
   <div style="margin: 10px;" :key="item" v-for="item in list">{{ item }</div>
 </transition-group>
