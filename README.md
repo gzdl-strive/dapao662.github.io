@@ -3,8 +3,8 @@
 >前端基础(HTML、CSS、JS)
 >浏览器、HTTP
 >TS、Vue、React
->数据结构和算法
+>数据结构和算法(LinkedList、Stack、Queue...)
 >WebGL和Three.js-Blender
 >计算机基础和计算机网络
->工程化构建工具Webpack、Vite
+>工程化构建工具Webpack、Vite...
 >RUM(前端性能监控rrweb)
