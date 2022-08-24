@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Algorithm | 学习笔记</title>
+  <title>CSS Style完整新特性 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="堆的基础知识 完全二叉树(complete binary tree)-堆、优先队列1、编号为i的子节点：左孩子编号2i， 右孩子编号2i+12、可以用连续空间存储(数组)&#x3D;》子节点和父节点编号有关系  我们使用一个数组来模拟，这表示的是一个实际方面的数据结构，但是我们在思维方面上可以看成一个完全二叉树。   堆：基于完全二叉树的一种结构  大顶堆：任意的三元组之间，如果父节点的值都大于子节点的值（">
+  <meta name="description" content="选择器 :deep()深度选择器:slotted()插槽选择器:global()全局选择器  插槽选择器 默认情况下，作用域样式不会影响到 &lt;slot&#x2F;&gt; 渲染出来的内容，因为它们被认为是父组件所持有并传递进来的。使用 :slotted 伪类以明确地将插槽内容作为选择器的目标  12345&lt;style scoped&gt;:slotted(div) &amp;#123;  color:">
 <meta property="og:type" content="website">
-<meta property="og:title" content="堆和优先队列笔记">
-<meta property="og:url" content="http://example.com/algorithm/Study/HeapAndPriorityQueue/Note.html">
+<meta property="og:title" content="CSS Style完整新特性">
+<meta property="og:url" content="http://example.com/All/frame/vue/vite_project/cssSty.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="堆的基础知识 完全二叉树(complete binary tree)-堆、优先队列1、编号为i的子节点：左孩子编号2i， 右孩子编号2i+12、可以用连续空间存储(数组)&#x3D;》子节点和父节点编号有关系  我们使用一个数组来模拟，这表示的是一个实际方面的数据结构，但是我们在思维方面上可以看成一个完全二叉树。   堆：基于完全二叉树的一种结构  大顶堆：任意的三元组之间，如果父节点的值都大于子节点的值（">
+<meta property="og:description" content="选择器 :deep()深度选择器:slotted()插槽选择器:global()全局选择器  插槽选择器 默认情况下，作用域样式不会影响到 &lt;slot&#x2F;&gt; 渲染出来的内容，因为它们被认为是父组件所持有并传递进来的。使用 :slotted 伪类以明确地将插槽内容作为选择器的目标  12345&lt;style scoped&gt;:slotted(div) &amp;#123;  color:">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-04-12T09:57:24.000Z">
-<meta property="article:modified_time" content="2022-08-24T08:09:43.925Z">
+<meta property="article:published_time" content="2022-08-24T16:01:24.000Z">
+<meta property="article:modified_time" content="2022-08-24T08:09:43.909Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,86 +149,49 @@
         
   
     <h1 class="article-title" itemprop="name">
-      堆和优先队列笔记
+      CSS Style完整新特性
     </h1>
   
 
         
-        <a href="/algorithm/Study/HeapAndPriorityQueue/Note.html" class="archive-article-date">
-  	<time datetime="2021-04-12T09:57:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-04-12</time>
+        <a href="/All/frame/vue/vite_project/cssSty.html" class="archive-article-date">
+  	<time datetime="2022-08-24T16:01:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-24</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="堆的基础知识"><a href="#堆的基础知识" class="headerlink" title="堆的基础知识"></a>堆的基础知识</h3><blockquote>
-<p>完全二叉树(<code>complete binary tree</code>)-堆、优先队列<br>1、编号为i的子节点：左孩子编号2<em>i， 右孩子编号2</em>i+1<br>2、可以用连续空间存储(数组)=》子节点和父节点编号有关系</p>
-<blockquote>
-<p>我们使用一个数组来模拟，这表示的是一个实际方面的数据结构，但是我们在思维方面上可以看成一个完全二叉树。</p>
+        <h2 id="选择器"><a href="#选择器" class="headerlink" title="选择器"></a>选择器</h2><blockquote>
+<p>:deep()深度选择器<br>:slotted()插槽选择器<br>:global()全局选择器</p>
 </blockquote>
+<h3 id="插槽选择器"><a href="#插槽选择器" class="headerlink" title="插槽选择器"></a>插槽选择器</h3><blockquote>
+<p>默认情况下，作用域样式不会影响到 <code>&lt;slot/&gt;</code> 渲染出来的内容，因为它们被认为是父组件所持有并传递进来的。使用 <code>:slotted</code> 伪类以明确地将插槽内容作为选择器的目标</p>
 </blockquote>
-<p><strong>堆：基于完全二叉树的一种结构</strong></p>
-<ul>
-<li>大顶堆：任意的三元组之间，如果父节点的值都大于子节点的值（根节点是最大值）</li>
-<li>小顶堆：任意三元组之间，如果父节点的值都小于子节点的值（根节点是最小值）<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">   <span class="number">12</span>               <span class="number">3</span></span><br><span class="line">   /\              / \</span><br><span class="line">  <span class="number">11</span> <span class="number">10</span>           <span class="number">7</span>    <span class="number">4</span></span><br><span class="line">  /\ /\           /\   /\</span><br><span class="line"> <span class="number">6</span> <span class="number">7</span> <span class="number">9</span> <span class="number">3</span>         <span class="number">10</span> <span class="number">12</span> <span class="number">9</span> <span class="number">6</span> </span><br><span class="line"> /\               /\</span><br><span class="line"><span class="number">4</span> <span class="number">5</span>              <span class="number">15</span> <span class="number">14</span></span><br><span class="line">   大顶堆          小顶堆</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;</span><br><span class="line">:<span class="function"><span class="title">slotted</span>(<span class="params">div</span>)</span> &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
-</li>
-</ul>
-<p><strong>拓展</strong></p>
-<blockquote>
-<p>数据结构：结构定义(定义一种结构，定义它的性质) + 结构操作(维护这个性质)</p>
-<ul>
-<li>数据结构：定义一种性质，并维护这种性质</li>
-<li>堆：<strong>适合维护集合的最值</strong></li>
-</ul>
+<h3 id="全局选择器"><a href="#全局选择器" class="headerlink" title="全局选择器"></a>全局选择器</h3><blockquote>
+<p>如果想让其中一个样式规则应用到全局，比起另外创建一个 <code>&lt;style&gt;</code>，可以使用 :global 伪类来实现 (看下面的代码)</p>
 </blockquote>
-<p><strong>堆操作</strong></p>
-<ul>
-<li>堆–尾部插入调整–》向上调整<ol>
-<li>比父节点大的就和父节点交换 递归向上调整</li>
-<li>这个过程称为SIFT-UP</li>
-</ol>
-</li>
-<li>堆–头部弹出调整–》向下调整<ol>
-<li>用最后一个元素(叶子节点)补位 递归向下调整</li>
-<li>这个过程称为SIFT-DOWN</li>
-</ol>
-</li>
-<li>堆-》尾部插入，头部弹出-&gt;队列-》又不是普通队列(每次弹出都是最大值或最小值-》当成优先级的话，每次弹出的是优先级最高的元素)=》优先级队列</li>
-</ul>
-<p><strong>堆-优先队列</strong></p>
-<table>
-<thead>
-<tr>
-<th align="center">普通队列</th>
-<th align="center">优先队列</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">尾部入队</td>
-<td align="center">尾部可以插入</td>
-</tr>
-<tr>
-<td align="center">头部出队</td>
-<td align="center">头部可以弹出</td>
-</tr>
-<tr>
-<td align="center">先进先出</td>
-<td align="center">每次出队权值(最大/最小的元素)</td>
-</tr>
-<tr>
-<td align="center">数组实现</td>
-<td align="center">数组实现，逻辑上看成一个堆</td>
-</tr>
-</tbody></table>
-<blockquote>
-<p>堆是优先队列的一种实现方式</p>
-</blockquote>
-<h3 id="堆的基础应用"><a href="#堆的基础应用" class="headerlink" title="堆的基础应用"></a>堆的基础应用</h3><p>LeetCode 剑指Offer40. 最小的k个数<br>LeetCode 1046 最后一块石头的重量<br>LeetCode 703 数据流中的第K大元素<br>LeetCode 373 查找和最小的K对数字<br>LeetCode 215 数组中的第K个最大元素</p>
-<h3 id="堆的进阶应用"><a href="#堆的进阶应用" class="headerlink" title="堆的进阶应用"></a>堆的进阶应用</h3><p>设计推特<br>前K个高频单词<br>连续中值<br>数据流的中位数<br>积压订单中的订单总数</p>
-<h3 id="智力发散题"><a href="#智力发散题" class="headerlink" title="智力发散题"></a>智力发散题</h3><p>丑数II<br>超级丑数<br>移除石子的最大得分</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;</span><br><span class="line">:<span class="function"><span class="title">global</span>(<span class="params">.red</span>)</span> &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
 
+<h2 id="动态CSS"><a href="#动态CSS" class="headerlink" title="动态CSS"></a>动态CSS</h2><blockquote>
+<p>单文件组件的 <code>&lt;style&gt;</code> 标签支持使用 <code>v-bind</code> CSS 函数将 CSS 的值链接到动态的组件状态</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div class&#x3D;&quot;text&quot;&gt;hello&lt;&#x2F;div&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  data() &#123;</span><br><span class="line">    return &#123;</span><br><span class="line">      color: &#39;red&#39;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style&gt;</span><br><span class="line">.text &#123;</span><br><span class="line">  color: v-bind(color);</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p>这个语法同样也适用于 <code>&lt;script setup&gt;</code>，且支持 JavaScript 表达式 (需要用引号包裹起来)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;script setup&gt;</span><br><span class="line">const theme &#x3D; &#123;</span><br><span class="line">  color: &#39;red&#39;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br><span class="line"></span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p&gt;hello&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line">p &#123;</span><br><span class="line">  color: v-bind(&#39;theme.color&#39;);</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p>实际的值会被编译成哈希化的 CSS 自定义属性，因此 CSS 本身仍然是静态的。自定义属性会通过内联样式的方式应用到组件的根元素上，并且在源值变更的时候响应式地更新。</p>
+<h2 id="CSS-Module"><a href="#CSS-Module" class="headerlink" title="CSS Module"></a>CSS Module</h2><blockquote>
+<p>一个 <code>&lt;style module&gt;</code> 标签会被编译为 CSS Modules 并且将生成的 CSS class 作为 $style 对象暴露给组件</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p :class&#x3D;&quot;$style.red&quot;&gt;This should be red&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style module&gt;</span><br><span class="line">.red &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+<p>得出的 class 将被哈希化以避免冲突，实现了同样的将 CSS 仅作用于当前组件的效果</p>
+<h3 id="自定义名称"><a href="#自定义名称" class="headerlink" title="自定义名称"></a>自定义名称</h3><p>你可以通过给 module attribute 一个值来自定义注入 class 对象的属性名</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;p :class&#x3D;&quot;classes.red&quot;&gt;red&lt;&#x2F;p&gt;</span><br><span class="line">&lt;&#x2F;template&gt;</span><br><span class="line"></span><br><span class="line">&lt;style module&#x3D;&quot;classes&quot;&gt;</span><br><span class="line">.red &#123;</span><br><span class="line">  color: red;</span><br><span class="line">&#125;</span><br><span class="line">&lt;&#x2F;style&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="与组合式API一同使用"><a href="#与组合式API一同使用" class="headerlink" title="与组合式API一同使用"></a>与组合式API一同使用</h3><p>可以通过 useCssModule API 在 setup() 和 <code>&lt;script setup&gt;</code> 中访问注入的 class。对于使用了自定义注入名称的 <code>&lt;style module&gt;</code> 块，useCssModule 接收一个匹配的 module attribute 值作为第一个参数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">import &#123; useCssModule &#125; from &#39;vue&#39;</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 在 setup() 作用域中...</span><br><span class="line">&#x2F;&#x2F; 默认情况下, 返回 &lt;style module&gt; 的 class</span><br><span class="line">useCssModule()</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F; 具名情况下, 返回 &lt;style module&#x3D;&quot;classes&quot;&gt; 的 class</span><br><span class="line">useCssModule(&#39;classes&#39;)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -286,7 +249,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/HeapAndPriorityQueue/Note.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/frame/vue/vite_project/cssSty.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,7 +282,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">堆的基础知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E5%9F%BA%E7%A1%80%E5%BA%94%E7%94%A8"><span class="toc-number">2.</span> <span class="toc-text">堆的基础应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A0%86%E7%9A%84%E8%BF%9B%E9%98%B6%E5%BA%94%E7%94%A8"><span class="toc-number">3.</span> <span class="toc-text">堆的进阶应用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%99%BA%E5%8A%9B%E5%8F%91%E6%95%A3%E9%A2%98"><span class="toc-number">4.</span> <span class="toc-text">智力发散题</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.</span> <span class="toc-text">选择器</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%92%E6%A7%BD%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.1.</span> <span class="toc-text">插槽选择器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%A8%E5%B1%80%E9%80%89%E6%8B%A9%E5%99%A8"><span class="toc-number">1.2.</span> <span class="toc-text">全局选择器</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81CSS"><span class="toc-number">2.</span> <span class="toc-text">动态CSS</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CSS-Module"><span class="toc-number">3.</span> <span class="toc-text">CSS Module</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%8D%E7%A7%B0"><span class="toc-number">3.1.</span> <span class="toc-text">自定义名称</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8E%E7%BB%84%E5%90%88%E5%BC%8FAPI%E4%B8%80%E5%90%8C%E4%BD%BF%E7%94%A8"><span class="toc-number">3.2.</span> <span class="toc-text">与组合式API一同使用</span></a></li></ol></li></ol>
                     </div>
                 </span>
             </div>
@@ -363,7 +326,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
