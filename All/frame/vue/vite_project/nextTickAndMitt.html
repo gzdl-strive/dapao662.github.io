@@ -6,17 +6,17 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: Algorithm | 学习笔记</title>
+  <title>EventLoop-nextTick、Mitt | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。  示例 1:输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k &#x3D; 2输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL解释:向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL向右旋转 2 步: 4-&gt;5-">
+  <meta name="description" content="EventLoop,nextTick为什么JS不能是多线程的? 同一时间同时操作同一个DOM，一个增加、一个删除，JS就不知道要干啥了，所以JS是单线程的，即使是后来支持了多线程webWorker，但是也是不允许操作DOM的  同步任务 代码从上到下顺序执行  异步任务JS是单线程的：所有的任务需要排队，后面的任务需要等待前面的任务执行完才行  如果前面的任务耗时过长，后面的任务就需要一直等待，一">
 <meta property="og:type" content="website">
-<meta property="og:title" content="旋转链表">
-<meta property="og:url" content="http://example.com/algorithm/Study/LinkedList/rotateRight.html">
+<meta property="og:title" content="EventLoop-nextTick、Mitt">
+<meta property="og:url" content="http://example.com/All/frame/vue/vite_project/nextTickAndMitt.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="题目描述 给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。  示例 1:输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k &#x3D; 2输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL解释:向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL向右旋转 2 步: 4-&gt;5-">
+<meta property="og:description" content="EventLoop,nextTick为什么JS不能是多线程的? 同一时间同时操作同一个DOM，一个增加、一个删除，JS就不知道要干啥了，所以JS是单线程的，即使是后来支持了多线程webWorker，但是也是不允许操作DOM的  同步任务 代码从上到下顺序执行  异步任务JS是单线程的：所有的任务需要排队，后面的任务需要等待前面的任务执行完才行  如果前面的任务耗时过长，后面的任务就需要一直等待，一">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-03-08T15:16:24.000Z">
-<meta property="article:modified_time" content="2022-08-25T02:00:39.245Z">
+<meta property="article:published_time" content="2022-08-25T09:40:24.000Z">
+<meta property="article:modified_time" content="2022-08-25T02:00:39.233Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
   
@@ -149,28 +149,51 @@
         
   
     <h1 class="article-title" itemprop="name">
-      旋转链表
+      EventLoop-nextTick、Mitt
     </h1>
   
 
         
-        <a href="/algorithm/Study/LinkedList/rotateRight.html" class="archive-article-date">
-  	<time datetime="2021-03-08T15:16:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-08</time>
+        <a href="/All/frame/vue/vite_project/nextTickAndMitt.html" class="archive-article-date">
+  	<time datetime="2022-08-25T09:40:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-08-25</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h3><blockquote>
-<p>给定一个链表，旋转链表，将链表每个节点向右移动 k 个位置，其中 k 是非负数。</p>
+        <h2 id="EventLoop-nextTick"><a href="#EventLoop-nextTick" class="headerlink" title="EventLoop,nextTick"></a>EventLoop,nextTick</h2><h3 id="为什么JS不能是多线程的"><a href="#为什么JS不能是多线程的" class="headerlink" title="为什么JS不能是多线程的?"></a>为什么JS不能是多线程的?</h3><blockquote>
+<p>同一时间同时操作同一个DOM，一个增加、一个删除，JS就不知道要干啥了，所以JS是单线程的，即使是后来支持了多线程webWorker，但是也是不允许操作DOM的</p>
 </blockquote>
-<p>示例 1:<br>输入: 1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2<br>输出: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL<br>解释:<br>向右旋转 1 步: 5-&gt;1-&gt;2-&gt;3-&gt;4-&gt;NULL<br>向右旋转 2 步: 4-&gt;5-&gt;1-&gt;2-&gt;3-&gt;NULL<br>示例 2:<br>输入: 0-&gt;1-&gt;2-&gt;NULL, k = 4<br>输出: 2-&gt;0-&gt;1-&gt;NULL<br>解释:<br>向右旋转 1 步: 2-&gt;0-&gt;1-&gt;NULL<br>向右旋转 2 步: 1-&gt;2-&gt;0-&gt;NULL<br>向右旋转 3 步: 0-&gt;1-&gt;2-&gt;NULL<br>向右旋转 4 步: 2-&gt;0-&gt;1-&gt;NULL</p>
-<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>定义一个指针指向链表的尾节点-》让尾节点指向head（形成一个环）-&gt;在让指向尾节点的指针向后移动x次(x是链表的长度-k次)<br>图解:</p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">1-&gt;2-&gt;3-&gt;4-&gt;5-&gt;NULL, k = 2</span></span><br><span class="line"><span class="comment">    1 -&gt; 2 -&gt; 3 -&gt; 4 -&gt; 5(定义一个tail指针指向这个结点，把tail指向head,形成一个环)</span></span><br><span class="line"><span class="comment">    ^                   |(右移k个位置，相当于tail指针向后移动x次(x是链表长度-k))</span></span><br><span class="line"><span class="comment">    |-------------------|</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
+<h3 id="同步任务"><a href="#同步任务" class="headerlink" title="同步任务"></a>同步任务</h3><blockquote>
+<p>代码从上到下顺序执行</p>
+</blockquote>
+<h3 id="异步任务"><a href="#异步任务" class="headerlink" title="异步任务"></a>异步任务</h3><p>JS是单线程的：所有的任务需要排队，后面的任务需要等待前面的任务执行完才行</p>
+<blockquote>
+<p>如果前面的任务耗时过长，后面的任务就需要一直等待，一些从用户角度上不需要等待的任务就会一直等待，这个从体验角度上来讲是不可接受的，所以JS中就出现了异步的概念 </p>
+</blockquote>
+<ul>
+<li>（1）宏任务(macro task)：script整体代码、setTimeout、setInterval、UI交互事件、postMessage、Ajax</li>
+<li>（2）微任务(micro task)：Promise.then，catch,finally、mutaionObserver、process.nextTick(Node.js环境)</li>
+</ul>
+<blockquote>
+<p>运行机制：所有同步任务都是在主线程执行时形成一个执行栈,主线程外还存在一个“事件队列” ===&gt; js引擎遇到一个异步事件会将这个事件挂起，继续执行执行栈中的其他任务。当异步事件返回结果后，js会将这个事件加入到事件队列中。被放入事件队列不会立即执行其回调，而是等待当前执行栈中的所有任务都执行完毕，主线程处于闲置时，主线程会去事件队列中查找是否有任务，如果有，那么主线程会从中取出排在第一位的事件，并把这个事件对应的回调放入执行栈中，然后执行其中的同步代码…,如此反复。</p>
+</blockquote>
+<h3 id="nextTick"><a href="#nextTick" class="headerlink" title="nextTick"></a>nextTick</h3><blockquote>
+<p>nextTick就是创建一个异步任务</p>
+</blockquote>
+<p><strong>作用</strong>：等待下一次DOM更新刷新的工具方法<br><code>export declare function nextTick&lt;T = void&gt;(this: T, fn?: (this: T) =&gt; void): Promise&lt;void&gt;;</code></p>
+<p><strong>详细信息</strong>：当你在Vue中更改响应式状态时，最终的DOM更新并不是同步生效的，而是由Vue将它们缓存在一个队列中，直到下一个”Tick”才一起执行。这样是为了确保每个组件无论发生多少状态改变，都仅执行一次更新。</p>
+<p>nextTick()可以在状态改变后立即使用，以等待DOM更新完成。你可以传递一个回调函数作为参数，或者await返回的promise</p>
+<h2 id="Mitt事件总线"><a href="#Mitt事件总线" class="headerlink" title="Mitt事件总线"></a>Mitt事件总线</h2><blockquote>
+<p>A组件，用于派发Emit</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; getCurrentInstance &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> instance = getCurrentInstance();</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> handleEmit1 = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">  instance?.proxy?.$Bus.emit(<span class="string">&#x27;on-num&#x27;</span>, <span class="number">100</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript"><span class="keyword">const</span> handleEmit2 = <span class="function">() =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">  instance?.proxy?.$Bus.emit(<span class="string">&#x27;*****&#x27;</span>, <span class="number">500</span>);</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Mitt-A组件-&gt;派发Emit<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;handleEmit1&quot;</span>&gt;</span>emit1<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">button</span> @<span class="attr">click</span>=<span class="string">&quot;handleEmit2&quot;</span>&gt;</span>emit2<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> rotateRight = <span class="function"><span class="keyword">function</span> (<span class="params">head, k</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (head === <span class="literal">null</span> || head.next === <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> head;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">let</span> tail = head, count = <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">while</span> (tail &amp;&amp; tail.next) &#123;</span><br><span class="line">        tail = tail.next;</span><br><span class="line">        count += <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    tail.next = head;<span class="comment">//形成一个环</span></span><br><span class="line">    k %= count;<span class="comment">//k可能远大于链表长度</span></span><br><span class="line">    k = count - k;<span class="comment">//tail需要向后移动count-k次</span></span><br><span class="line">    <span class="keyword">while</span> (k--) &#123;</span><br><span class="line">        tail = tail.next;</span><br><span class="line">    &#125;</span><br><span class="line">    head = tail.next;<span class="comment">//tail.next就是移动后的头节点</span></span><br><span class="line">    tail.next = <span class="literal">null</span>;</span><br><span class="line">    <span class="keyword">return</span> head;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<blockquote>
+<p>B组件，用于监听on</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">setup</span>&gt;</span></span><br><span class="line"><span class="javascript"><span class="keyword">import</span> &#123; getCurrentInstance &#125; <span class="keyword">from</span> <span class="string">&#x27;vue&#x27;</span>;</span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> instance = getCurrentInstance();</span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">// 监听单个事件</span></span></span><br><span class="line"><span class="javascript">instance?.proxy?.$Bus.on(<span class="string">&#x27;on-num&#x27;</span>, <span class="function">(<span class="params">num</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(num, <span class="string">&#x27;====&gt;Mitt2&#x27;</span>);</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="javascript"><span class="comment">// 监听所有事件</span></span></span><br><span class="line"><span class="javascript">instance?.proxy?.$Bus.on(<span class="string">&#x27;*&#x27;</span>, <span class="function">(<span class="params">type, num</span>) =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">  <span class="built_in">console</span>.log(type, num, <span class="string">&#x27;====&gt;Mitt2222&#x27;</span>)</span></span><br><span class="line">&#125;)</span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">// 移除监听事件off</span></span></span><br><span class="line"><span class="javascript"><span class="keyword">const</span> Fn = <span class="function"><span class="params">num</span> =&gt;</span> &#123;</span></span><br><span class="line"><span class="javascript">    <span class="built_in">console</span>.log(num, <span class="string">&#x27;===========&gt;B&#x27;</span>)</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="javascript">instance?.proxy?.$Bus.on(<span class="string">&#x27;on-num&#x27;</span>,Fn)<span class="comment">//listen</span></span></span><br><span class="line"><span class="javascript">instance?.proxy?.$Bus.off(<span class="string">&#x27;on-num&#x27;</span>,Fn)<span class="comment">//unListen</span></span></span><br><span class="line"></span><br><span class="line"><span class="javascript"><span class="comment">// 清空所有监听</span></span></span><br><span class="line">instance?.proxy?.$Bus.all.clear() </span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
       
 
       
@@ -228,7 +251,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/algorithm/Study/LinkedList/rotateRight.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/frame/vue/vite_project/nextTickAndMitt.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -253,6 +276,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#EventLoop-nextTick"><span class="toc-number">1.</span> <span class="toc-text">EventLoop,nextTick</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BA%E4%BB%80%E4%B9%88JS%E4%B8%8D%E8%83%BD%E6%98%AF%E5%A4%9A%E7%BA%BF%E7%A8%8B%E7%9A%84"><span class="toc-number">1.1.</span> <span class="toc-text">为什么JS不能是多线程的?</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.2.</span> <span class="toc-text">同步任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%82%E6%AD%A5%E4%BB%BB%E5%8A%A1"><span class="toc-number">1.3.</span> <span class="toc-text">异步任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#nextTick"><span class="toc-number">1.4.</span> <span class="toc-text">nextTick</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mitt%E4%BA%8B%E4%BB%B6%E6%80%BB%E7%BA%BF"><span class="toc-number">2.</span> <span class="toc-text">Mitt事件总线</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -292,7 +328,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
