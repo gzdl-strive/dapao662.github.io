@@ -113,9 +113,9 @@ Vite 中引入静态资源时，也支持在路径最后加上一些特殊的 qu
 ### 1、自定义部署域名
 一般在我们访问线上的站点时，站点里面一些静态资源的地址都包含了相应域名的前缀，如:
 ```html
-<img src="https://xxx.cos.ap-beijing.myqcloud.com/logo.png" />
+<img src="https://xxx.com/logo.png" />
 ```
-以上面这个地址例子，`https://xxx.cos.ap-beijing.myqcloud.com`是 **CDN 地址前缀**，`/logo.png`则是我们开发阶段使用的路径。
+以上面这个地址例子，`https://xxx.com`是 **CDN 地址前缀**，`/logo.png`则是我们开发阶段使用的路径。
 那么，我们是不是需要在上线前把图片先上传到 CDN，然后将代码中的地址手动替换成线上地址呢？这样就太麻烦了！
 
 在 Vite 中我们可以有更加自动化的方式来实现地址的替换，只需要在配置文件中指定base参数即可:
