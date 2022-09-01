@@ -9,4 +9,4 @@ toc: true
 >快速上手：从零搭建Vite前端项目
 >样式方案、代码规范
 >[静态资源：开发阶段模块加载与生产环境优化](/All/engineering/vite/vite_deep/source "静态资源")
->[预构建](/All/engineering/vite/vite_deep/pre_bounding "预构建")
+>[预构建](/All/engineering/vite/vite_deep/pre_bundle "预构建")
