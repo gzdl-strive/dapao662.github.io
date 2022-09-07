@@ -6,23 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Tag: js | 学习笔记</title>
+  <title>Git Flow分支管理 | 学习笔记</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="函数名和 var 声明的变量重名123456var fn &#x3D; 22;function fn() &amp;#123;    console.log(&amp;#x27;test&amp;#x27;);&amp;#125;console.log(fn);&#x2F;&#x2F;22fn();&#x2F;&#x2F;TypeError: fn is not a function  思路：带 var 声明的和带 function 声明的其实都是在 window 下的属性，也">
+  <meta name="description" content="两种核心分支1、主分支(main&#x2F;master): 代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。这个分支只能从其他分支合并，不能在这个分支上直接修改。需要注意的是，所有在主分支上的提交都应该标记tag。 2、开发主分支(develop): 这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Featu">
 <meta property="og:type" content="website">
-<meta property="og:title" content="重名问题下的变量提升">
-<meta property="og:url" content="http://example.com/js/variablePromotion/five.html">
+<meta property="og:title" content="Git Flow分支管理">
+<meta property="og:url" content="http://example.com/All/CodeManager/gitFlow.html">
 <meta property="og:site_name" content="学习笔记">
-<meta property="og:description" content="函数名和 var 声明的变量重名123456var fn &#x3D; 22;function fn() &amp;#123;    console.log(&amp;#x27;test&amp;#x27;);&amp;#125;console.log(fn);&#x2F;&#x2F;22fn();&#x2F;&#x2F;TypeError: fn is not a function  思路：带 var 声明的和带 function 声明的其实都是在 window 下的属性，也">
+<meta property="og:description" content="两种核心分支1、主分支(main&#x2F;master): 代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。这个分支只能从其他分支合并，不能在这个分支上直接修改。需要注意的是，所有在主分支上的提交都应该标记tag。 2、开发主分支(develop): 这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Featu">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://example.com/assets/jsImg/variablePromotion/6.png">
-<meta property="og:image" content="http://example.com/assets/jsImg/variablePromotion/7.png">
-<meta property="og:image" content="http://example.com/assets/jsImg/variablePromotion/8.png">
-<meta property="article:published_time" content="2021-03-10T15:57:24.000Z">
-<meta property="article:modified_time" content="2022-09-07T09:51:50.633Z">
+<meta property="article:published_time" content="2022-09-07T17:18:24.000Z">
+<meta property="article:modified_time" content="2022-09-07T09:51:50.393Z">
 <meta property="article:author" content="Zoro">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://example.com/assets/jsImg/variablePromotion/6.png">
   
     <link rel="alternative" href="/atom.xml" title="学习笔记" type="application/atom+xml">
   
@@ -153,34 +149,30 @@
         
   
     <h1 class="article-title" itemprop="name">
-      重名问题下的变量提升
+      Git Flow分支管理
     </h1>
   
 
         
-        <a href="/js/variablePromotion/five.html" class="archive-article-date">
-  	<time datetime="2021-03-10T15:57:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2021-03-10</time>
+        <a href="/All/CodeManager/gitFlow.html" class="archive-article-date">
+  	<time datetime="2022-09-07T17:18:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-09-07</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="函数名和-var-声明的变量重名"><a href="#函数名和-var-声明的变量重名" class="headerlink" title="函数名和 var 声明的变量重名"></a>函数名和 var 声明的变量重名</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> fn = <span class="number">22</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="string">&#x27;test&#x27;</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(fn);<span class="comment">//22</span></span><br><span class="line">fn();<span class="comment">//TypeError: fn is not a function</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>思路：带 var 声明的和带 function 声明的其实都是在 window 下的属性，也就是重名了，根据变量提升的机制，JS 代码自上而下执行时此时的 fn 还只是fn = 12，所以 fn() == 12() 又是一个类型错误 TypeError<br><img src="/assets/jsImg/variablePromotion/6.png" alt="6" title="变量提升"></p>
-</blockquote>
-<h3 id="变量重名在变量提升阶段会重新定义也就是重新赋值"><a href="#变量重名在变量提升阶段会重新定义也就是重新赋值" class="headerlink" title="变量重名在变量提升阶段会重新定义也就是重新赋值"></a>变量重名在变量提升阶段会重新定义也就是重新赋值</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;1&#x27;</span>,fn())</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">1</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;2&#x27;</span>,fn())</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">2</span>)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;3&#x27;</span>,fn())</span><br><span class="line"><span class="keyword">var</span> fn = <span class="string">&#x27;林一一&#x27;</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">&#x27;4&#x27;</span>,fn())</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>)</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">1 undefined</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">2 undefined</span></span><br><span class="line"><span class="comment">3</span></span><br><span class="line"><span class="comment">3 undefined</span></span><br><span class="line"><span class="comment">Uncaught TypeError: fn is not a function</span></span><br><span class="line"><span class="comment">*/</span></span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>思路：同样由于变量提升机制，fn 会被多次重新赋值最后赋值的地址值(假设为oxfffee)为最后一个函数，所以调用 fn都只是在调用最后一个函数输出都是 3， 代码执行到var fn = ‘林一一’，所以 fn() 其实 == 林一一() 导致类型错误 TypeError</p>
-</blockquote>
-<p><img src="/assets/jsImg/variablePromotion/7.png" alt="7" title="变量提升"></p>
-<h3 id="思考题"><a href="#思考题" class="headerlink" title="思考题"></a>思考题</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> x = <span class="number">2</span>;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">x</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(<span class="number">3</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> x);<span class="comment">//number</span></span><br></pre></td></tr></table></figure>
-<p><strong>思路：这是一道比较简单的变量提升题，JS 代码自上而下执行时，a 被赋值成 2，输出就是 number 型</strong><br><img src="/assets/jsImg/variablePromotion/8.png" alt="8" title="变量提升"></p>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(fn);<span class="comment">//[Function: fn]</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">2021</span>;</span><br><span class="line"><span class="built_in">console</span>.log(fn);<span class="comment">//2021</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>变量提升：var fn = 2021；fn变量提升被赋值为undefined,然后funciton fn(){}, fn又被赋值为函数(带var的只声明还没有被定义，带function的已经声明和定义).此时console.log(fn);输出的就是函数.然后fn被赋值为2021,此时输出2021</p>
-</blockquote>
+        <h2 id="两种核心分支"><a href="#两种核心分支" class="headerlink" title="两种核心分支"></a>两种核心分支</h2><p>1、主分支(<code>main/master</code>): 代码库应该有一个、且仅有一个主分支。所有提供给用户使用的正式版本，都在这个主分支上发布。这个分支只能从其他分支合并，不能在这个分支上直接修改。需要注意的是，<strong>所有在主分支上的提交都应该标记tag</strong>。</p>
+<p>2、开发主分支(<code>develop</code>): 这个分支是我们是我们的主开发分支，包含所有要发布到下一个<code>Release</code>的代码，这个主要合并与其他分支，比如<code>Feature</code>分支。该分支应该只是进行一些优化和升级开发，如果有新的需求应该拉出一个<code>feature</code>分支。</p>
+<h2 id="三种临时分支"><a href="#三种临时分支" class="headerlink" title="三种临时分支"></a>三种临时分支</h2><p>1、功能(<code>feature</code>)分支：这个分支主要用来<strong>开发新功能</strong>，一旦开发完成，我们合并回<code>develop</code>分支。</p>
+<p>2.、预发布(<code>release</code>)分支：当你需要一个发布一个新<code>Release</code>的时候，我们基于<code>Develop</code>分支创建一个<code>Release</code>分支，完成<code>Release</code>后，我们合并到<code>Master</code>和<code>Develop</code>分支。</p>
+<p>3、修补Bug(hotfix)分支：当我们在生产环境发现新的Bug时候，我们需要创建一个<code>Hotfix</code>, 完成<code>Hotfix</code>后，我们合并回<code>Master</code>和<code>Develop</code>分支，所以<code>Hotfix</code>的改动会进入下一个<code>Release</code>。</p>
+<p>这三种分支都属于临时性需要，使用完后，应该删除，使得代码库的常设分支始终只有master和develop分支.</p>
+<h2 id="Git-Flow流程示例代码"><a href="#Git-Flow流程示例代码" class="headerlink" title="Git Flow流程示例代码"></a>Git Flow流程示例代码</h2><h3 id="1、新建本地仓库、远程仓库，将主分支推送到远程库上"><a href="#1、新建本地仓库、远程仓库，将主分支推送到远程库上" class="headerlink" title="1、新建本地仓库、远程仓库，将主分支推送到远程库上"></a>1、新建本地仓库、远程仓库，将主分支推送到远程库上</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地文件夹</span></span><br><span class="line">git init <span class="comment"># 初始化本地仓库</span></span><br><span class="line"><span class="comment"># 修改项目内容后</span></span><br><span class="line">git add . <span class="comment"># 提交到暂存区</span></span><br><span class="line">git commit -m <span class="string">&quot;xxx&quot;</span> <span class="comment"># 提交到本地仓库</span></span><br><span class="line">git branch -M main <span class="comment">#将主分支名从master改为main</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># github上新建仓库</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 创建远程库别名</span></span><br><span class="line"><span class="comment"># git remote add 别名 远程地址</span></span><br><span class="line">git remote add origin git@github.com:gzdl-strive/xxxx.git</span><br><span class="line"><span class="comment"># 将本地主分支推送到远程库上</span></span><br><span class="line">git push -u origin main</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、创建开发主分支，将开发主分支推送到远程库上"><a href="#2、创建开发主分支，将开发主分支推送到远程库上" class="headerlink" title="2、创建开发主分支，将开发主分支推送到远程库上"></a>2、创建开发主分支，将开发主分支推送到远程库上</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地仓库中创建develop分支</span></span><br><span class="line"><span class="comment"># 从main主分支中拉出develop分支</span></span><br><span class="line"><span class="comment"># git branch -v =&gt; 查看分支</span></span><br><span class="line"><span class="comment"># git checkout 分支名 =&gt; 切换分支</span></span><br><span class="line"><span class="comment"># git checkout -b 分支吗</span></span><br><span class="line">git checkout -b develop main <span class="comment"># 从main分支中拉出develop分支，并切换到develop分支上</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 发布develop分支到远程库</span></span><br><span class="line">git push -u origin develop</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、创建feature分支开发，开发完成后合并到develop分支"><a href="#3、创建feature分支开发，开发完成后合并到develop分支" class="headerlink" title="3、创建feature分支开发，开发完成后合并到develop分支"></a>3、创建feature分支开发，开发完成后合并到develop分支</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 本地仓库</span></span><br><span class="line"><span class="comment"># 从develop拉出feature_v1.0功能分支</span></span><br><span class="line">git checkout -b feature_v1.0 develop</span><br><span class="line"><span class="comment"># 发布feature_v1.0分支到远程库</span></span><br><span class="line">git push -u origin feature_v1.0</span><br><span class="line"></span><br><span class="line"><span class="comment"># 在feature_v1.0上开发功能</span></span><br><span class="line"><span class="comment"># 完成feature_v1.0的开发</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 合并到develop分支</span></span><br><span class="line"><span class="comment"># 先从develop上获取最新</span></span><br><span class="line">git pull origin develop</span><br><span class="line"><span class="comment"># 切换到develop分支</span></span><br><span class="line">git checkout develop</span><br><span class="line"><span class="comment"># 从feature_v1.0分支合并到develop分支</span></span><br><span class="line">git merge --no-ff feature_v1.0</span><br><span class="line"><span class="comment"># 删除feature_v1.0分支</span></span><br><span class="line">git branch -d feature_v1.0</span><br><span class="line"><span class="comment"># 推送develop最新内容到远程develop分支上</span></span><br><span class="line">git push -u origin develop</span><br><span class="line"><span class="comment"># 删除远程库上的feature_v1.0分支</span></span><br><span class="line"><span class="comment"># 直接在界面上点击branches,点击删除</span></span><br></pre></td></tr></table></figure>
 
       
 
@@ -239,7 +231,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/js/variablePromotion/five.html" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/All/CodeManager/gitFlow.html" alt="微信分享二维码">
     </div>
 </div>
 
@@ -264,6 +256,19 @@
             </div>
         </div>
         
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%A4%E7%A7%8D%E6%A0%B8%E5%BF%83%E5%88%86%E6%94%AF"><span class="toc-number">1.</span> <span class="toc-text">两种核心分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%A7%8D%E4%B8%B4%E6%97%B6%E5%88%86%E6%94%AF"><span class="toc-number">2.</span> <span class="toc-text">三种临时分支</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-Flow%E6%B5%81%E7%A8%8B%E7%A4%BA%E4%BE%8B%E4%BB%A3%E7%A0%81"><span class="toc-number">3.</span> <span class="toc-text">Git Flow流程示例代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E3%80%81%E6%96%B0%E5%BB%BA%E6%9C%AC%E5%9C%B0%E4%BB%93%E5%BA%93%E3%80%81%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93%EF%BC%8C%E5%B0%86%E4%B8%BB%E5%88%86%E6%94%AF%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93%E4%B8%8A"><span class="toc-number">3.1.</span> <span class="toc-text">1、新建本地仓库、远程仓库，将主分支推送到远程库上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E3%80%81%E5%88%9B%E5%BB%BA%E5%BC%80%E5%8F%91%E4%B8%BB%E5%88%86%E6%94%AF%EF%BC%8C%E5%B0%86%E5%BC%80%E5%8F%91%E4%B8%BB%E5%88%86%E6%94%AF%E6%8E%A8%E9%80%81%E5%88%B0%E8%BF%9C%E7%A8%8B%E5%BA%93%E4%B8%8A"><span class="toc-number">3.2.</span> <span class="toc-text">2、创建开发主分支，将开发主分支推送到远程库上</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%E3%80%81%E5%88%9B%E5%BB%BAfeature%E5%88%86%E6%94%AF%E5%BC%80%E5%8F%91%EF%BC%8C%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90%E5%90%8E%E5%90%88%E5%B9%B6%E5%88%B0develop%E5%88%86%E6%94%AF"><span class="toc-number">3.3.</span> <span class="toc-text">3、创建feature分支开发，开发完成后合并到develop分支</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
         
     </div>
 </aside>
@@ -303,7 +308,7 @@
 		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
