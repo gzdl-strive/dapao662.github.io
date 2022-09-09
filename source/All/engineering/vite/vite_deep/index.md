@@ -15,3 +15,4 @@ toc: true
 >[双引擎架构: Vite是如何站在巨人的肩膀上实现的](/All/engineering/vite/vite_deep/doubleEngine "双引擎解构")
 >[得力性能推手：Esbuild功能使用与插件开发实战](/All/engineering/vite/vite_deep/esbuild "Esbuild功能使用与插件开发实战")
 >[构建基石(上):Rollup打包基本概念以及使用指南](/All/engineering/vite/vite_deep/rollup_base "Rollup打包基本概念")
+>[构建基石(下):深入理解Rollup插件机制](/All/engineering/vite/vite_deep/rollup_plugin "Rollup插件机制")
