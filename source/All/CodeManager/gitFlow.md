@@ -43,7 +43,7 @@ git push -u origin main
 # 从main主分支中拉出develop分支
 # git branch -v => 查看分支
 # git checkout 分支名 => 切换分支
-# git checkout -b 分支吗
+# git checkout -b 分支名
 git checkout -b develop main # 从main分支中拉出develop分支，并切换到develop分支上
 
 # 发布develop分支到远程库
@@ -75,3 +75,34 @@ git push -u origin develop
 # 删除远程库上的feature_v1.0分支
 # 直接在界面上点击branches,点击删除
 ```
+**--no-ff的作用**
+>- merge默认使用的“快进”(`fast-forward`)模式合并，所以`git merge` <=> `git merge -ff`
+- `fast-forward`: Git合并分支时，如果顺着一个分支走下去可以到达另一个分支的话，那么 Git 在合并两者时，只会简单地把指针右移，叫做“快进”（`fast-forward`）
+- `--no-ff`: 指的是强行关闭`fast-forward`方式
+- `--no-ff`: 会生成一个新的提交，然后指向新的提交 ==》这样会造成两个合并操作“回退版本的区别”
+```bash
+# 未合并前分支情况
+          A---B---C => feature
+         /
+D---E---F => master
+
+# 1、fast-forward模式
+git checkout master
+git merge feature
+
+# 结果会变成
+          A---B---C => feature
+         /             master
+D---E---F 
+
+# 2、--no-ff模式
+git checkout master
+git merge --no-ff feature
+
+# 结果会变成
+          A---B---C => feature
+         /         \
+D---E---F-----------G => master
+#由于 --no-ff 禁止了快进，所以会生成一个新的提交，master 指向 G
+```
+从合并后的代码来看，结果其实是一样的，区别就在于 --no-ff 会让 Git 生成一个新的提交对象。为什么要这样？通常我们把 master 作为主分支，上面存放的都是比较稳定的代码，提交频率也很低，而 feature 是用来开发特性的，上面会存在许多零碎的提交，快进式合并会把 feature 的提交历史混入到 master 中，搅乱 master 的提交历史。所以如果你根本不在意提交历史，也不爱管 master 干不干净，那么 --no-ff 其实没什么用。不过，如果某一次 master 出现了问题，你需要回退到上个版本的时候，比如上例，你就会发现退一个版本到了 B，而不是想要的 F，因为 feature 的历史合并进了 master 里。
