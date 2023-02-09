@@ -106,3 +106,51 @@ D---E---F-----------G => master
 #由于 --no-ff 禁止了快进，所以会生成一个新的提交，master 指向 G
 ```
 从合并后的代码来看，结果其实是一样的，区别就在于 --no-ff 会让 Git 生成一个新的提交对象。为什么要这样？通常我们把 master 作为主分支，上面存放的都是比较稳定的代码，提交频率也很低，而 feature 是用来开发特性的，上面会存在许多零碎的提交，快进式合并会把 feature 的提交历史混入到 master 中，搅乱 master 的提交历史。所以如果你根本不在意提交历史，也不爱管 master 干不干净，那么 --no-ff 其实没什么用。不过，如果某一次 master 出现了问题，你需要回退到上个版本的时候，比如上例，你就会发现退一个版本到了 B，而不是想要的 F，因为 feature 的历史合并进了 master 里。
+
+### 4、开始release
+```bash
+# 从develop拉出一release分支
+# 可选，获取最新版本。git pull origin develop
+git checkout -b release_v1.0 develop
+```
+
+### 5、完成release，合并到master分支和develop分支，在master打上tag标记
+```bash
+# 合并到master
+git checkout master
+git merge --no-ff release_v1.0
+# 在 master打tag标记
+git tag release1.0 master
+git push --tags
+
+# 合并到develop
+git checkout develop
+git merge -no-ff release_v1.0
+```
+
+### 6、开始hotfix
+```bash
+# 从主线master拉出一个hotfix分支
+#可选，获取最新版本 git pull origin master
+git checkout -b hotfix_v1.0.1 master
+```
+
+### 7、完成hotfix，合并到master和develop，并在master上打tag
+```bash
+# 合并hotfix_v1.0.1到master和develop，并在master上打tag
+git checkout master
+git merge --no-ff hotfix_v1.0.1
+# 在master上打tag
+git tag hotfix1.0.1 master
+git push --tags
+# 合并hotfix_v1.0.1到develop
+git checkout develop
+git merge --no-ff hotfix_v1.0.1
+```
+
+## 分支命名规范
+- feature分支，以`feature_`开头,如`feature_v1.1`
+- release分支，以`release_`开头，如`release_v1.1`
+- hotfix分支，以`hotfix_`开头，如`hotfix_20221201`
+- tag标记: 如果是release分支合并，则以`release_`开头。如果是hotfix分支合并，则以`hotfix`开头。
+- master分支每次提交都要打tag，release tag: 如`release_v1.1`,hotfix tag: 如`hofix_20221201`命名都统一采用小写.
